@@ -1,0 +1,357 @@
+ :root {
+    /* --drawer-background: #f0eff1; */
+    --drawer-background: white;
+    --parent-link-bg: black;
+    --dark-color: black; /* font color and icon color */
+    --light-color: white; /* font color and icon color when hovered */
+    --gray-color: #b1b0b5; /* background color when hovered */
+    }
+    
+    /* CSS in header */
+    .header {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    }
+    
+    .megaContainer > * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--dark-color);
+    }
+    .megaContainer--tablet > * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--dark-color);
+    }
+    
+    .megaContainer {
+    display: flex;
+    }
+    .megaHeader {
+    overflow: hidden;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    display: flex;
+    }
+    
+    .megaHeader > a {
+    float: left;
+    font-size: 16px;
+    color: var(--dark-color);
+    text-align: center;
+    padding: 0 10px;
+    text-decoration: none;
+    }
+    
+    .megaDrawer {
+    float: left;
+    overflow: hidden;
+    display: flex;
+    }
+    
+    
+    .megaDrawer .drawerbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font: inherit;
+    margin: 0;
+    display: flex;
+    background: transparent;
+    align-items: center;
+    }
+    
+    .megaHeader > a:hover, .megaDrawer:hover .drawerbtn {
+    color: orange;
+    /* background-color: var(--parent-link-bg); background color of the tabs when hovered */
+    background-color: white; /* background color of the tabs when hovered */
+    }
+    
+    .megaDrawerContent {
+    display: none;
+    max-width: 95%; /* width of the whole dropdown container */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0);
+    z-index: 4;
+    background-color: white; /* background color of the drawer */
+    }
+    /* ====== HELPERS ======*/
+    .absolutePosition {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translateX(-50%);
+    }
+    .alignCenter {
+    align-items: center;
+    justify-content: center;
+    }
+    
+    /* ====== HELPERS ======*/
+    
+    .megaDrawerContent .megaDrawerHeader {
+    padding: 5px 10px;
+    color: var(--light-color);
+    }
+    .megaDrawerHeader {
+    white-space: nowrap;
+    }
+    
+    .megaDrawerHeader h2 {
+    margin: 0;
+    font-size: 20px;
+    }
+    
+    @media only screen and (min-width: 1000px) {
+    .megaDrawer:hover .megaDrawerContent {
+    display: block;
+    
+    }
+    }
+    .megaLinkBox {
+    float: left;
+    line-height: 1;
+    }
+    .megaLinkContainer {
+    display: flex;
+    justify-content: start;
+    flex-wrap:wrap
+    }
+    .megaLink{
+    font-weight: 600;
+    }
+    .megaLink:hover {
+    text-decoration: underline;
+    }
+    
+    .megaLinkBox > a {
+    float: none;
+    color: var(--parent-link-bg);
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    font-size: clamp(14px, 1vw, 16px);
+    overflow-wrap: break-word;
+    }
+    
+    
+    .megaLinkBox a:not(:first-of-type):not(:first-child):hover {
+    /* background-color: var(--gray-color); */
+    background-color: #b1b0b5;
+    /* color: blue; */
+    }
+    .megaLink {
+    text-align: center;
+    }
+    
+    .megaDrawerWrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow: auto;
+    }
+    
+    .megaProduct {
+    display: flex;
+    gap: 15px;
+    margin: 10px;
+    }
+    
+    .megaProductImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+    
+    .megaProductInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+    }
+    .megaProductInfo > * {
+    font-size: clamp(1rem, 1vw, 1.6rem);
+    }
+    .megaImage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .megaImage img {
+    margin: 1%;
+    }
+    
+    @media screen and (max-width: 1000px) {
+    .megaContainer {
+    display: none;
+    }
+    }
+    
+    /*==== TABLET size ====*/
+    
+    .megaHeader--tablet {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5%;
+    }
+    
+    .megaA {
+    text-decoration: none;
+    color: var(--dark-color);
+    }
+    
+    .megaDrawer {
+    align-items: flex-start;
+    flex-direction: column;
+    }
+    .megaDrawer > input {
+    display: none;
+    }
+    .megaDrawer > input:checked + .megaDrawerContent--tablet{
+    display: block;
+    }
+    .megaDrawerContent--tablet {
+    display: none ;
+    width: 100%;
+    padding: 5%;
+    }
+    .megaDrawerHeader--tablet {
+    display: flex;
+    justify-content: center;
+    }
+    .megaDrawer:hover .drawerbtn svg{
+    stroke: var(--light-color);
+    }
+    
+    
+    .megaDrawerWrapper--tablet {
+    display: flex;
+    }
+    
+    .arrowDown > *{
+    width: 20px;
+    margin-left: 5px;
+    }
+    .childLinkContainer {
+    display: none;
+    flex-direction: column;
+    margin-left: 10%;
+    white-space: initial;
+    }
+    .megaLinkBox--tablet a {
+    text-decoration: none;
+    color: var(--dark-color);
+    }
+    .megaLinkBox--tablet > a {
+    font-weight: 600;
+    }
+    
+    .megaLinkBox--tablet a:hover {
+    text-decoration: underline;
+    }
+    
+    .megaLinkBox--tablet > input {
+    display: none;
+    }
+    .megaLinkBox--tablet > label > span {
+    font-weight: 600;
+    }
+    .megaLinkBox--tablet > label {
+    display: flex;
+    padding: 0 5%;
+    justify-content: space-between;
+    }
+    .megaLinkBox--tablet > label:hover {
+    color: var(--light-color);
+    background-color: var(--gray-color);
+    }
+    
+    .megaLinkContainer > .megaLinkBox--tablet > input:checked + .childLinkContainer {
+    display: flex;
+    }
+    
+    
+    /*======= ICONs ======*/
+    
+    .megaSvg {
+    fill: none;
+    stroke: black;
+    display: flex;
+    width: 25px;
+    }
+    .drawerbtn--tablet svg > path {
+    transition: all 700ms ease-out;
+    }
+    .svgClose {
+    display: none;
+    }
+    
+    .megaDrawer:hover .svgDd path {
+    d: path("M2,2 L5,5 L8,8 L5,5 L8,2 L2,8");
+    }
+    .drawerbtn:hover .svgClose path {
+    d: path("M5,6 L5,6 L2,3 L5,6 L5,6 L8,3");
+    }
+    
+    .megaDrawer:hover .drawerbtn--tablet > svg {
+    stroke: var(--light-color);
+    }
+    
+    .megaLinkBox--tablet:hover label {
+    color: var(--light-color);
+    background-color: var(--gray-color); /* background color of the tabs when hovered */
+    }
+    
+    .drawerbtn--tablet {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    }
+    
+    .arrowDown {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    }
+    
+    .arrowDown svg > path {
+    transition: all 1s ease-out;
+    }
+    .childSvgClose {
+    display: none;
+    }
+    
+    .megaLinkBox--tablet:hover .childSvgDd path {
+    d: path("M2,2 L5,5 L8,8 L5,5 L8,2 L2,8");
+    }
+    .megaLinkBox--tablet:hover .childSvgClose path {
+    d: path("M5,6 L5,6 L2,3 L5,6 L5,6 L8,3");
+    }
+    
+    .megaLinkBox--tablet:hover .arrowDown> svg {
+    stroke: var(--light-color);
+    }
+    
+    .megaLinkBox--tablet > input:checked ~ label > span.arrowDown > svg.childSvgDd {
+    display: none;
+    }
+    .megaLinkBox--tablet > input:checked ~ label > span.arrowDown > svg.childSvgClose {
+    display: block;
+    }
+    .megaLinkImage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    }
+    .megaLinkImage img{
+    width: 100px;
+    aspect-ratio: 1;
+    }
