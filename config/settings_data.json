@@ -1,5 +1,117 @@
 {
-  "current": "Default",
+  "current": {
+    "colors_accent_1": "#fa9621",
+    "colors_background_2": "#d6975b",
+    "type_header_font": "poppins_n4",
+    "type_body_font": "poppins_n4",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "settings": {
+              "text": "FREE shipping on orders over $60",
+              "color_scheme": "background-2",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "aa7a826d-0649-48ad-add1-38a8ebe97bb0": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": true,
+              "mega_url": "",
+              "title": "Shop",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "dawn-all-department",
+              "mega_product": ""
+            }
+          }
+        },
+        "block_order": [
+          "aa7a826d-0649-48ad-add1-38a8ebe97bb0"
+        ],
+        "settings": {
+          "color_scheme": "background-1",
+          "logo": "shopify:\/\/shop_images\/Logo_RGB_72ppi_linear_360x_8f37f94a-72db-41d9-9eba-9dbb85e93607.png",
+          "logo_width": 250,
+          "logo_position": "top-left",
+          "menu": "main-menu",
+          "show_line_separator": false,
+          "enable_sticky_header": true,
+          "mega_drawer_image": "<p> first-second-third.jpg, firstname.png, Firstname.gif<\/p>"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Info",
+              "menu": "footer"
+            }
+          },
+          "footer-2": {
+            "type": "text",
+            "settings": {
+              "heading": "Our mission",
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1",
+          "footer-2"
+        ],
+        "settings": {
+          "color_scheme": "background-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe to our emails",
+          "show_social": true,
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": true,
+          "margin_top": 48,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
     "Default": {
       "sections": {
@@ -15,7 +127,9 @@
           },
           "block_order": [
             "announcement-bar-0"
-          ]
+          ],
+          "settings": {
+          }
         },
         "header": {
           "type": "header",
@@ -27,7 +141,9 @@
           "type": "footer",
           "blocks": {
             "footer-0": {
-              "type": "link_list"
+              "type": "link_list",
+              "settings": {
+              }
             },
             "footer-1": {
               "type": "link_list",
@@ -55,10 +171,14 @@
           }
         },
         "main-password-header": {
-          "type": "main-password-header"
+          "type": "main-password-header",
+          "settings": {
+          }
         },
         "main-password-footer": {
-          "type": "main-password-footer"
+          "type": "main-password-footer",
+          "settings": {
+          }
         }
       }
     }
