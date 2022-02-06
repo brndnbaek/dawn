@@ -1,7 +1,8 @@
 {
   "current": {
     "colors_accent_1": "#fa9621",
-    "colors_background_2": "#d6975b",
+    "colors_background_2": "#FFFFFF",
+    "gradient_background_2": "linear-gradient(127deg, rgba(239, 197, 111, 1) 18%, rgba(135, 69, 15, 1) 81%)",
     "type_header_font": "poppins_n4",
     "type_body_font": "poppins_n4",
     "sections": {
@@ -85,7 +86,7 @@
           "footer-2"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "background-2",
           "newsletter_enable": true,
           "newsletter_heading": "Subscribe to our emails",
           "show_social": true,
