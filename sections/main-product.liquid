@@ -66,7 +66,7 @@
             {%- endif -%}
             {%- for media in product.media -%}
               {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-                <li id="Slide-{{ section.id }}-{{ media.id }}" class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+                <li id="Slide-{{ section.id }}-{{ media.id }}" class="{%if media.aspect_ratio > 0.3%}grid__item{%else%}grid__item2{%endif%} product__media-item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                   {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                   {% render 'product-thumbnail', media: media, position: media_position, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true, media_width: media_width, lazy_load: true %}
                 </li>
@@ -278,7 +278,7 @@
               <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">{{ block.settings.text }}</a>
           {%- when 'share' -%}
             <share-button id="Share-{{ section.id }}" class="share-button" {{ block.shopify_attributes }}>
-              <button class="share-button__button hidden">
+              <button class="hidden share-button__button">
                 {% render 'icon-share' %}
                 {{ block.settings.share_label | escape }}
               </button>
@@ -289,7 +289,7 @@
                 </summary>
                 <div id="Product-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                   <div class="field">
-                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
+                    <span id="ShareMessage-{{ section.id }}" class="hidden share-button__message" role="status">
                     </span>
                     <input type="text"
                           class="field__input"
@@ -301,7 +301,7 @@
                     >
                     <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
                   </div>
-                  <button class="share-button__close hidden no-js-hidden">
+                  <button class="hidden share-button__close no-js-hidden">
                     {% render 'icon-close' %}
                     <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
                   </button>
@@ -418,7 +418,7 @@
                             {{ 'products.product.sold_out' | t }}
                           {%- endif -%}
                         </span>
-                        <div class="loading-overlay__spinner hidden">
+                        <div class="hidden loading-overlay__spinner">
                           <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                             <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                           </svg>

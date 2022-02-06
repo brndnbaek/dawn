@@ -1000,6 +1000,12 @@ summary::-webkit-details-marker {
   flex-grow: 1;
   flex-shrink: 0;
 }
+.grid__item2 {
+  width: calc(50% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
+  max-width: calc(100% - var(--grid-mobile-horizontal-spacing) / 2);
+  flex-grow: 1;
+  flex-shrink: 0;
+}
 
 @media screen and (min-width: 750px) {
   .grid__item {
@@ -1165,7 +1171,7 @@ summary::-webkit-details-marker {
 }
 
 .media > img {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
