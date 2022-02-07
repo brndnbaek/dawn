@@ -1,0 +1,78 @@
+<div class="text-gray-500 w-full mx-auto my-10 grid grid-cols-6 subpixel-antialiased bg-lime-300  bg-opacity-60 -mb-14 p-6">
+    <div class="col-span-5 text-4xl md:text-5xl lg:text-7xl w-full md:w-4/5 p-4 leading-loose font-bold z-10 ">
+    <span class="text-gray-900">Lil'Thingamajigs</span>
+    <span class=" relative leading-8 text-gray-500"> - The best place to find the products you love.</span>
+    </div>
+    <div class="text-lg lg:text-2xl col-span-1">Need Shopping Help?</div>
+</div>
+<div class=" relative w-screen mx-auto snap-x  flex overscroll-contain overflow-x-scroll flex-nowrap gap-6 place-items-end px-6 scroll-m-6 z-0">
+    {% for block in section.blocks  %}
+    <a href="{{block.settings.collection.url}}">
+        <div class=" scroll-ml-6 snap-center flex flex-col justify-end content-end aspect-square flex-shrink-0 w-[250px] max-h-[300px] z-0 ">
+            <img src="{{block.settings.collection.image | img_url: '300x300' }}" 
+            alt="" class="object-contain max-h-[250px] z-0 rounded-lg hover:scale-105">
+            <span class="mx-auto text-gray-800 text-center my-10">{{block.settings.collection.title}}</span>
+        </div>
+    </a>
+    {%endfor%}
+</div>
+
+{% schema %}
+{
+"name": "Popular Category",
+"class": "section",
+"tag": "section",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "Lil'Thingamajigs - The best place to find the products you love.",
+"label": "type in banner heading"
+}
+],
+"blocks": [
+{
+"type": "category",
+"name": "category selection",
+"settings": [
+{
+"type": "collection",
+"id": "collection",
+"label": "selected collection"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "category image"
+},
+{
+"type": "text",
+"id": "title",
+"label": "category text label"
+},
+{
+"type": "url",
+"id": "link",
+"label": "category url link"
+}
+]
+}
+],
+"presets": [
+{
+"name": "popular category",
+"blocks": [
+{
+"type": "category"
+},
+{
+"type": "category"
+},
+{
+"type": "category"
+}
+]
+}
+]
+}
+{% endschema %}
