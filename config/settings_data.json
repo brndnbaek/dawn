@@ -39,10 +39,24 @@
               "mega_link": "dawn-all-department",
               "mega_product": ""
             }
+          },
+          "d0abc545-5646-4924-90f3-42d632b46fbb": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "shopify:\/\/pages\/figure-by-series",
+              "title": "Series",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
           }
         },
         "block_order": [
-          "aa7a826d-0649-48ad-add1-38a8ebe97bb0"
+          "aa7a826d-0649-48ad-add1-38a8ebe97bb0",
+          "d0abc545-5646-4924-90f3-42d632b46fbb"
         ],
         "settings": {
           "color_scheme": "background-1",
