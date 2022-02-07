@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "postcss My_CSS/application.css -o assets/brandon_style.css",
-    "develop": "postcss My_CSS/application.css -o assets/brandon_style.css --watch"
+    "develop": "postcss My_CSS/application.css -o assets/brandon_style.css --watch",
+    "setting_copy": "shopify theme pull --nodelete -x 'assets/*' -x 'layout/*' -x 'locales/*' -x 'sections/*' -x 'snippets/*' -x 'templates/*.liquid' -x 'config/settings_schema.json' "
   },
   "repository": {
     "type": "git",

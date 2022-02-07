@@ -2900,6 +2900,22 @@ details-disclosure > details {
 .static {
   position: static;
 }
+.fixed {
+  position: fixed;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+.-top-4 {
+  top: -1rem;
+}
+.-top-2 {
+  top: -0.5rem;
+}
+.-top-3 {
+  top: -0.75rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -2917,6 +2933,10 @@ details-disclosure > details {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .mb-10 {
   margin-bottom: 2.5rem;
@@ -2944,6 +2964,12 @@ details-disclosure > details {
 }
 .w-5\/6 {
   width: 83.333333%;
+}
+.w-full {
+  width: 100%;
+}
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3012,6 +3038,10 @@ details-disclosure > details {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);

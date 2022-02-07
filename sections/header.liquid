@@ -460,9 +460,9 @@
 
             <div class="megaDrawerWrapper">
               {% if block.settings.mega_link != blank %}
-              <div class="megaLinkContainer flex-wrap">
+              <div class="flex-wrap megaLinkContainer">
                 {% for link in block.settings.mega_link.links %}
-                <div class="megaLinkBox flex-wrap" style="padding: 10px">
+                <div class="flex-wrap megaLinkBox" style="padding: 10px">
                   <div class="megaLinkImage" data-mega-image="{{link.title | downcase | replace: ' ', '-' }}">
 
                   </div>
@@ -719,7 +719,8 @@ requestAnimationFrame(this.hide.bind(this));
   }
   } else if (scrollTop <= this.headerBounds.top) { requestAnimationFrame(this.reset.bind(this)); }
     this.currentScrollTop=scrollTop; } hide() {
-    this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky' );
+      //permanent sticky header fix
+    this.header.classList.add('shopify-section-header-hidden2', 'shopify-section-header-sticky' );
     this.closeMenuDisclosure(); this.closeSearchModal(); } reveal() {
     this.header.classList.add('shopify-section-header-sticky', 'animate' );
     this.header.classList.remove('shopify-section-header-hidden'); } reset() {
