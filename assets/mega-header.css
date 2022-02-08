@@ -33,7 +33,7 @@
     display: flex;
     }
     .megaHeader {
-    overflow: hidden;
+    /* overflow: hidden; */
     /* font-family: Arial, Helvetica, sans-serif; */
     display: flex;
     }
