@@ -1,17 +1,17 @@
-<div class="text-gray-500 w-full mx-auto grid grid-cols-6 subpixel-antialiased bg-lime-200  bg-opacity-60 p-6">
-    <div class="col-span-5 text-4xl md:text-5xl lg:text-7xl w-full md:w-4/5 p-4 leading-loose font-bold z-10 ">
+<div class="grid w-full grid-cols-6 p-6 mx-auto subpixel-antialiased text-gray-500 bg-lime-200 bg-opacity-60">
+    <div class="w-full col-span-5 p-4 text-4xl font-bold leading-loose md:text-5xl lg:text-7xl md:w-4/5 ">
     <span class="text-gray-900">Lil'Thingamajigs</span>
-    <span class=" relative leading-8 text-gray-500"> - The best place to find the products you love.</span>
+    <span class="relative leading-8 text-gray-500 "> - The best place to find the products you love.</span>
     </div>
-    <div class="text-lg lg:text-2xl col-span-1">Need Shopping Help?</div>
+    <div class="col-span-1 text-lg lg:text-2xl">Need Shopping Help?</div>
 </div>
-<div class=" relative w-screen mx-auto snap-x  flex overscroll-contain overflow-x-scroll flex-nowrap gap-6 place-items-end px-6 scroll-m-6 z-0 bg-lime-200 bg-opacity-60 ">
+<div class="flex snap-mandatory w-screen gap-6 px-6 overflow-x-scroll snap-x before:shrink-0 before:w-[2vw] after:shrink-0 after:w-[2vw] bg-lime-200 bg-opacity-60">
     {% for block in section.blocks  %}
     <a href="{{block.settings.collection.url}}">
-        <div class=" scroll-ml-6 snap-center flex flex-col z-0 w-[300px] h-[300px]">
+        <div class="flex flex-col snap-center shrink-0 w-[35vw] md:w-[15vw]">
             <img src="{{block.settings.collection.image | img_url: '400x400' }}" 
-            alt="" class="z-0 rounded-lg hover:scale-105 w-[300px] h-[300px]">
-            <span class="mx-auto text-gray-600 text-center my-10">{{block.settings.collection.title}}</span>
+            alt="" class="z-0 rounded-lg hover:scale-105 w-[40vw]">
+            <span class="mx-auto my-10 text-center text-gray-600">{{block.settings.collection.title}}</span>
         </div>
     </a>
     {%endfor%}
