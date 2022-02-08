@@ -1,0 +1,80 @@
+
+
+
+<div class="mt-20 mb-10 ml-10">
+  <span class="text-4xl text-slate-800 font-medium">The new arrival.</span>
+  <span class="text-4xl text-slate-600 font-medium">Take a look at what's new.</span>
+
+  </div>
+<div class="flex w-screen mx-auto gap-10 overflow-x-scroll snap-mandatory before:shrink-0 before:w-[2vw] after:shrink-0 after:w-[2vw] bg-opacity-50 pb-10">
+  {% for block in section.blocks %}
+    {%- assign product = section.blocks.settings.product -%}
+    <div class="w-[300px] h-[450px] bg-white snap-start rounded-xl drop-shadow-xl flex flex-col justify-end relative">
+      <div class="absolute top-2 left-2">
+        <div class="text-gray-800">{{block.settings.label}}</div>
+        <div>{{block.settings.description}}</div>
+        <div>{{block.settings.promo}}</div>
+      </div>
+      <div class="flex flex-col group shrink-0 w-[300px] h-[370px] bg-cover bg-bottom bg-no-repeat bg-scroll rounded-b-xl"
+      style="background-image:url({{block.settings.product.featured_image | img_url:'400x'}})" >
+        <div class=" w-full rounded-b-xl px-4 ">
+        </div>
+        <!-- <img src="{{block.settings.product.featured_image | img_url: '300x300'}}" alt="" class="w-full h-auto object-contain"> -->
+      </div>
+    </div>
+
+  {%endfor%}
+</div>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Latest Product",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "product",
+      "name": "latest product",
+      "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "choose a product"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "default": "#fff",
+        "label": "choose a product card backgroud color"
+      },
+      {
+        "type": "text",
+        "id": "label",
+        "default": "New",
+        "label": "Iphone 13 Pro, Valentine's Day Gifts, Limited Quantity"
+      },
+      {
+        "type": "text",
+        "id": "promo",
+        "default": "short promotion",
+        "label": "oh so pro, oh so adorable"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "type in promotional description"
+      }
+      ]
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Latest Products Slide"
+    }
+  ]
+}
+{% endschema %}
