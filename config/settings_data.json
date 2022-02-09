@@ -1,8 +1,8 @@
 {
   "current": {
     "colors_accent_1": "#fa9621",
-    "colors_background_2": "#FFFFFF",
-    "gradient_background_2": "linear-gradient(45deg, rgba(236, 209, 155, 1) 18%, rgba(212, 145, 90, 1) 87%)",
+    "colors_background_2": "#e4f9be",
+    "gradient_background_2": "linear-gradient(45deg, rgba(217, 249, 157, 1) 18%, rgba(217, 249, 157, 1) 87%)",
     "type_header_font": "poppins_n4",
     "type_body_font": "poppins_n4",
     "sections": {
@@ -65,7 +65,7 @@
           "logo_position": "top-left",
           "menu": "main-menu",
           "show_line_separator": false,
-          "enable_sticky_header": true,
+          "enable_sticky_header": false,
           "mega_drawer_image": "<p> first-second-third.jpg, firstname.png, Firstname.gif<\/p>"
         }
       },

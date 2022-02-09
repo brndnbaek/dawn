@@ -64,6 +64,59 @@
         "title": "Lil'Thingamajigs - The best place to find the products you love."
       }
     },
+    "1644367842c6bc52a7": {
+      "type": "latest-product",
+      "blocks": {
+        "e3d2e150-46b7-4860-95d5-02f045a017a0": {
+          "type": "product",
+          "settings": {
+            "product": "bandai-one-piece-ichibansho-figure-jinbe-one-piece-vol-100-anniversary",
+            "color_bg": "#fff",
+            "label": "New",
+            "promo": "short promotion",
+            "description": ""
+          }
+        },
+        "0aa9eea0-ca2a-40ae-8097-c538473ffe46": {
+          "type": "product",
+          "settings": {
+            "product": "dragon-ball-ichibansho-figure-dragon-ball-and-dende-vs-omnibus-z",
+            "color_bg": "#fff",
+            "label": "New",
+            "promo": "short promotion",
+            "description": ""
+          }
+        },
+        "538a1490-b50e-4a3f-8230-c6318e0ed130": {
+          "type": "product",
+          "settings": {
+            "product": "evangelion-ichibansho-figure-asuka-shikinami-langley-eva-13-starting",
+            "color_bg": "#fff",
+            "label": "New",
+            "promo": "short promotion",
+            "description": ""
+          }
+        },
+        "309814b3-3a72-4704-a07e-fed7e17ac6be": {
+          "type": "product",
+          "settings": {
+            "product": "that-time-i-got-reincarnated-as-a-slime-ichibansho-figure-guy-i-became-a-king",
+            "color_bg": "#fff",
+            "label": "New",
+            "promo": "short promotion",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "e3d2e150-46b7-4860-95d5-02f045a017a0",
+        "0aa9eea0-ca2a-40ae-8097-c538473ffe46",
+        "538a1490-b50e-4a3f-8230-c6318e0ed130",
+        "309814b3-3a72-4704-a07e-fed7e17ac6be"
+      ],
+      "settings": {
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "disabled": true,
@@ -259,6 +312,7 @@
   },
   "order": [
     "16442735123d6bfa3c",
+    "1644367842c6bc52a7",
     "image_banner",
     "rich_text",
     "featured_collection",
