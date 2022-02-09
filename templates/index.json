@@ -71,7 +71,7 @@
           "type": "product",
           "settings": {
             "product": "bandai-one-piece-ichibansho-figure-jinbe-one-piece-vol-100-anniversary",
-            "color_bg": "#fff",
+            "color_bg": "#ffffff",
             "label": "New",
             "promo": "short promotion",
             "description": ""
@@ -81,7 +81,7 @@
           "type": "product",
           "settings": {
             "product": "dragon-ball-ichibansho-figure-dragon-ball-and-dende-vs-omnibus-z",
-            "color_bg": "#fff",
+            "color_bg": "#ffffff",
             "label": "New",
             "promo": "short promotion",
             "description": ""
@@ -91,7 +91,7 @@
           "type": "product",
           "settings": {
             "product": "evangelion-ichibansho-figure-asuka-shikinami-langley-eva-13-starting",
-            "color_bg": "#fff",
+            "color_bg": "#ffffff",
             "label": "New",
             "promo": "short promotion",
             "description": ""
@@ -101,7 +101,7 @@
           "type": "product",
           "settings": {
             "product": "that-time-i-got-reincarnated-as-a-slime-ichibansho-figure-guy-i-became-a-king",
-            "color_bg": "#fff",
+            "color_bg": "#ffffff",
             "label": "New",
             "promo": "short promotion",
             "description": ""
@@ -167,6 +167,7 @@
     },
     "rich_text": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "heading": {
           "type": "heading",
@@ -195,6 +196,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "collection": "all",
@@ -212,6 +214,7 @@
     },
     "collage": {
       "type": "collage",
+      "disabled": true,
       "blocks": {
         "collection-0": {
           "type": "collection",
