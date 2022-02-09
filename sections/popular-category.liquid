@@ -1,17 +1,19 @@
-<div class="w-full mx-auto bg-lime-200 bg-opacity-60 flex flex-row flex-wrap h-40 md:h-60 items-center justify-between">
-    <div class="ml-20 text-4xl font-bold md:text-5xl lg:text-6xl w-3/5">
-    <span class="text-gray-900">Lil'Thingamajigs</span>
-    <span class="text-gray-500 "> - The best place to find the products you love.</span>
+<div class="flex flex-row flex-wrap items-center justify-between w-full h-40 mx-auto bg-lime-200 bg-opacity-60 md:h-60">
+    <div class="w-3/5 ml-20 text-4xl font-bold md:text-5xl lg:text-6xl">
+        <span class="text-gray-900">Lil'Thingamajigs</span>
+        <span class="text-gray-500 "> - The best place to find the products you love.</span>
     </div>
-    <div class="text-lg lg:text-2xl w-1/5 mr-10">Need Shopping Help?</div>
+    <div class="w-1/5 mr-10 text-lg lg:text-2xl">Need Shopping Help?</div>
 </div>
-<div class="flex snap-mandatory w-screen gap-6 px-6 overflow-x-scroll snap-x before:shrink-0 before:w-[2vw] after:shrink-0 after:w-[2vw] bg-lime-200 bg-opacity-60 items-start">
+<div
+    class="flex snap-mandatory w-screen gap-6 px-6 overflow-x-scroll snap-x before:shrink-0 before:w-[2vw] after:shrink-0 after:w-[2vw] bg-lime-200 bg-opacity-60 items-start">
     {% for block in section.blocks  %}
     <a href="{{block.settings.collection.url}}" class="no-underline">
         <div class="flex flex-col snap-center flex-shrink-0 w-[35vw] md:w-[18vw]">
-            <img src="{{block.settings.collection.image | img_url: '400x400' }}" 
-            alt="" class="z-0 object-contain w-full h-full rounded-xl hover:scale-105">
-            <span class="mx-auto my-10 text-center text-gray-600 text-lg md:text-xl lg:text-2xl">{{block.settings.collection.title}}</span>
+            <img src="{{block.settings.collection.image | img_url: '400x400' }}" alt=""
+                class="z-0 object-contain w-full h-full rounded-xl hover:scale-105">
+            <span
+                class="mx-auto my-10 text-lg text-center text-gray-600 md:text-xl lg:text-2xl">{{block.settings.collection.title}}</span>
         </div>
     </a>
     {%endfor%}
