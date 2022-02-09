@@ -14,7 +14,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "FREE shipping on orders over $60",
+              "text": "FREE shipping on orders over $60 (USA mainland)",
               "color_scheme": "background-2",
               "link": ""
             }
