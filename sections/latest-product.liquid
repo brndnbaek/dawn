@@ -1,29 +1,43 @@
 
 
 
-<div class="mt-20 mb-10 ml-10">
-  <span class="text-4xl text-slate-800 font-medium">The new arrival.</span>
-  <span class="text-4xl text-slate-600 font-medium">Take a look at what's new.</span>
+<!-- <div class="mt-20 mb-10 ml-10">
+  <span class="text-2xl font-medium lg:text-4xl text-slate-800">The new arrival.</span>
+  <span class="text-2xl font-medium lg:text-4xl text-slate-600">Take a look at what's new.</span>
 
+  </div> -->
+<div class="flex w-screen pt-6 bg-amber-100/50">
+  <div class="flex flex-col items-center justify-center flex-shrink-0 px-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+      </svg>
   </div>
-<div class="flex w-screen mx-auto gap-10 overflow-x-scroll snap-mandatory before:shrink-0 before:w-[2vw] after:shrink-0 after:w-[2vw] bg-opacity-50 pb-10">
-  {% for block in section.blocks %}
-    {%- assign product = section.blocks.settings.product -%}
-    <div class="w-[300px] h-[450px] bg-white snap-start rounded-xl drop-shadow-xl flex flex-col justify-end relative">
-      <div class="absolute top-2 left-2">
-        <div class="text-gray-800">{{block.settings.label}}</div>
-        <div>{{block.settings.description}}</div>
-        <div>{{block.settings.promo}}</div>
-      </div>
-      <div class="flex flex-col group shrink-0 w-[300px] h-[370px] bg-cover bg-bottom bg-no-repeat bg-scroll rounded-b-xl"
-      style="background-image:url({{block.settings.product.featured_image | img_url:'400x'}})" >
-        <div class=" w-full rounded-b-xl px-4 ">
-        </div>
-        <!-- <img src="{{block.settings.product.featured_image | img_url: '300x300'}}" alt="" class="w-full h-auto object-contain"> -->
-      </div>
-    </div>
 
-  {%endfor%}
+  <div class="flex w-screen gap-10 pb-10 mx-auto px-6 overflow-x-scroll snap-mandatory before:shrink-0 before:w-[15vw] after:shrink-0 after:w-[2vw]">
+    {% for block in section.blocks %}
+      {%- assign product = section.blocks.settings.product -%}
+      <div class="w-[300px] h-[450px] snap-center rounded-xl drop-shadow-xl shadow-amber-300/50 bg-white flex flex-col justify-end relative">
+        <div class="absolute top-2 left-2">
+          <div class="text-gray-800">{{block.settings.label}}</div>
+          <div>{{block.settings.description}}</div>
+          <div>{{block.settings.promo}}</div>
+        </div>
+        <div class="flex flex-col group shrink-0 w-[300px] h-[370px] bg-cover bg-bottom bg-no-repeat bg-scroll rounded-b-xl"
+        style="background-image:url({{block.settings.product.featured_image | img_url:'400x'}})" >
+          <div class="w-full px-4 rounded-b-xl">
+          </div>
+          <!-- <img src="{{block.settings.product.featured_image | img_url: '300x300'}}" alt="" class="object-contain w-full h-auto"> -->
+        </div>
+      </div>
+    {%endfor%}
+  </div>
+
+  <div class="flex flex-col items-center justify-center flex-shrink-0 px-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+      </svg>
+</div>
+
 </div>
 
 

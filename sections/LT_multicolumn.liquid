@@ -1,0 +1,117 @@
+
+
+<div class="w-screen bg-cyan-100/50">
+  <div class="">
+      <div class="">
+        <h2 class="">
+          Lil'Thingamajigs difference. More reasons to shop with us.
+        </h2>
+      </div>
+
+      <div class="">
+      <ul class="grid">
+        {%- for block in section.blocks -%}
+          <li class="">
+            <div class="">
+              {%- if block.settings.image != blank -%}
+                
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                  <div class="media media--transparent media--{{ section.settings.image_ratio }}"
+                    
+                    <img
+                      class=""
+                      src="{{ block.settings.image | img_url: '550x' }}"
+                      sizes="(min-width: 990px) {% if section.blocks.size <= 2 %}710px{% else %}550px{% endif %},
+                        (min-width: 750px) {% if section.blocks.size == 1 %}710px{% else %}550px{% endif %},
+                        calc(100vw - 30px)"
+                      alt="{{ block.settings.image.alt }}"
+                      height="{{ block.settings.image.height }}"
+                      width="{{ block.settings.image.width }}"
+                    >
+                  </div>
+                </div>
+              {%- endif -%}
+              <div class="multicolumn-card__info">
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "LT_multicolumn",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Lil'Thingamajigs difference",
+      "label": "grid section title"
+    },
+    {
+      "type": "select",
+      "id": "column_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.multicolumn.settings.column_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.multicolumn.settings.column_alignment.options__2.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.multicolumn.settings.column_alignment.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Column",
+          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LT_multicolumn grid",
+      "blocks": [
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
