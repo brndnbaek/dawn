@@ -1,21 +1,22 @@
 
-    {% for block in section.blocks %}
-        {{block.settings.product.title}}-test
-    <!-- <div class="relative col-span-{{block.settings.span}} duration-300 delay-75 bg-gray-500 rounded-lg animate-pulse">
-        <!-- <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="absolute object-cover w-full"> -->
-    </div> -->
-    {%endfor%}
 
-    <div class="relative min-h-[50vw] w-screen flex items-center justify-center bg-lt-white overflow-hidden" >
-    <!-- background grid -->
-    <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-12 gap-4 p-2 grid-background">
-
-    </div>
-    <!-- content -->
-    <div class="relative">
-        <p class="text-4xl font-extrabold text-amber-500"><em class="text-amber-900">Lil'</em>Thingamajigs</p>
-    </div>
-    
+    <div class="relative min-h-[60vw] w-screen flex items-center justify-center bg-lt-white overflow-hidden mb-4" >
+        <!-- background grid -->
+        <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-4 grid-rows-3 gap-4 p-2 transform md:gap-6 -skew-y-2 grid-background">
+            {% for block in section.blocks %}
+            <div class="relative col-span-1 row-span-1 animate-pulse">
+                <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="absolute object-cover object-top w-full max-h-full rounded-xl aspect-square drop-shadow-lg">
+            </div> 
+            
+            {%endfor%}
+            
+        </div>
+        <!-- content -->
+        <div class="relative flex flex-col items-center justify-center p-4 rounded bg-opacity-60 bg-amber-100 md:p-8 drop-shadow-lg backdrop-blur-sm">
+            <p class="text-4xl font-extrabold md:text-5xl lg:text-6xl text-amber-500"><em class="text-amber-900 ">Lil'</em>Thingamajigs</p>
+            <p class="text-2xl font-bold md:text-3xl lg:text-4xl text-stone-500">The best place to find the products you love.</p>
+        </div>
+    <!-- <div class="absolute inset-0 w-full h-full bg-lt-white/60"></div> -->
 
 </div>
 {% javascript %}
