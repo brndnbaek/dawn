@@ -1,7 +1,44 @@
-<div>
-    grid background
-</div>
 
+<div class="relative min-h-[50vw] w-screen flex items-center justify-center bg-lt-white overflow-hidden" >
+    <!-- background grid -->
+    <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-12 gap-4 p-2 transform -skew-y-6 grid-background">
+        {% for block in section.blocks %}
+        <div class="relative col-span-{{block.settings.span}} duration-300 delay-75 bg-gray-500 rounded-lg animate-pulse">
+            <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="absolute object-cover w-full">
+        </div>
+        {%endfor%}
+
+    </div>
+    <!-- content -->
+    <div class="relative">
+        <p class="text-4xl font-extrabold text-amber-500"><em class="text-amber-900">Lil'</em>Thingamajigs</p>
+    </div>
+    
+
+</div>
+{% javascript %}
+    // grab everything we need
+const gridItems = document.querySelectorAll(".grid-background > div");
+
+// loop over grid items and create a random duration + delay for each
+gridItems.forEach((item) => {
+  // calculate random number for delay
+  const delay = getRandomInt(0, 5);
+
+  // calculate random number for duration
+  const duration = getRandomInt(3, 6);
+
+  // set both
+  item.style.animationDelay = `${delay}s`;
+  item.style.animationDuration = `${duration}s`;
+});
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+{% endjavascript %}
 {% schema %}
 {
 "name": "Grid Background Banner",
@@ -21,18 +58,18 @@
 "name": "grid image",
 "settings": [
 {
-"type": "image_picker",
-"id": "grid_image",
-"label": "select grid background image"
+"type": "product",
+"id": "grid_product",
+"label": "select a product for grid background image"
 },
 {
 "type": "range",
-"id": "delay",
-"min": 10,
-"max": 100,
-"step": 10,
-"default":10,
-"label": "delay value"
+"id": "span",
+"min": 1,
+"max": 5,
+"step": 1,
+"default":1,
+"label": "span value"
 },
 {
 "type": "range",
