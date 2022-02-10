@@ -6,7 +6,7 @@
         "164451161694096acd-0": {
           "type": "gridbackground",
           "settings": {
-            "grid_product": "bts-official-line-friends-bt21-mirror-pouch-set",
+            "product": "kpop-cd-bts-butter",
             "span": 2,
             "duration": 10
           }
@@ -14,7 +14,15 @@
         "45f55ca4-d56a-430d-aa47-5f7bb65aa09e": {
           "type": "gridbackground",
           "settings": {
-            "grid_product": "k-pop-cd-chung-ha-the-1st-studio-album-querencia",
+            "product": "k-pop-cd-bts-map-of-the-soul-persona-1",
+            "span": 1,
+            "duration": 10
+          }
+        },
+        "a26b9a95-77ef-4f7e-a17d-7a12f0b3351f": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "k-pop-cd-iu-5th-album-lilac",
             "span": 1,
             "duration": 10
           }
@@ -22,7 +30,8 @@
       },
       "block_order": [
         "164451161694096acd-0",
-        "45f55ca4-d56a-430d-aa47-5f7bb65aa09e"
+        "45f55ca4-d56a-430d-aa47-5f7bb65aa09e",
+        "a26b9a95-77ef-4f7e-a17d-7a12f0b3351f"
       ],
       "settings": {
         "title": "Lil'Thingamajigs"
