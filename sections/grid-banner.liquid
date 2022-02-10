@@ -1,0 +1,60 @@
+<div>
+    grid background
+</div>
+
+{% schema %}
+{
+"name": "Grid Background Banner",
+"class": "section",
+"tag": "section",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "Lil'Thingamajigs",
+"label": "type in banner heading"
+}
+],
+"blocks": [
+{
+"type": "gridbackground",
+"name": "grid image",
+"settings": [
+{
+"type": "image_picker",
+"id": "grid_image",
+"label": "select grid background image"
+},
+{
+"type": "range",
+"id": "delay",
+"min": 10,
+"max": 100,
+"step": 10,
+"default":10,
+"label": "delay value"
+},
+{
+"type": "range",
+"id": "duration",
+"min": 10,
+"max": 100,
+"step": 10,
+"default":10,
+"label": "duration value"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Grid Background Banner",
+"blocks": [
+{
+"type": "gridbackground"
+}
+]
+}
+]
+}
+{% endschema %}
