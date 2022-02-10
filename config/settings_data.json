@@ -8,6 +8,8 @@
     "heading_scale": 100,
     "type_body_font": "poppins_n4",
     "body_scale": 110,
+    "card_color_scheme": "background-1",
+    "sold_out_badge_color_scheme": "background-1",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
