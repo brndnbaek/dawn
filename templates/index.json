@@ -6,8 +6,8 @@
         "164451161694096acd-0": {
           "type": "gridbackground",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/37725fc6-455a-11e9-b5dc-9921d5eb8a6d_image_hires_1819201.jpg",
-            "delay": 10,
+            "grid_product": "bts-official-line-friends-bt21-mirror-pouch-set",
+            "span": 2,
             "duration": 10
           }
         }
