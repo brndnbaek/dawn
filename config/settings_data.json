@@ -3,7 +3,7 @@
     "colors_accent_1": "#fa9621",
     "colors_background_1": "#f7f7f5",
     "colors_background_2": "#c17307",
-    "gradient_background_2": "linear-gradient(45deg, rgba(217, 249, 157, 1) 18%, rgba(217, 249, 157, 1) 87%)",
+    "gradient_background_2": "",
     "type_header_font": "poppins_n4",
     "heading_scale": 100,
     "type_body_font": "poppins_n4",
