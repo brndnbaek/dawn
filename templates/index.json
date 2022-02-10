@@ -11,6 +11,14 @@
             "duration": 10
           }
         },
+        "749c2861-fca6-4c22-865f-95d3ce116237": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "copy-of-bandai-ichibansho-figure-dragon-ball-krillin",
+            "span": 1,
+            "duration": 10
+          }
+        },
         "45f55ca4-d56a-430d-aa47-5f7bb65aa09e": {
           "type": "gridbackground",
           "settings": {
@@ -19,10 +27,42 @@
             "duration": 10
           }
         },
+        "31e05ead-0127-4edb-9bf7-8f88c3d77d1a": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "copy-of-san-x-rilakkuma-korilakkuma-plush-7-5",
+            "span": 2,
+            "duration": 10
+          }
+        },
         "a26b9a95-77ef-4f7e-a17d-7a12f0b3351f": {
           "type": "gridbackground",
           "settings": {
             "product": "k-pop-cd-iu-5th-album-lilac",
+            "span": 2,
+            "duration": 10
+          }
+        },
+        "b3b9539b-91eb-44b9-963f-f0e13f8c5426": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "mg-rx-78-2-gundam-ver-2-0",
+            "span": 2,
+            "duration": 10
+          }
+        },
+        "86c9bc83-6867-4f3e-88ad-4882778a9b23": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "re-zero-rem-gotic-ver-figure",
+            "span": 2,
+            "duration": 10
+          }
+        },
+        "0d111e17-9013-44f6-b3df-fe8c672d9850": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "copy-of-gund-rainbow-hello-kitty-9-5-plush",
             "span": 1,
             "duration": 10
           }
@@ -30,8 +70,13 @@
       },
       "block_order": [
         "164451161694096acd-0",
+        "749c2861-fca6-4c22-865f-95d3ce116237",
         "45f55ca4-d56a-430d-aa47-5f7bb65aa09e",
-        "a26b9a95-77ef-4f7e-a17d-7a12f0b3351f"
+        "31e05ead-0127-4edb-9bf7-8f88c3d77d1a",
+        "a26b9a95-77ef-4f7e-a17d-7a12f0b3351f",
+        "b3b9539b-91eb-44b9-963f-f0e13f8c5426",
+        "86c9bc83-6867-4f3e-88ad-4882778a9b23",
+        "0d111e17-9013-44f6-b3df-fe8c672d9850"
       ],
       "settings": {
         "title": "Lil'Thingamajigs"
