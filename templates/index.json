@@ -30,7 +30,7 @@
         "31e05ead-0127-4edb-9bf7-8f88c3d77d1a": {
           "type": "gridbackground",
           "settings": {
-            "product": "copy-of-san-x-rilakkuma-korilakkuma-plush-7-5",
+            "product": "bt21-acrylic-character-clip-ballpoint-pen",
             "span": 2,
             "duration": 10
           }
@@ -62,7 +62,7 @@
         "0d111e17-9013-44f6-b3df-fe8c672d9850": {
           "type": "gridbackground",
           "settings": {
-            "product": "copy-of-gund-rainbow-hello-kitty-9-5-plush",
+            "product": "mg-oo-gundam-seven-sword-g-model-kit-1-100",
             "span": 1,
             "duration": 10
           }
@@ -98,6 +98,30 @@
             "span": 1,
             "duration": 10
           }
+        },
+        "a4f1952d-cac9-404f-99bd-676a5b3f6305": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "pokemon-marill-curly-fabric-plush",
+            "span": 1,
+            "duration": 10
+          }
+        },
+        "a23a6a3e-8730-4138-86ab-0f3acf6acf84": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "bandai-ichibansho-figure-my-hero-academia-go-and-go-izuku-midoraya",
+            "span": 1,
+            "duration": 10
+          }
+        },
+        "23bc3ef6-1cbb-4c10-adbc-764de42e63cb": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "kpop-cd-ateez-treasure-ep-1-all-to-zero",
+            "span": 1,
+            "duration": 10
+          }
         }
       },
       "block_order": [
@@ -112,7 +136,10 @@
         "f8cf55c2-ccb6-49cf-b814-e1df8b8ec02e",
         "ccf8b7b9-983a-4893-9f6d-67cfb5843b87",
         "9cc95580-1bd6-45d7-9271-103379958a01",
-        "ac458005-4292-44d9-9716-f7499ed5fd8b"
+        "ac458005-4292-44d9-9716-f7499ed5fd8b",
+        "a4f1952d-cac9-404f-99bd-676a5b3f6305",
+        "a23a6a3e-8730-4138-86ab-0f3acf6acf84",
+        "23bc3ef6-1cbb-4c10-adbc-764de42e63cb"
       ],
       "settings": {
         "title": "Lil'Thingamajigs"
