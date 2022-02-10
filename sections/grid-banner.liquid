@@ -1,12 +1,14 @@
 
-<div class="relative min-h-[50vw] w-screen flex items-center justify-center bg-lt-white overflow-hidden" >
+    {% for block in section.blocks %}
+        {{block.settings.product.title}}-test
+    <!-- <div class="relative col-span-{{block.settings.span}} duration-300 delay-75 bg-gray-500 rounded-lg animate-pulse">
+        <!-- <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="absolute object-cover w-full"> -->
+    </div> -->
+    {%endfor%}
+
+    <div class="relative min-h-[50vw] w-screen flex items-center justify-center bg-lt-white overflow-hidden" >
     <!-- background grid -->
-    <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-12 gap-4 p-2 transform -skew-y-6 grid-background">
-        {% for block in section.blocks %}
-        <div class="relative col-span-{{block.settings.span}} duration-300 delay-75 bg-gray-500 rounded-lg animate-pulse">
-            <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="absolute object-cover w-full">
-        </div>
-        {%endfor%}
+    <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-12 gap-4 p-2 grid-background">
 
     </div>
     <!-- content -->
@@ -59,7 +61,7 @@ function getRandomInt(min, max) {
 "settings": [
 {
 "type": "product",
-"id": "grid_product",
+"id": "product",
 "label": "select a product for grid background image"
 },
 {
