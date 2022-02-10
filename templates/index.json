@@ -118,6 +118,49 @@
         "title": "Lil'Thingamajigs"
       }
     },
+    "164444411508538f0a": {
+      "type": "LT_multicolumn",
+      "blocks": {
+        "1644444115a2328b90-0": {
+          "type": "column",
+          "settings": {
+            "title": "Free Shipping",
+            "text": "<p>Lil'Thingamajigs online store offers free shipping on orders over $60<\/p>"
+          }
+        },
+        "f213ce52-cc1a-4bc1-b47e-862bf6313818": {
+          "type": "column",
+          "settings": {
+            "title": "Fast Processing",
+            "text": "<p>If you order by 1:00 PM Est (Mon. - Fri.), your order will ship the same day.<\/p>"
+          }
+        },
+        "e73cc9b8-0695-4355-91fd-40c5005c429a": {
+          "type": "column",
+          "settings": {
+            "title": "K-Pop Album",
+            "text": "<p>All of K-Pop albums are brand new and in a sealed package.<\/p>"
+          }
+        },
+        "efe29445-f6df-4af4-adc9-0456309acdcb": {
+          "type": "column",
+          "settings": {
+            "title": "U.S. Territory Shipping",
+            "text": "<p>We ship to Puerto Rico, Guam, and US Virgin Islands. Same shipping policy applies.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1644444115a2328b90-0",
+        "f213ce52-cc1a-4bc1-b47e-862bf6313818",
+        "e73cc9b8-0695-4355-91fd-40c5005c429a",
+        "efe29445-f6df-4af4-adc9-0456309acdcb"
+      ],
+      "settings": {
+        "title": "Lil'Thingamajigs difference",
+        "column_alignment": "left"
+      }
+    },
     "16442735123d6bfa3c": {
       "type": "popular-category",
       "blocks": {
@@ -180,49 +223,6 @@
       ],
       "settings": {
         "title": "Lil'Thingamajigs - The best place to find the products you love."
-      }
-    },
-    "164444411508538f0a": {
-      "type": "LT_multicolumn",
-      "blocks": {
-        "1644444115a2328b90-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Lil'Thingamajigs online store offers free shipping on orders over $60<\/p>"
-          }
-        },
-        "f213ce52-cc1a-4bc1-b47e-862bf6313818": {
-          "type": "column",
-          "settings": {
-            "title": "Fast Processing",
-            "text": "<p>If you order by 1:00 PM Est (Mon. - Fri.), your order will ship the same day.<\/p>"
-          }
-        },
-        "e73cc9b8-0695-4355-91fd-40c5005c429a": {
-          "type": "column",
-          "settings": {
-            "title": "K-Pop Album",
-            "text": "<p>All of K-Pop albums are brand new and in a sealed package.<\/p>"
-          }
-        },
-        "efe29445-f6df-4af4-adc9-0456309acdcb": {
-          "type": "column",
-          "settings": {
-            "title": "U.S. Territory Shipping",
-            "text": "<p>We ship to Puerto Rico, Guam, and US Virgin Islands. Same shipping policy applies.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "1644444115a2328b90-0",
-        "f213ce52-cc1a-4bc1-b47e-862bf6313818",
-        "e73cc9b8-0695-4355-91fd-40c5005c429a",
-        "efe29445-f6df-4af4-adc9-0456309acdcb"
-      ],
-      "settings": {
-        "title": "Lil'Thingamajigs difference",
-        "column_alignment": "left"
       }
     },
     "1644367842c6bc52a7": {
@@ -312,8 +312,8 @@
   },
   "order": [
     "1644511616ed2faaf7",
-    "16442735123d6bfa3c",
     "164444411508538f0a",
+    "16442735123d6bfa3c",
     "1644367842c6bc52a7",
     "featured_collection",
     "video"
