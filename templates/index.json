@@ -10,10 +10,19 @@
             "span": 2,
             "duration": 10
           }
+        },
+        "45f55ca4-d56a-430d-aa47-5f7bb65aa09e": {
+          "type": "gridbackground",
+          "settings": {
+            "grid_product": "k-pop-cd-chung-ha-the-1st-studio-album-querencia",
+            "span": 1,
+            "duration": 10
+          }
         }
       },
       "block_order": [
-        "164451161694096acd-0"
+        "164451161694096acd-0",
+        "45f55ca4-d56a-430d-aa47-5f7bb65aa09e"
       ],
       "settings": {
         "title": "Lil'Thingamajigs"
