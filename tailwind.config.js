@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors: {
         'lt-yellow': '#EFBC61',
+        'lt-white': '#f7f7f5',
       },
       spacing: {
         '1/2': '50%',
