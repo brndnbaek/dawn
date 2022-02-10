@@ -66,6 +66,38 @@
             "span": 1,
             "duration": 10
           }
+        },
+        "f8cf55c2-ccb6-49cf-b814-e1df8b8ec02e": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "kpop-cd-twice-the-2nd-special-album-summer-nights",
+            "span": 1,
+            "duration": 10
+          }
+        },
+        "ccf8b7b9-983a-4893-9f6d-67cfb5843b87": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "banpresto-demon-slayer-figure-vol-17-nezuko-kamado-b-ver",
+            "span": 1,
+            "duration": 10
+          }
+        },
+        "9cc95580-1bd6-45d7-9271-103379958a01": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "bandai-the-mandalorian-beskar-armor-silver-coating-ver",
+            "span": 1,
+            "duration": 10
+          }
+        },
+        "ac458005-4292-44d9-9716-f7499ed5fd8b": {
+          "type": "gridbackground",
+          "settings": {
+            "product": "etude-house-dear-darling-water-gel-lip-tint-4-5g",
+            "span": 1,
+            "duration": 10
+          }
         }
       },
       "block_order": [
@@ -76,7 +108,11 @@
         "a26b9a95-77ef-4f7e-a17d-7a12f0b3351f",
         "b3b9539b-91eb-44b9-963f-f0e13f8c5426",
         "86c9bc83-6867-4f3e-88ad-4882778a9b23",
-        "0d111e17-9013-44f6-b3df-fe8c672d9850"
+        "0d111e17-9013-44f6-b3df-fe8c672d9850",
+        "f8cf55c2-ccb6-49cf-b814-e1df8b8ec02e",
+        "ccf8b7b9-983a-4893-9f6d-67cfb5843b87",
+        "9cc95580-1bd6-45d7-9271-103379958a01",
+        "ac458005-4292-44d9-9716-f7499ed5fd8b"
       ],
       "settings": {
         "title": "Lil'Thingamajigs"
