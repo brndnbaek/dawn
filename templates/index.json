@@ -1,5 +1,23 @@
 {
   "sections": {
+    "1644511616ed2faaf7": {
+      "type": "grid-banner",
+      "blocks": {
+        "164451161694096acd-0": {
+          "type": "gridbackground",
+          "settings": {
+            "delay": 10,
+            "duration": 10
+          }
+        }
+      },
+      "block_order": [
+        "164451161694096acd-0"
+      ],
+      "settings": {
+        "title": "Lil'Thingamajigs"
+      }
+    },
     "16442735123d6bfa3c": {
       "type": "popular-category",
       "blocks": {
@@ -193,6 +211,7 @@
     }
   },
   "order": [
+    "1644511616ed2faaf7",
     "16442735123d6bfa3c",
     "164444411508538f0a",
     "1644367842c6bc52a7",
