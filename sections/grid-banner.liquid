@@ -1,16 +1,54 @@
 <!-- single page single viewport scroll main page build -->
-<div class="relative flex flex-col items-center justify-center w-screen  h-[75vh] md:h-[83vh]">
-    <div class="grid w-[80vw] min-w-[370px] max-w-[1000px] h-[90%] grid-cols-4 bg-cyan-300 rounded-xl grid-rows-5">
-        <div class="col-start-1 col-span 1">Collection</div>
-        <div class="col-span-2 col-start-1 row-span-3 row-start-2 bg-amber-300">left side bottom</div>
-        <div class="col-span-2 col-start-3 row-span-5 row-start-1 bg-purple-300">right half</div>
+{% stylesheet %}
+ .hiddenscroll::-webkit-scrollbar {
+    display:none;
+ }
+
+ *[id] {
+     scroll-margin-top: 200px;
+ }
+{% endstylesheet %}
+
+
+
+<div class="hiddenscroll snap-x h-[70vh] overflow-x-hidden scroll-smooth grid grid-flow-col"  >
+    {% for block in section.blocks %}
+    <div id="slide{{forloop.index}}" class="flex flex-col items-center justify-end w-screen  h-[65vh] snap-center anchorscroll">
+        <div class="grid min-w-[350px] max-w-[1000px] h-[65vh] grid-cols-4 bg-cyan-300 rounded-xl grid-rows-5">
+            <div class="flex items-center justify-center w-full col-span-2 col-start-1 bg-pink-200">
+                <a href="#slide{{forloop.index | plus:1}}" class="tw_controlsdot">
+                    <span class="visuallyhidden2">next</span>
+                </a>
+                Collection</div>
+            <div class="col-span-2 col-start-1 row-span-4 row-start-2 bg-amber-300">left side bottom</div>
+            <div class="col-span-2 col-start-3 row-span-4 row-start-1 bg-purple-300">
+            </div>
+            <div  class="relative flex flex-col justify-center col-span-2 col-start-2 row-span-3 row-start-2">
+                <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="w-full ">
+            </div>
+            <div class="col-span-2 col-start-3 row-span-1 row-start-5 bg-gray-200" id="controls">
+                {% if forloop.index != 1 %}
+                <a href="#slide{{forloop.index | minus:1}}" class="">
+                    <span class="visuallyhidden2">prev</span>
+                </a>
+                {%endif%}
+                {% unless forloop.last %}
+                <a href="#slide{{forloop.index | plus:1}}" class="">
+                    <span class="visuallyhidden2">next</span>
+                </a>
+                {%endunless%}
+            </div>
+        </div>
     </div>
-    
+    {% endfor %}
 
 </div>
 
+    
+
+
 <!-- grid background banner  -->
-    <div class="relative min-h-[40vw] max-w-[90vw] mx-auto flex items-center justify-center bg-lt-white overflow-hidden mb-4" >
+    <div class="test relative min-h-[40vw] max-w-[90vw] mx-auto flex items-center justify-center bg-lt-white overflow-hidden mb-4" >
         <!-- background grid -->
         <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-5 grid-rows-3 gap-4 p-2 transform -skew-y-3 md:gap-6 grid-background">
             {% for block in section.blocks %}
@@ -51,6 +89,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 {% endjavascript %}
 {% schema %}
 {
