@@ -4,39 +4,39 @@
     display:none;
  }
 
- *[id] {
-     scroll-margin-top: 200px;
- }
+ 
 {% endstylesheet %}
 
+<!-- multigrid big hero section with horizontal hidden scroll -->
 
-
-<div class="hiddenscroll snap-x h-[70vh] overflow-x-hidden scroll-smooth grid grid-flow-col"  >
+<div class="hiddenscroll snap-x h-[70vh] overflow-x-hidden scroll-smooth grid grid-flow-col items-center scroll-mt-11 my-10 hidden"  >
     {% for block in section.blocks %}
-    <div id="slide{{forloop.index}}" class="flex flex-col items-center justify-end w-screen  h-[65vh] snap-center anchorscroll">
-        <div class="grid min-w-[350px] max-w-[1000px] h-[65vh] grid-cols-4 bg-cyan-300 rounded-xl grid-rows-5">
-            <div class="flex items-center justify-center w-full col-span-2 col-start-1 bg-pink-200">
+    <div id="slide{{forloop.index}}" class="flex flex-col items-center w-screen h-[70vh] snap-center">
+        <div class="grid h-[70vh] max-h-[800px] md:max-h-[1000px] w-11/12 max-w-[900px] grid-cols-4 bg-cyan-300 grid-rows-5">
+            
+            <div class="flex items-center justify-center col-span-2 col-start-1 bg-red-100">
                 <a href="#slide{{forloop.index | plus:1}}" class="tw_controlsdot">
                     <span class="visuallyhidden2">next</span>
                 </a>
                 Collection</div>
-            <div class="col-span-2 col-start-1 row-span-4 row-start-2 bg-amber-300">left side bottom</div>
-            <div class="col-span-2 col-start-3 row-span-4 row-start-1 bg-purple-300">
+            <div class="col-span-2 col-start-1 row-span-4 row-start-2 bg-amber-100">left side bottom</div>
+            <div class="col-span-2 col-start-3 row-span-4 row-start-1 bg-purple-100">
             </div>
-            <div  class="relative flex flex-col justify-center col-span-2 col-start-2 row-span-3 row-start-2">
-                <img src="{{block.settings.product.featured_image | img_url: '250x'}}" alt="" class="w-full ">
+            <div  class="relative flex flex-col justify-center col-span-2 col-start-2 row-span-3 row-start-2 max-w-[400px]">
+                <img src="{{block.settings.product.featured_image | img_url: '500x'}}" alt="" class="absolute w-full rounded-xl ">
             </div>
-            <div class="col-span-2 col-start-3 row-span-1 row-start-5 bg-gray-200" id="controls">
-                {% if forloop.index != 1 %}
-                <a href="#slide{{forloop.index | minus:1}}" class="">
-                    <span class="visuallyhidden2">prev</span>
-                </a>
-                {%endif%}
-                {% unless forloop.last %}
-                <a href="#slide{{forloop.index | plus:1}}" class="">
-                    <span class="visuallyhidden2">next</span>
-                </a>
-                {%endunless%}
+            <div class="col-span-2 col-start-3 row-span-1 row-start-5 bg-gray-100 justify-items-center" id="controls">
+                    {% if forloop.index != 1 %}
+                    <p class="visuallyhidden2"> <a href="#slide{{forloop.index | minus:1}}" class="">
+                        prev
+                    </a></p>
+                    {%endif%}
+                    {% unless forloop.last %}
+                    <a href="#slide{{forloop.index | plus:1}}" class="">
+                        <p class="visuallyhidden2">next</p>
+                    </a>
+                    <div>center</div>
+                    {%endunless%}
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
 
 
 <!-- grid background banner  -->
-    <div class="test relative min-h-[40vw] max-w-[90vw] mx-auto flex items-center justify-center bg-lt-white overflow-hidden mb-4" >
+    <div class="relative min-h-[40vw] w-screen mx-auto flex items-center justify-center bg-lt-white overflow-hidden mb-4" >
         <!-- background grid -->
         <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-5 grid-rows-3 gap-4 p-2 transform -skew-y-3 md:gap-6 grid-background">
             {% for block in section.blocks %}

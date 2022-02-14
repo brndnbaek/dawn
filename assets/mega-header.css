@@ -19,7 +19,8 @@
     -ms-user-select: none;
     user-select: none;
     color: var(--dark-color);
-    z-index: 4;
+    /* z-index: 4; */
+    /* z index conflicts with predictive searchbar */
     }
     .megaContainer--tablet > * {
     -webkit-user-select: none;
@@ -78,7 +79,8 @@
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0px 10px 10px 0px rgb(0 0 0);
-    z-index: 4;
+    /* z-index: 4; */
+    /* z index conflicts with search result drawer */
     background-color: white; /* background color of the drawer */
     }
     /* ====== HELPERS ======*/
