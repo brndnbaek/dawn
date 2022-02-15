@@ -47,12 +47,12 @@
 
 
 <!-- grid background banner  -->
-    <div class="relative min-h-[35vh] w-screen mx-auto flex flex-col items-center justify-center bg-lt-white overflow-hidden mb-4">
+    <div class="relative min-h-[35vh] w-screen max-w-[1200px] mx-auto flex flex-col items-center justify-center bg-lt-white overflow-hidden mb-4">
         <!-- background grid -->
         <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-5 grid-rows-3 gap-4 p-2 transform -skew-y-3 md:gap-6 grid-backgroundc">
             {% for block in section.blocks %}
-            <div class="relative col-span-1 row-span-1">
-                <img src="{{block.settings.product.featured_image | img_url: '300x'}}" alt="" class="absolute object-cover object-top w-full max-h-full rounded-xl aspect-square drop-shadow-lg">
+            <div class="relative col-span-1 row-span-1 max-w-[300px]">
+                <img src="{{block.settings.product.featured_image | img_url: '300x'}}" alt="" class="absolute object-cover object-top w-full max-w-[300px] max-h-full rounded-xl aspect-square drop-shadow-lg">
             </div> 
             
             {%endfor%}
