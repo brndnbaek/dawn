@@ -11,3 +11,14 @@
   width: 2px;
   opacity: 0.3;
 }
+
+.tw_smallheading {
+  @apply text-xl font-medium md:text-2xl lg:text-3xl text-slate-500 ;
+}
+
+.tw_smallEM {
+  @apply text-2xl font-semibold underline md:text-3xl lg:text-4xl text-slate-700 decoration-8 decoration-amber-200;
+}
+.tw_containerTitle {
+  @apply text-xl font-semibold text-pink-600 md:text-2xl lg:text-2xl;
+}
