@@ -6,9 +6,17 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "16451299746f96ce62": {
+      "type": "featured-series",
+      "settings": {
+        "title": "Featured Series",
+        "series_list": "Demon Slayer,Dragon Ball,Evangelion,Star Wars,Gundam"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "16451299746f96ce62"
   ]
 }
