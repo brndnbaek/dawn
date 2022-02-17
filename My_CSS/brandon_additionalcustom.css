@@ -22,3 +22,11 @@
 .tw_containerTitle {
   @apply text-xl font-semibold text-pink-600 md:text-2xl lg:text-2xl;
 }
+
+.link_style a{
+  @apply text-gray-700 no-underline;
+}
+
+.link_style a:hover{
+  @apply text-red-500
+}

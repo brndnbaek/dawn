@@ -1602,8 +1602,7 @@ details[open] > .share-button__fallback {
   content: '';
   position: absolute;
   inset: 0;
-  /* border-radius: var(--inputs-radius-outset); */
-  border-radius: 50px;
+  border-radius: var(--inputs-radius-outset);
   box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset) var(--inputs-shadow-blur-radius) rgba(var(--color-base-text), var(--inputs-shadow-opacity));
   z-index: -1;
 }

@@ -1,12 +1,25 @@
 {%- style -%}
-  
+
   
 {%- endstyle -%}
 
-<div class="py-4 pl-8 md:py-8 md:pl-12 lg:pl-20 bg-lt-white tw_smallheading">
-    <em class="tw_smallEM">Most</em> searched categories. See what others are buying
+<div class="py-4 pl-8 page-width md:py-8 md:pl-12 lg:pl-20 bg-lt-white tw_smallheading">
+    <em class="tw_smallEM">Most</em> searched keywords. See what others are buying
+
 </div>
-<div class="flex w-screen pb-6 bg-lt-white">
+<div class="flex flex-wrap justify-center gap-4 mb-10 md:gap-6 page-width">
+    {% assign array_keyword = section.settings.popular_keywords | split: ',' %}
+    {% for keyword in array_keyword limit:25 %}
+    {% capture url %}/collections/all/{{ keyword | handle}}{%endcapture%}
+    {%assign keytag  = keyword | downcase %}
+        <div class="p-3 text-xl bg-gray-200 rounded-lg grow-0 link_style dropshadow-xl">
+            {{keyword | link_to: url}}
+        </div>
+    {% endfor %}
+</div>
+
+
+<!-- <div class="flex w-screen pb-6 page-width bg-lt-white">
     <div class="flex flex-col items-center justify-center flex-shrink-0 px-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
@@ -15,13 +28,11 @@
     <div class="flex items-center gap-6 p-6 overflow-x-scroll snap-mandatory snap-x tw_scroll">
         {% for block in section.blocks  %}
         <a href="{{block.settings.collection.url}}" class="no-underline">
-            <div class=" snap-center flex-shrink-0 w-[40vw] md:w-[18vw] group drop-shadow-md shadow-lime-400 hover:drop-shadow-xl">
-                <div class="relative">
+            <div class="relative w-40 h-40 snap-center shrink-0 sm:h-80 sm:w-80 group">
                     <img src="{{block.settings.collection.image | img_url: '400x400' }}" alt=""
-                    class="object-contain w-full h-full rounded-xl ">
+                    class="absolute object-contain w-full h-full p-4">
                     <div
-                    class="absolute w-full text-base text-center text-black duration-200 transform bg-white bottom-1/2 bg-opacity-40 backdrop-blur-md group-hover:hidden md:text-xl lg:text-2xl">{{block.settings.collection.title}}</div>
-                </div>
+                    class="absolute bottom-0 w-full text-base text-center duration-200 transform bg-black text-lt-white bg-opacity-40 backdrop-blur-md group-hover:hidden md:text-xl lg:text-2xl">{{block.settings.collection.title}}</div>
             </div>
         </a>
         {%endfor%}
@@ -31,7 +42,7 @@
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
           </svg>
     </div>
-</div>
+</div> -->
 
 {% schema %}
 {
@@ -44,6 +55,12 @@
 "id": "title",
 "default": "Lil'Thingamajigs - The best place to find the products you love.",
 "label": "type in banner heading"
+},
+{
+"type": "text",
+"id": "popular_keywords",
+"default": "BTS,Twice,BT21,Hello Kitty,Demon Slayer,TXT,Stray Kids,One Piece,Ateez,Enhypen,Gundam,Plush,Sailor Moon,Naruto,Itzy,Red Velvet,Nendoroid,Pokemon,NCT,Rilakkuma,Loona,Sticker,Keychain,jojo,Kuromi,Jujutsu Kaisen,Dragon Ball,Blackpink,Monsta X,Seventeen,Aespa,Haikyuu,P1harmony,Hatsune Miku",
+"label": "import popular keywords(separated by comma)"
 }
 ],
 "blocks": [
