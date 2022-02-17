@@ -10,7 +10,7 @@
 <div class="flex flex-wrap justify-center gap-4 mb-10 md:gap-6 page-width">
     {% assign array_keyword = section.settings.popular_keywords | split: ',' %}
     {% for keyword in array_keyword limit:25 %}
-    {% capture url %}/collections/all/{{ keyword | handle}}{%endcapture%}
+    {% capture url %}/collections/{{ keyword | handle}}{%endcapture%}
     {%assign keytag  = keyword | downcase %}
         <div class="p-3 text-xl bg-gray-200 rounded-lg grow-0 link_style dropshadow-xl">
             {{keyword | link_to: url}}
