@@ -12,11 +12,12 @@
     {% for keyword in array_keyword limit:25 %}
     {% capture url %}/collections/{{ keyword | handle}}{%endcapture%}
     {%assign keytag  = keyword | downcase %}
-        <div class="p-3 text-xl bg-gray-200 rounded-lg grow-0 link_style dropshadow-xl">
+        <button class="text-xl LT_button grow-0 link_style ">
             {{keyword | link_to: url}}
-        </div>
+        </button>
     {% endfor %}
 </div>
+
 
 
 <!-- <div class="flex w-screen pb-6 page-width bg-lt-white">
@@ -46,7 +47,7 @@
 
 {% schema %}
 {
-"name": "Popular Category",
+"name": "Popular Keywords",
 "class": "section",
 "tag": "section",
 "settings": [
@@ -93,7 +94,7 @@
 ],
 "presets": [
 {
-"name": "popular category",
+"name": "popular keyword",
 "blocks": [
 {
 "type": "category"

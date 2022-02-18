@@ -223,6 +223,7 @@
           {%- when 'description' -%}
             {%- if product.description != blank -%}
               <div class="product__description rte">
+
                 {{ product.description }}
               </div>
             {%- endif -%}
@@ -313,9 +314,13 @@
               </details>
             </share-button>
             <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+
+            
+
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
-              {%- if block.settings.picker_type == 'button' -%}
+              {%- if product.variants.size < 4 -%}
+              <!--  if block.settings.picker_type == 'button' -->
                 <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
                   {%- for option in product.options_with_values -%}
                       <fieldset class="js product-form__input">
