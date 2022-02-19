@@ -5,12 +5,11 @@
         <div class="text-3xl">Model Kit Category</div>
 
         <div class="flex flex-wrap gap-6 mt-10">
-            {% assign category_array = section.settings.category | newline_to_br | split: '<br />' %}
+            {% assign category_array = section.settings.category | split: '/' %}
             {% for category in category_array %}
-            {% assign title = category | split: ',' | first %}
-            {% assign tag = category | split: ',' | last %}
-            {% capture url%}{{section.settings.collection.url}}/{{tag|handle}}{%endcapture%}
-                <div class="text-lg LT_button bg-gray-200/30 shrink-0">{{title | link_to:url}}</div>
+            {% assign t = category | split: ',' %}
+            {% capture url%}{{section.settings.collection.url}}/{{t.last | handle}}{%endcapture%}
+                <div class="text-lg LT_button bg-gray-200/30 grow-0 shrink-0">{{t.first | link_to: url}}</div>
             {%endfor%}
         </div>
     </div>
