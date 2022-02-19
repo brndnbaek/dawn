@@ -86,7 +86,8 @@
       ],
       "settings": {
         "BG_image": "shopify:\/\/shop_images\/pexels-wencheng-jiang-8188562.jpg",
-        "collection": "model-kit"
+        "collection": "model-kit",
+        "category": "<p>abc,tag1<\/p><p>def,tag2<\/p>"
       }
     }
   },
