@@ -57,11 +57,25 @@
               "mega_link": "",
               "mega_product": ""
             }
+          },
+          "f1e0db71-2179-4571-97d5-81f14c757977": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "shopify:\/\/pages\/reviews-1",
+              "title": "Reviews",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
           }
         },
         "block_order": [
           "aa7a826d-0649-48ad-add1-38a8ebe97bb0",
-          "d0abc545-5646-4924-90f3-42d632b46fbb"
+          "d0abc545-5646-4924-90f3-42d632b46fbb",
+          "f1e0db71-2179-4571-97d5-81f14c757977"
         ],
         "settings": {
           "color_scheme": "background-1",

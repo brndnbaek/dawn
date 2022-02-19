@@ -7,12 +7,12 @@
     <em class="tw_smallEM">Most</em> searched keywords. See what others are buying
 
 </div>
-<div class="flex flex-wrap justify-center gap-4 mb-10 md:gap-6 page-width max-w-[1200px]">
+<div class="flex snap-x overflow-x-scroll scroll-smooth justify-start gap-4 pb-10 md:gap-6 page-width max-w-[1200px] tw_scroll page-width">
     {% assign array_keyword = section.settings.popular_keywords | split: ',' %}
     {% for keyword in array_keyword limit:25 %}
     {% capture url %}/collections/{{ keyword | handle}}{%endcapture%}
     {%assign keytag  = keyword | downcase %}
-        <div class="p-6 text-xl LT_button grow-0 link_style hover:bg-amber-100 ">
+        <div class="p-4 text-xl LT_button grow-0 shrink-0 link_style hover:bg-amber-100 snap-center">
             {{keyword | link_to: url}}
         </div>
     {% endfor %}
