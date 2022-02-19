@@ -3,13 +3,15 @@
 
     <div class="container p-6 mx-auto bg-lt-white/70 backdrop-blur-sm rounded-2xl">
         <div class="text-3xl">Model Kit Category</div>
+
         <div class="flex flex-wrap gap-6 mt-10">
-            <div class="text-lg LT_button bg-gray-200/30 shrink-0">Gundam Model Kit</div>
-            <div class="text-lg LT_button bg-gray-200/30 shrink-0">30 Minutes</div>
-            <div class="text-lg LT_button bg-gray-200/30 shrink-0">Star Wars</div>
-            <div class="text-lg LT_button bg-gray-200/30 shrink-0">One Piece</div>
-            <div class="text-lg LT_button bg-gray-200/30 shrink-0">Dragon Ball</div>
-            <div class="text-lg LT_button bg-gray-200/30 shrink-0">Vehicle</div>
+            {% assign category_array = section.settings.category | newline_to_br | split: '<br />' %}
+            {% for category in category_array %}
+            {% assign title = category | split: ',' | first %}
+            {% assign tag = category | split: ',' | last %}
+            {% capture url%}{{section.settings.collection.url}}/{{tag|handle}}{%endcapture%}
+                <div class="text-lg LT_button bg-gray-200/30 shrink-0">{{title | link_to:url}}</div>
+            {%endfor%}
         </div>
     </div>
 </div>
@@ -27,6 +29,11 @@
       "type": "collection",
       "id": "collection",
       "label": "select collection to show category"
+    },
+    {
+        "type":"richtext",
+        "id": "category",
+        "label":"type in Category Name/tag"
     }
     
   ],
