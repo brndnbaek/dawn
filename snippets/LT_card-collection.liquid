@@ -12,7 +12,7 @@
 {% endcomment %}
 
 {%- liquid
-  assign ratio = 1
+  assign ratio = 0.75
   if card_collection.featured_image and media_aspect_ratio == 'portrait'
     assign ratio = 0.8
   elsif card_collection.featured_image and media_aspect_ratio == 'adapt'
@@ -34,7 +34,7 @@
   >
     <div class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }}{% endif %}{% if card_collection.featured_image or settings.card_style == 'standard' %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
       {%- if card_collection.featured_image -%}
-        <div class="card__media">
+        <div class="card__media_cover">
           <div class="media media--transparent media--hover-effect">
             <img
               srcset="{%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | img_url: '165x' }} 165w,{%- endif -%}
@@ -82,7 +82,7 @@
     {% if settings.card_style == 'card' or card_collection.featured_image %} 
       <div class="flex items-center justify-center w-11/12 py-4 flex-nowrap"> 
         <div class="">
-          <div class="text-lg text-center sm:text-xl md:text-2xl">
+          <div class="text-lg text-center sm:text-lg md:text-xl grow">
             <a href="{{ card_collection.url }}" class="full-unstyled-link">
               {%- if card_collection.title != blank -%}
                 {{- card_collection.title | escape -}}

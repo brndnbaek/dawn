@@ -70,7 +70,8 @@
     .megaHeader > a:hover, .megaDrawer:hover .drawerbtn {
     color: orange;
     /* background-color: var(--parent-link-bg); background color of the tabs when hovered */
-    background-color: white; /* background color of the tabs when hovered */
+    /* background-color: white;  */
+    /* background color of the tabs when hovered */
     }
     
     .megaDrawerContent {

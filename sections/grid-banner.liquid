@@ -6,7 +6,7 @@
 {% endstylesheet %}
 <!-- multigrid big hero section with horizontal hidden scroll -->
 
-<div class="hiddenscroll snap-x h-[70vh] overflow-x-hidden scroll-smooth grid grid-flow-col items-center scroll-mt-11 my-10 hidden"  >
+<!-- <div class="hiddenscroll snap-x h-[70vh] overflow-x-hidden scroll-smooth grid grid-flow-col items-center scroll-mt-11 my-10 hidden"  >
     {% for block in section.blocks %}
     <div id="slide{{forloop.index}}" class="flex flex-col items-center w-screen h-[60vh] snap-center">
         <div class="grid h-[60vh] max-h-[800px] md:max-h-[1000px] w-11/12 max-w-[900px] grid-cols-4 bg-cyan-300 grid-rows-5">
@@ -39,13 +39,13 @@
     </div>
     {% endfor %}
 
-</div>
+</div> -->
 
     
 
 
 <!-- grid background banner  -->
-    <div class="relative min-h-[35vh] w-screen max-w-[1200px] mx-auto flex flex-col items-center justify-center bg-lt-white overflow-hidden mb-4">
+    <div class="relative min-h-[35vh] w-screen max-w-[1200px] mx-auto flex flex-col items-center justify-center bg-lt-white overflow-hidden my-4 md:my-8">
         <!-- background grid -->
         <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-5 grid-rows-3 gap-4 p-2 transform -skew-y-3 md:gap-6 grid-backgroundc">
             {% for block in section.blocks %}

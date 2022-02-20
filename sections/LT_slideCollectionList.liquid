@@ -22,7 +22,11 @@
   <div class="collection-list-wrapper page-width isolate{% if section.settings.swipe_on_mobile == true %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {% unless section.settings.title == blank %}
       <div class="title-wrapper-with-link{% if section.settings.swipe_on_mobile == true %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %} title-wrapper--no-top-margin">
-        <h2 class="collection-list-title">{{ section.settings.title | escape }}</h2>
+        {% assign LT_title = section.settings.title | split: " "  %}
+        <div class="tw_smallheading">
+          <em class="tw_smallEM">{{LT_title.first}}</em> {{section.settings.title | remove_first:LT_title.first}}
+        </div>
+        <!-- <h2 class="collection-list-title">{{ section.settings.title | escape }}</h2> -->
   
         {%- if section.settings.show_view_all and section.settings.swipe_on_mobile -%}
           <a href="{{ routes.collections_url }}" class="link underlined-link large-up-hide">{{ 'sections.collection_list.view_all' | t }}</a>
@@ -31,7 +35,7 @@
     {% endunless %}
   
     <slider-component class="slider-mobile-gutter">
-      <ul class="hiddenscroll collection-list contains-card flex relative overflow-x-scroll snap-mandatory scroll-pl-3 grid--peek collection-list--{{ section.blocks.size }}-items"
+      <ul class="hiddenscroll collection-list contains-card gap-4 flex relative scroll-smooth overflow-x-scroll snap-mandatory scroll-pl-3 grid--peek collection-list--{{ section.blocks.size }}-items"
         id="Slider-{{ section.id }}"
         role="list"
       >
@@ -46,8 +50,8 @@
           endif
         -%}
         {%- for block in section.blocks -%}
-          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item max-w-[33%] w-[32%] md:w-[25%] slider__slide" {{ block.shopify_attributes }}>
-            {% render 'LT_card-collection', card_collection: block.settings.collection , media_aspect_ratio: section.settings.image_ratio, columns: columns %}
+          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item max-w-[33%] w-[32%] md:w-[24%] lg:w-[22%] slider__slide" {{ block.shopify_attributes }}>
+            {% render 'LT_card-collection', card_collection: block.settings.collection , media_aspect_ratio: portrait, columns: columns %}
           </li>
           <!-- <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}" {{ block.shopify_attributes }}>
             {% render 'card-collection', card_collection: block.settings.collection , media_aspect_ratio: section.settings.image_ratio, columns: columns %}

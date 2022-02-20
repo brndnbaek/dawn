@@ -61,12 +61,22 @@
   position: absolute;
   top: 0;
 }
+.card__media_cover,
+.card .media {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+}
 
 .card .media {
   width: 100%;
 }
 
 .card__media {
+  margin: var(--card-image-padding);
+  width: calc(100% - 2 * var(--card-image-padding));
+}
+.card__media_cover {
   margin: var(--card-image-padding);
   width: calc(100% - 2 * var(--card-image-padding));
 }
@@ -126,6 +136,12 @@
   height: 100%;
   object-fit: contain;
   object-position: center center;
+  width: 100%;
+}
+.card__media_cover .media img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   width: 100%;
 }
 
