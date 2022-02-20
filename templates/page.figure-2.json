@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -9,14 +10,51 @@
     },
     "16451299746f96ce62": {
       "type": "featured-series",
+      "disabled": true,
       "settings": {
         "title": "Featured Series",
         "series_list": "Avatar,the quintessential quintuplets,Crash Bandicoot,Cells at Work!,Atelier Ryza,101 dalmatians,30 minutes missions,7th dragon 2020-II,Advance of Z,After Colony,After War,Aggretsuko,Akira,Animal Crossing,Arms Note,Attack on Titan,Avengers,Azur Lane,Baby Shark,Bakugan,Bang Dream,Batman,Bayonetta,Berserk,black butler,black clover,bleach,bloodborne,boruto,brown and friends,bt21,build divers,build fighters,bungo stray dogs,castlevania,cinnamoroll,city hunter,classic super robots,corocoro coronya,cosmic era,cowboy bebop,crayon shinchan,cyclion,darling in the franxx,date a live,death note,demon slayer,digimon,Doraemon,dororo,dr slump,dr stone,dragon ball,dragon quest,ebichu,endless waltz,evangelion,fairy tail,fang of the sun dougram,fate\\\/extella link,fate\\\/grand order,fate\\\/stay night,final fantasy,fire emblem,flcl,fruits basket,full metal alchemist,future century,gaiking legend of daiku-maryu,galapagos friends,gantz,gegege no kitaro,genshin impact,gintama,gleipnir,gloomy bear,go-saurer,goblin slayer,god eater,godzilla,gudetama,guilty gear,gun gale online,gundam 00,gundam age,gundam seed,gundam unicorn,gundam wing,gurren lagann,haikyu,haro,harry potter,heavily armed high school girls,hello kitty,hexa gear,how to raise a boring girlfriend?,hunter x hunter,idolmaster,initial d,inuyasha,iron man,iron-blooded orphans,jinbe san,jojo's bizarre adventure,jujutsu kaisen,kakao friends,kamen rider,kantai collection,keroro,keroro gunso the robot spirits,kiki's delivery service,kingdom hearts,kirby,kizuna,konosuba,kumamon,laid-back camp,LBX,little twin star,lol surprise,love live sunshine,madoka magica,marumofubiyori,mazinger,mickey mouse,miffy,molang,monster hunter,moomin,my hero academia,my melody,naruto,nemuneko,NieR Automata,no game no life,okaa-san online,omochi zoo animals,one piece,one punch man,patrol labor ingram,peanuts(snoopy),peko-chan,persona 5,petit'gguy,phantasy star online,pokemon,ponyo,pororo,princess monomoke,promare,pusheen,re:zero,rilakkuma,rwby,saekano,saga of tanya the evil,sailor moon,saint seiya,sakura wars,sangoku soketsuden,sekiro,seven deadly sins,shaman king,sonic the hedgehog,speed racer,spider-man,spirited away,sponge bob,star wars,suicide squad,sumikko gurashi,super robot wars,sword art online,tales of vesperia,that time i got reincarnated as a slime,the bears school,the kotobuki squadron in the wilderness,the origin,the rising of the shield hero,the simpsons,thunderbolt,tokyo ghoul,totoro,toy story 4,transformers,tsum tsum,ultraman,universal century,vocaloid,we bare bears,winnie the pooh,yamato,yotsuba,your lie in april,yu yu hakusho,yu-gi-oh,yuki yuna is a hero,zombie land saga"
+      }
+    },
+    "16453214179bbe19c4": {
+      "type": "page-nav_figure",
+      "blocks": {
+        "1645321417e58e1521-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "1645321417e58e1521-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "1645321417e58e1521-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1645321417e58e1521-0",
+        "1645321417e58e1521-1",
+        "1645321417e58e1521-2"
+      ],
+      "settings": {
+        "collection": "",
+        "category": ""
       }
     }
   },
   "order": [
     "main",
-    "16451299746f96ce62"
+    "16451299746f96ce62",
+    "16453214179bbe19c4"
   ]
 }
