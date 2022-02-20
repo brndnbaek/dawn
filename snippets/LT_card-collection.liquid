@@ -59,16 +59,16 @@
           </div>
         </div>
       {%- endif -%}
-      <div class="card__content">        
-        <div class="card__information">
-          <h3 class="card__heading">
-            <a href="{{ card_collection.url }}" class="full-unstyled-link">
+      <div class="flex">        
+        <div class="">
+          <h3 class="text-base">
+            <a href="{{ card_collection.url }}" class="full-unstyled-link">abcd
               {%- if card_collection.title != blank -%}
                 {{- card_collection.title | escape -}}
               {%- else -%}
                 {{ 'onboarding.collection_title' | t }}
               {%- endif -%}
-              {%- if card_collection.description == blank -%}<span class="icon-wrap">{% render 'icon-arrow' %}</span>{% endif %}
+              {%- if card_collection.description == blank -%}<span class="icon-wrap">{% render 'icon-arrow' %}123</span>{% endif %}
             </a>
           </h3>
           {%- if card_collection.description != blank -%}
