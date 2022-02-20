@@ -2,9 +2,54 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
+      }
+    },
+    "1645350463eb1e6da1": {
+      "type": "collection-list",
+      "blocks": {
+        "16453504634cfde7c3-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bandai-ichibansho-figures"
+          }
+        },
+        "16453504634cfde7c3-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "qposket"
+          }
+        },
+        "16453504634cfde7c3-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "funko-pop"
+          }
+        },
+        "42857c52-bf99-4a11-933f-02446d40df8b": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "popup-parade"
+          }
+        }
+      },
+      "block_order": [
+        "16453504634cfde7c3-0",
+        "16453504634cfde7c3-1",
+        "16453504634cfde7c3-2",
+        "42857c52-bf99-4a11-933f-02446d40df8b"
+      ],
+      "settings": {
+        "title": "Popular Figure Lines",
+        "image_ratio": "square",
+        "color_scheme": "background-1",
+        "swipe_on_mobile": true,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "16451299746f96ce62": {
@@ -17,6 +62,7 @@
   },
   "order": [
     "main",
+    "1645350463eb1e6da1",
     "16451299746f96ce62"
   ]
 }
