@@ -1,3 +1,6 @@
+.hiddenscroll::-webkit-scrollbar {
+  display:none;
+}
 .tw_scroll::-webkit-scrollbar {
     background-color: tw-lt-white;
     border-radius: 100px;
