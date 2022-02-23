@@ -23,7 +23,7 @@
   @apply text-2xl font-semibold underline md:text-3xl lg:text-4xl text-slate-700 decoration-8 decoration-amber-200;
 }
 .tw_containerTitle {
-  @apply text-xl font-semibold text-slate-600 md:text-2xl lg:text-2xl;
+  @apply text-lg font-semibold sm:text-xl text-slate-600 md:text-2xl lg:text-2xl;
 }
 
 .link_style a{

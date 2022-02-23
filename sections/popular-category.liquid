@@ -7,7 +7,7 @@
     <em class="tw_smallEM">Most</em> searched keywords. See what others are buying
 
 </div>
-<div class="flex snap-x overflow-x-scroll scroll-smooth justify-start gap-4 pb-10 md:gap-6 page-width max-w-[1200px] tw_scroll page-width">
+<div class="flex snap-x overflow-x-scroll scroll-smooth justify-start gap-4 pb-10 md:gap-6 page-width max-w-[1200px] tw_scroll page-width hiddenscroll">
     {% assign array_keyword = section.settings.popular_keywords | split: ',' %}
     {% for keyword in array_keyword limit:25 %}
     {% capture url %}/collections/{{ keyword | handle}}{%endcapture%}

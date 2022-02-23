@@ -5,7 +5,7 @@
     <em class="tw_smallEM">More</em> reasons to shop with us.
   </div>
 
-  <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 md:gap-10 lg:gap-12 lg:grid-rows-2 max-w-[1200px] mx-auto">
+  <div class="grid grid-cols-3 gap-8 md:grid-cols-4 md:gap-10 lg:gap-16 grid-rows-3 md:grid-rows-2 max-w-[1200px] mx-auto">
     {%- for block in section.blocks -%}
       <div class="flex flex-col items-center justify-start w-full h-full col-span-1 p-4 bg-slate-100 max-h-80 group LT_button">
           {%- if block.settings.image != blank -%}
@@ -27,7 +27,7 @@
           {%- endif -%}
 
         <div class="py-4 text-center tw_containerTitle ">{{ block.settings.title | escape }}</div>
-        <div class="px-6 mx-auto text-lg text-center md:text-xl lg:text-xl grow">{{ block.settings.text }}</div>
+        <div class="px-6 mx-auto text-base text-center md:text-xl lg:text-xl grow">{{ block.settings.text }}</div>
       </div>
     {%- endfor -%}
   </div>
