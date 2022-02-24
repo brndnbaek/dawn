@@ -426,11 +426,11 @@
 
     {%- if section.settings.menu != blank -%}
     <!-- ================== -->
-     {% assign mega_img_file = section.settings.mega_drawer_image | strip_html | downcase | parse_json | append: '}' | prepend: '{' %}
+    {% assign mega_img_file = section.settings.mega_drawer_image | strip_html | downcase | parse_json | append: '}' | prepend: '{' %}
     {% assign sample_img = sample | file_url %}
 
     <nav class="megaContainer"
-      style="{% if section.settings.logo_position == 'top-center' %} grid-area: 2/-3; {% endif %} ">
+      style="{% if section.settings.logo_position == 'top-center' %} grid-area: navigation; {% endif %} grid-area: navigation; ">
       <div class="megaHeader alignCenter">
         {% for block in section.blocks %}
         {% if block.settings.title == 'Home' %}
@@ -558,7 +558,7 @@
           }
         })
       }
-    </script>  
+    </script>
     <!-- ================== -->
     {%- endif -%}
 

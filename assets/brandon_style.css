@@ -2781,11 +2781,11 @@ details-disclosure > details {
 .h-8 {
   height: 2rem;
 }
-.h-\[450px\] {
-  height: 450px;
+.h-\[400px\] {
+  height: 400px;
 }
-.h-\[370px\] {
-  height: 370px;
+.h-\[350px\] {
+  height: 350px;
 }
 .h-auto {
   height: auto;
@@ -2795,12 +2795,6 @@ details-disclosure > details {
 }
 .h-40 {
   height: 10rem;
-}
-.h-\[400px\] {
-  height: 400px;
-}
-.h-\[350px\] {
-  height: 350px;
 }
 .max-h-80 {
   max-height: 20rem;
@@ -2835,14 +2829,11 @@ details-disclosure > details {
 .w-8 {
   width: 2rem;
 }
-.w-\[300px\] {
-  width: 300px;
+.w-\[250px\] {
+  width: 250px;
 }
 .w-40 {
   width: 10rem;
-}
-.w-\[250px\] {
-  width: 250px;
 }
 .max-w-\[1200px\] {
   max-width: 1200px;
@@ -3002,17 +2993,6 @@ details-disclosure > details {
   border-bottom-right-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
 }
-.border-2 {
-  border-width: 2px;
-}
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-.border-red-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(153 27 27 / var(--tw-border-opacity));
-}
 .bg-lt-white {
   --tw-bg-opacity: 1;
   background-color: rgb(247 247 245 / var(--tw-bg-opacity));
@@ -3061,10 +3041,6 @@ details-disclosure > details {
 }
 .bg-gray-200\/30 {
   background-color: rgb(229 231 235 / 0.3);
-}
-.bg-red-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
 }
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
@@ -3123,9 +3099,6 @@ details-disclosure > details {
 .p-6 {
   padding: 1.5rem;
 }
-.p-20 {
-  padding: 5rem;
-}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -3168,9 +3141,9 @@ details-disclosure > details {
 .text-center {
   text-align: center;
 }
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .text-xl {
   font-size: 1.25rem;
@@ -3180,9 +3153,9 @@ details-disclosure > details {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .font-semibold {
   font-weight: 600;
@@ -3392,9 +3365,6 @@ details-disclosure > details {
   }
   .lg\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-  .lg\:gap-12 {
-    gap: 3rem;
   }
   .lg\:gap-16 {
     gap: 4rem;
