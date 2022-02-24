@@ -44,13 +44,13 @@
         role="list"
       > -->
         {%- liquid
-          assign columns = section.blocks.size
+          assign columns = 4
           if columns > 3
             assign columns = 3
           endif
         -%}
         {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item max-w-[33%] w-[32%] md:w-[24%] lg:w-[22%] slider__slide" {{ block.shopify_attributes }}>
+          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item max-w-[33%] w-[32%] md:w-[24%] lg:w-[22%] slider__slide p-4 bg-white rounded-xl" {{ block.shopify_attributes }}>
             {% render 'card-product',
               card_product: product,
               media_aspect_ratio: section.settings.image_ratio,
