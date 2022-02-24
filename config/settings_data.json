@@ -122,6 +122,32 @@
               "mega_link": "",
               "mega_product": ""
             }
+          },
+          "e657ee2f-4f15-4b06-8989-17b790d3b793": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "",
+              "title": "Home Décor",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
+          },
+          "f61f6d06-d1a5-4dfb-aefd-fd5c9473913e": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "",
+              "title": "Specials & Offers",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
           }
         },
         "block_order": [
@@ -131,7 +157,9 @@
           "f1e0db71-2179-4571-97d5-81f14c757977",
           "1ee57e0b-cfb9-4eb2-bdbe-d7b2246e2a31",
           "2a1468cd-c88e-41cd-bdfc-16b17483c812",
-          "35cb7d5a-0fa1-4506-ae48-b753368c79a8"
+          "35cb7d5a-0fa1-4506-ae48-b753368c79a8",
+          "e657ee2f-4f15-4b06-8989-17b790d3b793",
+          "f61f6d06-d1a5-4dfb-aefd-fd5c9473913e"
         ],
         "settings": {
           "color_scheme": "background-1",
