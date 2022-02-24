@@ -562,7 +562,7 @@
     <!-- ================== -->
     {%- endif -%}
 
-    <div class="header__icons">
+    <div class="items-center header__icons">
       <!-- search icon upper right corner deleted -->
       <!-- <details-modal class="header__search">
         <details>
@@ -661,6 +661,11 @@
         </div>
         {%- endif -%}
       </a>
+      <!-- growave wishlist icon added -->
+      {% capture the_snippet_fave_icon_menu %}{% include 'ssw-widget-faveicon-menu' with product.id %}{% endcapture %}
+      {% unless the_snippet_fave_icon_menu contains 'Liquid error' %}
+        <div class="p-4">{{ the_snippet_fave_icon_menu }}</div>
+      {% endunless %}
     </div>
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>

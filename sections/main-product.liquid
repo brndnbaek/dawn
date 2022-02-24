@@ -198,7 +198,11 @@
             </p>
           {%- when 'title' -%}
             <h1 class="product__title" {{ block.shopify_attributes }}>
+              {%if product.type == 'Kpop CD' %}
+              {{ product.title | remove:'K-Pop CD' |escape }}
+              {%else%}
               {{ product.title | escape }}
+              {%endif%}
             </h1>
           {%- when 'price' -%}
             <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -209,9 +213,11 @@
                 {%- if shop.taxes_included -%}
                   {{ 'products.product.include_taxes' | t }}
                 {%- endif -%}
-                {%- if shop.shipping_policy.body != blank -%}
+
+                <!-- shipping calculated later at checkout text removed -->
+                <!-- {%- if shop.shipping_policy.body != blank -%}
                   {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                {%- endif -%}
+                {%- endif -%} -->
               </div>
             {%- endif -%}
             <div {{ block.shopify_attributes }}>

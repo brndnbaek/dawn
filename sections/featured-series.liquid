@@ -20,7 +20,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 <!-- <div class="text-center">
   <h3>All Characters</h3>
 </div> -->
-<section class="overflow-y-scroll h-[30vh] w-5/6 mx-auto">
+<section class="w-5/6 mx-auto">
   <div class="flex flex-wrap justify-center w-4/5 mx-auto mb-10 font-semibold">
   
     {% assign print_letter ="" %}
@@ -42,7 +42,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
   </div>
   
   <!-- <div class="grid w-5/6 grid-cols-2 gap-2 mx-auto md:grid-cols-4 lg:grid-cols-5"> -->
-    <div class="flex flex-wrap justify-start gap-4 mx-12 w-5/6 max-w-[1000px] gap-y-6 mx-auto">
+    <div class="flex flex-wrap justify-start gap-4 mx-12 w-5/6 max-w-[1000px] gap-y-6 mx-auto  overflow-y-scroll h-[50vh]">
     {% assign current_letter = "" %}
     {% assign array_tag = section.settings.series_list | split: ',' | uniq |sort_natural %}
     {% for t in array_tag %}
@@ -52,7 +52,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     {% capture url %}/collections/figure/{{ t | handle}}{%endcapture%}
   
     {% unless first_letter == current_letter %}
-    <div id="{{first_letter}}" class="w-full tw_smallEM">
+    <div id="{{first_letter}}" class="w-full text-center tw_smallEM scroll-mt-10">
       {{ first_letter }}</div>
     {% endunless %}
     <!-- <div class="text-gray-900 capitalize">

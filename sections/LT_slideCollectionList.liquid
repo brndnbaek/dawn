@@ -50,7 +50,7 @@
           endif
         -%}
         {%- for block in section.blocks -%}
-          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item max-w-[33%] w-[32%] md:w-[24%] lg:w-[22%] slider__slide" {{ block.shopify_attributes }}>
+          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item w-[25vw] md:w-[15vw] max-w-[25vw] max-h-[20vh] slider__slide" {{ block.shopify_attributes }}>
             {% render 'LT_card-collection', card_collection: block.settings.collection , media_aspect_ratio: portrait, columns: columns %}
           </li>
           <!-- <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="collection-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}" {{ block.shopify_attributes }}>
