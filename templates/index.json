@@ -196,6 +196,13 @@
             "title": "Customer Support",
             "text": "<p>Our live chat agent is here to assist you.<\/p>"
           }
+        },
+        "7f90382f-2889-4417-8815-6279929fbfd5": {
+          "type": "column",
+          "settings": {
+            "title": "test",
+            "text": "<p>loremipsum<\/p>"
+          }
         }
       },
       "block_order": [
@@ -205,7 +212,8 @@
         "efe29445-f6df-4af4-adc9-0456309acdcb",
         "b28c774b-3959-477f-af3f-3facbba8a848",
         "c59c36eb-c49b-428b-b4a2-bb156763761e",
-        "1b823197-d320-4a58-8f91-8bf7e8395637"
+        "1b823197-d320-4a58-8f91-8bf7e8395637",
+        "7f90382f-2889-4417-8815-6279929fbfd5"
       ],
       "settings": {
         "title": "Lil'Thingamajigs difference",
@@ -350,7 +358,6 @@
     },
     "video": {
       "type": "video",
-      "disabled": true,
       "settings": {
         "heading": "",
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",

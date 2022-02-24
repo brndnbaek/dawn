@@ -3,10 +3,16 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "4f1efae2-a7a7-4423-8531-716695582b68": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.type == 'Kpop CD' %}\n{{product.metafields.myfields.artist}}\n{% endif %}"
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
+            "text": "{{ product.metafields.my_fields.artist.value }}",
             "text_style": "uppercase"
           }
         },
@@ -100,6 +106,7 @@
         }
       },
       "block_order": [
+        "4f1efae2-a7a7-4423-8531-716695582b68",
         "vendor",
         "title",
         "caption",
