@@ -37,7 +37,7 @@
             "settings": {
               "mega_width": true,
               "mega_url": "",
-              "title": "Shop",
+              "title": "All Departments",
               "header_title": "",
               "header_bg": "",
               "mega_image_size": 15,
@@ -49,8 +49,21 @@
             "type": "mega_header",
             "settings": {
               "mega_width": false,
-              "mega_url": "shopify:\/\/pages\/figure-by-series",
-              "title": "Series",
+              "mega_url": "shopify:\/\/pages\/figure",
+              "title": "Figure",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
+          },
+          "2342ef88-459b-4d1a-b4ec-e053012317a0": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "shopify:\/\/pages\/model-kit",
+              "title": "Model Kit",
               "header_title": "",
               "header_bg": "",
               "mega_image_size": 15,
@@ -71,12 +84,38 @@
               "mega_product": ""
             }
           },
-          "2342ef88-459b-4d1a-b4ec-e053012317a0": {
+          "1ee57e0b-cfb9-4eb2-bdbe-d7b2246e2a31": {
             "type": "mega_header",
             "settings": {
               "mega_width": false,
-              "mega_url": "shopify:\/\/pages\/model-kit",
-              "title": "Model Kit",
+              "mega_url": "shopify:\/\/pages\/k-pop-menu",
+              "title": "K-Pop",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
+          },
+          "2a1468cd-c88e-41cd-bdfc-16b17483c812": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "shopify:\/\/pages\/beauty-fashion",
+              "title": "K-Cosmetic",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
+          },
+          "35cb7d5a-0fa1-4506-ae48-b753368c79a8": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "",
+              "title": "Fashion",
               "header_title": "",
               "header_bg": "",
               "mega_image_size": 15,
@@ -88,8 +127,11 @@
         "block_order": [
           "aa7a826d-0649-48ad-add1-38a8ebe97bb0",
           "d0abc545-5646-4924-90f3-42d632b46fbb",
+          "2342ef88-459b-4d1a-b4ec-e053012317a0",
           "f1e0db71-2179-4571-97d5-81f14c757977",
-          "2342ef88-459b-4d1a-b4ec-e053012317a0"
+          "1ee57e0b-cfb9-4eb2-bdbe-d7b2246e2a31",
+          "2a1468cd-c88e-41cd-bdfc-16b17483c812",
+          "35cb7d5a-0fa1-4506-ae48-b753368c79a8"
         ],
         "settings": {
           "color_scheme": "background-1",
