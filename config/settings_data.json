@@ -140,7 +140,7 @@
             "type": "mega_header",
             "settings": {
               "mega_width": false,
-              "mega_url": "",
+              "mega_url": "shopify:\/\/pages\/specials",
               "title": "Specials & Offers",
               "header_title": "",
               "header_bg": "",
