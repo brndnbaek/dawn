@@ -17,7 +17,6 @@
     },
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -34,7 +33,7 @@
         "show_rating": false,
         "enable_filtering": true,
         "enable_sorting": true,
-        "collapse_on_larger_devices": false,
+        "collapse_on_larger_devices": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
