@@ -779,7 +779,8 @@ input.mobile-facets__checkbox {
   position: absolute;
   left: 2.1rem;
   top: 1.2rem;
-  z-index: 0;
+  z-index: 999;
+  /* filter tab click issue fiexed by changint z index from 0 to 999 */
   appearance: none;
   -webkit-appearance: none;
 }
