@@ -8,13 +8,14 @@
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+<div class="py-12 bg-gradient-to-b from-lt-white via-lime-50 to-lt-white">
+  <div class="w-full mx-auto page-width ">
+    <div class="flex">
+      {% assign collection_title = collection.title | split: " "  %}
+        <div class="w-1/3 pb-4 md:pb-8 tw_smallheading">
+          <em class="tw_smallEM">{{collection_title.first}}</em> {{collection.title | remove_first:collection_title.first}}
+        </div>
+      
 
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>

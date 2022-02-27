@@ -8,8 +8,16 @@
     "heading_scale": 100,
     "type_body_font": "poppins_n4",
     "body_scale": 110,
+    "spacing_grid_horizontal": 12,
+    "spacing_grid_vertical": 12,
+    "buttons_radius": 2,
+    "inputs_border_thickness": 1,
+    "inputs_radius": 2,
     "card_color_scheme": "background-1",
     "sold_out_badge_color_scheme": "background-1",
+    "accent_icons": "text",
+    "favicon": "shopify:\/\/shop_images\/Logo_RGB_300ppi_1.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Logo_RGB_72ppi_linear_360x_8f37f94a-72db-41d9-9eba-9dbb85e93607.png",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -85,7 +93,7 @@
           "menu": "main-menu",
           "show_line_separator": false,
           "enable_sticky_header": false,
-          "mega_drawer_image": "<p>Stationery.jpg, firstname.png, Firstname.gif<\/p>"
+          "mega_drawer_image": ""
         }
       },
       "footer": {
