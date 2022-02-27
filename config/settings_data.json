@@ -85,7 +85,7 @@
           "menu": "main-menu",
           "show_line_separator": false,
           "enable_sticky_header": false,
-          "mega_drawer_image": "<p>Stationery.jpg, firstname.png, Firstname.gif<\/p>"
+          "mega_drawer_image": ""
         }
       },
       "footer": {
