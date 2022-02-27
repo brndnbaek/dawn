@@ -28,7 +28,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper underline-links-hover">
+  <div class=" card-wrapper underline-links-hover">
     <div class="card
       card--{{ settings.card_style }}
       {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
@@ -42,7 +42,7 @@
           <div class="card__media">
             <div class="absolute top-0 z-20 caption-with-letter-spacing light bg-white/50">{{ card_product.metafields.my_fields.brand }}</div>
 
-            <div class="media media--transparent media--hover-effect">
+            <div class="bg-white media media--transparent media--hover-effect">
               <img
                 srcset="{%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
