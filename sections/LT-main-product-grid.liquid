@@ -2,6 +2,7 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
 
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
@@ -21,20 +22,17 @@
   }
 {%- endstyle -%}
 
-<div class="flex flex-nowrap">
-  {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-    {{ 'component-facets.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
-  
-    <div class="w-1/5" id="main-collection-filters" data-id="{{ section.id }}">
-      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+<div class="grid grid-cols-5 gap-4 page-width">
+    <script src="{{ 'LT_facets.js' | asset_url }}" defer="defer"></script>
+    
+    <div class="max-h-screen overflow-y-scroll col-span-full lg:col-span-1" id="main-collection-filters" data-id="{{ section.id }}">
+      {% render 'LT_facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices  %}
     </div>
-  {%- endif -%}
   
-  <div id="w-4/5">
+  <div id="LT_ProductGridContainer" class="col-span-full lg:col-start-2 lg:col-span-4 DELdivide_grid">
     {%- paginate collection.products by section.settings.products_per_page -%}
       {%- if collection.products.size == 0 -%}
-        <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+        <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
           <div class="title-wrapper center">
             <h2 class="title title--primary">
@@ -44,21 +42,19 @@
           </div>
         </div>
       {%- else -%}
-        <div class="collection page-width">
+        <div class="collection ">
           <div class="loading-overlay gradient"></div>
   
           <ul id="product-grid" data-id="{{ section.id }}" class="
             grid_dawn grid--2-col product-grid
-            {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
-              {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}
-            {% endif %}">
+            {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}">
             {%- for product in collection.products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
-              <li class="p-4 bg-white grid__item drop-shadow-xl rounded-xl">
+              <li class="p-4 bg-white rounded-md grid__item drop-shadow-md">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
@@ -115,7 +111,7 @@
           "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
         }
       ],
-      "default": "adapt",
+      "default": "square",
       "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
     },
     {
