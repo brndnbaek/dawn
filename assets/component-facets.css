@@ -278,7 +278,7 @@
   padding: 1rem 2rem 1rem 0;
   flex-grow: 1;
   position: relative;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   display: flex;
   word-break: break-word;
 }
@@ -286,8 +286,8 @@
 .facet-checkbox input[type='checkbox'] {
   position: absolute;
   opacity: 1;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.4rem;
+  height: 1.4rem;
   top: 0.7rem;
   left: -0.4rem;
   z-index: -1;
