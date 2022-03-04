@@ -39,7 +39,7 @@
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   
   <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
-
+<!-- mobile filter&sort module  -->
     <div class="LT_mobileFilterButton">
       <menu-drawer class="mobile-facets__wrapper {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}" data-breakpoint="mobile">
         <details class="mobile-facets__disclosure disclosure-has-popup">
@@ -283,9 +283,9 @@
         </div>
       </div>
     </div>
-
+<!-- recreated page layout to show filter&sort with product grid  -->
     <facet-filters-form class="DELfacets ">
-      <form id="FacetFiltersForm" class="grid grid-cols-5 reltative DELfacets__form">
+      <form id="FacetFiltersForm" class="grid grid-cols-12 reltative DELfacets__form">
 
         <!-- {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
@@ -293,36 +293,36 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="small-hide flex flex-col col-span-1 row-span-1 row-start-2 DELfacets__wrapper max-w-[250px]">
-            {%- unless results.filters == empty -%}
-              <h2 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h2>
-            {%- endunless -%}
+          <div id="FacetsWrapperDesktop" class="flex flex-col row-span-1 row-start-2 px-2 pt-6 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
+            <!-- {%- unless results.filters == empty -%}
+              <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
+            {%- endunless -%} -->
 
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
               {% when 'list' %}
                 <details id="Details-{{ forloop.index }}-{{ section.id }}" class="DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="flex justify-between DELfacets__summary DELcaption-large focus-offset">
-                    <div>
-                      <span>{{ filter.label | escape }}</span>
+                  <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl outline outline-slate-200 bg-slate-100 drop-shadow-md DELfacets__summary DELcaption-large DELfocus-offset">
+                    <div class="flex justify-start">
+                      <span class="w-11/12">{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
                     </div>
                   </summary>
-                  <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="DELfacets__display">
-                    <div class="DELfacets__header">
-                      <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+                  <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="flex flex-col DELfacets__display ">
+                    <div class="flex justify-center pt-2 text-lg lg:text-xl DELfacets__header">
+                      <span class="w-2/3 facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
                       <facet-remove>
-                        <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                        <a href="{{ filter.url_to_remove }}" class="w-1/3 text-lg facets__reset link underlined-link">
                           {{ 'products.facets.reset' | t }}
                         </a>
                       </facet-remove>
                     </div>
 
-                    <ul class="flex flex-col DELfacets__list list-unstyled" role="list">
+                    <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled" role="list">
                       {%- for value in filter.values -%}
                         <li class="DELlist-menu__item DELfacets__item">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="text-base facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="py-2 text-base lg:text-lg facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                             <input type="checkbox"
                               name="{{ value.param_name }}"
                               value="{{ value.value }}"
@@ -331,12 +331,12 @@
                               {% if value.count == 0 and value.active == false %}disabled{% endif %}
                             >
 
-                            <svg width="1rem" height="1rem" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+                            <svg width="1.2rem" height="1.2rem" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
                               <rect width="10" height="10" stroke="currentColor" fill="none" stroke-width="1"></rect>
                             </svg>
 
                             <svg class="icon icon-checkmark"
-                              width="1.1rem"
+                              width="1rem"
                               height="0.7rem"
                               viewBox="0 0 11 7"
                               fill="none"
@@ -365,14 +365,14 @@
                   endif
                 %}
                 <details id="Details-{{ forloop.index }}-{{ section.id }}" class="DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="DELfacets__summary DELcaption-large DELfocus-offset">
-                    <div>
+                  <summary class="flex p-2 text-2xl rounded-lg outline outline-slate-200 bg-slate-100 drop-shadow-md DELfacets__summary DELcaption-large DELfocus-offset">
+                    <div class="">
                       <span>{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
                     </div>
                   </summary>
                   <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="DELfacets__display">
-                    <div class="DELfacets__header">
+                    <div class="pt-3 text-xl DELfacets__header">
                       {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
                       <span class="facets__selected">{{ "products.facets.max_price" | t: price: max_price_amount }}</span>
                       <facet-remove>
@@ -381,30 +381,30 @@
                         </a>
                       </facet-remove>
                     </div>
-                    <price-range class="facets__price">
-                      <span class="field-currency">{{ cart.currency.symbol }}</span>
-                      <div class="field">
-                        <input class="field__input"
+                    <price-range class="flex pt-4 DELfacets__price">
+                      <span class="DELfield-currency">{{ cart.currency.symbol }}</span>
+                      <div class="relative px-2 DELfield">
+                        <input class="w-full h-full DELfield__input"
                           name="{{ filter.min_value.param_name }}"
                           id="Filter-{{ filter.label | escape }}-GTE"
                           {%- if filter.min_value.value -%}
                             {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
                           {%- endif -%}
-                          type="number"
+                          type=""
                           placeholder="0"
                           min="0"
                           {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
                         >
-                        <label class="field__label" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                        <label class="absolute text-sm text-gray-500 top-1 right-3 DELfield__label" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
                       </div>
-                      <span class="field-currency">{{ cart.currency.symbol }}</span>
-                      <div class="field">
-                        <input class="field__input"
+                      <span class="DELfield-currency">{{ cart.currency.symbol }}</span>
+                      <div class="relative px-2 DELfield">
+                        <input class="w-full h-full DELfield__input"
                           name="{{ filter.max_value.param_name }}"
                           id="Filter-{{ filter.label | escape }}-LTE"
                           {%- if filter.max_value.value -%}{%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
                           {%- endif -%}
-                          type="number"
+                          type=""
                           min="0"
                           {%- if uses_comma_decimals -%}
                             placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
@@ -414,7 +414,7 @@
                             max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                           {% endif %}
                         >
-                        <label class="field__label" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                        <label class="absolute text-sm text-gray-500 top-1 right-3 DELfield__label" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
                       </div>
                     </price-range>
                   </div>
@@ -508,7 +508,7 @@
         
         
         <!-- product grid  -->
-  <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-4 md:col-start-2">
+  <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-10 md:col-start-3">
     {%- paginate collection.products by section.settings.products_per_page -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty DELpage-width" id="product-grid" data-id="{{ section.id }}">
@@ -524,11 +524,10 @@
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
   
-          <ul id="product-grid" data-id="{{ section.id }}" class="
-            grid_dawn grid--2-col product-grid
-            {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
-              {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}
-            {% endif %}">
+          <ul id="product-grid" data-id="{{ section.id }}" class=" grid_dawn grid--2-col product-grid
+              {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
+                {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--3-col-desktop grid--quarter-max {% endif %}
+              {% endif %}">
             {%- for product in collection.products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}

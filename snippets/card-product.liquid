@@ -21,14 +21,17 @@
     {% assign media_aspect_ratio  = 'portrait' %} 
   {% endif %} -->
 
+  <!-- card image aspect ratio condition, search page = squre, productg type figure = portrait  -->
   {%- liquid
     assign ratio = 1
+    unless search.performed
     if card_product.featured_media and media_aspect_ratio == 'portrait' and card_product.type == 'Figure'
       assign ratio = 0.667
     elsif card_product.featured_media and media_aspect_ratio == 'adapt'
       assign ratio = card_product.featured_media.aspect_ratio
     
     endif
+    endunless
     if ratio == 0 or ratio == nil
       assign ratio = 1
     endif
