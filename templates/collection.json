@@ -19,7 +19,6 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "disabled": true,
       "settings": {
         "products_per_page": 20,
         "image_ratio": "square",
@@ -35,6 +34,7 @@
     },
     "1645973077f0466c22": {
       "type": "LT-main-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 16,
         "image_ratio": "square",
