@@ -16,8 +16,8 @@
         "padding_bottom": 36
       }
     },
-    "16465115090c6cf980": {
-      "type": "LT-main-product-grid",
+    "1646513825e2a67364": {
+      "type": "LT-search-product-grid",
       "settings": {
         "products_per_page": 16,
         "image_ratio": "square",
@@ -34,6 +34,6 @@
   },
   "order": [
     "main",
-    "16465115090c6cf980"
+    "1646513825e2a67364"
   ]
 }
