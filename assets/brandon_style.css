@@ -2767,6 +2767,9 @@ details-disclosure > details {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -2835,6 +2838,9 @@ details-disclosure > details {
 }
 .max-h-full {
   max-height: 100%;
+}
+.max-h-\[40vh\] {
+  max-height: 40vh;
 }
 .w-full {
   width: 100%;
@@ -2990,6 +2996,9 @@ details-disclosure > details {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .justify-around {
   justify-content: space-around;
