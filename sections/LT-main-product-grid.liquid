@@ -24,7 +24,7 @@
   assign results = collection
   assign sort_by = results.sort_by | default: results.default_sort_by
 
-  assign total_active_values = 0
+  assign total_active_values = 1
   if results.url
     assign results_url = results.url
   else 

@@ -2818,12 +2818,6 @@ details-disclosure > details {
 .h-40 {
   height: 10rem;
 }
-.h-\[10vh\] {
-  height: 10vh;
-}
-.h-\[4vh\] {
-  height: 4vh;
-}
 .h-\[3vh\] {
   height: 3vh;
 }
@@ -2997,8 +2991,8 @@ details-disclosure > details {
 .justify-center {
   justify-content: center;
 }
-.justify-between {
-  justify-content: space-between;
+.justify-around {
+  justify-content: space-around;
 }
 .justify-items-center {
   justify-items: center;
