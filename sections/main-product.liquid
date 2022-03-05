@@ -187,7 +187,16 @@
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
+<div>
+  {% case product.type %}
+  {% when 'Kpop CD'%}
+  <span>Artist:</span>
+  <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none">{{product.metafields.my_fields.artist}}</a>
+  {% when 'Figure'%}
+  <span>Product Lineup:</span>
+  <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none">{{product.metafields.my_fields.product_lines}}</a>
+  {%endcase%}
+</div>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when '@app' -%}
@@ -199,7 +208,7 @@
           {%- when 'title' -%}
             <h1 class="product__title" {{ block.shopify_attributes }}>
               {%if product.type == 'Kpop CD' %}
-              {{ product.title | remove:'K-Pop CD' |escape }}
+              {{ product.title | remove:'K-Pop CD' |remove:'K-pop CD' |escape }}
               {%else%}
               {{ product.title | escape }}
               {%endif%}

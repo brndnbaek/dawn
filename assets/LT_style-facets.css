@@ -386,6 +386,14 @@ button.facets__button {
   padding-right: 0.2rem;
   text-decoration: none;
 }
+.LTactive-facets__button {
+  display: block;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  text-decoration: none;
+}
 
 span.active-facets__button-inner {
   color: rgb(var(--color-foreground));
@@ -398,6 +406,7 @@ span.active-facets__button-inner {
   display: flex;
   align-items: stretch;
 }
+
 
 span.active-facets__button-inner:before,
 span.active-facets__button-inner:after {

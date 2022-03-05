@@ -21,15 +21,14 @@
   }
 {%- endstyle -%}
 {%- liquid
-  if search.performed
     assign results = search
     assign sort_by = search.sort_by | default: results.default_sort_by
     
-  else
-    assign results = collection
-    assign sort_by = results.sort_by | default: results.default_sort_by
     
-  endif
+    assign sort_by = search.sort_by | default: search.default_sort_by
+    assign terms = search.terms | escape
+    assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+
   assign total_active_values = 0
   if results.url
     assign results_url = results.url
@@ -517,8 +516,8 @@
         
         <!-- product grid  -->
   <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-10 md:col-start-3">
-      {%- paginate collection.products by section.settings.products_per_page -%}
-      {%- if collection.products.size == 0 -%}
+      {%- paginate search.results by section.settings.products_per_page -%}
+      {%- if search.results.size == 0 -%}
         <div class="collection collection--empty DELpage-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
           <div class="title-wrapper center">
@@ -536,7 +535,7 @@
               {% if results.products_count < 4 %} grid--{{ results.products_count }}-col-tablet{% else %}
                 {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}
               {% endif %}">
-            {%- for product in collection.products -%}
+            {%- for product in search.results -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
@@ -579,7 +578,7 @@
 
 {% schema %}
 {
-  "name": "LT Main Product Grid",
+  "name": "LT Search Product Grid",
   "class": "section",
   "settings": [
     {
@@ -684,7 +683,7 @@
   ],
   "presets": [
     {
-      "name": "LT Product Grid"
+      "name": "LT Seardch Grid"
     }
   ]
 }

@@ -2690,6 +2690,18 @@ details-disclosure > details {
 .-right-4 {
   right: -1rem;
 }
+.-top-1 {
+  top: -0.25rem;
+}
+.-top-3 {
+  top: -0.75rem;
+}
+.-right-3 {
+  right: -0.75rem;
+}
+.-right-2 {
+  right: -0.5rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -2769,6 +2781,9 @@ details-disclosure > details {
 }
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mr-4 {
+  margin-right: 1rem;
 }
 .block {
   display: block;
@@ -2923,6 +2938,10 @@ details-disclosure > details {
 .grow {
   flex-grow: 1;
 }
+.rotate-45 {
+  --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .-skew-y-3 {
   --tw-skew-y: -3deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -3062,9 +3081,15 @@ details-disclosure > details {
 .rounded-2xl {
   border-radius: 1rem;
 }
+.rounded-sm {
+  border-radius: 0.125rem;
+}
 .rounded-b-xl {
   border-bottom-right-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
+}
+.border-0 {
+  border-width: 0px;
 }
 .border-solid {
   border-style: solid;
@@ -3120,6 +3145,13 @@ details-disclosure > details {
 }
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
+}
+.bg-cyan-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(207 250 254 / var(--tw-bg-opacity));
+}
+.bg-transparent {
+  background-color: transparent;
 }
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
@@ -3314,6 +3346,18 @@ details-disclosure > details {
 .text-lt-white {
   --tw-text-opacity: 1;
   color: rgb(247 247 245 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.text-slate-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity));
+}
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 .no-underline {
   -webkit-text-decoration-line: none;
