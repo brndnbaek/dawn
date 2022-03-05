@@ -93,7 +93,7 @@
         <div class="card__content">
           <div class="card__information">
             <h3 class="card__heading">
-              <a href="{{ card_product.url | default: '#' }}" class="DELfull-unstyled-link">
+              <a href="{{ card_product.url | default: '#' }}" class="full-unstyled-link">
                 {{ card_product.title | escape }}
               </a>
             </h3>
@@ -113,9 +113,7 @@
       <div class="card__content">
         <div class="flex flex-col card__information">
           <!-- metafields Brand added abobe title -->
-          <!-- <div class="DELcaption-with-letter-spacing light">
-            <a class="full-unstyled-link" href="/search?q={{card_product.metafields.my_fields.brand | handle}}&options%5Bprefix%5D=last">{{ card_product.metafields.my_fields.brand }}</a>
-          </div> -->
+          <div class="caption-with-letter-spacing light">{{ card_product.metafields.my_fields.brand }}</div>
           <h3 class="h-[3vh] card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}">
             <a href="{{ card_product.url | default: '#' }}" class="full-unstyled-link">
               {%if card_product.type == 'Kpop CD' %}
