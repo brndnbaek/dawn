@@ -39,7 +39,7 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-paddin ">
+<div class="section-{{ section.id }}-paddin bg-amber-100/50">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -299,7 +299,7 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="flex flex-col row-span-1 row-start-2 px-2 pt-6 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
+          <div id="FacetsWrapperDesktop" class="flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
             <!-- {%- unless results.filters == empty -%}
               <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
             {%- endunless -%} -->
@@ -328,7 +328,7 @@
                     <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
                       {%- for value in filter.values -%}
                         <li class="DELlist-menu__item DELfacets__item">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="py-2 text-base lg:text-lg facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                             <input type="checkbox"
                               name="{{ value.param_name }}"
                               value="{{ value.value }}"
@@ -463,7 +463,7 @@
               {%- endfor -%}
               {%unless total_active_values == 0%}
               <facet-remove class="DELactive-facets__button-wrapper">
-                <a href="{{ results_url }}" class="DELactive-facets__button-remove underlined-link">
+                <a href="{{ results_url }}" class="text-xl DELactive-facets__button-remove underlined-link">
                   <span>{{ 'products.facets.clear_all' | t }}</span>
                 </a>
               </facet-remove>

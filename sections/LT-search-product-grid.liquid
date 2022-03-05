@@ -327,7 +327,7 @@
                     <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
                       {%- for value in filter.values -%}
                         <li class="DELlist-menu__item DELfacets__item">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="py-2 text-base lg:text-lg facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="py-1 text-base lg:text-lg facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                             <input type="checkbox"
                               name="{{ value.param_name }}"
                               value="{{ value.value }}"
