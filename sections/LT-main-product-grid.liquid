@@ -317,10 +317,7 @@
                         </a>
                       </facet-remove>
                     </div>
-                  </div>
-                </div>
-              {%- endif -%}
-
+                  
                     <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
                       {%- for value in filter.values -%}
                         <li class="DELlist-menu__item DELfacets__item">
@@ -344,19 +341,7 @@
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg">
 
-  <div class="active-facets active-facets-mobile {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}">
-    {%- for filter in results.filters -%}
-      {%- for value in filter.active_values -%}
-        <facet-remove>
-          <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
-            <span class="active-facets__button-inner button button--tertiary">
-              {{ value.label | escape }}
-              {% render 'icon-close-small' %}
-              <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
-            </span>
-          </a>
-        </facet-remove>
-      {%- endfor -%}
+  
 
                             {{ value.label | escape }} ({{ value.count }})
                           </label>
