@@ -44,7 +44,7 @@
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   
-  <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
+  <div class="px-6 max-w-[1400px] mx-auto" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
     <div class="LT_mobileFilterButton">
       <menu-drawer class="mobile-facets__wrapper {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}" data-breakpoint="mobile">
