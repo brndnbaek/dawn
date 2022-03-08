@@ -222,6 +222,7 @@
     },
     "1645806173051f9823": {
       "type": "collapsible-content",
+      "disabled": true,
       "blocks": {
         "1645806173b7946c6a-0": {
           "type": "collapsible_row",
@@ -341,7 +342,7 @@
         "2bec55aa-6f1b-475c-8842-38627b8cbe4f"
       ],
       "settings": {
-        "title": "Lil'Thingamajigs - The best place to find the products you love.",
+        "title": "Most searched keywords",
         "popular_keywords": "BTS,Twice,BT21,Hello Kitty,Demon Slayer,TXT,Stray Kids,One Piece,Ateez,Enhypen,Gundam,Plush,Sailor Moon,Naruto,Itzy,Red Velvet,Nendoroid,Pokemon,NCT,Rilakkuma,Loona,Sticker,Keychain,jojo,Kuromi,Jujutsu Kaisen,Dragon Ball,Blackpink,Monsta X,Seventeen,Aespa,Haikyuu,P1harmony,Hatsune Miku"
       }
     },
