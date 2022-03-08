@@ -17,6 +17,6 @@
 {% endcomment %}
     
     {% assign section_title = section.settings.title | split: " "  %}
-        <div class="pb-4 md:pb-8 tw_smallheading">
+        <div class="p-4 md:p-8 tw_smallheading">
           <em class="tw_smallEM">{{section_title.first}}</em> {{section.settings.title | remove_first:section_title.first}}
         </div>

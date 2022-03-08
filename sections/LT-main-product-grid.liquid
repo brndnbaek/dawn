@@ -39,7 +39,7 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-paddin bg-purple-50">
+<div class="section-{{ section.id }}-paddin bg-lt-white">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -311,7 +311,7 @@
                 <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
                   <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                     <div class="flex justify-start">
-                      <span class="w-11/12">{{ filter.label | escape }}</span>
+                      <span class="w-full">{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
                     </div>
                   </summary>
@@ -542,7 +542,7 @@
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
-              <li class="bg-white  grid__item drop-shadow-xl rounded-xl grow-0">
+              <li class="bg-white grid__item drop-shadow-xl rounded-xl grow-0">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,

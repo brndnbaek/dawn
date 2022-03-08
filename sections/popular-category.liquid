@@ -2,17 +2,20 @@
 
   
 {%- endstyle -%}
-
-<div class="py-4 pl-8 page-width md:py-8 md:pl-12 lg:pl-20 bg-lt-white tw_smallheading max-w-[1200px]">
-    <em class="tw_smallEM">Most</em> searched keywords. See what others are buying
+<div class="page-width">
+  {% render 'section-title' %}
 
 </div>
-<div class="flex snap-x overflow-x-scroll scroll-smooth justify-start gap-4 pb-10 md:gap-6 page-width max-w-[1200px] tw_scroll page-width hiddenscroll">
+<!-- <div class="py-4 pl-8 page-width md:py-8 md:pl-12 lg:pl-20 bg-lt-white tw_smallheading max-w-[1200px]">
+    <em class="tw_smallEM">Most</em> searched keywords. See what others are buying
+
+</div> -->
+<div class="flex snap-x overflow-x-scroll scroll-smooth justify-start gap-4 py-10 md:gap-6 page-width max-w-[1200px] tw_scroll page-width hiddenscroll">
     {% assign array_keyword = section.settings.popular_keywords | split: ',' %}
     {% for keyword in array_keyword limit:25 %}
     {% capture url %}/collections/{{ keyword | handle}}{%endcapture%}
     {%assign keytag  = keyword | downcase %}
-        <div class="p-4 text-xl LT_button grow-0 shrink-0 link_style hover:bg-amber-100 snap-center">
+        <div class="px-2 py-1 text-xl rounded-2xl outline-2 outline-lime-500 outline-double grow-0 shrink-0 link_style hover:outline-red-500 snap-center">
             {{keyword | link_to: url}}
         </div>
     {% endfor %}
@@ -54,7 +57,7 @@
 {
 "type": "text",
 "id": "title",
-"default": "Lil'Thingamajigs - The best place to find the products you love.",
+"default": "Most searched keywords. See what others are buying.",
 "label": "type in banner heading"
 },
 {

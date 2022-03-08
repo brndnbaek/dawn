@@ -38,7 +38,7 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-paddin ">
+<div class="section-{{ section.id }}-paddin bg-lt-white">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -298,7 +298,7 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="flex flex-col row-span-1 row-start-2 px-2 pt-6 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
+          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
             <!-- {%- unless results.filters == empty -%}
               <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
             {%- endunless -%} -->
@@ -307,10 +307,10 @@
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
               {% when 'list' %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl outline outline-slate-200 bg-slate-100 drop-shadow-md DELfacets__summary DELcaption-large DELfocus-offset">
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
+                  <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                     <div class="flex justify-start">
-                      <span class="w-11/12">{{ filter.label | escape }}</span>
+                      <span class="w-full">{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
                     </div>
                   </summary>
@@ -326,8 +326,8 @@
 
                     <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
                       {%- for value in filter.values -%}
-                        <li class="DELlist-menu__item DELfacets__item">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="py-1 text-base lg:text-lg facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                      <li class="ml-3 DELlist-menu__item DELfacets__item {%if value.count == 0 and value.active == false%}hidden{%endif%}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="items-center facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                             <input type="checkbox"
                               name="{{ value.param_name }}"
                               value="{{ value.value }}"
@@ -369,8 +369,8 @@
                     assign uses_comma_decimals = true
                   endif
                 %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="flex p-2 text-2xl rounded-lg outline outline-slate-200 bg-slate-100 drop-shadow-md DELfacets__summary DELcaption-large DELfocus-offset">
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
+                  <summary class="flex p-2 text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                     <div class="">
                       <span>{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
@@ -433,7 +433,7 @@
           
           <div class="flex justify-end row-span-1 row-start-1 col-span-full small-hide">
             <!-- facets button  -->
-            <div class="flex gap-4 DELactive-facets active-facets-desktop">
+            <div class="flex flex-row-reverse items-center gap-4 mx-3 DELactive-facets active-facets-desktop">
               {%- for filter in results.filters -%}
                 {%- for value in filter.active_values -%}
                   <facet-remove>
@@ -469,7 +469,7 @@
               {%endunless%}
             </div>
             <!-- sortby selector  -->
-            <div class="flex LT_sorting">
+            <div class="flex mx-3 LT_sorting">
               <div class="facet-filters sorting caption">
                 <div class="flex items-center text-xl DELfacet-filters__field">
                   <div class="DELfacet-filters__label DELcaption-large DELtext-body">
@@ -532,10 +532,10 @@
           <div class="loading-overlay gradient"></div>
   
           <ul id="product-grid" data-id="{{ section.id }}" class=" grid_dawn grid--2-col product-grid
-              {% if results.products_count < 4 %} grid--{{ results.products_count }}-col-tablet{% else %}
+              {% if results.products_count < 4 %} grid--3-col-tablet{% else %}
                 {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}
               {% endif %}">
-            {%- for product in search.results -%}
+            {%- for product in collection.products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
