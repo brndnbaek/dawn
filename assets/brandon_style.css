@@ -955,6 +955,16 @@ summary::-webkit-details-marker {
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
 }
+@media screen and (min-width: 1400px) {
+  .grid--quarter-max.grid--4-col-desktop .grid__item {
+    max-width: calc(19% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+}
+@media screen and (min-width: 1800px) {
+  .grid--quarter-max.grid--4-col-desktop .grid__item {
+    max-width: 300px;
+  }
+}
 .grid--1-col .grid__item {
   max-width: 100%;
   width: 100%;
@@ -2878,6 +2888,12 @@ details-disclosure > details {
 .w-40 {
   width: 10rem;
 }
+.min-w-\[250px\] {
+  min-width: 250px;
+}
+.max-w-\[1800px\] {
+  max-width: 1800px;
+}
 .max-w-\[25vw\] {
   max-width: 25vw;
 }
@@ -2902,8 +2918,8 @@ details-disclosure > details {
 .max-w-\[280px\] {
   max-width: 280px;
 }
-.max-w-\[1400px\] {
-  max-width: 1400px;
+.max-w-\[250px\] {
+  max-width: 250px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -3021,6 +3037,9 @@ details-disclosure > details {
 .gap-y-6 {
   row-gap: 1.5rem;
 }
+.justify-self-end {
+  justify-self: end;
+}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -3063,15 +3082,22 @@ details-disclosure > details {
 .border-0 {
   border-width: 0px;
 }
+.border-x-0 {
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+.border-t-0 {
+  border-top-width: 0px;
+}
 .border-solid {
   border-style: solid;
 }
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
 .bg-amber-100\/50 {
   background-color: rgb(254 243 199 / 0.5);
-}
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 .bg-transparent {
   background-color: transparent;
@@ -3079,6 +3105,10 @@ details-disclosure > details {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 .bg-lt-white {
   --tw-bg-opacity: 1;
@@ -3127,6 +3157,17 @@ details-disclosure > details {
 .bg-cyan-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(207 250 254 / var(--tw-bg-opacity));
+}
+.bg-amber-50\/50 {
+  background-color: rgb(255 251 235 / 0.5);
+}
+.bg-amber-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 251 235 / var(--tw-bg-opacity));
+}
+.bg-purple-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 245 255 / var(--tw-bg-opacity));
 }
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
@@ -3199,6 +3240,10 @@ details-disclosure > details {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -3210,10 +3255,6 @@ details-disclosure > details {
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-}
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -3340,12 +3381,12 @@ details-disclosure > details {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.drop-shadow-md {
-  --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
 .drop-shadow-xl {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.drop-shadow-md {
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .drop-shadow-lg {

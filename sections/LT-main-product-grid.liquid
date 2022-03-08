@@ -39,12 +39,12 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-paddin bg-amber-100/50">
+<div class="section-{{ section.id }}-paddin bg-purple-50">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   
-  <div class="px-6 max-w-[1400px] mx-auto" id="main-collection-filters" data-id="{{ section.id }}">
+  <div class="px-6 mx-auto" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
     <div class="LT_mobileFilterButton">
       <menu-drawer class="mobile-facets__wrapper {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}" data-breakpoint="mobile">
@@ -299,7 +299,7 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
+          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
             <!-- {%- unless results.filters == empty -%}
               <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
             {%- endunless -%} -->
@@ -308,8 +308,8 @@
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
               {% when 'list' %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl outline outline-slate-200 bg-slate-100 drop-shadow-md DELfacets__summary DELcaption-large DELfocus-offset">
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
+                  <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                     <div class="flex justify-start">
                       <span class="w-11/12">{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
@@ -370,8 +370,8 @@
                     assign uses_comma_decimals = true
                   endif
                 %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="flex p-2 text-2xl rounded-lg outline outline-slate-200 bg-slate-100 drop-shadow-md DELfacets__summary DELcaption-large DELfocus-offset">
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
+                  <summary class="flex p-2 text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                     <div class="">
                       <span>{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
