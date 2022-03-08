@@ -36,7 +36,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class=" card-wrapper underline-links-hover">
+  <div class="overflow-hidden rounded-lg card-wrapper underline-links-hover">
     <div class="card
       card--{{ settings.card_style }}
       {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
@@ -100,7 +100,8 @@
           </div>
           <div class="card__badge {{ settings.badge_position }}">
             {% if card_product.tags contains 'new'%}
-            <span class="absolute px-2 text-lg rounded-lg bg-cyan-100 -top-2 -right-2 DELbadge">New</span>
+            <div class="absolute w-20 h-20 rotate-45 bg-lime-500 -right-10 -top-10">
+              <span class="absolute bottom-0 text-base text-white left-5 DELbadge">New</span></div>
             {%endif%}
             {%- if card_product.available == false -%}
               <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
@@ -110,7 +111,7 @@
           </div>
         </div>
       </div>
-      <div class="card__content">
+      <div class="px-4 card__content">
         <div class="card__information">
           <!-- metafields Brand added abobe title -->
           <!-- <div class="caption-with-letter-spacing light">{{ card_product.metafields.my_fields.brand }}</div> -->

@@ -44,7 +44,7 @@
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   
-  <div class="px-6 mx-auto" id="main-collection-filters" data-id="{{ section.id }}">
+  <div class="mx-auto md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
     <div class="LT_mobileFilterButton">
       <menu-drawer class="mobile-facets__wrapper {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}" data-breakpoint="mobile">
@@ -327,8 +327,8 @@
 
                     <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
                       {%- for value in filter.values -%}
-                        <li class="DELlist-menu__item DELfacets__item">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                        <li class="ml-3 DELlist-menu__item DELfacets__item {%if value.count == 0 and value.active == false%}hidden{%endif%}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="items-center facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                             <input type="checkbox"
                               name="{{ value.param_name }}"
                               value="{{ value.value }}"
@@ -434,11 +434,11 @@
           
           <div class="flex justify-end row-span-1 row-start-1 col-span-full small-hide">
             <!-- facets button  -->
-            <div class="flex gap-4 DELactive-facets active-facets-desktop">
+            <div class="flex flex-row-reverse items-center gap-4 mx-3 DELactive-facets active-facets-desktop">
               {%- for filter in results.filters -%}
                 {%- for value in filter.active_values -%}
                   <facet-remove>
-                    <a href="{{ value.url_to_remove }}" class="no-underline LTactive-facets__button active-facets__button--light">
+                    <a href="{{ value.url_to_remove }}" class="no-underline LTactive-facets__button active-facets__button--light bg-cyan-50">
                       <span class="active-facets__button-inner button button--tertiary">
                         {{ value.label | escape }}
                         {% render 'icon-close-small' %}
@@ -470,7 +470,7 @@
               {%endunless%}
             </div>
             <!-- sortby selector  -->
-            <div class="flex LT_sorting">
+            <div class="flex mx-3 LT_sorting">
               <div class="facet-filters sorting caption">
                 <div class="flex items-center text-xl DELfacet-filters__field">
                   <div class="DELfacet-filters__label DELcaption-large DELtext-body">
@@ -533,7 +533,7 @@
           <div class="loading-overlay gradient"></div>
   
           <ul id="product-grid" data-id="{{ section.id }}" class=" grid_dawn grid--2-col product-grid
-              {% if results.products_count < 4 %} grid--{{ results.products_count }}-col-tablet{% else %}
+              {% if results.products_count < 4 %} grid--3-col-tablet{% else %}
                 {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}
               {% endif %}">
             {%- for product in collection.products -%}
@@ -542,7 +542,7 @@
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
-              <li class="p-4 bg-white grid__item drop-shadow-xl rounded-xl grow-0">
+              <li class="bg-white  grid__item drop-shadow-xl rounded-xl grow-0">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,

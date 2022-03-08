@@ -97,7 +97,7 @@
 .card__content {
   display: grid;
   grid-template-rows: minmax(0,1fr) max-content minmax(0,1fr);
-  padding: 1rem;
+  /* padding: 1rem; */
   width: 100%;
 }
 
@@ -241,7 +241,7 @@
 }
 
 .card--standard > .card__content {
-  padding: 0;
+  /* padding: 0; */
 }
 
 .card--standard > .card__content .card__information {
