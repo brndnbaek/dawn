@@ -2,7 +2,6 @@
   "sections": {
     "main": {
       "type": "main-search",
-      "disabled": true,
       "settings": {
         "image_ratio": "square",
         "show_secondary_image": false,
@@ -19,6 +18,7 @@
     },
     "1646513825e2a67364": {
       "type": "LT-search-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 16,
         "image_ratio": "square",
