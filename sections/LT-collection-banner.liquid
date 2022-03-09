@@ -8,39 +8,23 @@
   }
 {%- endstyle -%}
 
-<div class="py-12 bg-gradient-to-b from-lt-white via-lime-50 to-lt-white">
-  <div class="w-full mx-auto page-width ">
-    <div class="flex">
+<div class="flex flex-col justify-center w-full px-12 py-4 mx-auto overflow-hidden bg-lt-white">
+  <!-- <div class="absolute inset-0 flex flex-wrap items-center justify-around w-11/12 gap-5 opacity-25 h-4/5">
+    {% for product in collection.products limit:10 %}
+    <img src="{{product.featured_image | img_url:'50x'}}" alt="" class="object-contain" >
+    {% endfor %}
+  </div> -->
+    <div class="flex items-center justify-between w-full py-8 outline outline-1 outline-amber-300">
       {% assign collection_title = collection.title | split: " "  %}
-        <div class="w-1/3 pb-4 md:pb-8 tw_smallheading">
+        <div class="w-1/3 text-center tw_smallheading">
           <em class="tw_smallEM">{{collection_title.first}}</em> {{collection.title | remove_first:collection_title.first}}
         </div>
       
 
       {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+        <div class="flex-shrink w-1/2 px-4 text-lg DELcollection-hero__description DELrte">{{ collection.description }}</div>
       {%- endif -%}
     </div>
-
-    {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
-        <img
-          srcset="{%- if collection.image.width >= 165 -%}{{ collection.image | img_url: '165x' }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | img_url: '360x' }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | img_url: '535x' }} 535w,{%- endif -%}
-            {%- if collection.image.width >= 750 -%}{{ collection.image | img_url: '750x' }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | img_url: '1070x' }} 1070w,{%- endif -%}
-            {%- if collection.image.width >= 1500 -%}{{ collection.image | img_url: '1500x' }} 1500w,{%- endif -%}
-            {{ collection.image | img_url: 'master' }} {{ collection.image.width }}w"
-          src="{{ collection.image | img_url: '750x' }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.title | escape }}"
-          width="{{ collection.image.width }}"
-          height="{{ collection.image.height }}"
-        >
-      </div>
-    {%- endif -%}
-  </div>
 </div>
 
 {% schema %}
