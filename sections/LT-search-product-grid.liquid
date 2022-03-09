@@ -290,10 +290,10 @@
 <facet-filters-form class="DELfacets ">
   <form id="FacetFiltersForm" class="grid grid-cols-12 reltative DELfacets__form">
 
-    <!-- {%- if results.terms -%}
+    {%- if results.terms -%}
       <input type="hidden" name="q" value="{{ results.terms | escape }}">
       <input name="options[prefix]" type="hidden" value="last">
-    {%- endif -%} -->
+    {%- endif -%}
       
       <!-- sidebar filters -->
       <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
