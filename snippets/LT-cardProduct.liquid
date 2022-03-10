@@ -1,0 +1,35 @@
+{% comment %}
+    Renders a product card
+
+    Accepts:
+    - card_product: {Object} Product Liquid object (optional)
+    - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+    - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+    - show_vendor: {Boolean} Show the product vendor. Default: false
+    - show_rating: {Boolean} Show the product rating. Default: false
+    - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
+    - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+    Usage:
+    {% render 'card-product', show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+
+
+{%- if card_product and card_product != empty -%}
+<div class="relative flex flex-col items-center justify-center h-[40rem] bg-neutral-200">
+  <div class="">
+    {%if card_product.featured_media.aspect_ratio < 1 %}
+    <div class="relative flex flex-col flex-shrink-0 w-full h-full">
+      <img src="{{card_product.featured_media | img_url:'300x'}}" class="object-cover w-full h-[40rem]" alt="">
+    </div>
+    {%else%}
+    <div class="relative flex flex-col flex-shrink-0 w-full h-full pb-[10rem]">
+      <img src="{{card_product.featured_media | img_url:'300x'}}" class="object-cover w-full " alt="">
+    </div>
+    {%endif%}
+  </div>
+  <div class="absolute bottom-0 w-5/6 p-6 border border-gray-200 rounded-t-lg h-2/5 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60">
+    {{card_product.title}}
+  </div>
+</div>
+{% endif %}              

@@ -553,8 +553,8 @@
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
-              <li class="bg-white grid__item drop-shadow-xl rounded-xl grow-0">
-                {% render 'card-product',
+              <li class="bg-white rounded-lg grid__item drop-shadow-md grow-0">
+                {% render 'LT-cardProduct',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
                   show_secondary_image: section.settings.show_secondary_image,
