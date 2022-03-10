@@ -22,7 +22,7 @@
   assign available = target.available | default: false
   assign money_price = price | money
   if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
+    assign money_price1 = price | money_with_currency
   endif
 
   if target == product and product.price_varies
@@ -72,7 +72,7 @@
         <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
         <span aria-hidden="true">/</span>
         <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-        <span>
+        <span> 
           {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
             {{- product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
           {%- endif -%}

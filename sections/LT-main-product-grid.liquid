@@ -299,7 +299,7 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 md:col-span-2 gap-y-4 small-hide DELfacets__wrapper">
+          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 col-span-2 gap-y-4 small-hide DELfacets__wrapper">
             <!-- {%- unless results.filters == empty -%}
               <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
             {%- endunless -%} -->
@@ -436,8 +436,8 @@
             
             <!-- collection title  -->
             {% assign collection_title = collection.title | split: " "  %}
-            <div class="flex items-center w-1/5 pb-4 tw_smallheading p">
-              <em class="tw_smallEM">{{collection_title.first}}</em> {{collection.title | remove_first:collection_title.first}}
+            <div class="flex items-center pb-4 text-xl sm:text-2xl w-2/7 md:w-1/5 tw_smallheading">
+              <em class="mr-2 text-xl sm:text-2xl tw_smallEM">{{collection_title.first}}</em> {{collection.title | remove_first:collection_title.first}}
             </div>
             
             <div class="flex flex-col w-4/5 threecomponents">

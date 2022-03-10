@@ -191,10 +191,10 @@
   {% case product.type %}
   {% when 'Kpop CD'%}
   <span>Artist:</span>
-  <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none">{{product.metafields.my_fields.artist}}</a>
+  <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none" class="full-unstyled-link">{{product.metafields.my_fields.artist}}</a>
   {% when 'Figure'%}
   <span>Product Lineup:</span>
-  <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none">{{product.metafields.my_fields.product_lines}}</a>
+  <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="full-unstyled-link">{{product.metafields.my_fields.product_lines}}</a>
   {%endcase%}
 </div>
         {%- for block in section.blocks -%}

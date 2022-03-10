@@ -1040,12 +1040,12 @@ summary::-webkit-details-marker {
 }
 @media screen and (min-width: 1400px) {
   .grid--quarter-max.grid--4-col-desktop .grid__item {
-    max-width: calc(19% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    max-width: 260px;
   }
 }
 @media screen and (min-width: 1800px) {
   .grid--quarter-max.grid--4-col-desktop .grid__item {
-    max-width: 300px;
+    max-width: 260px;
   }
 }
 
