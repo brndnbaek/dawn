@@ -291,7 +291,7 @@
     </div>
 <!-- recreated page layout to show filter&sort with product grid  -->
     <facet-filters-form class="DELfacets ">
-      <form id="FacetFiltersForm" class="grid grid-cols-12 reltative DELfacets__form">
+      <form id="FacetFiltersForm" class="relative grid grid-cols-12 DELfacets__form">
 
         <!-- {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
@@ -542,7 +542,31 @@
       {%- else -%}
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
-  
+          
+          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap items-center justify-start gap-8">
+            <!-- Todo - need to replicate cardproduct snippet for category card -->
+            <!-- <li>
+              {% render 'LT-categoryCard'%}
+            </li> -->
+            {%- for product in collection.products -%}
+              {% assign lazy_load = false %}
+              {%- if forloop.index > 2 -%}
+                {%- assign lazy_load = true -%}
+              {%- endif -%}
+              <div class="w-full h-[25vh] md:h-[25rem] sm:w-[44%] lg:w-[31%] xl:w-[30rem] flex justify-center items-center ">
+                {% render 'LT-cardProduct',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load
+                %}
+              </div>
+            {%- endfor -%}
+          </div>
+<!-- original product grid-->
+{%comment%}
           <ul id="product-grid" data-id="{{ section.id }}" class=" grid_dawn grid--2-col product-grid
               {% if results.products_count < 4 %} grid--3-col-tablet{% else %}
                 <!-- {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %} -->
@@ -566,7 +590,8 @@
               </li>
             {%- endfor -%}
           </ul>
-  
+{%endcomment%}
+
           {%- if paginate.pages > 1 -%}
             {% render 'pagination', paginate: paginate, anchor: '' %}
           {%- endif -%}

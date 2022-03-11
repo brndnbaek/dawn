@@ -13,8 +13,18 @@
     Usage:
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
-
-<div class="relative w-full overflow-hidden rounded-b-lg grid grid-cols-3 grid-rows-5 bg-transparent {%if card_product.type == 'Kpop CD'%} h-[35rem]{%else%} h-[37rem]{%endif%}">
+<div class="relative w-full ml-[10%] mr-[5%] h-[90%] bg-slate-700 rounded-lg group ">
+  {% assign image_def = card_product.featured_media.aspect_ratio %}
+{% if image_def > 1.1 %}
+  <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute -top-[5%] -left-[10%] drop-shadow-lg object-contain w-2/3 h-auto rounded-lg outline-1 outline outline-slate-500 group-hover:scale-110 duration-200">
+{% elsif image_def < 0.8 %}
+  <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover h-[90%] -top-[5%] -left-[5%] max-w-full rounded-lg top-0 drop-shadow-lg outline-1 outline outline-slate-500 group-hover:scale-110 duration-200">
+{% else %}
+  <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover w-[60%] rounded-lg -top-[5%] -left-[10%] h-auto outline-1 outline outline-slate-500 group-hover:scale-110 duration-200">
+  {%endif%}
+</div>
+<!-- * commented out for later use 
+  <div class="relative w-full overflow-hidden rounded-b-lg grid grid-cols-3 grid-rows-5 bg-transparent {%if card_product.type == 'Kpop CD'%} h-[35rem]{%else%} h-[37rem]{%endif%}">
   <div class="absolute w-[90%] left-[5%] h-full overflow-hidden text-center bg-white shadow-lg rounded-t-lg hover:scale-110 transform duration-200">
     {%if card_product.featured_media.aspect_ratio < 1 %}
     <img src="{{card_product.featured_media |img_url:'x350'}}" alt="" class="object-cover h-full ">
@@ -32,7 +42,7 @@
   <div class="relative flex items-center justify-center col-span-2 col-start-2 row-span-1 row-start-4 ">
     <div class="px-4 py-2 bg-amber-100 rounded-xl">{% render 'price', product: card_product, price_class: 'text-center' %}</div>
   </div>
-</div>
+</div> -->
 
 
 {%comment%}
