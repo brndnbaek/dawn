@@ -542,8 +542,8 @@
       {%- else -%}
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
-          
-          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap items-center justify-start gap-8">
+<!-- new type layered cards style            -->
+          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap items-center justify-around gap-8 md:gap-y-12">
             <!-- Todo - need to replicate cardproduct snippet for category card -->
             <!-- <li>
               {% render 'LT-categoryCard'%}
@@ -553,7 +553,7 @@
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
               {%- endif -%}
-              <div class="w-full h-[25vh] md:h-[25rem] sm:w-[44%] lg:w-[31%] xl:w-[30rem] flex justify-center items-center ">
+              <div class="w-11/12 h-[22rem] gap-12 md:gap-0 md:w-[29rem] flex flex-col md:flex-row justify-start md:justify-center items-center ">
                 {% render 'LT-cardProduct',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
@@ -578,8 +578,8 @@
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
-              <li class="grid__item grow-0">
-                {% render 'LT-cardProduct',
+              <li class="bg-white grid__item grow-0 drop-shadow-lg">
+                {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
                   show_secondary_image: section.settings.show_secondary_image,
