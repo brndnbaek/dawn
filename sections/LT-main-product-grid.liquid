@@ -545,7 +545,8 @@
   
           <ul id="product-grid" data-id="{{ section.id }}" class=" grid_dawn grid--2-col product-grid
               {% if results.products_count < 4 %} grid--3-col-tablet{% else %}
-                {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}
+                <!-- {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %} -->
+                {% if results.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--3-col-desktop grid--quarter-max {% endif %}
               {% endif %}">
             {%- for product in collection.products -%}
               {% assign lazy_load = false %}
@@ -553,7 +554,7 @@
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
-              <li class="bg-white rounded-lg grid__item drop-shadow-md grow-0">
+              <li class="grid__item grow-0">
                 {% render 'LT-cardProduct',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,

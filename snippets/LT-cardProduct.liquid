@@ -14,22 +14,46 @@
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-
-{%- if card_product and card_product != empty -%}
-<div class="relative flex flex-col items-center justify-center h-[40rem] bg-neutral-200">
-  <div class="">
+<div class="relative w-full overflow-hidden rounded-b-lg grid grid-cols-3 grid-rows-5 bg-transparent {%if card_product.type == 'Kpop CD'%} h-[35rem]{%else%} h-[37rem]{%endif%}">
+  <div class="absolute w-[90%] left-[5%] h-full overflow-hidden text-center bg-white shadow-lg rounded-t-lg hover:scale-110 transform duration-200">
     {%if card_product.featured_media.aspect_ratio < 1 %}
-    <div class="relative flex flex-col flex-shrink-0 w-full h-full">
-      <img src="{{card_product.featured_media | img_url:'300x'}}" class="object-cover w-full h-[40rem]" alt="">
-    </div>
+    <img src="{{card_product.featured_media |img_url:'x350'}}" alt="" class="object-cover h-full ">
+    {%elsif card_product.featured_media.aspect_ratio > 1.2 %}
+    <img src="{{card_product.featured_media |img_url:'x350'}}" alt="" class="object-cover object-center max-h-[20rem] pt-[4rem]">
     {%else%}
-    <div class="relative flex flex-col flex-shrink-0 w-full h-full pb-[10rem]">
-      <img src="{{card_product.featured_media | img_url:'300x'}}" class="object-cover w-full " alt="">
-    </div>
+    <img src="{{card_product.featured_media |img_url:'x350'}}" alt="" class="object-cover object-center w-full max-h-2/3">
     {%endif%}
   </div>
-  <div class="absolute bottom-0 w-5/6 p-6 border border-gray-200 rounded-t-lg h-2/5 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60">
-    {{card_product.title}}
+  <div class="absolute -bottom-[2rem] bg-slate-500 transform -skew-y-[5deg] h-[15rem] w-full shadow-lg">
+  </div>
+  <div class="relative flex flex-col items-center justify-center row-start-5 px-4 col-span-full">
+    <div class="text-xl text-center text-gray-200 bg-clip-text">{{card_product.title | escape}}-{{card_product.featured_media.aspect_ratio}}</div>
+  </div>
+  <div class="relative flex items-center justify-center col-span-2 col-start-2 row-span-1 row-start-4 ">
+    <div class="px-4 py-2 bg-amber-100 rounded-xl">{% render 'price', product: card_product, price_class: 'text-center' %}</div>
   </div>
 </div>
+
+
+{%comment%}
+{%- if card_product and card_product != empty -%}
+<div class="relative flex flex-col items-center justify-center h-[37rem] bg-gradient-to-b from-white via-white to-slate-300 overflow-hidden rounded-xl">
+    {%if card_product.featured_media.aspect_ratio < 0.9 %}
+    <div class="flex flex-col flex-shrink-0 w-full h-full">
+      <img src="{{card_product.featured_media | img_url:'x350'}}" class="object-cover max-w-full h-[37rem]" alt="">
+    </div>
+    {%elsif card_product.featured_media.aspect_ratio > 1.2 %}
+    <div class="flex flex-col items-center justify-center pb-[15rem] flex-shrink-0 w-full h-full ">
+      <img src="{{card_product.featured_media | img_url:'350x'}}" class="object-cover w-[95%] " alt="">
+    </div>
+    {%else%}
+    <div class="flex flex-col items-center flex-shrink-0 w-full h-full pb-[10rem]">
+      <img src="{{card_product.featured_media | img_url:'350x'}}" class="object-cover w-[95%] " alt="">
+    </div>
+    {%endif%}
+    <div class="absolute bottom-[1rem] w-5/6 h-[12rem] p-6 mx-auto text-xl  hover:bg-opacity-80 bg-white bg-opacity-60 backdrop-filter backdrop-blur-lg rounded-xl">
+      {{card_product.title}} - {{card_product.featured_media.aspect_ratio}}
+    </div>
+</div>
 {% endif %}              
+{%endcomment%}
