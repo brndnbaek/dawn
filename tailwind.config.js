@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         'lt-yellow': '#EFBC61',
         'lt-white': '#f7f7f5',
+        'lt-apricot': '#f09174',
       },
       spacing: {
         '1/2': '50%',

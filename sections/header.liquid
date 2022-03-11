@@ -84,7 +84,7 @@
   </symbol>
 </svg>
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}
-  class="header-wrapper bg-amber-100/50 pt-4 DELcolor-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+  class="header-wrapper bg-amber-100 pt-4 DELcolor-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %} outline outline-2 outline-lt-apricot">
   <header
     class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     {%- if section.settings.menu != blank -%}
@@ -126,7 +126,7 @@
                       {% endif %}
                     </label>
                     <input type="checkbox" id="megaDrawerInput--{{forloop.index0}}" onclick="checkInput(this)"
-                      data-input="{{forloop.index0}}">
+                      data-input="{{forloop.index0}}" >
                     <div class="megaDrawerContent--tablet">
                       {% if block.settings.title != blank %}
                       <div class="megaDrawerHeader megaDrawerHeader--tablet"
@@ -290,7 +290,7 @@
         <div class="form-container">
           <div class="field">
 
-            <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value="" size="38"
+            <input class="search__input field__input bg-lt-white" id="Search-In-Modal" type="search" name="q" value="" size="38"
               placeholder="{{ 'general.search.search' | t }}" {%- if settings.predictive_search_enabled -%}
               role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list"
               aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list"
