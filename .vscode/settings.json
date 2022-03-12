@@ -1,6 +1,6 @@
 {
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.colorTheme": "Material Theme Ocean",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#2f7c47",
         "activityBar.activeBorder": "#422c74",
