@@ -3373,6 +3373,10 @@ details-disclosure > details {
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
+.bg-lt-apricot {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 145 116 / var(--tw-bg-opacity));
+}
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -3866,6 +3870,9 @@ details-disclosure > details {
   }
   .md\:justify-center {
     justify-content: center;
+  }
+  .md\:justify-evenly {
+    justify-content: space-evenly;
   }
   .md\:gap-0 {
     gap: 0px;
