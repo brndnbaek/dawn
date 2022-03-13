@@ -16,11 +16,11 @@
 }
 
 .tw_smallheading {
-  @apply text-lg font-medium md:text-2xl lg:text-3xl text-slate-500 ;
+  @apply text-lg font-medium md:text-2xl lg:text-3xl text-slate-600 ;
 }
 
 .tw_smallEM {
-  @apply text-2xl font-semibold underline md:text-3xl lg:text-4xl text-slate-700 decoration-8 decoration-lt-apricot;
+  @apply text-2xl font-semibold underline md:text-3xl lg:text-4xl text-slate-700 before:font-semibold before:decoration-4 decoration-lt-apricot;
 }
 .tw_containerTitle {
   @apply text-lg font-semibold sm:text-lg text-slate-600 md:text-xl lg:text-xl;

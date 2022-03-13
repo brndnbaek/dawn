@@ -325,10 +325,24 @@
                       </facet-remove>
                     </div>
 
-                    <ul class="flex flex-col text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
+                    <ul class="flex flex-col gap-2 text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
                       {%- for value in filter.values -%}
+                        <li class="ml-3 form-check{%if value.count == 0 and value.active == false%}hidden{%endif%}">
+                          <input type="checkbox"
+                            name="{{ value.param_name }}"
+                            value="{{ value.value }}"
+                            id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                            {% if value.active %}checked{% endif %}
+                            {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                          >
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="text-gray-700  form-check-label">
+                            {{ value.label | escape }} ({{ value.count }})
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                      <!-- {%- for value in filter.values -%}
                         <li class="ml-3 DELlist-menu__item DELfacets__item {%if value.count == 0 and value.active == false%}hidden{%endif%}">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="items-start facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="items-start DELfacet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                             <input type="checkbox"
                               name="{{ value.param_name }}"
                               value="{{ value.value }}"
@@ -358,7 +372,7 @@
                             {{ value.label | escape }} ({{ value.count }})
                           </label>
                         </li>
-                      {%- endfor -%}
+                      {%- endfor -%} -->
                     </ul>
                   </div>
                 </details>
@@ -543,7 +557,7 @@
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
 <!-- new type layered cards style            -->
-          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col flex-wrap items-center gap-8 md:justify-evenly md:flex-row md:gap-y-12">
+          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col flex-wrap items-center gap-y-16 md:gap-8 md:flex-row md:justify-evenly md:gap-y-12">
             <!-- Todo - need to replicate cardproduct snippet for category card -->
             <!-- <li>
               {% render 'LT-categoryCard'%}
@@ -553,7 +567,7 @@
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
               {%- endif -%}
-              <div class="w-11/12 h-[22rem] gap-12 md:gap-0 md:w-[29rem] flex items-center flex-shrink-0 flex-grow-0 ">
+              <div class="w-[350px] h-[22rem] md:gap-y-0 md:w-[28rem] lg:w-[28rem] flex flex-col items-center ">
                 {% render 'LT-cardProduct',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
@@ -562,6 +576,7 @@
                   show_rating: section.settings.show_rating,
                   lazy_load: lazy_load
                 %}
+                
               </div>
             {%- endfor -%}
           </div>
