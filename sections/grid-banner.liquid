@@ -45,13 +45,13 @@
 
 
 <!-- grid background banner  -->
-    <div class="relative h-[20vh] sm:h-[25vh] md:h-[30vh] max-h-[35vh] w-11/12 max-w-[1200px] mx-auto flex flex-col items-center justify-center bg-lt-white overflow-hidden my-4 md:my-8">
+    <div class="relative h-[30vh] md:h-[35rem] max-h-[40rem] w-[99vw] max-w-[1200px] mx-auto bg-lt-white overflow-hidden mt-4 ">
         <!-- background grid -->
-        <div class="absolute inset-0 grid justify-center grid-flow-row grid-cols-4 grid-rows-3 gap-4 p-2 transform -skew-y-3 md:grid-cols-5 lg:grid-cols-7 md:gap-6">
+        <div class="absolute inset-0 grid w-full h-[28rem] md:h-[50rem] lg:h-[40rem] grid-cols-5 grid-rows-4 transform -skew-y-2 gap-y-6 place-content-center md:grid-cols-5 md:grid-rows-4 lg:grid-cols-7 lg:grid-rows-3">
             <!-- retrieve 15 product images from new-item collection  -->
             {% for product in collections['new-items'].products limit:21 %}
-            <div class="relative col-span-1 row-span-1 max-w-[300px]">
-                <img src="{{product.featured_image | img_url: '300x'}}" alt="" class="absolute object-cover object-top w-5/6 h-full rounded-xl aspect-square drop-shadow-lg">
+            <div class="flex items-center justify-center col-span-1 row-span-1">
+                <img src="{{product.featured_image | img_url: '300x'}}" alt="" class="absolute max-w-[6rem] sm:max-w-[8rem] md:max-w-[11rem] lg:max-w-[12.5rem] object-cover object-top aspect-square rounded-xl drop-shadow-lg">
             </div> 
             {%endfor%}
             <!-- {% for block in section.blocks %}
@@ -62,8 +62,12 @@
             
         </div>
         <!-- content -->
-        <div class="relative flex flex-col items-center justify-center h-full transform -skew-y-3 drop-shadow-xl ">
-                    <p class="p-4 text-3xl font-extrabold border-solid rounded-lg md:text-5xl lg:text-6xl text-slate-700 bg-lime-100 drop-shadow-2xl ">The Asian Pop Project</p>
+        <div class="flex flex-col items-center justify-center h-full transform DEL-skew-y-3 drop-shadow-xl ">
+                        <div class="flex items-baseline px-4 pb-10 text-3xl font-extrabold border-solid rounded-lg text-rose-600 border-rose-600 md:text-5xl lg:text-6xl bg-lt-white drop-shadow-2xl">
+                            <div class="block">The Asian</div> 
+                            <img src="{{'pop.png' | asset_img_url: '75x'}}" alt="" class="block w-18 h-18">
+                            <div class="block">Project</div>
+                        </div>
                     <!-- <p class="p-4 text-xl font-bold border-solid rounded-lg md:text-3xl lg:text-4xl text-slate-700 bg-lime-100">Asian Pop Project</p> -->
         </div>
     <!-- <div class="absolute inset-0 w-full h-full bg-lt-white/60"></div> -->

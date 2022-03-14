@@ -223,10 +223,10 @@
     display: none;
     }
     .megaDrawer > input:checked + .megaDrawerContent--tablet{
-    display: block;
+    display: none;
     }
     .megaDrawerContent--tablet {
-    display: none ;
+    display: block ;
     width: 100%;
     padding: 5%;
     }

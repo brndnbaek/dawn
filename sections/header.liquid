@@ -287,23 +287,27 @@
 
       <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
 
-        <div class="form-container">
-          <div class="field">
+        <div class="flex justify-center pt-2 pb-4 mx-auto md:pt-0 form-container">
+          <div class="w-[45rem] relative">
+          <!-- <div class="DELfield w-[90%] h-[90%] md:h-[80%] md:h-full"> -->
 
-            <input class="search__input field__input bg-lt-white" id="Search-In-Modal" type="search" name="q" value="" size="38"
-              placeholder="{{ 'general.search.search' | t }}" {%- if settings.predictive_search_enabled -%}
+            <input class="w-full h-16 pl-4 text-lg border-0 rounded-lg shadow-sm lg:text-xl DELsearch__input DELfield__input focus:outline-rose-200 bg-lt-white" id="Search-In-Modal" type="search" name="q" value="" size="38"
+              placeholder="What can we help you find today?" {%- if settings.predictive_search_enabled -%}
               role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list"
               aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list"
               autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" {%- endif -%}>
 
             <!-- TCC: modified label old was: 'general.search.search' | t {{ 'general.search.search' | t }}-->
-            <label class="text-lg md:text-xl lg:text-2xl field__label alignSearchText"
-              for="Search-In-Modal">{{ "What can we help you find today?" }}</label>
+            <!-- <label class="text-lg md:text-xl lg:text-2xl field__label alignSearchText"
+              for="Search-In-Modal">{{ "What can we help you find today?" }}</label> -->
             <input type="hidden" name="options[prefix]" value="last">
-            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-              <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
-                <use href="#icon-search">
+            <button class="absolute top-0 right-0 mt-5 mr-4 text-gray-600 bg-transparent border-0 DELsearch__button DELfield__button" aria-label="{{ 'general.search.search' | t }}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
+              <!-- <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search">
+              </svg> -->
             </button>
           </div>
         </div>
@@ -411,7 +415,7 @@
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if section.settings.logo != blank -%}
         {%- assign image_size = section.settings.logo_width | append: 'x' -%}
-        <img
+          <img
           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
           src="{{ section.settings.logo | img_url: image_size }}" loading="lazy" class="header__heading-logo"
           width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}"
@@ -664,7 +668,7 @@
       <!-- growave wishlist icon added -->
       {% capture the_snippet_fave_icon_menu %}{% include 'ssw-widget-faveicon-menu' with product.id %}{% endcapture %}
       {% unless the_snippet_fave_icon_menu contains 'Liquid error' %}
-        <div class="p-4">{{ the_snippet_fave_icon_menu }}</div>
+        <div class="flex items-center justify-center w-[4rem] text-neutral-600">{{ the_snippet_fave_icon_menu }}</div>
       {% endunless %}
     </div>
   </header>
