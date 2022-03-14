@@ -2764,6 +2764,9 @@ details-disclosure > details {
 .-left-11 {
   left: -2.75rem;
 }
+.-left-8 {
+  left: -2rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -3108,6 +3111,18 @@ details-disclosure > details {
 .w-3\/4 {
   width: 75%;
 }
+.w-\[220px\] {
+  width: 220px;
+}
+.w-\[240px\] {
+  width: 240px;
+}
+.w-\[30\%\] {
+  width: 30%;
+}
+.w-\[90vw\] {
+  width: 90vw;
+}
 .max-w-\[250px\] {
   max-width: 250px;
 }
@@ -3205,6 +3220,9 @@ details-disclosure > details {
 }
 .scroll-pl-3 {
   scroll-padding-left: 0.75rem;
+}
+.list-none {
+  list-style-type: none;
 }
 .grid-flow-col {
   grid-auto-flow: column;
