@@ -2767,6 +2767,21 @@ details-disclosure > details {
 .-left-8 {
   left: -2rem;
 }
+.left-2\/3 {
+  left: 66.666667%;
+}
+.left-1\/2 {
+  left: 50%;
+}
+.left-\[55\%\] {
+  left: 55%;
+}
+.left-\[57\%\] {
+  left: 57%;
+}
+.left-\[58\%\] {
+  left: 58%;
+}
 .isolate {
   isolation: isolate;
 }
@@ -3123,6 +3138,21 @@ details-disclosure > details {
 .w-\[90vw\] {
   width: 90vw;
 }
+.w-\[20rem\] {
+  width: 20rem;
+}
+.w-\[18rem\] {
+  width: 18rem;
+}
+.w-\[17rem\] {
+  width: 17rem;
+}
+.w-\[12rem\] {
+  width: 12rem;
+}
+.w-\[13rem\] {
+  width: 13rem;
+}
 .max-w-\[250px\] {
   max-width: 250px;
 }
@@ -3329,6 +3359,11 @@ details-disclosure > details {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
 }
 .justify-self-end {
   justify-self: end;
