@@ -2704,8 +2704,8 @@ details-disclosure > details {
 .top-4 {
   top: 1rem;
 }
-.-left-4 {
-  left: -1rem;
+.-left-8 {
+  left: -2rem;
 }
 .-top-\[1rem\] {
   top: -1rem;
@@ -2728,11 +2728,14 @@ details-disclosure > details {
 .right-\[1\.25rem\] {
   right: 1.25rem;
 }
-.right-1 {
-  right: 0.25rem;
+.left-\[58\%\] {
+  left: 58%;
 }
 .-top-3 {
   top: -0.75rem;
+}
+.right-1 {
+  right: 0.25rem;
 }
 .bottom-12 {
   bottom: 3rem;
@@ -2764,23 +2767,32 @@ details-disclosure > details {
 .-left-11 {
   left: -2.75rem;
 }
-.-left-8 {
-  left: -2rem;
+.bottom-\[1\.5rem\] {
+  bottom: 1.5rem;
 }
-.left-2\/3 {
-  left: 66.666667%;
+.bottom-\[2\.5rem\] {
+  bottom: 2.5rem;
+}
+.bottom-\[3rem\] {
+  bottom: 3rem;
+}
+.bottom-\[4rem\] {
+  bottom: 4rem;
+}
+.bottom-\[4\.5rem\] {
+  bottom: 4.5rem;
+}
+.bottom-\[5rem\] {
+  bottom: 5rem;
 }
 .left-1\/2 {
   left: 50%;
 }
-.left-\[55\%\] {
-  left: 55%;
+.left-\[50\%\] {
+  left: 50%;
 }
-.left-\[57\%\] {
-  left: 57%;
-}
-.left-\[58\%\] {
-  left: 58%;
+.left-\[48\%\] {
+  left: 48%;
 }
 .isolate {
   isolation: isolate;
@@ -2895,8 +2907,17 @@ details-disclosure > details {
 .block {
   display: block;
 }
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
+}
+.inline-flex {
+  display: inline-flex;
 }
 .table {
   display: table;
@@ -3048,14 +3069,17 @@ details-disclosure > details {
 .w-4\/5 {
   width: 80%;
 }
-.w-\[350px\] {
-  width: 350px;
+.w-\[90vw\] {
+  width: 90vw;
 }
 .w-1\/4 {
   width: 25%;
 }
 .w-1\/5 {
   width: 20%;
+}
+.w-\[350px\] {
+  width: 350px;
 }
 .w-60 {
   width: 15rem;
@@ -3102,8 +3126,8 @@ details-disclosure > details {
 .w-\[200px\] {
   width: 200px;
 }
-.w-\[10rem\] {
-  width: 10rem;
+.w-\[13rem\] {
+  width: 13rem;
 }
 .w-4 {
   width: 1rem;
@@ -3126,32 +3150,11 @@ details-disclosure > details {
 .w-3\/4 {
   width: 75%;
 }
-.w-\[220px\] {
-  width: 220px;
+.w-\[12\.5rem\] {
+  width: 12.5rem;
 }
 .w-\[240px\] {
   width: 240px;
-}
-.w-\[30\%\] {
-  width: 30%;
-}
-.w-\[90vw\] {
-  width: 90vw;
-}
-.w-\[20rem\] {
-  width: 20rem;
-}
-.w-\[18rem\] {
-  width: 18rem;
-}
-.w-\[17rem\] {
-  width: 17rem;
-}
-.w-\[12rem\] {
-  width: 12rem;
-}
-.w-\[13rem\] {
-  width: 13rem;
 }
 .max-w-\[250px\] {
   max-width: 250px;
@@ -3253,6 +3256,9 @@ details-disclosure > details {
 }
 .list-none {
   list-style-type: none;
+}
+.list-disc {
+  list-style-type: disc;
 }
 .grid-flow-col {
   grid-auto-flow: column;
@@ -3360,10 +3366,8 @@ details-disclosure > details {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
 }
-.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-y-reverse: 0;
-  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+.gap-y-1 {
+  row-gap: 0.25rem;
 }
 .justify-self-end {
   justify-self: end;
@@ -3706,6 +3710,9 @@ details-disclosure > details {
 .text-center {
   text-align: center;
 }
+.text-justify {
+  text-align: justify;
+}
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -3840,6 +3847,12 @@ details-disclosure > details {
 .opacity-40 {
   opacity: 0.4;
 }
+.opacity-60 {
+  opacity: 0.6;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -3936,14 +3949,6 @@ details-disclosure > details {
 }
 .duration-300 {
   transition-duration: 300ms;
-}
-.marker\:text-teal-700 *::marker {
-  --tw-text-opacity: 1;
-  color: rgb(15 118 110 / var(--tw-text-opacity));
-}
-.marker\:text-teal-700::marker {
-  --tw-text-opacity: 1;
-  color: rgb(15 118 110 / var(--tw-text-opacity));
 }
 .before\:w-\[15vw\]::before {
   content: var(--tw-content);
@@ -4180,6 +4185,21 @@ details-disclosure > details {
   }
 }
 @media (min-width: 1024px) {
+  .lg\:left-\[55\%\] {
+    left: 55%;
+  }
+  .lg\:left-\[54\%\] {
+    left: 54%;
+  }
+  .lg\:left-\[53\%\] {
+    left: 53%;
+  }
+  .lg\:left-\[42\%\] {
+    left: 42%;
+  }
+  .lg\:left-\[45\%\] {
+    left: 45%;
+  }
   .lg\:col-span-1 {
     grid-column: span 1 / span 1;
   }
