@@ -3629,6 +3629,9 @@ details-disclosure > details {
 .pb-4 {
   padding-bottom: 1rem;
 }
+.pt-10 {
+  padding-top: 2.5rem;
+}
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -3637,9 +3640,6 @@ details-disclosure > details {
 }
 .pl-8 {
   padding-left: 2rem;
-}
-.pt-10 {
-  padding-top: 2.5rem;
 }
 .pb-6 {
   padding-bottom: 1.5rem;
