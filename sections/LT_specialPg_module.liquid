@@ -1,0 +1,51 @@
+<section>
+    <div>abcd</div>
+</section>
+{% schema %}
+{
+  "name": "LT SpecialPG Module",
+  "tag": "section",
+  "class": "section LT_specialPage-module",
+  "max_blocks": 15,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Specials & Offers",
+      "label": "Enter special&offers page module heading"
+    },
+    {
+    "type": "collection",
+    "id": "collection",
+    "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    { 
+    "type": "range",
+    "id": "products_to_show",
+    "min": 2,
+    "max": 12,
+    "step": 2,
+    "default": 4,
+    "label": "t:sections.featured-collection.settings.products_to_show.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "t:sections.collection-list.blocks.featured_collection.name",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LT_SpecialPG Module"
+    }
+  ]
+}
+{% endschema %}

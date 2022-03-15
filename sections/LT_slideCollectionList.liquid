@@ -27,13 +27,12 @@
           <em class="tw_smallEM">{{LT_title.first}}</em> {{section.settings.title | remove_first:LT_title.first}}
         </div>
         <!-- <h2 class="collection-list-title">{{ section.settings.title | escape }}</h2> -->
-  
         {%- if section.settings.show_view_all and section.settings.swipe_on_mobile -%}
           <a href="{{ routes.collections_url }}" class="link underlined-link large-up-hide">{{ 'sections.collection_list.view_all' | t }}</a>
         {%- endif -%}
       </div>
     {% endunless %}
-  
+  abcd
     <slider-component class="slider-mobile-gutter">
       <ul class="hiddenscroll collection-list contains-card gap-4 flex relative scroll-smooth overflow-x-scroll snap-mandatory scroll-pl-3 grid--peek collection-list--{{ section.blocks.size }}-items"
         id="Slider-{{ section.id }}"
