@@ -25,7 +25,7 @@
     assign money_price1 = price | money_with_currency
   endif
 
-  if target == product and product.price_varies
+  if target != product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 -%}
@@ -59,6 +59,7 @@
         </span>
       {%- endunless -%}
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+      <span class="text-lg">From </span>
       <span class="price-item price-item--sale price-item--last">
         {{ money_price }}
       </span>

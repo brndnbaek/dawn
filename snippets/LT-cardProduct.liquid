@@ -17,21 +17,21 @@
 
 <div class="relative w-full ml-10 md:ml-[3rem] h-full mt-3 md:mt-[2rem] bg-white rounded-lg group outline outline-1 outline-neutral-400 grow-0 shrink-0 antialiased" >
   {% assign image_def = card_product.featured_media.aspect_ratio %}
-  {% if image_def > 1.1 %}
+  {% if image_def > 1.3 %}
   <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover w-[240px] md:w-[19rem] h-auto duration-300  rounded-lg top-2 -left-8 md:top-[2rem] md:-left-[1.5rem] drop-shadow-lg outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 transition"></a>
+    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover w-[240px] bg-white md:w-[19rem] h-auto duration-300  rounded-lg top-2 -left-8 md:top-[2rem] md:-left-[1.5rem] drop-shadow-lg outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 transition"></a>
   {% elsif image_def < 0.85 %}
   <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover h-[90%] max-h-[80%] md:max-h-[18rem] -top-[1rem] md:-top-[1.5rem] left-16  md:left-[1.5rem] max-w-1/2 md:max-w-[18rem] rounded-lg top-0 drop-shadow-lg outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300"></a>
+    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover bg-white h-[90%] max-h-[80%] md:max-h-[18rem] -top-[1rem] md:-top-[1.5rem] left-12  md:left-[1.5rem] max-w-1/2 md:max-w-[18rem] rounded-lg top-0 drop-shadow-lg outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300"></a>
   {% else %}
   <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover w-[200px] md:w-[60%] rounded-lg bottom-[5.5rem] -left-[1.5rem] h-auto outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300"></a>
+    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute bg-white object-cover w-[200px] md:w-[60%] rounded-lg bottom-[5.5rem] -left-[1.5rem] h-auto outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300"></a>
   {%endif%}
 
   <!-- Title box absolute location and style per image ratio  -->
   {%if card_product.tags contains 'model kit' %}
   <div class="flex flex-col items-center justify-end w-full h-full px-8 pb-1 ">
-    <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words group-hover:text-indigo-800 h-[5rem]">
+    <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words group-hover:text-indigo-800 h-[4.5rem]">
       <a href="{{card_product.url}}" class="no-underline text-neutral-800">
         {{card_product.title | escape | remove_first:my_meta.grade| remove_first:my_meta.brand |remove_first:my_meta.series|remove_first:my_meta.size}}
       
@@ -61,7 +61,7 @@
   <!-- <a href="{{card_product.url}}"><span class="absolute top-0 left-0 z-10 w-1/2 h-full"></span></a> -->
   
   <!-- pricing box  -->
-  <div class="absolute top-[60%] right-[1.25rem] rounded-lg px-2 py-1 drop-shadow-lg {%if card_product.available %} bg-slate-500{%else%} bg-neutral-500{%endif%}">
+  <div class="absolute top-[55%] right-[1.25rem] rounded-lg px-2 py-1 drop-shadow-lg {%if card_product.available %} bg-slate-500{%else%} bg-neutral-500{%endif%}">
     <a href="{{card_product.url}}" class="{%if card_product.available%}no-underline {%else%}line-through text-gray-500{%endif%}">
       {% render 'LTprice2', product: card_product, price_class: 'text-center text-neutral-100 text-2xl' %}
     </a>
@@ -71,8 +71,8 @@
   </div>
   
   <!-- top-right sub description box -->
-  <div class="absolute top-2 lg:w-[10rem]{%if image_def < 0.8 %} left-1/2 lg:left-[48%] {%elsif image_def > 1.1 %} left-[58%] lg:left-[54%] {%else%} left-[48%] lg:left-[47%]{%endif%}">
-    <ul class="flex flex-col items-start list-none gap-y-1 ">
+  <div class="absolute mx-auto top-4 {%if image_def < 0.8 %} w-[40%] md:w-[40%] right-0{%elsif image_def > 1.2 %}w-1/3 right-0{%else%} w-2/5 right-0{%endif%}">
+    <div class="flex flex-col items-start list-none gap-y-1">
       
       <!-- conditional list to show artist link either collection or by searh -->
       {% capture artist %}{{my_meta.artist | handle}}{%endcapture%}
@@ -111,8 +111,8 @@
         </li>
       </a>
       {%elsif my_meta.item_type %}
-      <li class="text-base empty:hidden ">
-      <a href="/search?q={{my_meta.item_type }}" class="no-underline">{{card_product.metafields.my_fields.item_type | truncate:15}}</a>
+      <li class="text-base rounded-md empty:hidden">
+      <a href="/search?q={{my_meta.item_type }}" class="text-gray-800 no-underline">{{card_product.metafields.my_fields.item_type | truncate:15}}</a>
       </li>
       {%endif%}
       
@@ -125,7 +125,7 @@
       </a>
       {%elsif my_meta.product_lines %}
       <li class="text-base empty:hidden ">
-        <a href="/search?q={{my_meta.product_lines }}" class="no-underline">{{card_product.metafields.my_fields.product_lines | truncate:15}}</a>
+        <a href="/search?q={{my_meta.product_lines }}" class="text-gray-800 no-underline">{{card_product.metafields.my_fields.product_lines | truncate:15}}</a>
       </li>
       {%endif%}
 
@@ -139,7 +139,7 @@
       </a>
       {%elsif my_meta.brand %}
       <li class="text-base break-words empty:hidden">
-      <a href="/search?q={{my_meta.brand }}" class="no-underline">{{card_product.metafields.my_fields.brand | truncate:15}}</a>
+      <a href="/search?q={{my_meta.brand }}" class="text-gray-800 no-underline">{{card_product.metafields.my_fields.brand | truncate:15}}</a>
       </li>
       {%endif%}
 
@@ -152,10 +152,10 @@
       </a>
       {%elsif my_meta.grade %}
       <li class="text-base empty:hidden ">
-      <a href="/search?q={{my_meta.grade }}" class="no-underline">{{card_product.metafields.my_fields.grade | truncate:15}}</a>
+      <a href="/search?q={{my_meta.grade }}" class="text-gray-800 no-underline">{{card_product.metafields.my_fields.grade | truncate:15}}</a>
       </li>
       {%endif%}
-    </ul>
+    </div>
     
   </div>
   

@@ -1,8 +1,19 @@
 <section class="pt-10 mx-auto page-width">
   <div class="tw_smallEM">Specials & Offers</div>
   
-  <div class="grid grid-cols-5 grid-rows-2">
+  <div class="grid grid-cols-2">
     <!-- -bundle saving -->
+    <div class="flex flex-col items-center bg-purple-200 rounded-lg md:col-span-1 col-span-full drop-shadow-lg">
+      <h2>{{section.settings.bundletitle}}</h2>
+      <div class="flex justify-around p-4">
+        <img src="{{section.settings.bundle_product.featured_image | img_url: '300x'}}" alt="" class="object-contain w-60 h-60">
+        <div class="flex flex-col p-4 bg-purple-300">
+          <div>product title</div>
+          <div>price</div>
+          <div>description</div>
+        </div>
+      </div>
+    </div>
     <!-- -clearance sale -->
 
   </div>
@@ -21,30 +32,16 @@
       "id": "title",
       "default": "Specials & Offers",
       "label": "Enter special&offers page module heading"
-    },
-    {
-    "type": "collection",
-    "id": "collection",
-    "label": "t:sections.featured-collection.settings.collection.label"
-    },
-    { 
-    "type": "range",
-    "id": "products_to_show",
-    "min": 2,
-    "max": 12,
-    "step": 2,
-    "default": 4,
-    "label": "t:sections.featured-collection.settings.products_to_show.label"
     }
   ],
   "blocks": [
     {
-      "type": "featured_collection",
-      "name": "t:sections.collection-list.blocks.featured_collection.name",
+      "type": "block",
+      "name": "special page block",
       "settings": [
         {
-          "type": "collection",
-          "id": "collection",
+          "type": "text",
+          "id": "featured_title",
           "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
         }
       ]
