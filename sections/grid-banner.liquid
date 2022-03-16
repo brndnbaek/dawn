@@ -51,7 +51,7 @@
             <!-- retrieve 15 product images from new-item collection  -->
             {% for product in collections['new-items'].products limit:21 %}
             <div class="flex items-center justify-center col-span-1 row-span-1">
-                <img src="{{product.featured_image | img_url: '300x'}}" alt="" class="absolute max-w-[6rem] sm:max-w-[8rem] md:max-w-[11rem] lg:max-w-[12.5rem] object-cover object-top aspect-square rounded-xl drop-shadow-lg">
+                <img src="{{ product.featured_image | img_url: '300x' }}" alt="" class="absolute max-w-[6rem] sm:max-w-[8rem] md:max-w-[11rem] lg:max-w-[12.5rem] object-cover object-top aspect-square rounded-xl drop-shadow-lg" loading="lazy">
             </div> 
             {%endfor%}
             <!-- {% for block in section.blocks %}
