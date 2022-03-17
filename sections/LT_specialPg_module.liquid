@@ -1,22 +1,66 @@
-<section class="pt-10 mx-auto page-width">
+<section class="py-10 mx-auto bg-gray-200 page-width">
   <div class="tw_smallEM">Specials & Offers</div>
-  
-  <div class="grid grid-cols-2">
-    <!-- -bundle saving -->
-    <div class="flex flex-col items-center bg-purple-200 rounded-lg md:col-span-1 col-span-full drop-shadow-lg">
-      <h2>{{section.settings.bundletitle}}</h2>
-      <div class="flex justify-around p-4">
-        <img src="{{section.settings.bundle_product.featured_image | img_url: '300x'}}" alt="" class="object-contain w-60 h-60">
-        <div class="flex flex-col p-4 bg-purple-300">
-          <div>product title</div>
-          <div>price</div>
-          <div>description</div>
+    
+    <!-- -Clearance Saving -->
+      <div class="flex items-center overflow-x-scroll gap-x-4 mx-auto scroll-smooth snap-x h-[18vh] pl-4 pt-4 pb-4">
+        <div class="flex flex-col items-start justify-center h-full p-6 bg-white rounded-md w-52 drop-shadow-lg">
+            <div class="text-3xl text-gray-700 bg-white empty:hidden">Clearance</div>
+            <div class="text-3xl text-gray-700 bg-white empty:hidden">Sale</div>
+            <div class="text-3xl text-gray-700 bg-white empty:hidden">Up to 35% off</div>
+            <button class="mt-4 text-2xl text-gray-700 bg-gray-200 rounded-md">Click More</button>
         </div>
+        {% assign loop = collections['clearance-sale'].products | reverse %}
+        {% for product in loop limit:20 %}
+        {% assign discount = product.compare_at_price | minus:product.price | times:100 | divided_by:product.compare_at_price %} 
+        {% if discount  and product.compare_at_price %}
+        
+        <a href="{{product.url}}" class="no-underline">
+        <div class="flex flex-col h-full pb-4 rounded-md drop-shadow-lg h-[17.5vh]">
+            <img src="{{product.featured_image | img_url: '220x' }}" alt="" class="object-cover object-top rounded-t-md w-52 h-60">
+            <div class="h-20 px-2 bg-amber-50 w-52">
+              <div class="pt-2 text-base text-gray-700">{{product.metafields.my_fields.series}}-{{product.metafields.my_fields.product_lines}}-{{product.metafields.my_fields.item_type}}</div>
+            </div>
+              
+            <div class="flex items-baseline w-full h-16 bg-lime-50 justfiy-center rounded-b-md">
+              <div class="px-2 pt-2 text-base text-gray-700 line-through">{{product.compare_at_price | money}}</div>
+              <div class="px-2 text-lg font-semibold text-gray-800">{{product.price | money }}</div>
+            </div>
+          </div>
+        </a>
+        {%endif%}
+        {% endfor %}
       </div>
-    </div>
-    <!-- -clearance sale -->
 
-  </div>
+    <!-- Bundle Set Deal -->
+      <div class="flex items-center pl-4 mx-auto overflow-x-scroll gap-x-4 scroll-smooth snap-x h-[18vh] my-2">
+        <div class="flex flex-col items-start justify-center p-6 bg-white rounded-md w-52 drop-shadow-lg">
+            <div class="text-3xl text-gray-700 bg-white empty:hidden">Bundle</div>
+            <div class="text-3xl text-gray-700 bg-white empty:hidden">Set</div>
+            <div class="text-3xl text-gray-700 bg-white empty:hidden">Deal</div>
+            <button class="mt-4 text-2xl text-gray-700 bg-gray-200 rounded-md">Click More</button>
+        </div>
+        {% assign loop = collections['special-bundle'].products | reverse %}
+        {% for product in loop limit:20 %}
+        {% assign discount = product.compare_at_price | minus:product.price | times:100 | divided_by:product.compare_at_price %} 
+        {% if discount  and product.compare_at_price %}
+        <div class="flex flex-col pb-4 bg-white rounded-md h-[17.5vh] drop-shadow-lg">
+          <a href="{{product.url}}" class="no-underline">
+            <img src="{{product.featured_image | img_url: '220x' }}" alt="" class="object-cover object-top rounded-t-md w-52 h-60">
+            <div class="flex-1 px-2 bg-black/60 w-52">
+              <div class="h-16 text-base text-gray-700">{{product.metafields.my_fields.series}}-{{product.metafields.my_fields.product_lines}}-{{product.metafields.my_fields.item_type}}</div>
+            </div>
+              
+            <div class="flex items-baseline w-full h-16 bg-black/60 justfiy-center rounded-b-md">
+              <div class="px-2 pt-2 text-base text-gray-700 line-through">{{product.compare_at_price | money}}</div>
+              <div class="px-2 text-lg font-semibold text-gray-800">{{product.price | money }}</div>
+            </div>
+          </a>
+          </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+    
+
 </section>
 
 
@@ -29,7 +73,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "title",
+      "id": "text_1",
       "default": "Specials & Offers",
       "label": "Enter special&offers page module heading"
     }
