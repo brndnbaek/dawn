@@ -18,14 +18,36 @@
 <div class="relative w-full ml-10 md:ml-[3rem] h-full mt-3 md:mt-[2rem] bg-white rounded-lg group outline outline-1 outline-neutral-400 grow-0 shrink-0 antialiased" >
   {% assign image_def = card_product.featured_media.aspect_ratio %}
   {% if image_def > 1.3 %}
-  <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover w-[240px] bg-white md:w-[19rem] h-auto duration-300  rounded-lg top-2 -left-8 md:top-[2rem] md:-left-[1.5rem] drop-shadow-lg outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 transition"></a>
+  <div class="absolute w-[240px] md:w-[19rem] h-auto duration-300 top-2 -left-8 md:top-[2rem] md:-left-[1.5rem] group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 transition">
+    <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+      <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="object-cover w-full h-full bg-white rounded-lg drop-shadow-lg outline-1 outline outline-slate-500"></a>
+      {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
+        {% unless the_snippet_fave_icon contains 'Liquid error' %}
+            {{ the_snippet_fave_icon }}
+        {% endunless %}
+  </div>
+  
   {% elsif image_def < 0.85 %}
-  <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute object-cover bg-white h-[90%] max-h-[80%] md:max-h-[18rem] -top-[1rem] md:-top-[1.5rem] left-12  md:left-[1.5rem] max-w-1/2 md:max-w-[18rem] rounded-lg top-0 drop-shadow-lg outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300"></a>
-  {% else %}
-  <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-    <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="absolute bg-white object-cover w-[200px] md:w-[60%] rounded-lg bottom-[5.5rem] -left-[1.5rem] h-auto outline-1 outline outline-slate-500 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300"></a>
+  <div class="absolute h-[90%] max-h-[80%] md:max-h-[18rem] -top-[1rem] md:-top-[1.5rem] left-12  md:left-[1.5rem] max-w-1/2 md:max-w-[18rem] top-0 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300">
+    <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+      <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="relative object-cover w-full h-full bg-white rounded-lg drop-shadow-lg outline-1 outline outline-slate-500 "></a>
+      {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
+        {% unless the_snippet_fave_icon contains 'Liquid error' %}
+            {{ the_snippet_fave_icon }}
+        {% endunless %}
+      </div>
+    {% else %}
+
+  <div class="absolute w-[200px] md:w-[60%] bottom-[5.5rem] -left-[1.5rem] h-auto group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300 ">
+    <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+      <img src="{{card_product.featured_media | img_url: 'x350'}}" alt="" class="relative object-cover w-full h-full bg-white rounded-lg outline-1 outline outline-slate-500"></a>
+        <!-- <div class="absolute top-0 right-0 scale-75" > -->
+          {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
+        {% unless the_snippet_fave_icon contains 'Liquid error' %}
+            {{ the_snippet_fave_icon }}
+        {% endunless %}
+        <!-- </div> -->
+  </div>
   {%endif%}
 
   <!-- Title box absolute location and style per image ratio  -->
@@ -33,7 +55,7 @@
   <div class="flex flex-col items-center justify-end w-full h-full px-8 pb-1 ">
     <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words group-hover:text-indigo-800 h-[4.5rem]">
       <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-        {{card_product.title | escape | remove_first:my_meta.grade| remove_first:my_meta.brand |remove_first:my_meta.series|remove_first:my_meta.size}}
+        {{card_product.title | escape | remove_first:my_meta.grade| remove_first:my_meta.brand |remove_first:my_meta.series|remove_first:my_meta.size |truncate:90}}
       
       <div class="absolute inset-0 w-full h-full bg-indigo-200 opacity-30 filter rounded-xl blur-lg"> </div></a>
     </div>
@@ -42,14 +64,14 @@
   {%elsif image_def < 0.8 %}
   <div class="flex flex-col items-center justify-end w-full h-full px-8 pb-1">
     <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words text-neutral-800 h-[4.5rem]">
-      <a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | escape |remove:'K-Pop CD'|remove:'K-pop CD'}}
+      <a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | escape |remove:'K-Pop CD'|remove:'K-pop CD' |truncate:90}}
       <div class="absolute inset-0 w-full h-full bg-indigo-200 opacity-30 filter rounded-xl blur-lg"> </div></a>
     </div>
   </div>
   {%else %}
   <div class="flex flex-col items-center justify-end w-full h-full px-8 pb-1">
     <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words text-neutral-800 h-[4.5rem]">
-      <a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | escape |remove:'K-Pop CD'|remove:'K-pop CD'}}
+      <a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | escape |remove:'K-Pop CD'|remove:'K-pop CD' |truncate:90}}
       <div class="absolute inset-0 w-full h-full bg-indigo-200 opacity-30 filter rounded-xl blur-lg -z-0"> </div>
     </a>
     </div>
@@ -183,13 +205,7 @@
       </div>
     {%endif%} 
   </div>
-  <!-- growave wishlist button  -->
-    <div class="absolute left-0 scale-75 bottom-8 w-[4rem]" >
-      {% capture the_snippet_fave_icon %}{% render 'ssw-widget-faveicon' with card_product.id %}{% endcapture %}
-    {% unless the_snippet_fave_icon contains 'Liquid error' %}
-         {{ the_snippet_fave_icon }}
-    {% endunless %}
-    </div>
+  
   </div>
 
 <!-- * commented out for later use 

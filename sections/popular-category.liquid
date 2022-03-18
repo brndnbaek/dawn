@@ -19,7 +19,9 @@
         {%endif%}
         {%assign keytag  = keyword | downcase %}
             <div class="px-3 py-2 text-xl rounded-2xl outline-2 outline-rose-300 outline grow-0 shrink-0 link_style hover:outline-4 hover:bg-rose-50 snap-center">
-                {{keyword | link_to: url}}
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1 align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>{{keyword | link_to: url}}
             </div>
         {% endfor %}
     </div>
