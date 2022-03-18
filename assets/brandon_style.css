@@ -2963,6 +2963,9 @@ details-disclosure > details {
 .h-\[4vh\] {
   height: 4vh;
 }
+.h-\[100px\] {
+  height: 100px;
+}
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -3100,6 +3103,12 @@ details-disclosure > details {
 }
 .w-3\/4 {
   width: 75%;
+}
+.w-1\/6 {
+  width: 16.666667%;
+}
+.w-\[100px\] {
+  width: 100px;
 }
 .max-w-\[250px\] {
   max-width: 250px;
@@ -3296,6 +3305,15 @@ details-disclosure > details {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+}
+.divide-red-600 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-divide-opacity));
 }
 .justify-self-end {
   justify-self: end;
