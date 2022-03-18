@@ -35,6 +35,7 @@
     },
     "1645973077f0466c22": {
       "type": "LT-main-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 24,
         "image_ratio": "square",
