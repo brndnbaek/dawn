@@ -18,66 +18,18 @@
           <input type="submit" value="Add to cart" class="btn" />
         </form>
     </div> -->
-    <form method="post" action="/cart/add">
-		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-      	<br />
-          
-        {% comment %}
-        //Previously quantity selector//
- 		<center><input min="1" type="number" id="quantity" name="quantity" value="1"/></center>
-		{% endcomment %}
-          
-           {% capture "form_classes" %}
-              product-single__form{% if card_product.has_only_default_variant %} product-single__form--no-variants{% endif %}
-            {%- endcapture %}
-
-            {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
-
-            {% form 'product', card_product, class:form_classes, id:form_id, data-product-form: '' %}
-              {% unless card_product.has_only_default_variant %}
-                {% for option in card_product.options_with_values %}
-                  <div class="radio-wrapper js product-form__item">
-                    <label class="single-option-radio__label"
-                      for="ProductSelect-option-{{ forloop.index0 }}">
-                      {{ option.name | escape }}
-                    </label>
-                        <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                        {% for value in option.values %}
-                          <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
-                        {% endfor %}
-                      </select>
-                  </div>
-                {% endfor %}
-              {% endunless %}
-
-              <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js">
-                {% for variant in card_product.variants %}
-                  {% if variant.available %}
-                    <option {% if variant == card_product.selected_or_first_available_variant %}
-                      selected="selected" {% endif %}
-                      data-sku="{{ variant.sku }}"
-                      value="{{ variant.id }}">
-                      {{ variant.title }} - {{ variant.price | money_with_currency }} 
-                    </option>
-                  {% else %}
-                    <option disabled="disabled">
-                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                    </option>
-                  {% endif %}
-                {% endfor %}
-              </select>
-
-              <div class="product-single__quantity">
-                <label for="Quantity" class="product-single__quantity-label js-quantity-selector">Qty: </label>
-               
-                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
-          
-            </div>
-            {% endform %}
-
-          {%comment%} Add to cart button {%endcomment%}
-          <input type="submit" value="{% if card_product.variants.first.available%}Add to Cart{% else %}Sold Out{% endif%}" class="btn" {% unless card_product.variants.first.available %}disabled{% endunless %} />
-
-        </form>
+    <form action="/cart/add" method="post" style="text-align:center;">
+        <select name="id">
+        {% for variant in card_product.variants %}
+          {% if variant.available %}
+          <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          {% else %}
+          <option disabled="disabled">{{ variant.title }} - Sold Out</option>
+          {% endif %}
+          {% assign selected_variant = variant.title %}
+        {% endfor %}
+        </select>
+        <button type="submit" value="Buy now" />Add</button>
+      </form>
 
   </div>

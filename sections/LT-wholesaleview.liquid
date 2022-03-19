@@ -41,7 +41,7 @@
 <div class="section-{{ section.id }}-paddin bg-lt-white">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'facets_atc.js' | asset_url }}" defer="defer"></script>
   
   <div class="mx-auto md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
@@ -64,7 +64,7 @@
             <span tabindex="0" class="mobile-facets__close mobile-facets__close--no-js">{%- render 'icon-close' -%}</span>
           </summary>
           <facet-filters-form>
-            <form id="FacetFiltersFormMobile" class="mobile-facets">
+            <form id="FacetFiltersFormMobile" class="mobile-facets Filterform">
               <div class="mobile-facets__inner">
                 <div class="mobile-facets__header">
                   <div class="mobile-facets__header-inner">
@@ -298,7 +298,7 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 col-span-2 gap-y-4 small-hide DELfacets__wrapper">
+          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 col-span-2 gap-y-4 small-hide DELfacets__wrapper Filterform">
             <!-- {%- unless results.filters == empty -%}
               <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
             {%- endunless -%} -->
@@ -454,7 +454,7 @@
             
             <div class="flex flex-col w-4/5 threecomponents">
               <!-- facets button  -->
-              <div class="flex items-center gap-4 mx-3 DELactive-facets active-facets-desktop">
+              <div class="flex items-center gap-4 mx-3 DELactive-facets active-facets-desktop Filterform">
                 {%- for filter in results.filters -%}
                   {%- for value in filter.active_values -%}
                     <facet-remove>
@@ -511,7 +511,7 @@
                   </div>
                 </div>
                 <!-- sortby selector  -->
-                <div class="flex items-end mx-3 LT_sorting">
+                <div class="flex items-end mx-3 LT_sorting Filterform">
                   <div class="facet-filters sorting caption">
                     <div class="flex items-center text-xl DELfacet-filters__field">
                       <div class="text-gray-800 DELfacet-filters__label DELcaption-large DELtext-body">
