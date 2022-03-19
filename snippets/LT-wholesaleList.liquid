@@ -22,13 +22,15 @@
         <select name="id">
         {% for variant in card_product.variants %}
           {% if variant.available %}
-          <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }} ({{variant.inventory_quantity}})</option>
           {% else %}
           <option disabled="disabled">{{ variant.title }} - Sold Out</option>
           {% endif %}
           {% assign selected_variant = variant.title %}
         {% endfor %}
         </select>
+        <label for="Quantity" >Quantity: </label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{card_product.selected_or_first_available_variant.inventory_quantity}}">
         <button type="submit" value="Buy now" />Add</button>
       </form>
 
