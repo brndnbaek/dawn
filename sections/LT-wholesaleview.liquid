@@ -4,8 +4,6 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 {%- style -%}
@@ -43,7 +41,7 @@
 <div class="section-{{ section.id }}-paddin bg-lt-white">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'facets_atc.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   
   <div class="mx-auto md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
@@ -201,7 +199,7 @@
                       </details>
                     {% endcase %}
                   {%- endfor -%}
-                  {%- if enable_sorting -%}
+                  <!-- {%- if enable_sorting -%} -->
                     <div class="mobile-facets__details js-filter" data-index="mobile-{{ forloop.index }}">
                       <div class="mobile-facets__summary">
                         <div class="mobile-facets__sort">
@@ -217,7 +215,7 @@
                         </div>
                       </div>
                     </div>
-                  {%- endif -%}
+                  <!-- {%- endif -%} -->
                   <div class="mobile-facets__footer">
                     <facet-remove class="mobile-facets__clear-wrapper">
                       <a href="{{ results_url }}" class="mobile-facets__clear underlined-link">{{ 'products.facets.clear_all' | t }}</a>
@@ -291,13 +289,13 @@
       </div>
     </div>
 <!-- recreated page layout to show filter&sort with product grid  -->
-    <facet-filters-form class="DELfacets ">
+    <facet-filters-form class="DELfacets">
       <form id="FacetFiltersForm" class="relative grid grid-cols-12 DELfacets__form">
 
-        <!-- {%- if results.terms -%}
+        {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
           <input name="options[prefix]" type="hidden" value="last">
-        {%- endif -%} -->
+        {%- endif -%}
           
           <!-- sidebar filters -->
           <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 col-span-2 gap-y-4 small-hide DELfacets__wrapper Filterform">
@@ -341,39 +339,7 @@
                           </label>
                         </li>
                       {%- endfor -%}
-                      <!-- {%- for value in filter.values -%}
-                        <li class="ml-3 DELlist-menu__item DELfacets__item {%if value.count == 0 and value.active == false%}hidden{%endif%}">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="items-start DELfacet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
-                            <input type="checkbox"
-                              name="{{ value.param_name }}"
-                              value="{{ value.value }}"
-                              id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                              {% if value.active %}checked{% endif %}
-                              {% if value.count == 0 and value.active == false %}disabled{% endif %}
-                            >
-
-                            <svg width="1.2rem" height="1.2rem" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
-                              <rect width="10" height="10" stroke="currentColor" fill="none" stroke-width="1"></rect>
-                            </svg>
-
-                            <svg class="icon icon-checkmark"
-                              width="1rem"
-                              height="0.7rem"
-                              viewBox="0 0 11 7"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg">
-
-                              <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
-                                stroke="currentColor"
-                                stroke-width="1.75"
-                                stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            </svg>
-
-                            {{ value.label | escape }} ({{ value.count }})
-                          </label>
-                        </li>
-                      {%- endfor -%} -->
+                      
                     </ul>
                   </div>
                 </details>
