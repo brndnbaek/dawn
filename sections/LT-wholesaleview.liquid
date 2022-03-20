@@ -41,7 +41,7 @@
 <div class="section-{{ section.id }}-paddin bg-lt-white">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'facets_atc.js' | asset_url }}" defer="defer"></script>
   
   <div class="mx-auto md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
@@ -292,13 +292,13 @@
     <facet-filters-form class="DELfacets">
       <form id="FacetFiltersForm" class="relative grid grid-cols-12 DELfacets__form">
 
-        {%- if results.terms -%}
-          <input type="hidden" name="q" value="{{ results.terms | escape }}">
-          <input name="options[prefix]" type="hidden" value="last">
-        {%- endif -%}
-          
-          <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 col-span-2 gap-y-4 small-hide DELfacets__wrapper Filterform">
+        
+        <!-- sidebar filters -->
+        <div id="FacetsWrapperDesktop" class="justify-self-end w-full max-w-[250px] flex flex-col row-span-1 row-start-2 px-2 pt-6 mr-3 col-span-2 gap-y-4 small-hide DELfacets__wrapper Filterform">
+            {%- if results.terms -%}
+              <input type="hidden" name="q" value="{{ results.terms | escape }}">
+              <input name="options[prefix]" type="hidden" value="last">
+            {%- endif -%}
             <!-- {%- unless results.filters == empty -%}
               <h3 class="DELfacets__heading DELcaption-large DELtext-body">{{ 'products.facets.filter_by_label' | t }}</h3>
             {%- endunless -%} -->
@@ -420,7 +420,7 @@
               Collection Filter:
             </div>
             
-            <div class="flex flex-col w-4/5 threecomponents">
+            <div class="flex flex-col w-4/5 threecomponents Filterform">
               <!-- facets button  -->
               <div class="flex items-center gap-4 mx-3 DELactive-facets active-facets-desktop Filterform">
                 {%- for filter in results.filters -%}
@@ -457,7 +457,7 @@
                 {%endunless%}
               </div>
               
-              <div class="flex justify-between sortandcounterLine">
+              <div class="flex justify-between sortandcounterLine ">
                 
                 <!-- product counter      -->
                 <div class="product-count light" role="status">
@@ -479,7 +479,7 @@
                   </div>
                 </div>
                 <!-- sortby selector  -->
-                <div class="flex items-end mx-3 LT_sorting Filterform">
+                <div class="flex items-end mx-3 LT_sorting">
                   <div class="facet-filters sorting caption">
                     <div class="flex items-center text-xl DELfacet-filters__field">
                       <div class="text-gray-800 DELfacet-filters__label DELcaption-large DELtext-body">
@@ -523,7 +523,7 @@
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
 <!-- new type layered cards style            -->
-          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col w-full gap-2 drop-shadow-lg">
+          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col w-full gap-4 p-2">
             
             {%- for product in collection.products -%}
               {% assign lazy_load = false %}
