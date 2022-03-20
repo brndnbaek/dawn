@@ -36,9 +36,20 @@
           <label for="Quantity" class="inline-block text-lg" >Qty:</label>
           <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" max="{{card_product.selected.inventory_quantity}}" class="text-lg block w-[5rem] h-full pl-4 pr-2  leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline">
         </div>
-      <input id="submit" name="add" type="submit" value="Add to cart" class="w-40 h-12 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400">
-      <input type="hidden" name="return_to" value="back" />
+      <input id="submit" name="add" type="submit" value="Add to cart" class="w-40 h-12 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400" onsubmit="foo();">
+      <input type="hidden" name="return_to" value="back"  />
     </div>
     {%endform%}
   <!-- </form> -->
 </div>
+<script type='text/javascript'>
+  function foo() {
+    var user_choice = window.confirm('Confirm: Item added to cart');
+  if(user_choice==true) {
+  window.location= "element.submit()";  
+  } else {
+  return false;
+  }
+  }
+  
+  </script>
