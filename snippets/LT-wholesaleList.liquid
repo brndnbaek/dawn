@@ -13,9 +13,8 @@
   
   <!-- basic add to cart function works but selector quantity limit doesn't work -->
     {%- assign product_form_id = 'product-form-' | append: card_product.id -%}
-    {%comment%}
-    {% form 'product', card_product, data-productid: card_product.id, id: product_form_id ,class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' %}{%endform%}{%endcomment%}
-    <form method="post" action="/cart/add">
+    {% form 'product', card_product, data-productid: card_product.id, id: product_form_id ,class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
+    <!-- <form method="post" action="/cart/add"> -->
     <div class="flex items-center h-full gap-x-6">
       <div class="relative">
         <select name="id" data-productid="{{card_product.id}}" class="text-lg block w-[12rem] h-14 px-4 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline">
@@ -39,5 +38,6 @@
       </div>
       <input id="submit" name="add" type="submit" value="Add to cart" class="w-40 h-12 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400">
     </div>
-  </form>
+    {%endform%}
+  <!-- </form> -->
 </div>
