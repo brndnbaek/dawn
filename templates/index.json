@@ -99,6 +99,8 @@
             "duration": 10
           }
         },
+        "button": {
+          "type": "buttons",
         "a4f1952d-cac9-404f-99bd-676a5b3f6305": {
           "type": "gridbackground",
           "settings": {
@@ -142,7 +144,16 @@
         "23bc3ef6-1cbb-4c10-adbc-764de42e63cb"
       ],
       "settings": {
-        "title": "Lil'Thingamajigs"
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "164444411508538f0a": {

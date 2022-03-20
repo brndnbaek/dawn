@@ -26,9 +26,9 @@
       <h2 class="page-width product-recommendations__heading">{{ section.settings.heading | escape }}</h2>
       
       
-      <ul class="w-[90vw] md:w-screen flex flex-col flex-wrap md:flex-nowrap md:overflow-scroll md:h-[29rem] items-center gap-y-16 md:gap-x-14 md:flex-row md:justify-start md:items-start md:gap-y-12" role="list">
+      <div class="w-[90vw] md:w-screen flex flex-col flex-wrap md:flex-nowrap md:overflow-scroll md:h-[29rem] items-center gap-y-16 md:gap-x-14 md:flex-row md:justify-center md:items-start md:gap-y-12" role="list">
         {% for recommendation in recommendations.products %}
-          <li class="w-[85vw] h-[22rem] md:h-[24rem] md:gap-y-0 md:w-[28rem] lg:w-[28rem] flex flex-col justify-start items-center md:shrink-0">
+          <div class="w-[85vw] h-[22rem] md:h-[24rem] md:gap-y-0 md:w-[28rem] lg:w-[28rem] flex flex-col justify-start items-center md:shrink-0">
             {% render 'LT-cardProduct',
               card_product: recommendation,
               media_aspect_ratio: section.settings.image_ratio,
@@ -36,9 +36,9 @@
               show_vendor: section.settings.show_vendor,
               show_rating: section.settings.show_rating
             %}
-          </li>
+          </div>
         {% endfor %}
-      </ul>
+      </div>
       {%comment%}
       <!-- <ul class="grid_dawn grid--2-col product-grid{% if recommendations.products_count > 3 %} grid--4-col-desktop grid--quarter-max{% else %} grid--{{ recommendations.products_count }}-col-tablet{% endif %}" role="list">
         {% for recommendation in recommendations.products %}
@@ -112,6 +112,44 @@
     },
     {
       "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.product-recommendations.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.product-recommendations.settings.columns_desktop.label"
+    },
+    {
+      "type": "select",
       "id": "color_scheme",
       "options": [
         {
@@ -181,6 +219,26 @@
       "default": false,
       "label": "t:sections.product-recommendations.settings.show_rating.label",
       "info": "t:sections.product-recommendations.settings.show_rating.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product-recommendations.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.product-recommendations.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.product-recommendations.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.product-recommendations.settings.columns_mobile.options__2.label"
+        }
+      ]
     },
     {
       "type": "header",
