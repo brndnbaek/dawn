@@ -19,6 +19,10 @@
     }
   }
 {%- endstyle -%}
+
+<!-- script for Add to cart on collection page -->
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
 {%- liquid
   if search.performed
     assign results = search
