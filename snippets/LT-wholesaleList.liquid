@@ -30,12 +30,12 @@
               {% endfor %}
             </select>
             
-            <div class="DELquantity relative w-[14rem] flex rounded min-h-10 border border-solid inline-block">
-              <button class="quantity__button no-js-hidden" name="minus" type="button">
-                <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+            <div class="qtybox DELquantity relative w-[14rem] flex rounded min-h-10 border border-solid inline-block">
+              <button class="btnqty qtyminus quantity__button no-js-hidden" name="minus" type="button">
+                <span class="visually-hidden">{{ 'card_product.product.quantity.decrease' | t: product: product.title | escape }}</span>
                 {% render 'icon-minus' %}
               </button>
-              <input class="quantity__input"
+              <input class="quantity__input quantity-input"
                   type="number"
                   name="quantity"
                   id="Quantity"
@@ -43,8 +43,8 @@
                   value="1"
                   form="{{ product_form_id }}"
                 >
-              <button class="quantity__button no-js-hidden" name="plus" type="button">
-                <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+              <button class="btnqty qtyplus quantity__button no-js-hidden" name="plus" type="button">
+                <span class="visually-hidden">{{ 'card_products.product.quantity.increase' | t: product: product.title | escape }}</span>
                 {% render 'icon-plus' %}
               </button>
             </div>
@@ -58,13 +58,25 @@
   <!-- </form> -->
 </div>
 <script type='text/javascript'>
-  function foo() {
-    var user_choice = window.confirm('Confirm: Item added to cart');
-  if(user_choice==true) {
-  window.location= "element.submit()";  
-  } else {
-  return false;
-  }
-  }
+  // function foo() {
+  //   var user_choice = window.confirm('Confirm: Item added to cart');
+  // if(user_choice==true) {
+  // window.location= "element.submit()";  
+  // } else {
+  // return false;
+  // }
+  // }
   
+  $('.qtybox .btnqty').on('click', function(){
+          var qty = parseInt($(this).parent('.qtybox').find('.quantity-input').val());
+          if($(this).hasClass('qtyplus')) {
+            qty++;
+          }else {
+            if(qty > 1) {
+              qty--;
+            }
+          }
+          qty = (isNaN(qty))?1:qty;
+          $(this).parent('.qtybox').find('.quantity-input').val(qty);
+        }); 
   </script>
