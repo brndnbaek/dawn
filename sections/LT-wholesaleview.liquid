@@ -47,7 +47,7 @@
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets_atc.js' | asset_url }}" defer="defer"></script>
   
-  <div class="mx-auto md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
+  <div class="md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
     <div class="LT_mobileFilterButton">
       <menu-drawer class="mobile-facets__wrapper {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}" data-breakpoint="mobile">
@@ -504,6 +504,7 @@
                     </noscript>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -527,7 +528,7 @@
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
 <!-- new type layered cards style            -->
-          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col w-full gap-4 p-2">
+          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col gap-4 p-2">
             
             {%- for product in collection.products -%}
               {% assign lazy_load = false %}
