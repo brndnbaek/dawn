@@ -1,11 +1,11 @@
 <!-- <div class="flex w-full h-[16rem] lg:h-[8.5rem] p-1 border border-solid rounded shadow border-rose-100 hover:border-rose-300 hover:bg-white border-1 flex-nowrap delay-100"> -->
 <div class="grid grid-cols-5 delay-100 border border-solid rounded shadow place-items-center border-rose-100 hover:border-rose-300 hover:bg-white border-1 flex-nowrap">
   <div class="col-span-1 row-span-1 lg:row-span-2">
-    <a href="{{card_product.url}}"><img src="{{card_product.featured_image | img_url:'250x'}}" alt="" class="object-cover w-full max-w-[100px] h-auto p-2 aspect-square" loading="lazy"></a>
+    <a href="{{card_product.url}}"><img src="{{card_product.featured_image | img_url:'250x'}}" alt="" class="object-cover w-full max-w-[100px] lg:max-w-[150px] h-auto p-2 aspect-square" loading="lazy"></a>
   </div>
   
-  <div class="flex flex-col col-span-4 col-start-2 row-span-1 row-start-1 px-4 py-2 text-lg">
-    <div class="block font-semibold">{{card_product.title | truncate:90}}</div>
+  <div class="flex flex-col w-full col-span-4 col-start-2 row-span-1 row-start-1 px-4 py-2 text-lg">
+    <div class="block font-semibold"><a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | truncate:90}}</a></div>
     <div class="flex justify-between w-3/4">
       <div class="block">{{card_product.metafields.my_fields.item_type}}</div>
       <div class="block text-2xl text-slate-700">{{card_product.price | money}}</div>
@@ -15,24 +15,44 @@
   <!-- basic add to cart function works but selector quantity limit doesn't work -->
     {%- assign product_form_id = 'product-form-' | append: card_product.id -%}
     <!-- <form method="post" action="/cart/add"> -->
-      <div class="row-span-1 row-start-2 pb-2 col-span-full lg:col-span-4 lg:col-start-2">
+      <div class="w-full row-span-1 row-start-2 pb-2 col-span-full lg:col-span-4 lg:col-start-2">
       {% form 'product', card_product, id: product_form_id ,class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
-          <select name="id" data-productid="{{card_product.id}}" class="px-4 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[15rem] h-10">
-            <option>Choose a Variant</option>
-            {% for variant in card_product.variants %}
-            {% if variant.available %}
-            <option value="{{ variant.id }}" class="text-lg w-[15rem]">{{ variant.title }} - {{ variant.price | money }} ({{variant.inventory_quantity}})</option>
-            {% else %}
-            <option disabled="disabled">{{ variant.title }} - Sold Out</option>
-            {% endif %}
-            {% assign selected_variant = variant.title %}
-            {% endfor %}
-          </select>
-          
-          <label for="Quantity" class="text-lg" >Qty:</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1" max="{{card_product.selected.inventory_quantity}}" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem]">
-      <input id="submit" name="add" type="submit" value="Add to cart" class="w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400" onsubmit="foo();">
-      <input type="hidden" name="return_to" value="back"  />
+          <div class="flex justify-center gap-4 lg:justify-start">
+            <select name="id" data-productid="{{card_product.id}}" class="inline-block px-4 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[15rem] lg:w-[20rem] h-10">
+              <option>Choose a Variant</option>
+              {% for variant in card_product.variants %}
+              {% if variant.available %}
+              <option value="{{ variant.id }}" class="text-lg w-[15rem]">{{ variant.title }} - {{ variant.price | money }} ({{variant.inventory_quantity}})</option>
+              {% else %}
+              <option disabled="disabled">{{ variant.title }} - Sold Out</option>
+              {% endif %}
+              {% assign selected_variant = variant.title %}
+              {% endfor %}
+            </select>
+            
+            <div class="DELquantity relative w-[14rem] flex rounded min-h-10 border border-solid inline-block">
+              <button class="quantity__button no-js-hidden" name="minus" type="button">
+                <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                {% render 'icon-minus' %}
+              </button>
+              <input class="quantity__input"
+                  type="number"
+                  name="quantity"
+                  id="Quantity"
+                  min="1"
+                  value="1"
+                  form="{{ product_form_id }}"
+                >
+              <button class="quantity__button no-js-hidden" name="plus" type="button">
+                <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                {% render 'icon-plus' %}
+              </button>
+            </div>
+            <!-- <label for="Quantity" class="text-lg" >Qty:</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" max="{{card_product.selected.inventory_quantity}}" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem]"> -->
+                  <input id="submit" name="add" type="submit" value="Add to cart" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400" onsubmit="foo();">
+                  <input type="hidden" name="return_to" value="back"  />
+          </div>
       {%endform%}
     </div>
   <!-- </form> -->
