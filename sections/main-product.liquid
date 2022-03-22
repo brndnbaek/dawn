@@ -196,13 +196,31 @@
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 <div>
+  {%assign product_meta = product.metafields.my_fields%}
+  {%capture lineup%}{{product_meta.product_lines | handle}}{%endcapture%}
+  {%capture item_type%}{{product_meta.item_type | handle}}{%endcapture%}
+  {%capture artist%}{{product_meta.artist | handle}}{%endcapture%}
+  
   {% case product.type %}
   {% when 'Kpop CD'%}
-  <span>Artist:</span>
-  <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none" class="full-unstyled-link">{{product.metafields.my_fields.artist}}</a>
+    {% if collections[artist].products.size != 0 %}
+      <a href="/collections/{{artist}}" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.artist}}</a>
+    {%elsif product.metafields.my_fields.artist %}
+      <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.artist}}</a>
+    {%endif%}
+
   {% when 'Figure'%}
-  <span>Product Lineup:</span>
-  <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="full-unstyled-link">{{product.metafields.my_fields.product_lines}}</a>
+    
+    {% if collections[lineup].products.size != 0 %}
+      <a href="/collections/{{lineup}}" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.product_lines}}</a>
+    {%elsif product.metafields.my_fields.product_lines %}
+      <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.product_lines}}</a>
+    {%endif%}
+    {% if collections[item_type].products.size != 0 %}
+      <a href="/collections/{{item_type}}" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.item_type}}</a>
+    {%elsif product.metafields.my_fields.item_type %}
+      <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.item_type}}</a>
+    {%endif%}
   {%endcase%}
 </div>
         {%- for block in section.blocks -%}

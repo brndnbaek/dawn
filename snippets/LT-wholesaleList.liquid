@@ -1,7 +1,7 @@
 <!-- <div class="flex w-full h-[16rem] lg:h-[8.5rem] p-1 border border-solid rounded shadow border-rose-100 hover:border-rose-300 hover:bg-white border-1 flex-nowrap delay-100"> -->
 <div class="grid grid-cols-5 delay-100 border border-solid rounded shadow place-items-center border-rose-100 hover:border-rose-300 hover:bg-white border-1 flex-nowrap">
   <div class="col-span-1 row-span-1 lg:row-span-2">
-    <a href="{{card_product.url}}"><img src="{{card_product.featured_image | img_url:'250x'}}" alt="" class="object-cover w-full max-w-[100px] lg:max-w-[150px] h-auto p-2 aspect-square" loading="lazy"></a>
+    <a href="{{card_product.url}}"><img src="{{card_product.featured_image | image_url: width:150 }}" alt="" class="object-cover w-full max-w-[100px] lg:max-w-[150px] h-auto p-2 aspect-square" loading=lazy></a>
   </div>
   
   <div class="flex flex-col w-full col-span-4 col-start-2 row-span-1 row-start-1 px-4 py-2 text-lg">
@@ -30,7 +30,7 @@
               {% endfor %}
             </select>
             
-            <div class="qtybox DELquantity relative w-[14rem] flex rounded min-h-10 border border-solid inline-block">
+            <!-- <div class="qtybox DELquantity relative w-[14rem] flex rounded min-h-10 border border-solid inline-block">
               <button class="btnqty qtyminus quantity__button no-js-hidden" name="minus" type="button">
                 <span class="visually-hidden">{{ 'card_product.product.quantity.decrease' | t: product: product.title | escape }}</span>
                 {% render 'icon-minus' %}
@@ -38,7 +38,7 @@
               <input class="quantity__input quantity-input"
                   type="number"
                   name="quantity"
-                  id="Quantity"
+                  id="Quantity-{{card_product.id}}"
                   min="1"
                   value="1"
                   form="{{ product_form_id }}"
@@ -47,10 +47,10 @@
                 <span class="visually-hidden">{{ 'card_products.product.quantity.increase' | t: product: product.title | escape }}</span>
                 {% render 'icon-plus' %}
               </button>
-            </div>
-            <!-- <label for="Quantity" class="text-lg" >Qty:</label>
-            <input type="number" id="Quantity" name="quantity" value="1" min="1" max="{{card_product.selected.inventory_quantity}}" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem]"> -->
-                  <input id="submit" name="add" type="submit" value="Add to cart" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400" onsubmit="foo();">
+            </div> -->
+            <label for="Quantity" class="text-lg" >Qty:</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" max="{{card_product.selected.inventory_quantity}}" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem]">
+                  <input id="submit-{{card_product.id}}" name="add" type="submit" value="Add to cart" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400" onsubmit="foo();">
                   <input type="hidden" name="return_to" value="back"  />
           </div>
       {%endform%}
