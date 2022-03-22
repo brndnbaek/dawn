@@ -16,7 +16,7 @@
     {%- assign product_form_id = 'product-form-' | append: card_product.id -%}
     <!-- <form method="post" action="/cart/add"> -->
       <div class="w-full row-span-1 row-start-2 pb-2 col-span-full lg:col-span-4 lg:col-start-2">
-      {% form 'product', card_product, id: product_form_id ,class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
+        {% form 'product', card_product, id: product_form_id ,class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
           <div class="flex justify-center gap-4 lg:justify-start">
             <select name="id" data-productid="{{card_product.id}}" class="inline-block px-4 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[15rem] lg:w-[20rem] h-10">
               <option>Choose a Variant</option>
@@ -50,10 +50,14 @@
             </div> -->
             <label for="Quantity" class="text-lg" >Qty:</label>
             <input type="number" id="Quantity" name="quantity" value="1" min="1" max="{{card_product.selected.inventory_quantity}}" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem]">
-                  <input id="submit-{{card_product.id}}" name="add" type="submit" value="Add to cart" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded product-form__submit hover:bg-orange-400" onsubmit="foo();">
-                  <input type="hidden" name="return_to" value="back"  />
-          </div>
-      {%endform%}
+                  
+                    <input id="submit-{{card_product.id}}" name="add" type="submit" value="Add to cart" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded hover:bg-orange-400 add-to-cart" onclick="foo();">
+                    <div id="popupATC" class="relative hidden w-full text-base">
+                      <div class="absolute w-full -top-4 outline outline-1">{{cart.item_count}}</div>
+                    </div>
+                    <input type="hidden" name="return_to" value="back"  />
+                  </div>
+                  {%endform%}
     </div>
   <!-- </form> -->
 </div>
@@ -66,17 +70,17 @@
   // return false;
   // }
   // }
+
+  function foo() {
+    document.getElementById("popupATC").removeClass("hidden");
+    
+  }
   
-  $('.qtybox .btnqty').on('click', function(){
-          var qty = parseInt($(this).parent('.qtybox').find('.quantity-input').val());
-          if($(this).hasClass('qtyplus')) {
-            qty++;
-          }else {
-            if(qty > 1) {
-              qty--;
-            }
-          }
-          qty = (isNaN(qty))?1:qty;
-          $(this).parent('.qtybox').find('.quantity-input').val(qty);
-        }); 
+//   var _learnq = _learnq || [];
+//   var classname = document.getElementsByClassName("add-to-cart");
+// var addToCart = function() {
+// _learnq.push(['track', 'Added to Cart', item]);
+// }; for (var i = 0; i < classname.length; i++) {
+// classname[i].addEventListener('click', addToCart, false);
+// }
   </script>

@@ -4343,6 +4343,16 @@ details-disclosure > details {
     -moz-column-gap: 3.5rem;
          column-gap: 3.5rem;
   }
+  .md\:gap-y-16 {
+    row-gap: 4rem;
+  }
+  .md\:gap-y-20 {
+    row-gap: 5rem;
+  }
+  .md\:gap-x-12 {
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
+  }
   .md\:overflow-x-scroll {
     overflow-x: scroll;
   }
