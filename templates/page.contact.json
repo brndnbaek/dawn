@@ -2,13 +2,58 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16479209293974e4ba": {
+      "type": "image-with-text",
+      "blocks": {
+        "1647920929219f32e0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lil'Thingamajigs Online Store",
+            "heading_size": "h2"
+          }
+        },
+        "1647920929219f32e0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Need help with online store?<\/p><p>Our live chat agent is ready to assist you from 10am to 6pm (Mon. ~ Fri.) <\/p><p><\/p><p>All other inquiry at <a href=\"mailto:contact@lilthinga.com\" title=\"mailto:contact@lilthinga.com\">contact@lilthinga.com<\/a><\/p><p><\/p>",
+            "text_style": "body"
+          }
+        },
+        "1647920929219f32e0-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1647920929219f32e0-0",
+        "1647920929219f32e0-1",
+        "1647920929219f32e0-2"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
@@ -16,10 +61,75 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "164792002758a415f5": {
+      "type": "multicolumn",
+      "blocks": {
+        "1647920026e415f547-0": {
+          "type": "column",
+          "settings": {
+            "title": "Annandale, VA",
+            "text": "<p><a href=\"mailto:annandale@lilthinga.com\" title=\"mailto:annandale@lilthinga.com\">annandale@lilthinga.com<\/a><\/p><p> <\/p><p>7031 Little River Turnpike #7B<\/p><p>Annandale, VA 22003<\/p><p>(703)642-0012<\/p>",
+            "link_label": "Detail Information",
+            "link": "https:\/\/goo.gl\/maps\/3UuydxEuBN5tL6JdA"
+          }
+        },
+        "1647920026e415f547-1": {
+          "type": "column",
+          "settings": {
+            "title": "Centreville, VA",
+            "text": "<p><a href=\"mailto:centreville@lilthinga.com\" title=\"mailto:centreville@lilthinga.com\">centreville@lilthinga.com<\/a><\/p><p>&nbsp<\/p><p>5949 Centreville Crest Ln<\/p><p>Centreville, VA 20121<\/p><p>(703)543-4546<\/p>",
+            "link_label": "Detail Information",
+            "link": "https:\/\/goo.gl\/maps\/mhm6DxdftdpYYBMXA"
+          }
+        },
+        "1647920026e415f547-2": {
+          "type": "column",
+          "settings": {
+            "title": "Rockville, MD",
+            "text": "<p><a href=\"mailto:rockville@lilthinga.com\" title=\"mailto:rockville@lilthinga.com\">rockville@lilthinga.com<\/a><\/p><p>&nbsp<\/p><p>1050 Rockville Pike<\/p><p>Rockville, MD 20852<\/p>",
+            "link_label": "Detail Information",
+            "link": "https:\/\/goo.gl\/maps\/cYu115eYqopBFN2BA"
+          }
+        },
+        "8c54ab1e-d336-4fe4-a0a6-fc026a1fcc91": {
+          "type": "column",
+          "settings": {
+            "title": "Ellicott City, MD",
+            "text": "<p><a href=\"mailto:ellicottcity@lilthinga.com\" title=\"mailto:ellicottcity@lilthinga.com\">ellicottcity@lilthinga.com<\/a><\/p><p>&nbsp<\/p><p>10045 Baltimore National Pike A13<\/p><p>Ellicott City, MD 21042<\/p>",
+            "link_label": "Detail Information",
+            "link": "https:\/\/goo.gl\/maps\/TxSLHtMDGs2JDnT16"
+          }
+        }
+      },
+      "block_order": [
+        "1647920026e415f547-0",
+        "1647920026e415f547-1",
+        "1647920026e415f547-2",
+        "8c54ab1e-d336-4fe4-a0a6-fc026a1fcc91"
+      ],
+      "settings": {
+        "title": "Store Information",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "16479209293974e4ba",
+    "form",
+    "164792002758a415f5"
   ]
 }
