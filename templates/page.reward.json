@@ -23,6 +23,59 @@
         "padding_bottom": 36
       }
     },
+    "164798591454ca583b": {
+      "type": "multicolumn",
+      "blocks": {
+        "1647985914be405a6e-0": {
+          "type": "column",
+          "settings": {
+            "title": "Shop with Points",
+            "text": "<p>Earn Points on every online purchase. Redeem your points at checkout for a quick discount.<\/p><p>Every 1000 points = $2.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1647985914be405a6e-1": {
+          "type": "column",
+          "settings": {
+            "title": "Boost Reward Points",
+            "text": "<p>Our rank system rewards more points.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1647985914be405a6e-2": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1647985914be405a6e-0",
+        "1647985914be405a6e-1",
+        "1647985914be405a6e-2"
+      ],
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "164798521223bcf43b": {
       "type": "custom-liquid",
       "settings": {
@@ -36,6 +89,7 @@
   "order": [
     "main",
     "16456779822cab7c6b",
+    "164798591454ca583b",
     "164798521223bcf43b"
   ]
 }
