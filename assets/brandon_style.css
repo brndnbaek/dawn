@@ -3093,12 +3093,6 @@ details-disclosure > details {
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
 }
-.min-h-\[5rem\] {
-  min-height: 5rem;
-}
-.min-h-\[4rem\] {
-  min-height: 4rem;
-}
 .w-full {
   width: 100%;
 }
@@ -3204,6 +3198,9 @@ details-disclosure > details {
 .w-\[15rem\] {
   width: 15rem;
 }
+.w-\[14rem\] {
+  width: 14rem;
+}
 .w-\[5rem\] {
   width: 5rem;
 }
@@ -3215,9 +3212,6 @@ details-disclosure > details {
 }
 .w-\[6rem\] {
   width: 6rem;
-}
-.w-\[14rem\] {
-  width: 14rem;
 }
 .max-w-\[250px\] {
   max-width: 250px;
