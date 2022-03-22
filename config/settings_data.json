@@ -80,12 +80,26 @@
               "mega_link": "",
               "mega_product": ""
             }
+          },
+          "c67a2580-cf88-4854-9bdb-2b9d15599154": {
+            "type": "mega_header",
+            "settings": {
+              "mega_width": false,
+              "mega_url": "shopify:\/\/pages\/contact-us-1",
+              "title": "Contact us",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
           }
         },
         "block_order": [
           "aa7a826d-0649-48ad-add1-38a8ebe97bb0",
           "f61f6d06-d1a5-4dfb-aefd-fd5c9473913e",
-          "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2"
+          "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2",
+          "c67a2580-cf88-4854-9bdb-2b9d15599154"
         ],
         "settings": {
           "color_scheme": "background-1",
