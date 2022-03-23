@@ -2894,6 +2894,9 @@ details-disclosure > details {
 .row-start-4 {
   grid-row-start: 4;
 }
+.m-2 {
+  margin: 0.5rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2909,6 +2912,10 @@ details-disclosure > details {
 .mx-12 {
   margin-left: 3rem;
   margin-right: 3rem;
+}
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -2951,6 +2958,9 @@ details-disclosure > details {
 }
 .inline-block {
   display: inline-block;
+}
+.inline {
+  display: inline;
 }
 .flex {
   display: flex;
@@ -3059,6 +3069,18 @@ details-disclosure > details {
 }
 .h-\[4vh\] {
   height: 4vh;
+}
+.h-\[50rem\] {
+  height: 50rem;
+}
+.h-\[45rem\] {
+  height: 45rem;
+}
+.h-12 {
+  height: 3rem;
+}
+.h-3 {
+  height: 0.75rem;
 }
 .max-h-\[35vh\] {
   max-height: 35vh;
@@ -3237,6 +3259,18 @@ details-disclosure > details {
 .max-w-\[280px\] {
   max-width: 280px;
 }
+.max-w-\[1280px\] {
+  max-width: 1280px;
+}
+.max-w-\[1250px\] {
+  max-width: 1250px;
+}
+.max-w-sm {
+  max-width: 24rem;
+}
+.max-w-md {
+  max-width: 28rem;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -3324,6 +3358,9 @@ details-disclosure > details {
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .grid-rows-4 {
   grid-template-rows: repeat(4, minmax(0, 1fr));
@@ -3416,6 +3453,9 @@ details-disclosure > details {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+.place-self-center {
+  place-self: center;
 }
 .justify-self-end {
   justify-self: end;
@@ -3607,6 +3647,14 @@ details-disclosure > details {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+.bg-slate-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -3800,8 +3848,14 @@ details-disclosure > details {
 .pb-12 {
   padding-bottom: 3rem;
 }
+.text-left {
+  text-align: left;
+}
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .align-middle {
   vertical-align: middle;
