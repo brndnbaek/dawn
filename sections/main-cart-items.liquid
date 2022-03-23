@@ -25,18 +25,20 @@
   <div class="title-wrapper-with-link">
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <!-- <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a> -->
-    <button class="p-2 text-lg button" type="text" onclick="history.back();">Continue Shopping</button>
-    <a href="/cart/clear" class="btn button" >Empty Cart</a>
-    <cart>
-    <clear></clear>
+    <div class="flex gap-4">
+      <div class="text-lg underline cursor-pointer text-neutral-800" type="text" onclick="history.back();">Continue Shopping</div>
+      <a href="/cart/clear" class="text-lg text-neutral-600" >Empty Cart</a>
+      <cart>
+        <clear></clear>
+      </div>
   </div>
 
   <div class="cart__warnings">
     <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="button">
+    <!-- <a href="{{ routes.all_products_collection_url }}" class="button">
       {{ 'general.continue_shopping' | t }}
-    </a>
-    <button class="button" type="text" onclick="history.back();">Continue Shopping</button>
+    </a> -->
+    <button class="button" type="text" onclick="history.go(-2);">Continue Shopping</button>
     {%- if shop.customer_accounts_enabled and customer == nil -%}
       <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
       <p class="cart__login-paragraph">
