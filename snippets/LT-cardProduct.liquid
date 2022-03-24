@@ -184,7 +184,10 @@
   <!-- badge labels  -->
   <div class="absolute flex gap-x-2 -top-3 right-1 ">
     
-    {%if card_product.tags contains 'new' %}
+    {% assign date_created = card_product.created_at | date:'%s' %}
+  {% assign     date_now = 'now' | date:'%s' %}
+  {% assign   difference = date_now | minus: date_created %}
+  {% if difference < 3888000 %}
       <div class="flex items-center justify-center px-1 text-sm text-white rounded-md shadow-lg h-7 bg-emerald-500">New</div>
     {%endif%}
     {%if card_product.compare_at_price > card_product.price %}
