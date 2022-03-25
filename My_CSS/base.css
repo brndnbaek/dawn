@@ -996,7 +996,7 @@ summary::-webkit-details-marker {
   flex-shrink: 0;
 }
 .grid__item2 {
-  width: calc(50% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
+  width: calc(100% - var(--grid-mobile-horizontal-spacing) 2);
   max-width: calc(100% - var(--grid-mobile-horizontal-spacing) / 2);
   flex-grow: 1;
   flex-shrink: 0;
@@ -1140,6 +1140,7 @@ summary::-webkit-details-marker {
   .grid--peek.slider--mobile {
     margin: 0;
     width: 100%;
+    height: auto !important;
   }
 
   .grid--peek.slider--mobile .grid__item {
@@ -1232,6 +1233,22 @@ summary::-webkit-details-marker {
   /* object-fit: contain; */
   /* object-position: center center; */
   transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* brandon added to mix square and portrait images on mobile view /padding-top method defaulted to 100%*/
+@media screen and (max-width: 749px) {
+  .slider__slide {
+    max-height: 35rem !important;
+    padding-top: 0;
+  }
+  .media {
+    padding-top:100% !important;
+  }
+  .media > img {
+    height: 30rem;
+    object-fit: cover;
+    width: auto;
+    
+  }
 }
 
 .media--square {
