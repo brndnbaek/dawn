@@ -73,3 +73,24 @@
 .LT_button:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
+
+.LT_waveDivider {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.LT_waveDivider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 88px;
+}
+
+.LT_waveDivider .amber {
+  fill: #Fef3c7;
+}
+.LT_waveDivider .apricot {
+  fill: #f09174;
+}
