@@ -1,49 +1,276 @@
 
 <style>
+section { 
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:90%;
+  max-width:800px;
+  margin:0 auto;
+  color:#222;
+  text-transform:uppercase;
+  font-size:2.8em;
+  font-weight:700;
+}
+.full { height:100vh; background:#E0E0E0 }
+.half { height:50vh; background:#E0E0E0 }
+.mini { height:25vh; background:#E0E0E0 }
+
+.banner { color: #E8E8E8; 
+  display:flex;
+  align-items:stretch;
+}
+
+/* first banner */
+
+.banner3d-1 {
+    width:100%;
+    perspective: 700px;
+    -webkit-transform-style:flat; /* why would I do that? well there is a very strange bug with safari, and it fixed it... */
+    transform-style: preserve-3d;
+}
+
+.banner3d-1-front {
+    padding:50px;
+    background:#222;
+    transform: translatez(50px);
+    transform-style: preserve-3d;
+}
+
+.banner3d-1-front:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #BFBFBF;
+    top: -50px;
+    transform-origin: center bottom;
+    transform: rotatex(90deg);
+}
+
+.banner3d-1-front:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #BFBFBF;
+    bottom: -50px;
+    transform-origin: center top;
+    transform: rotatex(-90deg);
+}
+
+/* second banner */
+
+.banner3d-2 {
+    width:100%;
+    perspective: 700px;
+    -webkit-transform-style:flat;
+    transform-style: preserve-3d;
+  z-index:-1;
+}
+
+.banner3d-2-front {
+    padding:50px;
+    background:#222;
+    transform: translatez(-50px);
+    transform-style: preserve-3d;
+}
+
+.banner3d-2-front:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #BFBFBF;
+    top: -50px;
+    transform-origin: center bottom;
+    transform: rotatex(-90deg);
+}
+
+.banner3d-2-front:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #BFBFBF;
+    bottom: -50px;
+    transform-origin: center top;
+    transform: rotatex(90deg);
+}
+
+/* 3rd banner */
+
+.banner3d-3 {
+    width:50%;
+    perspective: 700px;
+    -webkit-transform-style:flat;
+    transform-style: preserve-3d;
+}
+
+.banner3d-3-front {
+    padding:100px 25px;
+    text-align:center;
+    background:#222;
+    transform: translatez(50px);
+    transform-style: preserve-3d;
+}
+
+.banner3d-3-front:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #404040;
+    top: -50px;
+    transform-origin: center bottom;
+    transform: rotatex(90deg);
+}
+
+.banner3d-3-front:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #404040;
+    bottom: -50px;
+    transform-origin: center top;
+    transform: rotatex(-90deg);
+}
+
+.image {
+  width:50%;
+  background:url(https://source.unsplash.com/IyaNci0CyRk/600x600) no-repeat;
+  background-size:cover;
+  background-position:center;
+  box-shadow: inset 25px 0px 20px 10px rgba(0,0,0,0.41)
+}
 
 
+/* fourth banner */
+
+.banner3d-4 {
+    width:60%;
+    perspective: 700px;
+    -webkit-transform-style:flat;
+    transform-style: preserve-3d;
+  z-index:-1;
+}
+
+.banner3d-4-front {
+    padding:25px;
+    background:#222;
+    transform: translatez(-50px);
+    transform-style: preserve-3d;
+}
+
+.banner3d-4-front:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #BFBFBF;
+    top: -50px;
+    transform-origin: center bottom;
+    transform: rotatex(-90deg);
+}
+
+.banner3d-4-front:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 50px;
+    background-color: #BFBFBF;
+    bottom: -50px;
+    transform-origin: center top;
+    transform: rotatex(90deg);
+}
+
+.image2 {
+  width:40%;
+  background:url(https://source.unsplash.com/gJJhG4gM7NA/600x600) no-repeat;
+  background-size:cover;
+  background-position:center center;
+  border:20px solid #E0E0E0;
+  box-sizing:border-box;
+}
+
+@media (max-width: 991px) {
+  section {
+    font-size:2em;
+  }
+  .banner {
+    flex-direction:column
+  }
+  .banner3d-3, .banner3d-4 {
+    width:100%
+  }
+  .image, .image2 {
+	  width:100%;
+	  height:300px;
+  }
+}
 </style>
-<main id="aniIntro">
-    <section class="relative py-20 overflow-hidden bg-gradient-to-b from-amber-50 to-rose-200">
-        <div id="gridtop" class="top-0 left-0 LT_waveDivider">
-            {% render 'divider-wave', fill_color: 'amber' %}
-        </div>
+<main class="">
+    <header class="top-0 left-0 LT_waveDivider">
+        {% render 'divider-wave', fill_color: 'amber' %}
+    </header>
 
-        <div class="ani__title h-[25vh] lg:h-[50vh] w-[50rem] mx-auto rellax relative"
-            data-rellax-zindex="5" data-rellax-speed="-1">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 w-full h-full aniBlob">
-                <path fill="#F36943" d="M38.5,-62.7C47.8,-54,51.7,-39.7,56.5,-26.6C61.2,-13.4,66.9,-1.5,64.6,8.8C62.4,19.1,52.2,27.7,44.1,39.7C36.1,51.8,30.1,67.2,20.6,69.7C11.1,72.3,-2.1,62.1,-16.2,57.1C-30.4,52.1,-45.5,52.3,-59,46C-72.4,39.7,-84.1,26.7,-87.3,11.9C-90.4,-2.9,-84.8,-19.6,-74,-29.9C-63.2,-40.3,-47.2,-44.3,-33.9,-51.2C-20.7,-58.1,-10.4,-67.9,2.1,-71.2C14.6,-74.5,29.2,-71.4,38.5,-62.7Z" transform="translate(100 100)" />
-              </svg>
-            <img src="{{ 'LT_beeLogo.png' | asset_img_url: '300x' }}" alt="" class="absolute left-0 w-64 top-1/3 LT_beeLogo">
-            <div class="absolute flex items-center justify-center w-full h-full text-3xl font-bold lg:text-6xl text-rose-700 aniTitle">
-                <h2>The</h2> 
-                <h2>Asian</h2>
-                 <h2>Pop</h2> 
-                 <h2>Project</h2>
-            </div>
-            <div class="absolute flex flex-col items-center justify-center w-full h-full aniVtitle">
-                <div class="text-[6rem] font-extrabold leading-8 uppercase text-rose-600">
-                    <span class="block skew-x-6 title">The</span>
-                    <span class="block skew-x-6 title">Asian</span>
-                    <span class="block skew-x-6 title">Pop</span>
-                    <span class="block skew-x-6 title">Project</span>
-                  </div>
-            </div>
-            <div class="text-2xl text-gray-700">SCROLL DOWN</div>
-        </div>
+    <section class="full">scroll down</section>
 
-        <div class="flex flex-wrap justify-around gap-20 keywordScene">
-            <div class="w-1/6 BTS">BTS</div>
-            <div class="w-1/6 gundam">Gundam</div>
-            <div class="w-1/6 demonSlayer">Demon Slayer</div>
-            <div class="w-1/6 rezero">Re:Zero</div>
-        </div>
-        <!-- {% render 'LT_diffBlock' %} -->
+<section class="banner">
+  <div class="banner3d-1">
+    <div class="banner3d-1-front">
+      just a 3d banner<br>made with gsap<br>and scrolltrigger
+    </div>
+  </div>
+</section>
 
-        <div class="bottom-0 left-0 rotate-180 LT_waveDivider">
-            {% render 'divider-wave', fill_color: 'apricot' %}
-        </div>
-    </section>
+<section class="mini"></section>
+
+<section class="banner">
+  <div class="banner3d-2">
+    <div class="banner3d-2-front">
+      oh that's cool<br>i didn't expect that...
+    </div>
+  </div>
+</section>
+
+<section class="half">scroll more</section>
+
+<section class="banner">
+  <div class="banner3d-3">
+    <div class="banner3d-3-front">
+      it's all<br>about<br>perspective
+    </div>
+  </div>
+  <div class="image"></div>
+</section>
+
+<section class="half">it's not over yet</section>
+
+<section class="banner">
+  <div class="image2"></div>
+  <div class="banner3d-4">
+    <div class="banner3d-4-front">
+      well<br>that was cool<br>but<br>it's time<br>to end<br>the show...
+    </div>
+  </div>
+</section>
+
+<section class="full">bisous</section>
+    
+    <!-- {% render 'LT_diffBlock' %} -->
+    <footer class="top-[95vh] left-0 rotate-180 LT_waveDivider">
+        {% render 'divider-wave', fill_color: 'apricot' %}
+    </footer>
 </main>
 {%comment%}
 <!-- grid background banner  -->
@@ -85,10 +312,7 @@
 
 </div>
 {%endcomment%}
-<script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js" defer="defer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/ScrollTrigger.min.js" defer="defer"></script>
-<script src="{{ 'LT_gsap.js' | asset_url }}" defer="defer"></script>
+
 {% javascript %}
 var rellax = new Rellax('.rellax');
 
