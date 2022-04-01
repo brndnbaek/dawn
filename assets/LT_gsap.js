@@ -1,51 +1,20 @@
-gsap.registerPlugin(ScrollTrigger);
-gsap.set(".banner3d-1", { perspectiveOrigin: "center -100vh"});
-gsap.set(".banner3d-2", { perspectiveOrigin: "center -100vh"});
-gsap.set(".banner3d-3", { perspectiveOrigin: "center -100vh"});
-gsap.set(".banner3d-4", { perspectiveOrigin: "left -100vh"});
+const tl = gsap.timeline();
 
-gsap.to(".banner3d-1", {
-  scrollTrigger: {
-    trigger: ".banner3d-1",
-    scrub: true,
-    start: "top bottom",
-    end: "bottom top"
-  },
-  perspectiveOrigin: "center 100vh", 
-  ease: "none"
+tl.fromTo('#introText1',{opacity:0, lineHeight:"0.5"}, {duration:4, opacity:1, x:"55vw", y:"8vh", lineHeight:"1" })
+tl.fromTo('#introText2',{opacity:0, lineHeight:"0.5"}, {duration:4, opacity:1, x:"-55vw", y:"8vh", lineHeight:"1"}, "-=4")
+  .to('#introText1', {x:"52vw", ease: "bounce.out", duration:3, lineHeight:"1.4"})
+  .to('#introText2', {x:"-52vw", flexDirection:"row", duration:3, lineHeight:"1.4",fontSize:"2vw"},"-=3")
+  .to('.indicator_text1', {duration:4, y:"12vh", opacity:0},"-=6")
+  .fromTo('.indicator_text2', {scale:0.9}, {scale:1, ease: "elastic.out", repeat: -1, duration:2})
+  .fromTo('.logo_bee', {scale:0}, {scale:1}, "-=6")
+
+gsap.from(".banner_gundam", {
+  scrollTrigger:{
+    trigger: ".banner_gundam",
+    start: "top center",
+    end: "bottom center",
+    scrub: 1
+  }, 
+  xPercent:150,
+  scale:0.5
 });
-
-gsap.to(".banner3d-2", {
-  scrollTrigger: {
-    trigger: ".banner3d-2",
-    scrub: true,
-    start: "top bottom",
-    end: "bottom top"
-  },
-  perspectiveOrigin: "center 100vh", 
-  ease: "none"
-});
-
-gsap.to(".banner3d-3", {
-  scrollTrigger: {
-    trigger: ".banner3d-3",
-    scrub: true,
-    start: "top bottom",
-    end: "bottom top"
-  },
-  perspectiveOrigin: "center 100vh", 
-  ease: "none"
-});
-
-gsap.to(".banner3d-4", {
-  scrollTrigger: {
-    trigger: ".banner3d-4",
-    scrub: true,
-    start: "top bottom",
-    end: "bottom top"
-  },
-  perspectiveOrigin: "left 100vh", 
-  ease: "none"
-});
-
-gsap.from(".LT_productCard img", {opacity:0, y:80, stagger:0.2, duration:1})

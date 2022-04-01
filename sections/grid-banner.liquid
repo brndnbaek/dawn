@@ -1,314 +1,85 @@
-
 <style>
-section { 
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:90%;
-  max-width:800px;
-  margin:0 auto;
-  color:#222;
-  text-transform:uppercase;
-  font-size:2.8em;
-  font-weight:700;
-}
-.full { height:100vh; background:#E0E0E0 }
-.half { height:50vh; background:#E0E0E0 }
-.mini { height:25vh; background:#E0E0E0 }
 
-.banner { color: #E8E8E8; 
-  display:flex;
-  align-items:stretch;
-}
-
-/* first banner */
-
-.banner3d-1 {
-    width:100%;
-    perspective: 700px;
-    -webkit-transform-style:flat; /* why would I do that? well there is a very strange bug with safari, and it fixed it... */
-    transform-style: preserve-3d;
-}
-
-.banner3d-1-front {
-    padding:50px;
-    background:#222;
-    transform: translatez(50px);
-    transform-style: preserve-3d;
-}
-
-.banner3d-1-front:before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #BFBFBF;
-    top: -50px;
-    transform-origin: center bottom;
-    transform: rotatex(90deg);
-}
-
-.banner3d-1-front:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #BFBFBF;
-    bottom: -50px;
-    transform-origin: center top;
-    transform: rotatex(-90deg);
-}
-
-/* second banner */
-
-.banner3d-2 {
-    width:100%;
-    perspective: 700px;
-    -webkit-transform-style:flat;
-    transform-style: preserve-3d;
-  z-index:-1;
-}
-
-.banner3d-2-front {
-    padding:50px;
-    background:#222;
-    transform: translatez(-50px);
-    transform-style: preserve-3d;
-}
-
-.banner3d-2-front:before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #BFBFBF;
-    top: -50px;
-    transform-origin: center bottom;
-    transform: rotatex(-90deg);
-}
-
-.banner3d-2-front:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #BFBFBF;
-    bottom: -50px;
-    transform-origin: center top;
-    transform: rotatex(90deg);
-}
-
-/* 3rd banner */
-
-.banner3d-3 {
-    width:50%;
-    perspective: 700px;
-    -webkit-transform-style:flat;
-    transform-style: preserve-3d;
-}
-
-.banner3d-3-front {
-    padding:100px 25px;
-    text-align:center;
-    background:#222;
-    transform: translatez(50px);
-    transform-style: preserve-3d;
-}
-
-.banner3d-3-front:before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #404040;
-    top: -50px;
-    transform-origin: center bottom;
-    transform: rotatex(90deg);
-}
-
-.banner3d-3-front:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #404040;
-    bottom: -50px;
-    transform-origin: center top;
-    transform: rotatex(-90deg);
-}
-
-.image {
-  width:50%;
-  background:url(https://source.unsplash.com/IyaNci0CyRk/600x600) no-repeat;
-  background-size:cover;
-  background-position:center;
-  box-shadow: inset 25px 0px 20px 10px rgba(0,0,0,0.41)
-}
-
-
-/* fourth banner */
-
-.banner3d-4 {
-    width:60%;
-    perspective: 700px;
-    -webkit-transform-style:flat;
-    transform-style: preserve-3d;
-  z-index:-1;
-}
-
-.banner3d-4-front {
-    padding:25px;
-    background:#222;
-    transform: translatez(-50px);
-    transform-style: preserve-3d;
-}
-
-.banner3d-4-front:before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #BFBFBF;
-    top: -50px;
-    transform-origin: center bottom;
-    transform: rotatex(-90deg);
-}
-
-.banner3d-4-front:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 50px;
-    background-color: #BFBFBF;
-    bottom: -50px;
-    transform-origin: center top;
-    transform: rotatex(90deg);
-}
-
-.image2 {
-  width:40%;
-  background:url(https://source.unsplash.com/gJJhG4gM7NA/600x600) no-repeat;
-  background-size:cover;
-  background-position:center center;
-  border:20px solid #E0E0E0;
-  box-sizing:border-box;
-}
-
-@media (max-width: 991px) {
-  section {
-    font-size:2em;
-  }
-  .banner {
-    flex-direction:column
-  }
-  .banner3d-3, .banner3d-4 {
-    width:100%
-  }
-  .image, .image2 {
-	  width:100%;
-	  height:300px;
-  }
-}
 </style>
-<main class="">
-    <header class="top-0 left-0 LT_waveDivider">
-        {% render 'divider-wave', fill_color: 'amber' %}
-    </header>
 
-    <section class="full">scroll down</section>
+<main class="relative w-full h-[200vh] mx-auto bg-gradient-to-br from-rose-200 to-amber-200">
+  <header class="top-0 left-0 LT_waveDivider">
+    {% render 'divider-wave', fill_color: 'amber' %}
+  </header>
 
-<section class="banner">
-  <div class="banner3d-1">
-    <div class="banner3d-1-front">
-      just a 3d banner<br>made with gsap<br>and scrolltrigger
+  <div class="w-full max-w-[1400px] mx-auto h-[200vh] relative">
+    <!-- big main banner  -->
+    <div class="h-[35vh] w-full ">
+      <section id="introText1"
+        class="absolute top-0 left-0 flex flex-col items-start text-3xl lg:text-[4.5vw] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-rose-400 to-purple-600">
+        <div class="mr-4">The</div>
+        <div class="mr-4">Asian</div>
+        <div class="mr-4">Pop</div>
+        <div class="mr-4">Project</div>
+      </section>
+      <section id="introText2"
+        class="absolute top-0 right-0 flex flex-col items-end text-3xl lg:text-[4.5vw] font-extrabold text-transparent bg-clip-text  bg-gradient-to-br from-purple-600 to-rose-400">
+        <div>Lil&#700</div>
+        <div class="mr-4">Thingamajig</div>
+        <div class="mr-4">Online</div>
+        <div>Store</div>
+      </section>
+      <div
+        class="indicator_text2 absolute top-[30vh] w-full flex justify-center block text-center font-bold text-[3vw] text-slate-700">
+        Scroll</div>
+      <section class="pt-10">
+        <div class="indicator_text1 block text-center font-bold text-[3vw] text-slate-700">Lil&#700Thingamajigs<br>Online
+          Store</div>
+      </section>
+      <img src="{{'LT_beeLogo.png' | asset_img_url: '250x' }}" alt="" class="w-[250px] h-auto absolute left-[25vw] top-[15vh] logo_bee block">
+    </div>
+
+    <div class="w-[60rem] h-[60rem] relative banner_gundam grid place-items-center ml-10">
+      <img src="{{'bannner_gundam.jpeg' | asset_img_url:'600x'}}" alt="" class="absolute object-cover w-full">
     </div>
   </div>
-</section>
-
-<section class="mini"></section>
-
-<section class="banner">
-  <div class="banner3d-2">
-    <div class="banner3d-2-front">
-      oh that's cool<br>i didn't expect that...
-    </div>
-  </div>
-</section>
-
-<section class="half">scroll more</section>
-
-<section class="banner">
-  <div class="banner3d-3">
-    <div class="banner3d-3-front">
-      it's all<br>about<br>perspective
-    </div>
-  </div>
-  <div class="image"></div>
-</section>
-
-<section class="half">it's not over yet</section>
-
-<section class="banner">
-  <div class="image2"></div>
-  <div class="banner3d-4">
-    <div class="banner3d-4-front">
-      well<br>that was cool<br>but<br>it's time<br>to end<br>the show...
-    </div>
-  </div>
-</section>
-
-<section class="full">bisous</section>
-    
-    <!-- {% render 'LT_diffBlock' %} -->
-    <footer class="top-[95vh] left-0 rotate-180 LT_waveDivider">
-        {% render 'divider-wave', fill_color: 'apricot' %}
-    </footer>
+   <!-- {% render 'LT_diffBlock' %} -->
+  <footer class="bottom-0 left-0 rotate-180 LT_waveDivider">
+    {% render 'divider-wave', fill_color: 'apricot' %}
+  </footer>
 </main>
 {%comment%}
 <!-- grid background banner  -->
 <div
-    class="relative h-[30vh] md:h-[35rem] max-h-[40rem] w-[99vw] max-w-[1100px] mx-auto bg-lt-white overflow-hidden mt-4 ">
-    <!-- background grid -->
-    <div
-        class="absolute inset-0 grid w-full h-[28rem] md:h-[50rem] lg:h-[40rem] grid-cols-5 grid-rows-4 transform -skew-y-2 gap-y-6 place-content-center md:grid-cols-5 md:grid-rows-4 lg:grid-cols-7 lg:grid-rows-3">
-        <!-- retrieve 15 product images from new-item collection  -->
-        {% for product in collections['new-items'].products limit:21 %}
-        <div class="flex items-center justify-center col-span-1 row-span-1">
-            <img src="{{ product.featured_image | img_url: '300x' }}" alt=""
-                class="absolute max-w-[6rem] sm:max-w-[8rem] md:max-w-[11rem] lg:max-w-[12.5rem] object-cover object-top aspect-square rounded-xl drop-shadow-lg"
-                loading="lazy">
-        </div>
-        {%endfor%}
-        <!-- {% for block in section.blocks %}
+  class="relative h-[30vh] md:h-[35rem] max-h-[40rem] w-[99vw] max-w-[1100px] mx-auto bg-lt-white overflow-hidden mt-4 ">
+  <!-- background grid -->
+  <div
+    class="absolute inset-0 grid w-full h-[28rem] md:h-[50rem] lg:h-[40rem] grid-cols-5 grid-rows-4 transform -skew-y-2 gap-y-6 place-content-center md:grid-cols-5 md:grid-rows-4 lg:grid-cols-7 lg:grid-rows-3">
+    <!-- retrieve 15 product images from new-item collection  -->
+    {% for product in collections['new-items'].products limit:21 %}
+    <div class="flex items-center justify-center col-span-1 row-span-1">
+      <img src="{{ product.featured_image | img_url: '300x' }}" alt=""
+        class="absolute max-w-[6rem] sm:max-w-[8rem] md:max-w-[11rem] lg:max-w-[12.5rem] object-cover object-top aspect-square rounded-xl drop-shadow-lg"
+        loading="lazy">
+    </div>
+    {%endfor%}
+    <!-- {% for block in section.blocks %}
             <div class="relative col-span-1 row-span-1 max-w-[300px]">
                 <img src="{{block.settings.product.featured_image | img_url: '300x'}}" alt="" class="absolute object-cover object-top w-full max-w-[300px] max-h-full rounded-xl aspect-square drop-shadow-lg">
             </div> 
             {%endfor%} -->
 
+  </div>
+  <!-- content -->
+  <div class="flex flex-col items-center justify-center h-full transform DEL-skew-y-3 drop-shadow-xl rellax"
+    data-rellax-speed="-4">
+    <div
+      class="relative flex items-baseline px-6 pb-12 text-3xl font-extrabold bg-white text-rose-600 md:text-5xl lg:text-6xl outline outline-2 outline-rose-600 rounded-xl">
+      <div class="z-10">The Asian</div>
+      <img src="{{'pop.png' | asset_img_url: '75x'}}" alt="" class="z-10 w-18 h-18">
+      <div class="z-10">Project</div>
+      <div
+        class="absolute inset-0 hidden w-full h-full translate-y-4 bg-gray-200 bg-opacity-70 filter rounded-xl blur-xl mix-blend-soft-light ">
+      </div>
     </div>
-    <!-- content -->
-    <div class="flex flex-col items-center justify-center h-full transform DEL-skew-y-3 drop-shadow-xl rellax"
-        data-rellax-speed="-4">
-        <div
-            class="relative flex items-baseline px-6 pb-12 text-3xl font-extrabold bg-white text-rose-600 md:text-5xl lg:text-6xl outline outline-2 outline-rose-600 rounded-xl">
-            <div class="z-10">The Asian</div>
-            <img src="{{'pop.png' | asset_img_url: '75x'}}" alt="" class="z-10 w-18 h-18">
-            <div class="z-10">Project</div>
-            <div
-                class="absolute inset-0 hidden w-full h-full translate-y-4 bg-gray-200 bg-opacity-70 filter rounded-xl blur-xl mix-blend-soft-light ">
-            </div>
-        </div>
-        <!-- <p class="p-4 text-xl font-bold border-solid rounded-lg md:text-3xl lg:text-4xl text-slate-700 bg-lime-100">Asian Pop Project</p> -->
-    </div>
-    <!-- <div class="absolute inset-0 w-full h-full bg-lt-white/60"></div> -->
+    <!-- <p class="p-4 text-xl font-bold border-solid rounded-lg md:text-3xl lg:text-4xl text-slate-700 bg-lime-100">Asian Pop Project</p> -->
+  </div>
+  <!-- <div class="absolute inset-0 w-full h-full bg-lt-white/60"></div> -->
 
 </div>
 {%endcomment%}
