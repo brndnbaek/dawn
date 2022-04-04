@@ -30,7 +30,7 @@
   {% elsif image_def < 0.85 %}
   <div class="absolute h-[80%] max-h-[80%] md:max-h-[18rem] -top-[1rem] md:-top-[1.5rem] left-12  md:left-[1.5rem] max-w-[45%] md:max-w-[15rem] top-0 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-300">
     <a href="{{card_product.url}}" class="no-underline text-neutral-800">
-      <img src="{{card_product.featured_media | image_url: height:350}}" alt="" class="relative object-cover w-full h-full rounded-lg shadow-md shadow-neutral-400" loading=lazy></a>
+      <img src="{{card_product.featured_media | image_url: height:350}}" alt="" class="relative object-cover object-top w-full h-full rounded-lg shadow-md shadow-neutral-400" loading=lazy></a>
       <!-- {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
         {% unless the_snippet_fave_icon contains 'Liquid error' %}
             {{ the_snippet_fave_icon }}
