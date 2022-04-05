@@ -2,28 +2,34 @@
 
 </style>
 
-<main class="relative w-full h-[200vh] mx-auto bg-gradient-to-br from-lt-white to-amber-200">
+<main class="relative w-full h-full mx-auto bg-gradient-to-br from-lt-white to-amber-200">
   
   <header class="top-0 left-0 LT_waveDivider">
     {% render 'divider-wave', fill_color: 'amber' %}
   </header>
-  
+    <section class="pt-[8rem] grid place-items-center relative">
+      <video autoplay="true" loop="" class="w-2/3">
+        <source src="{{ 'LT_kpopGirl.mp4' | asset_url }}" type="video/mp4">
+      </video>
+      <div class="absolute text-[4.5vw] px-4 font-extrabold text-white -bottom-10 bg-rose-500">The Asian Pop Project</div>
+      <div class="absolute text-[3.5vw] px-4 font-extrabold text-white bottom-14 bg-amber-500">Lil&#39Thingamajig</div>
+    </section>
 <!--DragonBall left image banner -->
   <section class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] relative">
     <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
       <a href="{{ collections['dragon-ball-merch'].url }}" class="after:absolute after:inset-0">
-      <img src="{{'LT_dbBanner.png' | asset_img_url:'400x' }}" alt="" class="absolute origin-bottom group-hover:scale-105 bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 duration-500">
+      <img src="{{'LT_dbBanner.png' | asset_img_url:'400x' }}" alt="" class="absolute origin-bottom group-hover:scale-105 bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 duration-500 ">
     </a>
     </div>
-    <div class="row-span-2 row-start-2 shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-pink-300 to-purple-300 col-span-full group-hover:duration-1000" style="clip-path: polygon(7% 0, 93% 0%, 100% 100%, 0 100%);">
+    <div class="row-span-2 row-start-2 shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-orange-300 to-red-300 col-span-full group-hover:duration-1000" style="clip-path: polygon(7% 0, 93% 0%, 100% 100%, 0 100%);">
       <div class="flex flex-row-reverse">
-        <div class="flex flex-col w-[55%]">
-          <h2 class="text-2xl font-semibold text-center sm:text-2xl md:text-4xl lg:text-6xl">Collection</h2>
-          <p class="flex-1 text-base text-center sm:text-lg md:text-xl lg:text-2xl">We offer a wide variety of Dragon Ball figures.</p>
+        <div class="flex flex-col w-[45%] pr-10">
+          <h2 class="text-2xl font-semibold sm:text-2xl md:text-4xl lg:text-6xl">Featured Collection</h2>
+          <p class="flex-1 text-base sm:text-lg md:text-xl lg:text-2xl">Build a dream collection. Find everything you need to build the ultimate figure collection.</p>
         </div>
       </div>
     </div>
-    <div class="absolute w-full h-6 bg-gradient-to-r from-pink-400 to-purple-400 -bottom-6">
+    <div class="absolute w-full h-6 bg-gradient-to-r from-orange-400 to-red-400 -bottom-6">
       
     </div>
   </section>
@@ -35,8 +41,8 @@
     <div class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-green-300 to-yellow-300 col-span-full">
       <div class="flex flex-row">
         <div class="flex flex-col w-[55%]">
-          <h2 class="text-2xl font-semibold text-center sm:text-2xl md:text-4xl lg:text-6xl">Collection</h2>
-          <p class="flex-1 text-base text-center sm:text-lg md:text-xl lg:text-2xl">We offer a wide variety of Dragon Ball figures.</p>
+          <h2 class="text-2xl font-semibold text-center sm:text-2xl md:text-4xl lg:text-6xl">Viral Sensation!</h2>
+          <p class="flex-1 w-11/12 pl-8 text-base sm:text-lg md:text-xl lg:text-2xl">The most successful Japanese film of all time. Time to slay some demons! Check out the must-have Demon Slayer collectibles</p>
         </div>
       </div>
     </div>
@@ -63,11 +69,15 @@
     <div class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-lime-300 to-teal-300 col-span-full">
       <div class="flex flex-row">
         <div class="flex flex-col w-[55%]">
-          <h2 class="text-2xl font-semibold text-center sm:text-2xl md:text-4xl lg:text-6xl">New Reward</h2>
-          <p class="flex-1 text-base text-center sm:text-lg md:text-xl lg:text-2xl">We offer a wide variety of Dragon Ball figures.</p>
+          <h2 class="text-2xl font-semibold text-center sm:text-2xl md:text-4xl lg:text-6xl">Get to know you LT Member Benefit</h2>
+          <p class="flex-1 text-base text-center sm:text-lg md:text-xl lg:text-2xl">Your benefits are easier to earn and redeem. </p>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="h-[5rem] block">
+    
   </section>
     <!-- big main banner  -->
     
@@ -119,11 +129,11 @@
 
 {% javascript %}
 
-var rellax = new Rellax('.rellax');
+//var rellax = new Rellax('.rellax');
 
 {% endjavascript %}
 <script>
-
+//document.querySelector('video').playbackRate = 0.5;
 </script>
 
 
