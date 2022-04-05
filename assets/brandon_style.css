@@ -3201,6 +3201,9 @@ details-disclosure > details {
 .h-\[500px\] {
   height: 500px;
 }
+.h-3\/4 {
+  height: 75%;
+}
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -3230,6 +3233,9 @@ details-disclosure > details {
 }
 .max-h-\[500px\] {
   max-height: 500px;
+}
+.max-h-\[25vh\] {
+  max-height: 25vh;
 }
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
@@ -3816,6 +3822,14 @@ details-disclosure > details {
 .bg-amber-500\/50 {
   background-color: rgb(245 158 11 / 0.5);
 }
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
 }
@@ -3880,8 +3894,15 @@ details-disclosure > details {
   --tw-gradient-from: #fb923c;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(251 146 60 / 0));
 }
+.from-black {
+  --tw-gradient-from: #000;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(0 0 0 / 0));
+}
 .via-white {
   --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+.via-gray-500 {
+  --tw-gradient-stops: var(--tw-gradient-from), #6b7280, var(--tw-gradient-to, rgb(107 114 128 / 0));
 }
 .to-amber-100\/50 {
   --tw-gradient-to: rgb(254 243 199 / 0.5);
@@ -3912,6 +3933,9 @@ details-disclosure > details {
 }
 .to-red-400 {
   --tw-gradient-to: #f87171;
+}
+.to-black {
+  --tw-gradient-to: #000;
 }
 .bg-cover {
   background-size: cover;
