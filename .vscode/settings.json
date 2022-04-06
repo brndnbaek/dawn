@@ -22,5 +22,6 @@
   },
   "peacock.color": "#215732",
   "explorer.autoReveal": false,
-  "prettier.enable": false
+  "prettier.enable": false,
+  "editor.fontSize": 14
 }
