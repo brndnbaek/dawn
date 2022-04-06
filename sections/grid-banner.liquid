@@ -7,11 +7,10 @@
   <!-- <header class="top-0 left-0 LT_waveDivider">
     {% render 'divider-wave', fill_color: 'amber' %}
   </header> -->
-    <section class="relative grid overflow-hidden bg-gradient-to-r from-black via-gray-500 to-black place-items-center">
-      <video autoplay="true" loop="" width="640" preload muted defaultmuted>
+    <section class="relative flex flex-col w-full h-auto bg-gradient-to-r from-black via-gray-500 to-black">
+      <video autoplay="true" loop="" preload muted defaultmuted class="max-h-[600px]">
         <source src="{{ 'LT_kpopStars.mp4' | asset_url }}" type="video/mp4">
       </video>
-      
     </section>
 <!--DragonBall left image banner -->
   <section class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] relative">

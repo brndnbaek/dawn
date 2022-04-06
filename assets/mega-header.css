@@ -2,7 +2,7 @@
     /* --drawer-background: #f0eff1; */
     --drawer-background: white;
     --parent-link-bg: black;
-    --dark-color: black; /* font color and icon color */
+    --dark-color: rgb(39, 38, 38); /* font color and icon color */
     --light-color: white; /* font color and icon color when hovered */
     --gray-color: #b1b0b5; /* background color when hovered */
     }
@@ -37,7 +37,8 @@
     /* overflow: hidden; */
     /* font-family: Arial, Helvetica, sans-serif; */
     display: flex;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight:500;
     }
     
     .megaHeader > a {
@@ -66,10 +67,13 @@
     display: flex;
     background: transparent;
     align-items: center;
+    color: rgb(21, 21, 21);
     }
     
     .megaHeader > a:hover, .megaDrawer:hover .drawerbtn {
-    color: orange;
+    color: white;
+    background-color: gray;
+    border-radius:5px;
     /* background-color: var(--parent-link-bg); background color of the tabs when hovered */
     /* background-color: white;  */
     /* background color of the tabs when hovered */
