@@ -147,6 +147,7 @@
     },
     "164444411508538f0a": {
       "type": "LT_multicolumn",
+      "disabled": true,
       "blocks": {
         "1644444115a2328b90-0": {
           "type": "column",
@@ -222,6 +223,7 @@
     },
     "16442735123d6bfa3c": {
       "type": "popular-category",
+      "disabled": true,
       "blocks": {
         "164427351201b8a416-0": {
           "type": "category",
@@ -285,73 +287,28 @@
         "popular_keywords": "BTS,Twice,BT21,Hello Kitty,Demon Slayer,TXT,Stray Kids,One Piece,Ateez,Enhypen,Gundam,Plush,Sailor Moon,Naruto,Itzy,Red Velvet,Nendoroid,Pokemon,NCT,Rilakkuma,Loona,Sticker,Keychain,jojo,Kuromi,Jujutsu Kaisen,Dragon Ball,Blackpink,Monsta X,Seventeen,Aespa,Haikyuu,P1harmony,Hatsune Miku"
       }
     },
-    "1644367842c6bc52a7": {
-      "type": "latest-product",
-      "disabled": true,
-      "blocks": {
-        "e3d2e150-46b7-4860-95d5-02f045a017a0": {
-          "type": "product",
-          "settings": {
-            "product": "bandai-one-piece-ichibansho-figure-jinbe-one-piece-vol-100-anniversary",
-            "color_bg": "#ffffff",
-            "label": "New",
-            "promo": "short promotion",
-            "description": ""
-          }
-        },
-        "0aa9eea0-ca2a-40ae-8097-c538473ffe46": {
-          "type": "product",
-          "settings": {
-            "product": "dragon-ball-ichibansho-figure-dragon-ball-and-dende-vs-omnibus-z",
-            "color_bg": "#ffffff",
-            "label": "New",
-            "promo": "short promotion",
-            "description": ""
-          }
-        },
-        "538a1490-b50e-4a3f-8230-c6318e0ed130": {
-          "type": "product",
-          "settings": {
-            "product": "evangelion-ichibansho-figure-asuka-shikinami-langley-eva-13-starting",
-            "color_bg": "#ffffff",
-            "label": "New",
-            "promo": "short promotion",
-            "description": ""
-          }
-        },
-        "309814b3-3a72-4704-a07e-fed7e17ac6be": {
-          "type": "product",
-          "settings": {
-            "product": "that-time-i-got-reincarnated-as-a-slime-ichibansho-figure-guy-i-became-a-king",
-            "color_bg": "#ffffff",
-            "label": "New",
-            "promo": "short promotion",
-            "description": ""
-          }
-        }
-      },
-      "block_order": [
-        "e3d2e150-46b7-4860-95d5-02f045a017a0",
-        "0aa9eea0-ca2a-40ae-8097-c538473ffe46",
-        "538a1490-b50e-4a3f-8230-c6318e0ed130",
-        "309814b3-3a72-4704-a07e-fed7e17ac6be"
-      ],
-      "settings": {
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "disabled": true,
       "settings": {
         "title": "Featured products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "collection": "all",
         "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
         "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
         "color_scheme": "background-1",
         "image_ratio": "adapt",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 28,
         "padding_bottom": 36
@@ -362,6 +319,7 @@
       "disabled": true,
       "settings": {
         "heading": "",
+        "heading_size": "h1",
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": false,
@@ -375,7 +333,6 @@
     "1644511616ed2faaf7",
     "164444411508538f0a",
     "16442735123d6bfa3c",
-    "1644367842c6bc52a7",
     "featured_collection",
     "video"
   ]
