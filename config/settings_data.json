@@ -70,6 +70,7 @@
           },
           "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2": {
             "type": "mega_header",
+            "disabled": true,
             "settings": {
               "mega_width": false,
               "mega_url": "\/pages\/reward",
