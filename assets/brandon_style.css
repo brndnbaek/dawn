@@ -4369,6 +4369,9 @@ details-disclosure > details {
 .pt-\[5vh\] {
   padding-top: 5vh;
 }
+.pt-\[12\%\] {
+  padding-top: 12%;
+}
 .text-left {
   text-align: left;
 }
