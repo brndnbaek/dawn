@@ -195,7 +195,8 @@
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-<div>
+<div class="flex gap-4">
+  
   {%assign product_meta = product.metafields.my_fields%}
   {%capture lineup%}{{product_meta.product_lines | handle}}{%endcapture%}
   {%capture item_type%}{{product_meta.item_type | handle}}{%endcapture%}
@@ -223,6 +224,8 @@
     {%elsif product.metafields.my_fields.item_type %}
       <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.item_type}}</a>
     {%endif%}
+
+    
 </div>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -290,29 +293,33 @@
               </details>
             </div>
           {%- when 'quantity_selector' -%}
-            <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
-              <label class="form__label" for="Quantity-{{ section.id }}">
-                {{ 'products.product.quantity.label' | t }}
-              </label>
-
-              <quantity-input class="quantity">
-                <button class="quantity__button no-js-hidden" name="minus" type="button">
-                  <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
-                  {% render 'icon-minus' %}
-                </button>
-                <input class="quantity__input"
-                    type="number"
-                    name="quantity"
-                    id="Quantity-{{ section.id }}"
-                    min="1"
-                    value="1"
-                    form="{{ product_form_id }}"
-                  >
-                <button class="quantity__button no-js-hidden" name="plus" type="button">
-                  <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
-                  {% render 'icon-plus' %}
-                </button>
-              </quantity-input>
+            <div class="flex">
+              <div class="w-1/3 DELproduct-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
+                <label class="form__label" for="Quantity-{{ section.id }}">
+                  {{ 'products.product.quantity.label' | t }}
+                </label>
+                <quantity-input class="quantity">
+                  <button class="quantity__button no-js-hidden" name="minus" type="button">
+                    <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                    {% render 'icon-minus' %}
+                  </button>
+                  <input class="quantity__input"
+                      type="number"
+                      name="quantity"
+                      id="Quantity-{{ section.id }}"
+                      min="1"
+                      value="1"
+                      form="{{ product_form_id }}"
+                    >
+                  <button class="quantity__button no-js-hidden" name="plus" type="button">
+                    <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                    {% render 'icon-plus' %}
+                  </button>
+                </quantity-input>
+              </div>
+              <div class="self-end flex-1 w-1/2">
+                {% capture the_snippet_fave %}{% include 'socialshopwave-widget-fave' %}{% endcapture %}{% unless the_snippet_fave contains 'Liquid error' %}  {{ the_snippet_fave }}{% endunless %}
+              </div>
             </div>
           {%- when 'popup' -%}
               <modal-opener class="product-popup-modal__opener no-js-hidden" data-modal="#PopupModal-{{ block.id }}" {{ block.shopify_attributes }}>
