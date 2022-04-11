@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -21,10 +22,55 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "1649708269f62b5bb6": {
+      "type": "image-with-text",
+      "blocks": {
+        "16497082697eefbabb-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Story",
+            "heading_size": "h1"
+          }
+        },
+        "16497082697eefbabb-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our company has been buzzing to bring the best of Asian pop culture to America since 2007. From it's humble beginnings \"Lil' Thingamajigs\" worked tirelessly to expand and bring Asian pop culture into the mainstream.<br\/><br\/>With the global expansion of Asian pop culture and with the help of our company mascot \"Lily\", a gift box shaped bee, we are ready to keep the buzz going and be a part of the big wave.<br\/><br\/>\"Lil' Thingamajigs\" has multiple storefronts and is dedicated to providing the best customer experience for our visitors. With the introduction of our online storefront we are now able to share those experiences and our passion to those unable to visit our locations.<br\/><br\/>Keep on buzzin...<\/p>",
+            "text_style": "body"
+          }
+        },
+        "16497082697eefbabb-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16497082697eefbabb-0",
+        "16497082697eefbabb-1",
+        "16497082697eefbabb-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/37570828436_003d19c32c_bc.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "16456779822cab7c6b"
+    "16456779822cab7c6b",
+    "1649708269f62b5bb6"
   ]
 }

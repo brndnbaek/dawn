@@ -44,7 +44,7 @@
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   
-  <div class="mx-auto md:px-6 lg:px-14" id="main-collection-filters" data-id="{{ section.id }}">
+  <div class="mx-auto md:px-6 lg:px-9" id="main-collection-filters" data-id="{{ section.id }}">
 <!-- mobile filter&sort module  -->
     <div class="LT_mobileFilterButton">
       <menu-drawer class="mobile-facets__wrapper {% unless collapse_on_larger_devices %} medium-hide large-up-hide{% endunless %}" data-breakpoint="mobile">
@@ -560,7 +560,7 @@
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
 <!-- new type layered cards style            -->
-          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col flex-wrap items-center mt-6 gap-y-16 md:gap-x-12 md:flex-row md:justify-evenly md:items-start md:gap-y-20 ">
+          <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col flex-wrap items-center mt-6 gap-y-16 md:gap-x-9 md:flex-row md:justify-evenly md:items-start md:gap-y-20 ">
             <!-- Todo - need to replicate cardproduct snippet for category card -->
             <!-- <li>
               {% render 'LT-categoryCard'%}
@@ -570,7 +570,7 @@
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
               {%- endif -%}
-              <div class="w-[90vw] h-[22rem] md:gap-y-0 md:w-[28rem] lg:w-[28rem] flex flex-col justify-start items-center ">
+              <div class="w-[90vw] h-[22rem] md:gap-y-0 md:w-[27.5rem] lg:w-[27.5rem] flex flex-col justify-start items-center ">
                 {% render 'LT-cardProduct',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,

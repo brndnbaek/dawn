@@ -2974,6 +2974,10 @@ details-disclosure > details {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -3033,6 +3037,9 @@ details-disclosure > details {
 }
 .grid {
   display: grid;
+}
+.list-item {
+  display: list-item;
 }
 .hidden {
   display: none;
@@ -3358,6 +3365,15 @@ details-disclosure > details {
 .w-\[6rem\] {
   width: 6rem;
 }
+.w-\[48\%\] {
+  width: 48%;
+}
+.w-\[49\%\] {
+  width: 49%;
+}
+.w-\[99\%\] {
+  width: 99%;
+}
 .max-w-\[250px\] {
   max-width: 250px;
 }
@@ -3478,8 +3494,17 @@ details-disclosure > details {
 .scroll-pl-3 {
   scroll-padding-left: 0.75rem;
 }
+.list-inside {
+  list-style-position: inside;
+}
+.list-outside {
+  list-style-position: outside;
+}
 .list-none {
   list-style-type: none;
+}
+.list-disc {
+  list-style-type: disc;
 }
 .appearance-none {
   -webkit-appearance: none;
@@ -3563,6 +3588,9 @@ details-disclosure > details {
 }
 .justify-evenly {
   justify-content: space-evenly;
+}
+.justify-items-center {
+  justify-items: center;
 }
 .gap-5 {
   gap: 1.25rem;
@@ -3975,6 +4003,10 @@ details-disclosure > details {
   --tw-gradient-from: #ffe4e6;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 228 230 / 0));
 }
+.from-rose-300 {
+  --tw-gradient-from: #fda4af;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(253 164 175 / 0));
+}
 .via-gray-500 {
   --tw-gradient-stops: var(--tw-gradient-from), #6b7280, var(--tw-gradient-to, rgb(107 114 128 / 0));
 }
@@ -4107,6 +4139,9 @@ details-disclosure > details {
 .to-pink-200 {
   --tw-gradient-to: #fbcfe8;
 }
+.to-pink-500 {
+  --tw-gradient-to: #ec4899;
+}
 .bg-cover {
   background-size: cover;
 }
@@ -4214,6 +4249,10 @@ details-disclosure > details {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -4285,6 +4324,9 @@ details-disclosure > details {
 }
 .pr-4 {
   padding-right: 1rem;
+}
+.pt-\[2rem\] {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -4850,6 +4892,12 @@ details-disclosure > details {
   .md\:w-8 {
     width: 2rem;
   }
+  .md\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .md\:w-\[27\.5rem\] {
+    width: 27.5rem;
+  }
   .md\:max-w-\[11rem\] {
     max-width: 11rem;
   }
@@ -4864,6 +4912,9 @@ details-disclosure > details {
   }
   .md\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .md\:grid-rows-4 {
     grid-template-rows: repeat(4, minmax(0, 1fr));
@@ -4905,6 +4956,18 @@ details-disclosure > details {
   .md\:gap-x-14 {
     -moz-column-gap: 3.5rem;
          column-gap: 3.5rem;
+  }
+  .md\:gap-x-8 {
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+  }
+  .md\:gap-x-0 {
+    -moz-column-gap: 0px;
+         column-gap: 0px;
+  }
+  .md\:gap-x-9 {
+    -moz-column-gap: 2.25rem;
+         column-gap: 2.25rem;
   }
   .md\:overflow-x-scroll {
     overflow-x: scroll;
@@ -4994,6 +5057,15 @@ details-disclosure > details {
   .lg\:w-\[20rem\] {
     width: 20rem;
   }
+  .lg\:w-1\/4 {
+    width: 25%;
+  }
+  .lg\:w-\[27\.5rem\] {
+    width: 27.5rem;
+  }
+  .lg\:w-\[27rem\] {
+    width: 27rem;
+  }
   .lg\:max-w-\[12\.5rem\] {
     max-width: 12.5rem;
   }
@@ -5005,6 +5077,9 @@ details-disclosure > details {
   }
   .lg\:grid-cols-7 {
     grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .lg\:grid-rows-3 {
     grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -5029,11 +5104,18 @@ details-disclosure > details {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+  .lg\:px-9 {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
   .lg\:pt-\[5rem\] {
     padding-top: 5rem;
   }
   .lg\:pl-20 {
     padding-left: 5rem;
+  }
+  .lg\:pb-10 {
+    padding-bottom: 2.5rem;
   }
   .lg\:text-2xl {
     font-size: 1.5rem;
@@ -5062,6 +5144,14 @@ details-disclosure > details {
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
   .lg\:leading-\[2\] {
     line-height: 2;

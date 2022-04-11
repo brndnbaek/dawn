@@ -36,8 +36,22 @@
   }
 {%- endstyle -%}
 
-<footer class="DELfooter bg-lt-apricot DELcolor-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
+<footer class="w-full pt-10 mx-auto bg-lt-apricot">
+  {%- for block in section.blocks -%}
+
+                    <ul class="grid w-full grid-cols-2 px-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
+                      {%- for link in block.settings.menu.links -%}
+                        <li class="list-none">
+                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                            {{ link.title }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                
+          {%- endfor -%}
+
+  <!-- {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
     <div class="footer__content-top page-width">
       {%- if section.blocks.size > 0 -%}
         {%- liquid
@@ -222,7 +236,7 @@
         {%- endif -%}
       </div>
     </div>
-  {%- endif -%}
+  {%- endif -%} -->
 
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">

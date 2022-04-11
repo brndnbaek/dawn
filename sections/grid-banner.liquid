@@ -74,8 +74,8 @@
     </div>
     <div class="h-full row-span-2 row-start-2 rounded-lg shadow-lg col-span-full">
       <div class="flex flex-row-reverse items-end h-full">
-        <div class="flex flex-col w-[60%] items-center pb-10">
-          <h2 class="flex-1 text-2xl font-semibold text-center text-transparent sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-r group-hover:bg-gradient-to-l from-pink-500 to-violet-500">BTS Collection</h2>
+        <div class="flex flex-col justify-end w-[60%] items-center lg:pb-10 h-full">
+          <div class="text-2xl font-semibold text-center text-transparent sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-r group-hover:bg-gradient-to-l from-pink-500 to-violet-500">BTS Collection</div>
           <div class="p-2 text-base text-lt-white sm:text-lg md:text-xl lg:text-3xl">Most Requested K-Pop Artist</div>
         </div>
       </div>
@@ -87,10 +87,10 @@
   <section class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] rounded-lg shadow-lg max-h-[400px] aspect-[12/4] overflow-hidden">
         <a href="{{ collections['boy-group'].url }}" class="no-underline">
           <div class="absolute grid w-full h-full bg-cover place-items-center LT_slides LT_slide01" style="background-image:url('{{'LT_solomenBanner.jpg' | asset_img_url:'1200x'}}');">
-            <h1 class="self-end font-semibold text-transparent bg-gradient-to-br from-sky-400 to-sky-600 bg-clip-text">K-Pop Male Solo Artists</h1>
+            <h1 class="self-end text-2xl font-semibold text-transparent md:text-5xl lg:text-7xl bg-gradient-to-br from-sky-400 to-sky-600 bg-clip-text">K-Pop Male Solo Artists</h1>
           </div>
           <div class="absolute grid w-full h-full bg-cover place-items-center LT_slides LT_slide02" style="background-image:url('{{'LT_solofmBanner.jpg' | asset_img_url:'1200x'}}');">
-            <h1 class="self-end font-semibold text-transparent bg-gradient-to-br from-rose-100 to-pink-200 bg-clip-text drop-shadow-lg">K-Pop Female Solo Artists</h1>
+            <h1 class="self-end text-2xl font-semibold text-transparent md:text-5xl lg:text-7xl bg-gradient-to-b from-rose-300 to-pink-500 bg-clip-text drop-shadow-lg">K-Pop Female Solo Artists</h1>
           </div>
         </a>
   </section>
@@ -104,9 +104,9 @@
     </div>
     <div class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-orange-300 to-red-300 col-span-full group-hover:duration-1000">
       <div class="flex flex-row-reverse">
-        <div class="flex flex-col w-[45%] pr-10">
+        <div class="flex flex-col w-[45%] pr-2">
           <h2 class="text-2xl font-semibold sm:text-2xl md:text-4xl lg:text-6xl">Featured Collection</h2>
-          <p class="py-2 text-base sm:text-lg md:text-xl lg:text-3xl">Build a dream collection. Find everything you need to build the ultimate figure collection.</p>
+          <p class="pb-2 text-sm sm:text-lg md:text-xl lg:text-3xl">Build a dream collection. Find everything you need to build the ultimate figure collection.</p>
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@
       <div class="flex flex-row">
         <div class="flex flex-col w-[55%]">
           <h2 class="py-4 text-2xl font-semibold text-center lg:py-8 sm:text-2xl md:text-4xl lg:text-6xl">Viral Sensation!</d>
-          <p class="w-11/12 py-2 pl-8 text-base font-normal sm:text-lg md:text-xl lg:text-3xl">The most successful Japanese film of all time. Time to slay some demons! Check out the must-have Demon Slayer collectibles</p>
+          <p class="w-11/12 pb-2 pl-4 text-sm font-normal sm:text-lg md:text-xl lg:text-3xl">The most successful Japanese film of all time. Time to slay some demons! Check out the must-have Demon Slayer collectibles</p>
         </div>
       </div>
     </div>
@@ -153,23 +153,23 @@
       <div class="flex items-center w-full md:w-[30%] flex-col p-2">
         <div class="flex items-center justify-center gap-4 px-2 ">
           <img src="{{'free-delivery.png' | asset_img_url: '50x'}}" alt="" class="w-14 lg:w-20">
-          <h4 class="text-2xl font-semibold text-neutral-700">Free Shipping</h4>
+          <h4 class="text-xl font-semibold md:text-2xl text-neutral-700">Free Shipping</h4>
       </div>
-        <p>Free shipping on orders over $60. Order place by 1PM EST (Mon-Fri) will ship the same day.</p>
+        <p class="px-4 text-base">Free shipping on orders over $60. Order place by 1PM EST (Mon-Fri) will ship the same day.</p>
       </div>
       <div class="flex flex-col w-full md:w-[30%] p-2">
         <div class="flex items-center justify-center gap-4 px-2">
-          <img src="{{'authentic.png' | asset_img_url: '50x'}}" alt="" class="w-12 lg:w-20">
-          <h4 class="text-2xl font-semibold text-neutral-700">Authenticity</h4>
+          <img src="{{'authentic.png' | asset_img_url: '50x'}}" alt="" class="w-14 lg:w-20">
+          <h4 class="text-xl font-semibold md:text-2xl text-neutral-700">Authenticity</h4>
       </div>
-        <p>Only the highest-quality oficially licensed merchandise</p>
+        <p class="px-4 text-base">Only the highest-quality oficially licensed merchandise</p>
       </div>
       <div class="flex flex-col p-2 md:w-[30%] w-full">
         <div class="flex items-center justify-center gap-4 px-2 ">
-          <img src="{{'live-chat.png' | asset_img_url: '50x'}}" alt="" class="w-12 lg:w-20">
-          <h4 class="text-2xl font-semibold text-neutral-700">Get Support</h4>
+          <img src="{{'live-chat.png' | asset_img_url: '50x'}}" alt="" class="w-14 lg:w-20">
+          <h4 class="text-xl font-semibold md:text-2xl text-neutral-700">Get Support</h4>
       </div>
-        <p>Get all your questions answered for product, orders, and more.</p>
+        <p class="px-4 text-base">Get all your questions answered for product, orders, and more.</p>
       </div>
     </div>
   </section>
@@ -204,7 +204,7 @@
   
 <!-- sumikko gurashi banner -->
   <a href="{{ collections['sumikko-gurashi'].url }}">
-  <section class="grid place-items-center max-w-[1200px] md:w-11/12 w-[95%] mx-auto lg:pt-[5rem]">
+  <section class="grid place-items-center max-w-[1200px] md:w-11/12 w-[95%] mx-auto lg:pt-[5rem] pt-[2rem]">
     <img src="{{'LT_sumikkoBanner.png' | asset_img_url:'900x' }}" alt="" class="w-full h-full">
   </section>
 </a>
