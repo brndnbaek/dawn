@@ -40,9 +40,10 @@
         "1647920929219f32e0-2"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/contact-us-phone.jpg",
         "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
+        "desktop_image_width": "small",
+        "layout": "text_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
@@ -70,7 +71,7 @@
           "type": "column",
           "settings": {
             "title": "Annandale, VA",
-            "text": "<p><a href=\"mailto:annandale@lilthinga.com\" title=\"mailto:annandale@lilthinga.com\">annandale@lilthinga.com<\/a><\/p><p> <\/p><p>7031 Little River Turnpike #7B<\/p><p>Annandale, VA 22003<\/p><p>(703)642-0012<\/p>",
+            "text": "<p> 7031 Little River Turnpike #7B<\/p><p>Annandale, VA 22003<\/p><p>(703)642-0012<\/p>",
             "link_label": "Detail Information",
             "link": "https:\/\/goo.gl\/maps\/3UuydxEuBN5tL6JdA"
           }
@@ -79,7 +80,7 @@
           "type": "column",
           "settings": {
             "title": "Centreville, VA",
-            "text": "<p><a href=\"mailto:centreville@lilthinga.com\" title=\"mailto:centreville@lilthinga.com\">centreville@lilthinga.com<\/a><\/p><p>&nbsp<\/p><p>5949 Centreville Crest Ln<\/p><p>Centreville, VA 20121<\/p><p>(703)543-4546<\/p>",
+            "text": "<p>5949 Centreville Crest Ln<\/p><p>Centreville, VA 20121<\/p><p>(703)543-4546<\/p>",
             "link_label": "Detail Information",
             "link": "https:\/\/goo.gl\/maps\/mhm6DxdftdpYYBMXA"
           }

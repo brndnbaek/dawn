@@ -2,7 +2,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -10,6 +9,7 @@
     },
     "16456779822cab7c6b": {
       "type": "LT_slide_products",
+      "disabled": true,
       "settings": {
         "title": "Special Bundle",
         "collection": "special-bundle",
