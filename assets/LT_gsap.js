@@ -17,6 +17,20 @@ function slideIt() {
 
 gsap.delayedCall(12, () => slideIt());
 
+//bts banner slide function
+let btsSlideCount = 0;
+const btsFocus = document.querySelectorAll(".LT_btsBanner");
+gsap.set(btsFocus, { opacity:0});
+gsap.set(btsFocus[0], {opacity:1});
+
+function btsSlide() {
+  gsap.to(btsFocus[btsSlideCount], { opacity:0 });
+  btsSlideCount = btsSlideCount < btsFocus.length - 1 ? ++btsSlideCount : 0;
+  gsap.fromTo(btsFocus[btsSlideCount], { scale: 3, opacity:0, ease: "Power2.out"}, {opacity:1, scale: 1, duration:3, ease: "Power2.out" });
+  gsap.to({}, {duration:10, onComplete: btsSlide });
+}
+gsap.delayedCall(10, () => btsSlide());
+
 // let btstl = gsap.timeline({
 //     scrollTrigger: {
 //       trigger: "#db_banner",

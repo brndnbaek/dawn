@@ -23,5 +23,9 @@
   "peacock.color": "#215732",
   "explorer.autoReveal": false,
   "prettier.enable": false,
-  "editor.fontSize": 14
+  "editor.fontSize": 14,
+  "editor.defaultFormatter": "sissel.shopify-liquid",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }
