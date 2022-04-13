@@ -1,6 +1,6 @@
 {
   "editor.wordWrap": "on",
-  "workbench.colorTheme": "Material Theme Darker",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#2f7c47",
     "activityBar.activeBorder": "#422c74",
@@ -23,7 +23,7 @@
   "peacock.color": "#215732",
   "explorer.autoReveal": false,
   "prettier.enable": false,
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   "editor.defaultFormatter": "sissel.shopify-liquid",
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
