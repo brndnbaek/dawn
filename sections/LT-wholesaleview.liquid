@@ -21,7 +21,7 @@
 {%- endstyle -%}
 
 <!-- script for Add to cart on collection page -->
-<!-- <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script> -->
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   if search.performed
@@ -513,7 +513,7 @@
         
         
         <!-- product grid  -->
-  <div id="LT_ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-10 md:col-start-3">
+  <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-10 md:col-start-3">
       {%- paginate collection.products by 50 -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty DELpage-width" id="product-grid" data-id="{{ section.id }}">

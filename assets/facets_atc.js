@@ -7,7 +7,7 @@ class FacetFiltersForm extends HTMLElement {
       this.onSubmitHandler(event);
     }, 500);
 
-    this.querySelector('.Filterform').addEventListener('input', this.debouncedOnSubmit.bind(this));
+    this.querySelectorAll('.Filterform').addEventListener('input', this.debouncedOnSubmit.bind(this));
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
@@ -33,7 +33,7 @@ class FacetFiltersForm extends HTMLElement {
     const sections = FacetFiltersForm.getSections();
     const countContainer = document.getElementById('ProductCount');
     const countContainerDesktop = document.getElementById('ProductCountDesktop');
-    document.getElementById('LT_ProductGridContainer').querySelector('.collection').classList.add('loading');
+    document.getElementById('ProductGridContainer').querySelector('.collection').classList.add('loading');
     if (countContainer){
       countContainer.classList.add('loading');
     }
@@ -60,7 +60,7 @@ class FacetFiltersForm extends HTMLElement {
         const html = responseText;
         FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
         FacetFiltersForm.renderFilters(html, event);
-        FacetFiltersForm.renderLT_ProductGridContainer(html);
+        FacetFiltersForm.renderProductGridContainer(html);
         FacetFiltersForm.renderProductCount(html);
       });
   }
@@ -68,12 +68,12 @@ class FacetFiltersForm extends HTMLElement {
   static renderSectionFromCache(filterDataUrl, event) {
     const html = FacetFiltersForm.filterData.find(filterDataUrl).html;
     FacetFiltersForm.renderFilters(html, event);
-    FacetFiltersForm.renderLT_ProductGridContainer(html);
+    FacetFiltersForm.renderProductGridContainer(html);
     FacetFiltersForm.renderProductCount(html);
   }
 
-  static renderLT_ProductGridContainer(html) {
-    document.getElementById('LT_ProductGridContainer').innerHTML = new DOMParser().parseFromString(html, 'text/html').getElementById('LT_ProductGridContainer').innerHTML;
+  static renderProductGridContainer(html) {
+    document.getElementById('ProductGridContainer').innerHTML = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductGridContainer').innerHTML;
   }
 
   static renderProductCount(html) {
@@ -156,7 +156,6 @@ class FacetFiltersForm extends HTMLElement {
 
   onSubmitHandler(event) {
     event.preventDefault();
-    // changed form to .Filterform
     const formData = new FormData(event.target.closest('.Filterform'));
     const searchParams = new URLSearchParams(formData).toString();
     FacetFiltersForm.renderPage(searchParams, event);
