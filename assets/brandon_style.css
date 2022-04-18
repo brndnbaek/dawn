@@ -4033,6 +4033,10 @@ details-disclosure > details {
   --tw-gradient-from: #ffe4e6;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 228 230 / 0));
 }
+.from-rose-50 {
+  --tw-gradient-from: #fff1f2;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 241 242 / 0));
+}
 .via-gray-500 {
   --tw-gradient-stops: var(--tw-gradient-from), #6b7280, var(--tw-gradient-to, rgb(107 114 128 / 0));
 }
@@ -4155,6 +4159,9 @@ details-disclosure > details {
 }
 .to-amber-100 {
   --tw-gradient-to: #fef3c7;
+}
+.to-amber-50 {
+  --tw-gradient-to: #fffbeb;
 }
 .bg-cover {
   background-size: cover;
