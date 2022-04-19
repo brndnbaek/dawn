@@ -199,6 +199,34 @@
                   </td>
 
                   <td class="cart-item__quantity">
+                    <!-- condition: quantity selector hidden for free addon item  -->
+                    {% if item.product.tags contains 'not for sale' %}
+                          <span>Quantity limited to 1 per order</span>
+                          <div class="cart-item__quantity-wrapper">
+                            <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
+                              {{ 'products.product.quantity.label' | t }}
+                            </label>
+                            <quantity-input class="hidden quantity">
+                              
+                              <input class="quantity__input"
+                                type="hidden"
+                                name="updates[]"
+                                value="1"
+                                min="0"
+                                max="1"
+                                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                id="Quantity-{{ item.index | plus: 1 }}"
+                                data-index="{{ item.index | plus: 1 }}"
+                              >
+                              
+                            </quantity-input>
+                            <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" class="hidden">
+                              <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                                {% render 'icon-remove' %}
+                              </a>
+                            </cart-remove-button>
+                          </div>
+                        {%else%}
                     <div class="cart-item__quantity-wrapper">
                       <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
                         {{ 'products.product.quantity.label' | t }}
@@ -208,11 +236,13 @@
                           <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                           {% render 'icon-minus' %}
                         </button>
+                        <!-- max quantity input limited to available item inventory  -->
                         <input class="quantity__input"
                           type="number"
                           name="updates[]"
                           value="{{ item.quantity }}"
                           min="0"
+                          max="{{item.inventory_quantity}}"
                           aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                           id="Quantity-{{ item.index | plus: 1 }}"
                           data-index="{{ item.index | plus: 1 }}"
@@ -222,13 +252,13 @@
                           {% render 'icon-plus' %}
                         </button>
                       </quantity-input>
-
                       <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
                         <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                           {% render 'icon-remove' %}
                         </a>
                       </cart-remove-button>
                     </div>
+                    {%endif%}
                     <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                       <small class="cart-item__error-text"></small>
                       <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">

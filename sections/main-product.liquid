@@ -202,8 +202,12 @@
   {%capture item_type%}{{product_meta.item_type | handle}}{%endcapture%}
   {%capture artist%}{{product_meta.artist | handle}}{%endcapture%}
   
+  {% assign addon = all_products[product.metafields.my_fields.addon] %}
   {% case product.type %}
   {% when 'Kpop CD'%}
+    {% if addon.available == true %}
+      <span class="px-2 py-1 text-lg font-medium text-white bg-red-400 rounded-lg">Freebie included with purchase</span>
+    {% endif %}
     {% if collections[artist].products.size != 0 %}
       <a href="/collections/{{artist}}" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.artist}}</a>
     {%elsif product.metafields.my_fields.artist %}
@@ -268,7 +272,12 @@
           {%- when 'description' -%}
             {%- if product.description != blank -%}
               <div class="product__description rte">
-
+                {% if addon.available == true %}
+                <div class="p-4 text-lg italic md:text-xl bg-slate-200">
+                  <span>*First press poster(folded) is included with purchase. </span>
+                  <span>Poster is folded, random pick, and shipped with the album.</span>
+                </div>
+                {% endif %}
                 {{ product.description }}
               </div>
             {%- endif -%}
@@ -457,7 +466,11 @@
                 </div>
 
                 {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+                <!-- free poster or addon associated with the product will be added to cart automatically when the main product is added -->
+                {% if all_products[product.metafields.my_fields.addon].available == true %}
+                    <input type="hidden" name="items[1]id" value="{{all_products[product.metafields.my_fields.addon].selected_or_first_available_variant.id}}">
+                {% endif %}
                   <div class="product-form__buttons">
                     <button
                       type="submit"
