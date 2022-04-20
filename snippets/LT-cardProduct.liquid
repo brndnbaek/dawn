@@ -98,11 +98,10 @@
       
       <!-- check and show if the product has free addon available. -->
         {% if all_products[card_product.metafields.my_fields.addon].available == true %}
-        <span class="px-2 py-1 text-lg font-medium text-white bg-red-400 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 motion-safe:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
-        </svg>
-        </svg>Freebie</span>
+        <span class="flex items-center px-1 py-1 text-lg font-medium text-red-500 bg-red-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1 animate-bounce" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd" />
+          <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" />
+        </svg> Free Gift</span>
         {% endif %}
 
       <!-- conditional list to show artist link either collection or by searh -->
