@@ -471,7 +471,7 @@
                   <div class="megaLinkImage" data-mega-image="{{link.title | downcase | replace: ' ', '-' }}">
 
                   </div>
-                  <a {% if link.links != blank %} class="megaLink" href="{{link.url}}" {% else %}
+                  <a {% if link.links == blank %} class="megaLink" href="{{link.url}}" {% else %}
                     style="font-weight:600; text-align: center" {% endif %}>{{ link.title | escape }}</a>
                   {% for child_link in link.links %}
                   <a href="{{child_link.url}}">{{child_link.title | escape }}</a>

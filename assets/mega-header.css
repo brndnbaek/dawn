@@ -72,7 +72,7 @@
     
     .megaHeader > a:hover, .megaDrawer:hover .drawerbtn {
     color: white;
-    background-color: gray;
+    background-color: lightsalmon;
     border-radius:5px;
     /* background-color: var(--parent-link-bg); background color of the tabs when hovered */
     /* background-color: white;  */
@@ -154,7 +154,8 @@
     
     .megaLinkBox a:not(:first-of-type):not(:first-child):hover {
     /* background-color: var(--gray-color); */
-    background-color: #b1b0b5;
+    background-color: lightpink;
+    /* background-color: #b1b0b5; */
     /* color: blue; */
     }
     .megaLink {
