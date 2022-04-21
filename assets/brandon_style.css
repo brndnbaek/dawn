@@ -2968,6 +2968,12 @@ details-disclosure > details {
 .-left-11 {
   left: -2.75rem;
 }
+.top-10 {
+  top: 2.5rem;
+}
+.right-10 {
+  right: 2.5rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -3914,6 +3920,10 @@ details-disclosure > details {
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+.bg-teal-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 246 228 / var(--tw-bg-opacity));
 }
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
