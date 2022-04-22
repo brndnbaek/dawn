@@ -58,6 +58,11 @@
             
             {% render 'LT-wholesaleList',
               card_product: product %}
+              <button class="pop">test</button>
+              <dialog class="popModal" id="popModal">
+                <p>Item added to cart</p>
+                <button class="button close-button">Close</button>
+              </dialog>
           {%- endfor -%}
         </div>
   
@@ -70,41 +75,21 @@
   </div>
 </div>
 
+
 {% javascript %}
-  class ProductModal extends ModalDialog {
-    constructor() {
-      super();
-    }
+  const modal = document.querySelector('#popModal');
+  const openModal = document.querySelectorAll('.openModal');
+    for (var i = 0; i < openModal.length; i++) {
+      openModal.addEventListener('click', () => {
+        modal.showModal();
+    })}
+  const closeModal = document.querySelector('.close-button');
 
-    hide() {
-      super.hide();
-    }
+  
 
-    show(opener) {
-      super.show(opener);
-      this.showActiveMedia();
-    }
-
-    showActiveMedia() {
-      this.querySelectorAll(`[data-media-id]:not([data-media-id="${this.openedBy.getAttribute("data-media-id")}"])`).forEach((element) => {
-          element.classList.remove('active');
-        }
-      )
-      const activeMedia = this.querySelector(`[data-media-id="${this.openedBy.getAttribute("data-media-id")}"]`);
-      const activeMediaTemplate = activeMedia.querySelector('template');
-      const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
-      activeMedia.classList.add('active');
-      activeMedia.scrollIntoView();
-
-      const container = this.querySelector('[role="document"]');
-      container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
-
-      if (activeMedia.nodeName == 'DEFERRED-MEDIA' && activeMediaContent && activeMediaContent.querySelector('.js-youtube'))
-        activeMedia.loadContent();
-    }
-  }
-
-  if (!customElements.get('product-modal')) customElements.define('product-modal', ProductModal);
+  closeModal.addEventListener('click', () => {
+    modal.close();
+  })
 {% endjavascript %}
 {% schema %}
 {

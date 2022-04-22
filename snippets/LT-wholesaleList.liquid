@@ -30,9 +30,9 @@
                 {% endfor %}
               </select>
               <label class="text-lg" >Qty:</label>
-              <input type="number" id="quantity-{{card_product.id}}" name="quantity" value="1" min="1" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem] addButton">
+              <input type="number" id="quantity-{{card_product.id}}" name="quantity" value="1" min="1" class="h-10 pl-4 pr-2 text-lg leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-[5rem]">
           
-              <input id="submit-{{card_product.id}}" name="add" type="submit" value="Add to cart" onsubmit="foo()" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded hover:bg-orange-400 add-to-cart loading" >
+              <input id="submit-{{card_product.id}}" name="add" type="submit" value="Add to cart" onsubmit="foo()" class="inline-block w-32 h-10 text-lg transition delay-200 bg-orange-300 border border-orange-400 rounded hover:bg-orange-400 add-to-cart loading openModal" >
                       
               <input type="hidden" name="return_to" value="back" />
             </div>
