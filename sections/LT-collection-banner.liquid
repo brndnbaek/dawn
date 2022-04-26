@@ -14,13 +14,16 @@
     <img src="{{product.featured_image | img_url:'50x'}}" alt="" class="object-contain" >
     {% endfor %}
   </div> -->
-    <div class="flex items-center w-full py-8 ">
+    <div class="flex items-center justify-between w-full py-8 ">
       {% assign collection_title = collection.title | split: " "  %}
       
-      <img src="{{'Logo_RGB_300ppi_1.png' | file_img_url: '50x'}}" alt="" class="object-cover w-10 h-10 mr-2">
-      <div class="text-3xl font-medium text-neutral-700">
-        {{collection.title }}
+        <div class="flex items-center ml-10">
+          <img src="{{'Logo_RGB_300ppi_1.png' | file_img_url: '50x'}}" alt="" class="object-cover w-10 h-10 mr-2">
+          <div class="text-3xl font-medium text-neutral-700">
+            {{collection.title }}
+          </div>
         </div>
+      <div class="text-xl text-slate-600">Free Shipping on Orders Over $60</div>
       
 
       <!-- {%- if section.settings.show_collection_description -%}
