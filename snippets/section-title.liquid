@@ -16,7 +16,7 @@
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
     
-    {% assign section_title = section.settings.title | split: " "  %}
+    {% assign section_title = section.settings.title | split: " " %}
         <div class="p-4 md:p-8 tw_smallheading">
-          <span class="tw_smallEM">{{section_title.first}}</span> {{section.settings.title | remove_first:section_title.first}}
+          <span class="tw_smallEM">{{ section_title.first }}</span> {{ section.settings.title | remove_first: section_title.first }}
         </div>
