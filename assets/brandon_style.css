@@ -1368,7 +1368,8 @@ button.shopify-payment-button__button--unbranded {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
-  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  /* background-color: rgba(var(--color-button), var(--alpha-button-background)); */
+  background-color: lightblue;
 }
 
 .button:before,
@@ -3112,12 +3113,6 @@ details-disclosure > details {
 
 .bannerDesc {
   @apply w-11/12 pb-2 pl-4 text-sm font-normal leading-normal sm:text-lg md:text-xl lg:text-3xl;
-}
-
-/* pillbadge used for product page - category,type,free gift etc.. */
-
-.pillbadge {
-  @apply flex items-center inline-block px-2 py-1 text-lg rounded-lg outline outline-1 full-unstyled-link;
 }
 
 *, ::before, ::after {

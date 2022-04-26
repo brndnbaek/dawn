@@ -214,9 +214,9 @@
       </svg>Free Gift</span>
     {% endif %}
     {% if collections[artist].products.size != 0 %}
-      <a href="/collections/{{artist}}" class="text-indigo-500 bg-indigo-100 pillbadge outline-indigo-500">{{product.metafields.my_fields.artist}}</a>
+      <a href="/collections/{{artist}}" class="flex items-center px-2 py-1 text-lg text-indigo-500 bg-indigo-100 rounded-lg outline outline-1 full-unstyled-link outline-indigo-500">{{product.metafields.my_fields.artist}}</a>
     {%elsif product.metafields.my_fields.artist %}
-      <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none" class="text-indigo-500 bg-indigo-100 pillbadge outline-indigo-500">{{product.metafields.my_fields.artist}}</a>
+      <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-indigo-500 bg-indigo-100 rounded-lg outline outline-1 full-unstyled-link outline-indigo-500">{{product.metafields.my_fields.artist}}</a>
     {%endif%}
 
   {% when 'Figure'%}
@@ -229,9 +229,9 @@
     {%endcase%}
     
     {% if collections[item_type].products.size != 0 %}
-      <a href="/collections/{{item_type}}" class="text-green-500 bg-green-100 pillbadge outline-green-500">{{product.metafields.my_fields.item_type}}</a>
+      <a href="/collections/{{item_type}}" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{product.metafields.my_fields.item_type}}</a>
     {%elsif product.metafields.my_fields.item_type %}
-      <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="text-green-500 bg-green-100 pillbadge outline-green-500">{{product.metafields.my_fields.item_type}}</a>
+      <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{product.metafields.my_fields.item_type}}</a>
     {%endif%}
 
     
