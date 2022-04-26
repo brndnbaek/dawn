@@ -4069,6 +4069,14 @@ details-disclosure > details {
   flex-basis: 33.333333%;
 }
 
+.basis-\[45\%\] {
+  flex-basis: 45%;
+}
+
+.basis-full {
+  flex-basis: 100%;
+}
+
 .origin-bottom {
   transform-origin: bottom;
 }
@@ -4347,6 +4355,10 @@ details-disclosure > details {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 
 .place-self-center {
@@ -6194,6 +6206,14 @@ details-disclosure > details {
 
   .lg\:max-w-\[150px\] {
     max-width: 150px;
+  }
+
+  .lg\:basis-\[48\%\] {
+    flex-basis: 48%;
+  }
+
+  .lg\:basis-\[49\%\] {
+    flex-basis: 49%;
   }
 
   .lg\:grid-cols-5 {

@@ -48,7 +48,7 @@
       <div class="collection page-width">
         <div class="loading-overlay gradient"></div>
 <!-- new type layered cards style            -->
-        <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col gap-4 p-2">
+        <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap justify-between gap-y-10">
           
           {%- for product in collection.products -%}
             {% assign lazy_load = false %}
@@ -56,13 +56,11 @@
               {%- assign lazy_load = true -%}
             {%- endif -%}
             
-            {% render 'LT-wholesaleList',
-              card_product: product %}
-              <button class="pop">test</button>
-              <dialog class="popModal" id="popModal">
-                <p>Item added to cart</p>
-                <button class="button close-button">Close</button>
-              </dialog>
+            <div class="basis-full lg:basis-[49%]">
+              {% render 'LT-wholesaleList',
+                card_product: product %}
+            </div>
+              
           {%- endfor -%}
         </div>
   
@@ -76,21 +74,7 @@
 </div>
 
 
-{% javascript %}
-  const modal = document.querySelector('#popModal');
-  const openModal = document.querySelectorAll('.openModal');
-    for (var i = 0; i < openModal.length; i++) {
-      openModal.addEventListener('click', () => {
-        modal.showModal();
-    })}
-  const closeModal = document.querySelector('.close-button');
 
-  
-
-  closeModal.addEventListener('click', () => {
-    modal.close();
-  })
-{% endjavascript %}
 {% schema %}
 {
   "name": "wholesale listing",
