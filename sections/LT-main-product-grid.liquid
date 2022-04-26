@@ -337,7 +337,7 @@
                             {% if value.count == 0 and value.active == false %}disabled{% endif %}
                           >
                           <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="text-gray-700 form-check-label">
-                            {{ value.label | escape }} ({{ value.count }})
+                            {{ value.label | escape }} <span class="text-base text-gray-600">[{{ value.count }}]</span>
                           </label>
                         </li>
                       {%- endfor -%}

@@ -74,11 +74,10 @@
         },
         "collapsible-row-1": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
-            "heading": "Shipping & Returns",
+            "heading": "Shipping",
             "icon": "truck",
-            "content": "",
+            "content": "<p><strong>Shipping Options<\/strong><\/p><p>Orders placed before 1 pm ET will be processed the same day(weekday). Shipping options are selected at checkout.<\/p><p><\/p><p>- For orders above $60, delivery is <strong>FREE.<\/strong><\/p><p><a href=\"\/policies\/shipping-policy\" title=\"Shipping Policy\">Additional Information<\/a><\/p>",
             "page": ""
           }
         },

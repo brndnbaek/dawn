@@ -2402,13 +2402,13 @@ input[type='checkbox'] {
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 .header__icon--cart {
   position: relative;
-  margin-right: -1.2rem;
+  margin-right: .8rem;
 }
 
 @media screen and (max-width: 989px) {
