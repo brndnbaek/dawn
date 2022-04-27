@@ -1,13 +1,13 @@
-<section class="py-10 mx-auto bg-gray-200 page-width">
+<section class="h-full py-10 mx-auto bg-gray-200 page-width">
   <div class="tw_smallEM">Specials & Offers</div>
     
 <!-- -Clearance Saving -->
   <div class="flex pt-4 pb-4 pl-4 mx-auto overflow-x-scroll gap-x-4 scroll-smooth snap-x hiddenscroll">
-    <div class="flex flex-col items-start justify-center h-[24rem] p-6 bg-red-100 rounded-md w-52 drop-shadow-lg">
+    <div class="flex flex-col items-center justify-center h-[24rem] p-6 bg-red-100 rounded-md w-52 drop-shadow-lg">
         <div class="text-3xl text-gray-700 empty:hidden">Clearance</div>
         <div class="text-3xl text-gray-700 empty:hidden">Sale</div>
-        <div class="text-3xl text-gray-700 empty:hidden">Up to 35% off</div>
-        <a href="{{ collections['clearance-sale'].url }}" class="no-underline"><button class="mt-4 text-2xl text-gray-700 bg-gray-200 rounded-md">Click More</button></a>
+        <div class="text-2xl text-center text-gray-700 empty:hidden">Up to 35% off</div>
+        <a href="{{ collections['clearance-sale'].url }}" class="text-gray-700 no-underline"><button class="mt-4 text-2xl text-gray-700 border-0 rounded-md shadow bg-lt-yellow">More</button></a>
     </div>
     {% assign loop = collections['clearance-sale'].products | reverse %}
     {% for product in loop limit:20 %}
@@ -32,18 +32,18 @@
 
 <!-- -Bundle Deal -->
   <div class="flex pt-4 pb-4 pl-4 mx-auto overflow-x-scroll overflow-y-hidden gap-x-4 scroll-smooth snap-x hiddenscroll">
-    <div class="flex flex-col items-start justify-center h-[24rem] p-6 bg-neutral-100 rounded-md w-52 drop-shadow-lg">
-        <div class="text-3xl text-gray-700 w-52">Bundle</div>
-        <div class="text-3xl text-gray-700 w-52">Set</div>
-        <div class="text-3xl text-gray-700 w-52">Deal</div>
-        <button class="mt-4 text-2xl text-gray-700 bg-gray-200 rounded-md"><a href="/collections/special-bundle" class="no-underline">Click More</a></button>
+    <div class="flex flex-col items-center justify-center h-[24rem] p-6 bg-neutral-100 rounded-md w-52 drop-shadow-lg">
+        <div class="text-3xl text-center text-gray-700 w-52">Bundle</div>
+        <div class="text-3xl text-center text-gray-700 w-52">Set</div>
+        <div class="text-3xl text-center text-gray-700 w-52">Deal</div>
+        <button class="mt-4 text-2xl text-gray-700 border-0 rounded-md shadow bg-lt-yellow"><a href="/collections/special-bundle" class="text-gray-700 no-underline">More</a></button>
     </div>
-    {% assign loop = collections['special-bundle'].products | reverse %}
+    {% assign loop = collections['special-bundle'].products %}
     {% for product in loop limit:20 %}
     {% assign discount = product.compare_at_price | minus:product.price | times:100 | divided_by:product.compare_at_price %} 
     {% if discount  and product.compare_at_price %}
     
-    <div class="relative flex flex-col h-[24rem] drop-shadow-lg items-center">
+    <div class="relative flex flex-col h-[24rem] drop-shadow-lg items-center ">
       <a href="{{product.url}}" class="absolute w-full h-full no-underline">
       </a>
         <img src="{{product.featured_image | image_url: width:250 }}" alt="" class="object-contain  w-52 h-[17rem] w-[17rem] rounded-t-lg bg-white" loading="lazy">
