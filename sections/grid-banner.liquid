@@ -79,19 +79,6 @@
     </a>
   </section>
 
-  <!-- Figuarts Mini -->
-  {% comment %}
-  <section class="mx-auto max-w-[1200px] aspect-[12/4] overflow-hidden my-20 group relative rounded grid place-items-center">
-    <div class="absolute bottom-0 w-11/12 rounded bg-gradient-to-r from-gray-500 to-green-400 h-2/3">
-    </div>
-    <div class="absolute bottom-0 w-11/12">
-      <img src="{{ 'LT_figuartsminiDS.png' | asset_img_url: 'x400' }}" alt="" class="object-contain w-full h-full">
-    </div>
-    <p class="absolute left-[5%] top-1/2 w-[30%] p-2 bg-gray-400/75 text-lg md:text-xl lg:text-2xl">Figuarts Mini captures the charm of your favorite characters in a stylized palm size!</p>
-    
-  </section>
-  {% endcomment %}
-
   <!--DragonBall left image banner -->
   <section id="db_banner"
     class="db_banner group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] relative max-w-[1200px]">
@@ -114,6 +101,19 @@
     </div>
     </div>
   </section>
+
+  <!-- Figuarts Mini -->
+  <a href="{{ collections['figuarts-mini'].url }}" class="no-underline">
+    <section class="mx-auto max-w-[1200px] w-[95%] md:w-11/12 aspect-[12/4] overflow-hidden my-20 group relative rounded grid place-items-center">
+      <div class="absolute bottom-0 w-full rounded bg-gradient-to-r from-gray-500 to-green-400 h-2/3">
+      </div>
+      <div class="absolute bottom-0 w-11/12">
+        <img src="{{ 'LT_figuartsminiDS.png' | asset_img_url: 'x400' }}" alt="" class="object-contain w-full h-full duration-500 group-hover:scale-105 group-hover:duration-1000">
+      </div>
+      <p class="left-[2%] top-1/2 w-[30%] md:visible invisible absolute p-4 bg-gray-400/75 text-gray-800 text-base md:text-xl lg:text-2xl rounded-lg">Figuarts Mini captures the charm of your favorite characters in a stylized palm size!</p>
+    
+    </section>
+  </a>
 
   <!--Demon Slayer right side image banner -->
   <a href="{{ collections['demon-slayer'].url }}" class="no-underline">
@@ -254,11 +254,11 @@
     </a>
   </section>
   <!-- sumikko gurashi banner -->
-  <a href="{{ collections['sumikko-gurashi'].url }}">
+  <!-- <a href="{{ collections['sumikko-gurashi'].url }}">
     <section class="grid place-items-center max-w-[1200px] md:w-11/12 w-[95%] mx-auto lg:pt-[5rem] pt-[2rem]">
       <img src="{{'LT_sumikkoBanner.png' | asset_img_url:'900x' }}" alt="" class="w-full h-full">
     </section>
-  </a>
+  </a> -->
 
   <section class="h-[7rem] block">
 
