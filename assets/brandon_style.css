@@ -1369,7 +1369,7 @@ button.shopify-payment-button__button--unbranded {
   -moz-appearance: none;
        appearance: none;
   /* background-color: rgba(var(--color-button), var(--alpha-button-background)); */
-  background-color: lightblue;
+  background-color: orange;
 }
 
 .button:before,
@@ -1410,8 +1410,8 @@ button.shopify-payment-button__button--unbranded {
 .shopify-challenge__button:hover::after,
 .customer button:hover::after,
 .shopify-payment-button__button--unbranded:hover::after {
-  --border-offset: 1.3px;
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)),
+  --border-offset: 0px;
+    box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button), var(--alpha-button-background));
 }
 
@@ -3251,8 +3251,8 @@ details-disclosure > details {
   bottom: 0px;
 }
 
-.left-\[5\%\] {
-  left: 5%;
+.left-\[2\%\] {
+  left: 2%;
 }
 
 .top-1\/2 {
@@ -3337,10 +3337,6 @@ details-disclosure > details {
 
 .-left-11 {
   left: -2.75rem;
-}
-
-.left-\[2\%\] {
-  left: 2%;
 }
 
 .isolate {
@@ -3440,10 +3436,6 @@ details-disclosure > details {
   margin-bottom: 5rem;
 }
 
-.ml-10 {
-  margin-left: 2.5rem;
-}
-
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -3494,6 +3486,10 @@ details-disclosure > details {
 
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.ml-10 {
+  margin-left: 2.5rem;
 }
 
 .mt-3 {
@@ -3584,12 +3580,12 @@ details-disclosure > details {
   height: 1rem;
 }
 
-.h-2\/3 {
-  height: 66.666667%;
-}
-
 .h-\[240px\] {
   height: 240px;
+}
+
+.h-2\/3 {
+  height: 66.666667%;
 }
 
 .h-\[7rem\] {
@@ -3852,12 +3848,12 @@ details-disclosure > details {
   width: 95%;
 }
 
-.w-\[30\%\] {
-  width: 30%;
-}
-
 .w-\[45\%\] {
   width: 45%;
+}
+
+.w-\[30\%\] {
+  width: 30%;
 }
 
 .w-\[55\%\] {
@@ -4731,14 +4727,14 @@ details-disclosure > details {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(236 72 153 / 0));
 }
 
-.from-gray-500 {
-  --tw-gradient-from: #6b7280;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(107 114 128 / 0));
-}
-
 .from-orange-300 {
   --tw-gradient-from: #fdba74;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(253 186 116 / 0));
+}
+
+.from-gray-500 {
+  --tw-gradient-from: #6b7280;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(107 114 128 / 0));
 }
 
 .from-pink-200 {
@@ -5013,11 +5009,6 @@ details-disclosure > details {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
 }
 
 .py-4 {
@@ -5775,10 +5766,6 @@ details-disclosure > details {
     visibility: visible;
   }
 
-  .md\:absolute {
-    position: absolute;
-  }
-
   .md\:top-\[2rem\] {
     top: 2rem;
   }
@@ -5807,24 +5794,16 @@ details-disclosure > details {
     grid-column-start: 3;
   }
 
+  .md\:ml-10 {
+    margin-left: 2.5rem;
+  }
+
   .md\:ml-\[3rem\] {
     margin-left: 3rem;
   }
 
   .md\:mt-\[2rem\] {
     margin-top: 2rem;
-  }
-
-  .md\:ml-10 {
-    margin-left: 2.5rem;
-  }
-
-  .md\:block {
-    display: block;
-  }
-
-  .md\:flex {
-    display: flex;
   }
 
   .md\:h-\[400px\] {
@@ -6001,6 +5980,11 @@ details-disclosure > details {
     padding: 2rem;
   }
 
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -6009,11 +5993,6 @@ details-disclosure > details {
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .md\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
   }
 
   .md\:pt-0 {
