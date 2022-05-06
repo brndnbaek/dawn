@@ -106,23 +106,23 @@
       {% capture artist %}{{my_meta.artist | handle}}{%endcapture%}
       {%if collections[artist].products.size != 0 %}
       <a href="/collections/{{artist}}" class="no-underline text-slate-700">
-      <li class="text-base empty:hidden ">{{card_product.metafields.my_fields.artist}}</li>
+      <li class="text-lg md:text-base empty:hidden ">{{card_product.metafields.my_fields.artist}}</li>
       </a>
       {%elsif my_meta.artist %}
-      <li class="text-base empty:hidden ">
+      <li class="text-lg md:text-base empty:hidden ">
       <a href="/search?q={{artist}}" class="no-underline">{{card_product.metafields.my_fields.artist}}</a>
       </li>
       {%endif%}
 
-      <!-- conditional list to show artist link either collection or by searh -->
+      <!-- conditional list to show series link either collection or by search -->
       {% capture series %}{{my_meta.series | handle}}{%endcapture%}
       {%if collections[series].products.size != 0 %}
-      <a href="/collections/{{my_meta.series | handle }}" class="no-underline text-slate-700">
+      <a href="/collections/{{my_meta.series | handle }}" class="no-underline text-slate-700 small-hide">
         <li class="text-base empty:hidden ">{{card_product.metafields.my_fields.series | truncate:15}}
         </li>
       </a>
       {%elsif my_meta.series %}
-        <li class="text-base empty:hidden ">
+        <li class="text-base empty:hidden small-hide">
           <a href="/search?q={{my_meta.series | handle }}" class="no-underline"></a>
           {{card_product.metafields.my_fields.series | truncate:15}}
           </a>
@@ -132,12 +132,12 @@
       <!-- conditional list to show item type link either collection or by searh -->
       {% capture type %}{{my_meta.item_type | handle}}{%endcapture%}
       {%if collections[type].products.size != 0 %}
-      <a href="/collections/{{type}}" class="no-underline text-slate-700">
+      <a href="/collections/{{type}}" class="no-underline text-slate-700 small-hide">
         <li class="text-base empty:hidden ">{{card_product.metafields.my_fields.item_type | truncate:15}}
         </li>
       </a>
       {%elsif my_meta.item_type %}
-      <li class="text-base rounded-md empty:hidden">
+      <li class="text-base rounded-md empty:hidden small-hide">
       <a href="/search?q={{my_meta.item_type }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.item_type | truncate:15}}</a>
       </li>
       {%endif%}
@@ -158,13 +158,13 @@
       <!-- conditional list to show brand link either collection or by searh -->
       {% capture brand %}{{my_meta.brand | handle}}{%endcapture%}
       {%if collections[brand].products.size != 0 %}
-      <a href="/collections/{{brand}}" class="no-underline text-slate-700">
+      <a href="/collections/{{brand}}" class="no-underline text-slate-700 small-hide">
         <li class="text-base empty:hidden">
           {{card_product.metafields.my_fields.brand | truncate:15}}
         </li>
       </a>
       {%elsif my_meta.brand %}
-      <li class="text-base break-words empty:hidden">
+      <li class="text-base break-words empty:hidden small-hide">
       <a href="/search?q={{my_meta.brand }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.brand | truncate:15}}</a>
       </li>
       {%endif%}
@@ -172,12 +172,12 @@
       <!-- conditional list to show grade link either collection or by searh -->
       {% capture grade %}{{my_meta.grade | handle}}{%endcapture%}
       {%if collections[grade].products.size != 0 %}
-      <a href="/collections/{{grade}}" class="no-underline text-slate-700">
+      <a href="/collections/{{grade}}" class="no-underline text-slate-700 small-hide">
         <li class="text-base empty:hidden">{{card_product.metafields.my_fields.grade | truncate:15}}
         </li>
       </a>
       {%elsif my_meta.grade %}
-      <li class="text-base empty:hidden ">
+      <li class="text-base empty:hidden small-hide">
       <a href="/search?q={{my_meta.grade }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.grade | truncate:15}}</a>
       </li>
       {%endif%}
