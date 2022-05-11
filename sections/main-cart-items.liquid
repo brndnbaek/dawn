@@ -26,6 +26,9 @@
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <!-- <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a> -->
     <div class="flex gap-4">
+      {% if cart.total_price > 5000 %}
+      <div class="text-lg">Gachapon</div>
+      {%endif%}
       <div class="text-lg underline cursor-pointer text-neutral-800" type="text" onclick="history.back();">Continue Shopping</div>
       <a href="/cart/clear" class="text-lg text-neutral-600" >Empty Cart</a>
       <cart>
