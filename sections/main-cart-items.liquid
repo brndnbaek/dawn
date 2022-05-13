@@ -32,19 +32,6 @@
         <clear></clear>
     </div>
   </div>
-  
-    
-  {% assign gachapon = 0 %}
-    {% for item in cart.items %}
-      {% if item.product.type == 'Figure' %}
-        {% assign gachapon = false %}
-      {% endif %}
-    {% endfor %}
-    {% if cart.total_price > 5000 and gachapon != false %}
-    <div class="p-4 my-10 text-xl bg-red-200">Your purchase qualifies for a free Gachapon
-      <button>Select</button>
-    </div>
-    {% endif %}
     
 
   <div class="cart__warnings">
