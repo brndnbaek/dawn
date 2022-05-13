@@ -3680,6 +3680,10 @@ details-disclosure > details {
   height: 2.25rem;
 }
 
+.h-\[500px\] {
+  height: 500px;
+}
+
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -4576,11 +4580,6 @@ details-disclosure > details {
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
-}
-
-.bg-slate-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
