@@ -1,9 +1,11 @@
-<section class="flex flex-col items-center py-2 mt-8 bg-blue-100 rounded shadow page-width">
-    {% if cart.total_price < 6000 %}
-        <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money}} more, you qualify for free U.S. shipping!</p>
-    {% elsif cart.total_price > 6000 %}
-        <p>Your order qualifies for free U.S. shipping! Enjoy the savings.</p>
-    {% endif %}
+<section class="flex flex-col items-center py-2 mt-8 bg-blue-100 rounded shadow page-width" id="cart-top-notification" data-id="{{ section.id }}">
+    <div class="js-contents">
+        {% if cart.total_price < 6000 %}
+            <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money}} more, you qualify for free U.S. shipping!</p>
+        {% elsif cart.total_price > 6000 %}
+            <p>Your order qualifies for free U.S. shipping! Enjoy the savings.</p>
+        {% endif %}
+    </div>
 <!--     
     {% assign gachapon = 0 %}
     {% for item in cart.items %}

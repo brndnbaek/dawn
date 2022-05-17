@@ -35,7 +35,7 @@ class CartItems extends HTMLElement {
       {
         id: 'main-cart-items',
         section: document.getElementById('main-cart-items').dataset.id,
-        selector: '.js-contents',
+        selector: '.js-contents'
       },
       {
         id: 'cart-icon-bubble',
@@ -50,7 +50,12 @@ class CartItems extends HTMLElement {
       {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
-        selector: '.js-contents',
+        selector: '.js-contents'
+      },
+      {
+        id: 'cart-top-notification',
+        section: document.getElementById('cart-top-notification').dataset.id,
+        selector: '.js-contents'
       }
     ];
   }
