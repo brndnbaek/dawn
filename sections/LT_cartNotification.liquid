@@ -1,0 +1,33 @@
+<section class="flex flex-col items-center py-2 mt-8 bg-blue-100 rounded shadow page-width">
+    {% if cart.total_price < 6000 %}
+        <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money}} more, you qualify for free U.S. shipping!</p>
+    {% elsif cart.total_price > 6000 %}
+        <p>Your order qualifies for free U.S. shipping! Enjoy the savings.</p>
+    {% endif %}
+<!--     
+    {% assign gachapon = 0 %}
+    {% for item in cart.items %}
+        {% if item.product.type == 'Figure' %}
+            {% assign gachapon = gachapon | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if cart.total_price > 5000 and gachapon > 0 %}
+    <div class="flex gap-4 ">
+        <p>Your purchase qualifies for a free Gachapon</p>
+        <button class="px-2 text-red-200 bg-red-500 border-0 rounded shadow">Select</button>
+    </div>
+    {% endif %} -->
+</section>
+{% schema %}
+{
+    "name": "Cart top notification",
+    "class": "section",
+    "tag": "section",
+    "presets": [
+        {
+            "name": "Cart top notification"
+        }
+    ]
+}
+{% endschema %}
