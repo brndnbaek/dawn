@@ -3569,12 +3569,16 @@ details-disclosure > details {
   height: 500px;
 }
 
-.h-\[110vh\] {
-  height: 110vh;
+.h-\[1200px\] {
+  height: 1200px;
 }
 
 .h-32 {
   height: 8rem;
+}
+
+.h-1\/2 {
+  height: 50%;
 }
 
 .h-3 {
@@ -3697,26 +3701,6 @@ details-disclosure > details {
   height: 2.25rem;
 }
 
-.h-\[100vh\] {
-  height: 100vh;
-}
-
-.h-\[700px\] {
-  height: 700px;
-}
-
-.h-\[1000px\] {
-  height: 1000px;
-}
-
-.h-\[1200px\] {
-  height: 1200px;
-}
-
-.h-1\/2 {
-  height: 50%;
-}
-
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -3741,20 +3725,8 @@ details-disclosure > details {
   max-height: 4vh;
 }
 
-.max-h-\[700px\] {
-  max-height: 700px;
-}
-
-.max-h-\[110vh\] {
-  max-height: 110vh;
-}
-
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
-}
-
-.min-h-\[100vh\] {
-  min-height: 100vh;
 }
 
 .w-full {
@@ -5883,6 +5855,10 @@ details-disclosure > details {
     margin-top: 2rem;
   }
 
+  .md\:h-\[700px\] {
+    height: 700px;
+  }
+
   .md\:h-\[400px\] {
     height: 400px;
   }
@@ -5905,10 +5881,6 @@ details-disclosure > details {
 
   .md\:h-8 {
     height: 2rem;
-  }
-
-  .md\:h-\[700px\] {
-    height: 700px;
   }
 
   .md\:max-h-\[18rem\] {
