@@ -104,19 +104,18 @@
       {% endpaginate %}
     </div>
 
-    <div>
-      <h2>{{ 'customer.account.details' | t }}</h2>
-
-      {{ customer.default_address | format_address }}
-
-      <a href="{{ routes.account_addresses_url }}">
-        {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-      </a>
-    </div>
-
-    <div>
-      <h2>Lily Coin</h2>
-      {{ customer.metafields.my_fields.lily_coin }}
+    <div class="flex flex-col">
+      <div>
+        <h2>{{ 'customer.account.details' | t }}</h2>
+        {{ customer.default_address | format_address }}
+        <a href="{{ routes.account_addresses_url }}">
+          {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
+        </a>
+      </div>
+      <div>
+        <h2>Lily Coin</h2>
+        {{ customer.metafields.my_fields.lily_coin }}
+      </div>
     </div>
   </div>
 </div>
