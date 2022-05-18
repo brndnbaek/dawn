@@ -73,9 +73,27 @@
       </div>
     </div>
   </section>
+  
+  <!-- new artist: le sserafim album promo -->
+  <section class="max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] my-20 flex justify-center mx-auto bg-black/80 rounded relative">
+      <img src="{{ 'lt_SserafimPromo.jpg' | asset_img_url: '600x' }}"
+      alt="Le Sserafim 1st album cover poster"
+      loading="lazy"
+      class="object-contain max-h-[400px] w-auto">
+      <div class="absolute w-full h-full text-white bg-gradient-to-r from-black/80 via-transparent to-black/80">
+        <div class="flex flex-col items-center justify-between w-full h-full">
+          <h4 class="font-semibold leading-[0rem] text-gray-100 pl-10">The female BTS? HYBE's First K Pop Girl Group</h4>
+          <h2 class="text-center font-bold leading-[0rem] text-white block">LE SSERAFIM</h2>
+          <a href="{{ all_products['k-pop-cd-le-sserafim-1st-mini-album-fearless'].url }}" class="self-center pb-20 no-underline ">
+            <div class="px-2 py-1 text-teal-300 rounded-md hover:bg-teal-300 hover:text-black hover:duration-300 outline outline-1 outline-teal-300">View</div>
+          </a>
+        </div>
+      </div>
 
-  <!-- BTS focus slide banner  -->
-  <section class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] overflow-hidden my-20 group">
+  </section>
+
+  <!-- BTS focus slide banner  ** temp. hidden-->
+  <!-- <section class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] overflow-hidden my-20 group">
     <a href="{{ collections['bts'].url }}" class="no-underline">
       <div
         class="absolute grid w-full h-full bg-cover rounded-lg shadow-lg place-items-center LT_btsBanner LT_btsBanner01"
@@ -92,7 +110,7 @@
         <p></p>
       </div>
     </a>
-  </section>
+  </section> -->
 
   <!--DragonBall left image banner -->
   <section id="db_banner"
