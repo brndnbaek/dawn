@@ -3852,10 +3852,6 @@ details-disclosure > details {
   position: static;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -3994,18 +3990,6 @@ details-disclosure > details {
 
 .-left-11 {
   left: -2.75rem;
-}
-
-.left-1\/2 {
-  left: 50%;
-}
-
-.left-1\/4 {
-  left: 25%;
-}
-
-.top-1\/4 {
-  top: 25%;
 }
 
 .isolate {
@@ -4368,14 +4352,6 @@ details-disclosure > details {
 
 .h-9 {
   height: 2.25rem;
-}
-
-.h-\[1000px\] {
-  height: 1000px;
-}
-
-.h-\[600px\] {
-  height: 600px;
 }
 
 .max-h-\[35vh\] {
@@ -5699,10 +5675,6 @@ details-disclosure > details {
   background-size: cover;
 }
 
-.bg-contain {
-  background-size: contain;
-}
-
 .bg-fixed {
   background-attachment: fixed;
 }
@@ -5925,6 +5897,10 @@ details-disclosure > details {
 
 .pr-4 {
   padding-right: 1rem;
+}
+
+.pt-32 {
+  padding-top: 8rem;
 }
 
 .text-left {
@@ -6258,6 +6234,10 @@ details-disclosure > details {
 
 .outline-purple-400 {
   outline-color: #c084fc;
+}
+
+.outline-slate-600 {
+  outline-color: #475569;
 }
 
 .blur-lg {

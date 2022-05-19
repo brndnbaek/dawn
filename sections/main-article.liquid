@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="flex flex-col pt-40 bg-fixed bg-center bg-no-repeat bg-cover 123article-template" itemscope itemtype="http://schema.org/BlogPosting" style="background-image:url({{ article.image | image_url: width: 800}});"">
+<article class="flex flex-col items-center pt-32 bg-fixed bg-top bg-no-repeat bg-cover 123article-template page-width" itemscope itemtype="http://schema.org/BlogPosting" style="background-image:url({{ article.image | image_url: width: 1200}});"">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -33,7 +33,7 @@
         {%- endif -%}
 
         {%- when 'title'-%}
-          <header class="p-6 space-y-6 prose prose-xl rounded-lg md:prose-2xl prose-slate page-width page-width--narrow bg-slate-200/50 outline outline-2 outline-slate-400 backdrop-blur-md" {{ block.shopify_attributes }}>
+          <header class="p-6 space-y-6 prose prose-xl rounded-lg md:prose-2xl prose-slate page-width page-width--narrow bg-slate-200/50 outline outline-2 outline-slate-600 backdrop-blur-md" {{ block.shopify_attributes }}>
             <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
             {%- if block.settings.blog_show_date -%}
               <div class="text-center 123circle-divider 123caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</div>
@@ -51,7 +51,7 @@
           </header>
 
         {%- when 'content'-%}
-          <div class="p-6 prose prose-xl rounded-lg article-template__content page-width page-width--narrow rte bg-slate-200/75 outline outline-2 outline-slate-400 md:prose-2xl prose-slate backdrop-blur-md" itemprop="articleBody" {{ block.shopify_attributes }}>
+          <div class="p-6 mt-10 prose prose-xl rounded-lg 123article-template__content 123page-width 123page-width--narrow rte bg-slate-200/75 outline outline-2 outline-slate-600 md:prose-2xl prose-slate backdrop-blur-md" itemprop="articleBody" {{ block.shopify_attributes }}>
               {{ article.content }}
           </div>
 
