@@ -1,20 +1,20 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="flex flex-col pt-40 bg-fixed bg-center bg-no-repeat bg-cover 123article-template" itemscope itemtype="http://schema.org/BlogPosting" style="background-image:url({{ article.image | image_url: width: 800}});"">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
         <div class="page-width page-width--narrow">
           {% render block %}
         </div>
-      {%- when 'featured_image'-%}
+      {%- when 'featured_image1'-%}
         {%- if article.image -%}
-          <div class="article-template__hero-container" {{ block.shopify_attributes }}>
-            <div class="article-template__hero-{{ block.settings.image_height }} media"
+          <div class="123article-template__hero-container" {{ block.shopify_attributes }}>
+            <div class="123article-template__hero-{{ block.settings.image_height }} media"
               itemprop="image"
               {% if block.settings.image_height == 'adapt' and article.image %} style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"{% endif %}
             >
-              <img
+            <img 
                 srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
                   {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
                   {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
@@ -33,27 +33,32 @@
         {%- endif -%}
 
         {%- when 'title'-%}
-          <header class="page-width page-width--narrow" {{ block.shopify_attributes }}>
+          <header class="p-6 space-y-6 prose prose-xl rounded-lg md:prose-2xl prose-slate page-width page-width--narrow bg-slate-200/50 outline outline-2 outline-slate-400 backdrop-blur-md" {{ block.shopify_attributes }}>
             <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
             {%- if block.settings.blog_show_date -%}
-              <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
+              <div class="text-center 123circle-divider 123caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</div>
             {%- endif -%}
             {%- if block.settings.blog_show_author -%}
               <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
                 <span itemprop="name">{{ article.author }}</span>
               </span>
             {%- endif -%}
+            <div class="flex justify-end gap-4 mt-4">
+              {% for tag in article.tags %}
+                <span>#{{ tag }}&nbsp</span>
+              {% endfor %}
+            </div>
           </header>
 
         {%- when 'content'-%}
-          <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
+          <div class="p-6 prose prose-xl rounded-lg article-template__content page-width page-width--narrow rte bg-slate-200/75 outline outline-2 outline-slate-400 md:prose-2xl prose-slate backdrop-blur-md" itemprop="articleBody" {{ block.shopify_attributes }}>
               {{ article.content }}
           </div>
 
         {%- when 'share' -%}
           <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
             <share-button class="share-button" {{ block.shopify_attributes }}>
-              <button class="share-button__button hidden">
+              <button class="hidden share-button__button">
                 {% render 'icon-share' %}
                 {{ block.settings.share_label | escape }}
               </button>
@@ -64,7 +69,7 @@
                 </summary>
                 <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                   <div class="field">
-                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
+                    <span id="ShareMessage-{{ section.id }}" class="hidden share-button__message" role="status">
                     </span>
                     <input type="text"
                           class="field__input"
@@ -76,7 +81,7 @@
                     >
                     <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
                   </div>
-                  <button class="share-button__close hidden no-js-hidden">
+                  <button class="hidden share-button__close no-js-hidden">
                     {% render 'icon-close' %}
                     <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
                   </button>
@@ -99,7 +104,7 @@
     </a>
   </div>
   {%- if blog.comments_enabled? -%}
-    <div class="article-template__comment-wrapper background-secondary">
+    <div class="p-4 rounded-lg 123article-template__comment-wrapper 123background-secondary bg-slate-200 outline outline-2 outline-slate-400">
       <div id="comments" class="page-width page-width--narrow">
         {%- if article.comments_count > 0 -%}
           {%- assign anchorId = '#Comments-' | append: article.id -%}
@@ -342,7 +347,7 @@
         {
           "type": "checkbox",
           "id": "blog_show_author",
-          "default": false,
+          "default": true,
           "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
         }
       ]
