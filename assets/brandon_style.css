@@ -6089,8 +6089,8 @@ details-disclosure > details {
   padding-bottom: 2.5rem;
 }
 
-.pt-40 {
-  padding-top: 10rem;
+.pt-32 {
+  padding-top: 8rem;
 }
 
 .pr-1 {
@@ -6107,10 +6107,6 @@ details-disclosure > details {
 
 .pr-4 {
   padding-right: 1rem;
-}
-
-.pt-32 {
-  padding-top: 8rem;
 }
 
 .text-left {
@@ -6422,6 +6418,10 @@ details-disclosure > details {
   outline-color: #f09174;
 }
 
+.outline-slate-600 {
+  outline-color: #475569;
+}
+
 .outline-slate-400 {
   outline-color: #94a3b8;
 }
@@ -6444,10 +6444,6 @@ details-disclosure > details {
 
 .outline-purple-400 {
   outline-color: #c084fc;
-}
-
-.outline-slate-600 {
-  outline-color: #475569;
 }
 
 .blur-lg {
