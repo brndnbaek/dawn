@@ -4732,6 +4732,10 @@ details-disclosure > details {
   width: 95%;
 }
 
+.w-14 {
+  width: 3.5rem;
+}
+
 .w-auto {
   width: auto;
 }
@@ -4746,10 +4750,6 @@ details-disclosure > details {
 
 .w-\[55\%\] {
   width: 55%;
-}
-
-.w-14 {
-  width: 3.5rem;
 }
 
 .w-\[50\%\] {
@@ -5656,6 +5656,11 @@ details-disclosure > details {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(134 239 172 / 0));
 }
 
+.from-sky-200 {
+  --tw-gradient-from: #bae6fd;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(186 230 253 / 0));
+}
+
 .from-black\/80 {
   --tw-gradient-from: rgb(0 0 0 / 0.8);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(0 0 0 / 0));
@@ -5694,11 +5699,6 @@ details-disclosure > details {
 .from-pink-800 {
   --tw-gradient-from: #9d174d;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(157 23 77 / 0));
-}
-
-.from-sky-200 {
-  --tw-gradient-from: #bae6fd;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(186 230 253 / 0));
 }
 
 .from-red-200 {
@@ -5833,6 +5833,10 @@ details-disclosure > details {
   --tw-gradient-to: #60a5fa;
 }
 
+.to-indigo-400 {
+  --tw-gradient-to: #818cf8;
+}
+
 .to-black\/80 {
   --tw-gradient-to: rgb(0 0 0 / 0.8);
 }
@@ -5859,10 +5863,6 @@ details-disclosure > details {
 
 .to-rose-200\/90 {
   --tw-gradient-to: rgb(254 205 211 / 0.9);
-}
-
-.to-indigo-400 {
-  --tw-gradient-to: #818cf8;
 }
 
 .to-red-400 {
@@ -7434,14 +7434,14 @@ details-disclosure > details {
     line-height: 1.75rem;
   }
 
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .md\:text-base {
