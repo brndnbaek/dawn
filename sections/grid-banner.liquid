@@ -9,8 +9,7 @@
     {% render 'divider-wave', fill_color: 'amber' %}
   </header>
 
-  <section class="relative w-full pt-[12%] pb-[5%] max-w-[1400px] flex flex-wrap justify-center items-center mx-auto">
-    <div class="flex flex-col gap-2 basis-full md:basis-[60%] pl-[5rem]">
+  <section class="relative w-full pt-[12%] pb-[5%] px-[1rem] md:px-[5rem] max-w-[1200px] mx-auto">
       <div class="relative flex h-4 gap-2">
         <div class="w-40 color_bar bg-gradient-to-r from-yellow-200 to-orange-300"> </div>
         <div class="color_bar2 w-[10%] bg-gradient-to-r from-gray-200 to-gray-400"> </div>
@@ -58,28 +57,31 @@
         <div class="color_bar w-[17%] bg-gradient-to-r from-green-300 to-green-500"> </div>
         <div class="color_bar2 w-[10%] bg-gradient-to-r from-blue-300 to-blue-400"> </div>
       </div>
-    </div>
 
-    <!-- special buy of the day section -->
-    <div class="relative flex flex-col items-center basis-full md:basis-[35%] m-[3rem] md:m-0  gap-6">
-      <!-- <div class="absolute">
-        {% for product in collections.flash-sale.products %}
-            <img src="{{ product.featured_media | image_url: width: 200 }}" alt="" class="w-64 shadow-inner opacity-30 rounded-2xl shadow-white ">
+  </section>
+
+  <!-- special buy of the day section -->
+  <section class="relative grid mx-auto grid-cols-1 page-width">
+    <div class="flash-sale">
+      <h4>Deal of the Day</h4>
+      {% for product in collections.flash-sale.products %}
+      <img src="{{ product.featured_media | image_url: width:150 }}" alt="" class="aspect-square object-cover">
+      <h4>{{ product.title | remove:'K-Pop CD'}}</h4>
+      <p>20% off applies when you add it to cart</p>
+      {% endfor %}
+    </div>
+    <div class="new-arrival rounded bg-gradient-to-br from-emerald-300 to-slate-300 shadow-md p-4 overflow-x-scroll">
+      <h2>Newly Added to Store</h4>
+      <div class="flex gap-4 p-2">
+        {% for product in collections.new-items.products limit:9 %}
+        <div class="flex flex-col justify-end w-[15rem]">
+          <img src="{{ product.featured_media | image_url: width:300 }}" alt="" class="rounded shadow object-bottom object-contain w-auto max-w-[10rem] h-auto max-h-[12rem]">
+          <div class="w-full h-[5rem] bottom-0 bg-slate-600 text-slate-200">{{ product.metafields.my_fields.item_type }}</div>
+        </div>
         {% endfor %}
-      </div> -->
-      <div class="flex flex-col items-center w-full gap-2 rounded-lg shadow outline outline-1 outline-teal-400">
-        <h2 class="px-8 font-semibold leading-none text-center text-transparent bg-gradient-to-br from-pink-500 to-purple-600 bg-clip-text">Special Buy of the Day</h2>
-        <div>Great new deals. Every day.</div>
-        <div><a href="{{ collections.flash-sale.url }}">See deal of the day</a></div>
       </div>
-      <div class="flex flex-col items-center w-full gap-2 rounded-lg shadow outline outline-1 outline-red-400">
-        <h2 class="px-8 font-semibold leading-none text-center text-transparent bg-gradient-to-br from-pink-500 to-purple-600 bg-clip-text">New Arrivals</h2>
-        <div>Fresh new</div>
-        <div>See new items</div>
-      </div>
-
-      
     </div>
+
   </section>
   
   <!-- LT Difference Point out -->
