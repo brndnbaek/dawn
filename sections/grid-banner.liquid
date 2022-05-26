@@ -74,9 +74,10 @@
       <h2>Newly Added to Store</h4>
       <div class="flex gap-4 p-2">
         {% for product in collections.new-items.products limit:9 %}
-        <div class="flex flex-col justify-end w-[15rem]">
-          <img src="{{ product.featured_media | image_url: width:300 }}" alt="" class="rounded shadow object-bottom object-contain w-auto max-w-[10rem] h-auto max-h-[12rem]">
-          <div class="w-full h-[5rem] bottom-0 bg-slate-600 text-slate-200">{{ product.metafields.my_fields.item_type }}</div>
+        <div class="flex flex-col justify-end">
+          {% assign calc_width = product.featured_media.aspect_ratio | times: 10 %}
+          <img src="{{ product.featured_media | image_url: width:300 }}" alt="" class="rounded shadow object-top object-cover w-[{{ calc_width }}rem] min-w-[10rem] h-auto max-h-[15rem] ">
+          <div class="hidden w-full h-[5rem] bottom-0 bg-slate-700 text-slate-200 shrink">{{ product.metafields.my_fields.item_type }}</div>
         </div>
         {% endfor %}
       </div>

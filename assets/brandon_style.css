@@ -4896,6 +4896,14 @@ details-disclosure > details {
   width: 10rem;
 }
 
+.min-w-\[8rem\] {
+  min-width: 8rem;
+}
+
+.min-w-\[10rem\] {
+  min-width: 10rem;
+}
+
 .max-w-\[250px\] {
   max-width: 250px;
 }
@@ -4948,6 +4956,10 @@ details-disclosure > details {
   max-width: 10rem;
 }
 
+.max-w-\[15rem\] {
+  max-width: 15rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -4962,6 +4974,10 @@ details-disclosure > details {
 
 .shrink-0 {
   flex-shrink: 0;
+}
+
+.shrink {
+  flex-shrink: 1;
 }
 
 .flex-grow-0 {
@@ -5561,6 +5577,11 @@ details-disclosure > details {
 .bg-slate-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+
+.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
