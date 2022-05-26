@@ -4592,6 +4592,10 @@ details-disclosure > details {
   max-height: 4vh;
 }
 
+.max-h-\[15rem\] {
+  max-height: 15rem;
+}
+
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
 }
@@ -4840,6 +4844,10 @@ details-disclosure > details {
   width: 16rem;
 }
 
+.min-w-\[10rem\] {
+  min-width: 10rem;
+}
+
 .max-w-\[250px\] {
   max-width: 250px;
 }
@@ -4902,6 +4910,10 @@ details-disclosure > details {
 
 .shrink-0 {
   flex-shrink: 0;
+}
+
+.shrink {
+  flex-shrink: 1;
 }
 
 .flex-grow-0 {
@@ -5045,6 +5057,10 @@ details-disclosure > details {
 
 .grid-cols-9 {
   grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-rows-5 {
@@ -5519,6 +5535,11 @@ details-disclosure > details {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
+.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -5733,6 +5754,11 @@ details-disclosure > details {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(253 164 175 / 0));
 }
 
+.from-emerald-300 {
+  --tw-gradient-from: #6ee7b7;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(110 231 183 / 0));
+}
+
 .via-transparent {
   --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgb(0 0 0 / 0));
 }
@@ -5897,6 +5923,10 @@ details-disclosure > details {
   --tw-gradient-to: #9333ea;
 }
 
+.to-slate-300 {
+  --tw-gradient-to: #cbd5e1;
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -6027,6 +6057,11 @@ details-disclosure > details {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+
+.px-\[1rem\] {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pb-12 {
@@ -6349,6 +6384,11 @@ details-disclosure > details {
 .text-slate-500 {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.text-slate-200 {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -7460,6 +7500,11 @@ details-disclosure > details {
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .md\:px-\[5rem\] {
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   .md\:pt-0 {
