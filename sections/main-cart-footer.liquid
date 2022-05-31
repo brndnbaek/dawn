@@ -13,6 +13,8 @@
         </cart-note>
       {%- endif -%}
 
+      {% render 'LT-insurance-addon' %}
+      
       <div class="cart__blocks">
         {% for block in section.blocks %}
           {%- case block.type -%}
