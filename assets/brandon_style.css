@@ -4194,6 +4194,14 @@ details-disclosure > details {
   right: 0.25rem;
 }
 
+.-left-1 {
+  left: -0.25rem;
+}
+
+.-top-1 {
+  top: -0.25rem;
+}
+
 .-right-10 {
   right: -2.5rem;
 }
@@ -4212,14 +4220,6 @@ details-disclosure > details {
 
 .-left-11 {
   left: -2.75rem;
-}
-
-.-left-1 {
-  left: -0.25rem;
-}
-
-.-top-1 {
-  top: -0.25rem;
 }
 
 .isolate {
@@ -4928,6 +4928,10 @@ details-disclosure > details {
   flex-basis: 100%;
 }
 
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+
 .origin-bottom {
   transform-origin: bottom;
 }
@@ -5508,6 +5512,11 @@ details-disclosure > details {
   background-color: rgb(243 232 255 / var(--tw-bg-opacity));
 }
 
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
 .bg-blue-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
@@ -5525,11 +5534,6 @@ details-disclosure > details {
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
-}
-
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {

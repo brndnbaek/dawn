@@ -234,7 +234,8 @@
                             </cart-remove-button>
                           </div>
                           {% elsif item.product.tags contains 'shipping-protection' %}
-                            <span>Shipping Protection Enabled</span>
+                              <div class="text-lg">Loss & Theft Coverage Enabled</div>
+                              
                         {%else%}
                     <div class="cart-item__quantity-wrapper">
                       <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
