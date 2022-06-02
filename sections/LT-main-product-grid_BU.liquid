@@ -4,6 +4,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
 
+
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
@@ -143,6 +144,8 @@
     {%- endpaginate -%}
   </div>
 </div>
+
+
 
 {% schema %}
 {
