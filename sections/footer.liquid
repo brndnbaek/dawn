@@ -36,14 +36,14 @@
   }
 {%- endstyle -%}
 
-<footer class="w-full pt-6 mx-auto bg-lt-apricot">
+<footer class="w-full h-20 mx-auto mt-20 bg-lt-apricot">
   {%- for block in section.blocks -%}
 
-                    <ul class="grid w-full grid-cols-2 px-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
+                    <ul class="flex justify-center gap-4">
                       {%- for link in block.settings.menu.links -%}
                         <li class="list-none">
                           <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            {{ link.title }}
+                            {{ link.title }} |
                           </a>
                         </li>
                       {%- endfor -%}
