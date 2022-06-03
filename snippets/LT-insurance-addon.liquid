@@ -104,7 +104,10 @@
 						location.href = '/cart';
 					});
 				}
-    
+  
+      // document.addEventListener("DOMContentLoaded", function() {
+      //   Shopify.Cart.InsuranceAddon.reset();
+      // });
       // If we have nothing but gift-wrap items in the cart.
       {% if cart.items.size == 1 and insurance_addon_in_cart > 0 %}
       document.addEventListener("DOMContentLoaded", function(){
@@ -115,31 +118,27 @@
       document.addEventListener("DOMContentLoaded", function(){
         Shopify.Cart.InsuranceAddon.set();
       });
-      // If we have a gift-wrap item in the cart but our gift-wrapping cart attribute has not been set.
-      {% elsif insurance_addon_in_cart == 0 and cart.attributes.insurance-addon != blank and cart.items.size > 0 %}
-      document.addEventListener("DOMContentLoaded", function(){
+      
+      // {% elsif cart.attributes.insurance-addon != blank and cart.items.size > 1 and insurance_addon_in_cart == 0 %}
+      // document.addEventListener("DOMContentLoaded", function(){
+      //   Shopify.Cart.InsuranceAddon.set();
+      // });
+
+      {% elsif cart.items.size >= 1 and insurance_addon_in_cart != 1 and cart.attributes.insurance-addon != blank %}
+      document.addEventListener("DOMContentLoaded", function() {
         Shopify.Cart.InsuranceAddon.set();
       });
 
-
-			{% elsif cart.items.size == 0 and cart.attributes.insurance-addon == blank %}
-			document.addEventListener("DOMContentLoaded", function(){
+      {% elsif cart.items.size == 0 and cart.attributes.insurance-addon == blank %}
+      document.addEventListener("DOMContentLoaded", function() {
         Shopify.Cart.InsuranceAddon.reset();
       });
-      // If we have no gift-wrap item in the cart but our gift-wrapping cart attribute has been set.
-      // {% elsif insurance_addon_in_cart > 0 and cart.attributes.insurance-addon != blank  %}
-      // document.addEventListener("DOMContentLoaded", function(){
-      //   Shopify.Cart.InsuranceAddon.remove();
-      // });
-
-			// {% elsif cart.total_price > 10 and insurance_addon_in_cart == 0 and cart.attributes.insurance-addon == blank %}
-			// document.addEventListener("DOMContentLoaded", function(){
-			// 	Shopify.Cart.InsuranceAddon.set();
-			// });
 
       {% endif %}
-    
+      
+      
       // When the gift-wrapping checkbox is checked or unchecked.
+      
       document.addEventListener("DOMContentLoaded", function(){
         document.querySelector('[name="attributes[insurance-addon]"]').addEventListener("change", function(event) {
           if (event.target.checked) {

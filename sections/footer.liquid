@@ -35,8 +35,35 @@
     }
   }
 {%- endstyle -%}
+<footer class="h-[10vh] bg-lt-apricot fixed bottom-0 w-full grid place-items-center m-0 p-0">
+  <div class="w-full max-w-[1200px] desktopFooter small-hide ">
+    {%- for block in section.blocks -%}
+      <div class="flex flex-wrap justify-center gap-20">
+        {%- for link in block.settings.menu.links -%}
+            <a href="{{ link.url }}" class="">
+              {{ link.title }}
+            </a>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="desktopFooter medium-hide large-up-hide">
+    {%- for block in section.blocks -%}
+      <ul class="flex justify-center gap-4">
+        {%- for link in block.settings.menu.links -%}
+          <li class="list-none">
+            <a href="{{ link.url }}" class="text-base">
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</footer>
 
-<footer class="w-full h-20 mx-auto mt-20 bg-lt-apricot">
+{% comment %}
+<footer class="w-full h-40 mx-auto mt-20 bg-lt-apricot">
   {%- for block in section.blocks -%}
 
                     <ul class="flex justify-center gap-4">
@@ -164,6 +191,7 @@
     </div>
   </div>
 </footer>
+{% endcomment %}
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {

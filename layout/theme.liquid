@@ -175,9 +175,9 @@
 
       body {
         display: grid;
-        grid-template-rows: auto auto 1fr 50px;
+        grid-template-rows: auto auto 1fr auto;
         grid-template-columns: 100%;
-        min-height: 100%;
+        height: 100%;
         margin: 0;
         font-size: 1.5rem;
         letter-spacing: 0.06rem;
@@ -221,7 +221,7 @@
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
-    {% section 'announcement-bar' %}
+    <!-- {% section 'announcement-bar' %} -->
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
