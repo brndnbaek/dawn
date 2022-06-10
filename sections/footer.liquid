@@ -35,30 +35,24 @@
     }
   }
 {%- endstyle -%}
-<footer class="h-[10vh] bg-lt-apricot fixed bottom-0 w-full grid place-items-center m-0 p-0">
-  <div class="w-full max-w-[1200px] desktopFooter small-hide ">
+<footer class="h-[9.5rem] group bg-amber-50 fixed bottom-0 w-full grid place-items-center m-0 p-0 z-10">
+  <div class="w-full max-w-[800px] desktopFooter small-hide">
     {%- for block in section.blocks -%}
-      <div class="flex flex-wrap justify-center gap-20">
+      <div class="flex flex-wrap items-center gap-10 justify-evenly">
         {%- for link in block.settings.menu.links -%}
-            <a href="{{ link.url }}" class="">
+            <a href="{{ link.url }}" class="text-lg no-underline basis-1/5">
               {{ link.title }}
             </a>
         {%- endfor -%}
       </div>
     {%- endfor -%}
   </div>
-  <div class="desktopFooter medium-hide large-up-hide">
-    {%- for block in section.blocks -%}
-      <ul class="flex justify-center gap-4">
-        {%- for link in block.settings.menu.links -%}
-          <li class="list-none">
-            <a href="{{ link.url }}" class="text-base">
-              {{ link.title }}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    {%- endfor -%}
+  <div class="-ml-[25vw] desktopFooter medium-hide large-up-hide">
+    <div class="flex flex-col gap-4 text-base">
+      <div><a href="/pages/contact-us-1">Contact Us</a></div>
+      <div><a href="/collections/wholesale-list">Store Information</a></div>
+      <div><a href="/collections/wholesale-list">Shipping</a></div>
+    </div>
   </div>
 </footer>
 

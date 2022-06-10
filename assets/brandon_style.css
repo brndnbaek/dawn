@@ -4114,6 +4114,10 @@ details-disclosure > details {
   top: -1rem;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -4128,10 +4132,6 @@ details-disclosure > details {
 
 .left-4 {
   left: 1rem;
-}
-
-.bottom-0 {
-  bottom: 0px;
 }
 
 .left-\[2\%\] {
@@ -4420,8 +4420,16 @@ details-disclosure > details {
   margin-bottom: 1rem;
 }
 
-.mb-40 {
-  margin-bottom: 10rem;
+.-ml-10 {
+  margin-left: -2.5rem;
+}
+
+.-ml-\[4rem\] {
+  margin-left: -4rem;
+}
+
+.-ml-\[25vw\] {
+  margin-left: -25vw;
 }
 
 .block {
@@ -4512,8 +4520,12 @@ details-disclosure > details {
   height: 50vh;
 }
 
-.h-20 {
-  height: 5rem;
+.h-\[10vh\] {
+  height: 10vh;
+}
+
+.h-40 {
+  height: 10rem;
 }
 
 .h-4 {
@@ -4576,10 +4588,6 @@ details-disclosure > details {
   height: 3.5rem;
 }
 
-.h-40 {
-  height: 10rem;
-}
-
 .h-\[80\%\] {
   height: 80%;
 }
@@ -4596,6 +4604,10 @@ details-disclosure > details {
   height: 16rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-\[6rem\] {
   height: 6rem;
 }
@@ -4608,16 +4620,20 @@ details-disclosure > details {
   height: 2.25rem;
 }
 
-.h-\[70vh\] {
-  height: 70vh;
+.h-\[10rem\] {
+  height: 10rem;
 }
 
-.h-\[15vh\] {
-  height: 15vh;
+.h-\[9rem\] {
+  height: 9rem;
 }
 
-.h-\[10vh\] {
-  height: 10vh;
+.h-\[9\.25rem\] {
+  height: 9.25rem;
+}
+
+.h-\[9\.5rem\] {
+  height: 9.5rem;
 }
 
 .max-h-\[35vh\] {
@@ -4642,18 +4658,6 @@ details-disclosure > details {
 
 .max-h-\[4vh\] {
   max-height: 4vh;
-}
-
-.max-h-\[70vh\] {
-  max-height: 70vh;
-}
-
-.max-h-\[80vh\] {
-  max-height: 80vh;
-}
-
-.max-h-\[65vh\] {
-  max-height: 65vh;
 }
 
 .min-h-\[2\.5vh\] {
@@ -4952,8 +4956,8 @@ details-disclosure > details {
   max-width: 280px;
 }
 
-.max-w-\[1400px\] {
-  max-width: 1400px;
+.max-w-\[800px\] {
+  max-width: 800px;
 }
 
 .flex-1 {
@@ -4986,6 +4990,10 @@ details-disclosure > details {
 
 .basis-full {
   flex-basis: 100%;
+}
+
+.basis-1\/5 {
+  flex-basis: 20%;
 }
 
 .origin-bottom {
@@ -5207,16 +5215,16 @@ details-disclosure > details {
   gap: 2rem;
 }
 
+.gap-20 {
+  gap: 5rem;
+}
+
 .gap-10 {
   gap: 2.5rem;
 }
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.gap-20 {
-  gap: 5rem;
 }
 
 .gap-y-4 {
@@ -5255,8 +5263,16 @@ details-disclosure > details {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
+.place-self-start {
+  place-self: start;
+}
+
 .place-self-center {
   place-self: center;
+}
+
+.self-start {
+  align-self: flex-start;
 }
 
 .self-end {
@@ -5271,16 +5287,8 @@ details-disclosure > details {
   justify-self: end;
 }
 
-.overflow-auto {
-  overflow: auto;
-}
-
 .overflow-hidden {
   overflow: hidden;
-}
-
-.overflow-scroll {
-  overflow: scroll;
 }
 
 .overflow-y-hidden {
@@ -5293,11 +5301,6 @@ details-disclosure > details {
 
 .overflow-y-scroll {
   overflow-y: scroll;
-}
-
-.overscroll-auto {
-  -ms-scroll-chaining: chained;
-      overscroll-behavior: auto;
 }
 
 .scroll-smooth {
@@ -5613,6 +5616,20 @@ details-disclosure > details {
 .bg-rose-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(251 113 133 / var(--tw-bg-opacity));
+}
+
+.bg-amber-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+}
+
+.bg-amber-100\/50 {
+  background-color: rgb(254 243 199 / 0.5);
+}
+
+.bg-amber-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 251 235 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -6066,12 +6083,12 @@ details-disclosure > details {
   padding: 1.5rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .p-0 {
   padding: 0px;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .py-4 {
