@@ -4928,10 +4928,6 @@ details-disclosure > details {
   flex-basis: 100%;
 }
 
-.basis-3\/5 {
-  flex-basis: 60%;
-}
-
 .origin-bottom {
   transform-origin: bottom;
 }
