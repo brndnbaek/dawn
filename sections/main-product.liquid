@@ -378,7 +378,12 @@
             </share-button>
             <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
 
-            
+          {%- when 'inventory_count' -%} 
+          <div id="inventory-{{ section.id }}" {{ block.shopify_attributes }} style="color: {{ block.settings.text_color }};"> 
+            {% if product.selected_or_first_available_variant.inventory_quantity <= block.settings.show_inventory_threshold or block.settings.show_inventory_threshold == 0 %} 
+              <p>Only <strong>{{ product.selected_or_first_available_variant.inventory_quantity }}</strong> left in stock</p> 
+            {% endif %} 
+          </div>  
 
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
@@ -790,6 +795,25 @@
           ],
           "default": "button",
           "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        }
+      ]
+    },
+    {
+      "type": "inventory_count",
+      "name": "Inventory Count",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "number",
+          "id": "show_inventory_threshold",
+          "label": "Show Inventory Threshold",
+          "default": 0,
+          "info": "Show the inventory count if it falls to this number. Leave at 0 to always show inventory."
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color"
         }
       ]
     },
