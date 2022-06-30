@@ -645,6 +645,34 @@
 {% endif %}
 
 <script>
+  // this script collects variant id and its quantity to refresh input selector max value
+  var maxQuantityLimit = {};
+  {%- for var in product.variants -%}
+  maxQuantityLimit[{{- var.id -}}] = {
+    inventoryQuantity: {{ var.inventory_quantity | default: 0 }}
+  };
+  {% endfor %}
+
+  const oldQueryString = window.location.search;
+  const oldUrlParmas = new URLSearchParams(oldQueryString);
+  let oldVariantID = oldUrlParmas.get("variant");
+
+  const variantSelectorElement = document.querySelector(".variant-selector-element");
+  variantSelectorElement.addEventListener('change', function() {
+    console.log('I have changed');
+  
+  const newQueryString = window.location.search;
+  const newUrlParmas = new URLSearchParams(newQueryString);
+  let newVariantID = newUrlParmas.get("variant");
+  console.log(newVariantID);
+
+  if(newVariantID != oldVariantID) {
+    oldVariantID = newVariantID;
+  };
+  // set maxvalue = maxQuantityLimit[newVariantID].inventory_quantity
+  });
+  
+  
   document.addEventListener('DOMContentLoaded', function() {
     function isIE() {
       const ua = window.navigator.userAgent;
@@ -718,6 +746,7 @@
     ]
   }
 </script>
+
 
 {% schema %}
 {
