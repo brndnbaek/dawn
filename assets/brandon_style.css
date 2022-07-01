@@ -4432,6 +4432,10 @@ details-disclosure > details {
   aspect-ratio: 1 / 1;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-4\/5 {
   height: 80%;
 }
@@ -5532,6 +5536,11 @@ details-disclosure > details {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -5744,6 +5753,11 @@ details-disclosure > details {
 .from-rose-300 {
   --tw-gradient-from: #fda4af;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(253 164 175 / 0));
+}
+
+.from-red-500 {
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(239 68 68 / 0));
 }
 
 .via-transparent {
