@@ -23,7 +23,7 @@
   "peacock.color": "#215732",
   "explorer.autoReveal": false,
   "prettier.enable": false,
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.defaultFormatter": "sissel.shopify-liquid",
   "[html]": {
     "editor.defaultFormatter": "sissel.shopify-liquid"
