@@ -16,7 +16,7 @@
 
 {%- if paginate.parts.size > 0 -%}
   <div class="pagination-wrapper">
-    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+    <!-- <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
       <ul class="pagination__list list-unstyled" role="list">
       {%- if paginate.previous -%}
         <li>
@@ -41,13 +41,18 @@
       {%- endfor -%}
 
       {%- if paginate.next -%}
-        <li>
+        <li class="infinite_next">
           <a href="{{ paginate.next.url }}{{ anchor }}" class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.next' | t }}" >
-            {%- render 'icon-caret' -%}
+            Load More
           </a>
         </li>
       {%- endif -%}
       </ul>
-    </nav>
+    </nav> -->
+    <div class="flex justify-center gap-6 mb-4 infinite_next">
+      <a href="{{ paginate.next.url }}{{ anchor }}" class="w-[30vw] no-underline text-center text-slate-700 p-4 rounded cursor-pointer bg-rose-400 hover:bg-rose-300 border border-rose-600 border-solid shadow" aria-label="{{ 'general.pagination.next' | t }}" >
+        More
+      </a>
+    </div>
   </div>
 {%- endif -%}
