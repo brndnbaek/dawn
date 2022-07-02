@@ -4380,10 +4380,6 @@ details-disclosure > details {
   margin-left: -25vw;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .mt-\[5vh\] {
   margin-top: 5vh;
 }
@@ -4516,10 +4512,6 @@ details-disclosure > details {
   height: 9.5rem;
 }
 
-.h-40 {
-  height: 10rem;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -4578,6 +4570,10 @@ details-disclosure > details {
 
 .h-14 {
   height: 3.5rem;
+}
+
+.h-40 {
+  height: 10rem;
 }
 
 .h-\[80\%\] {
@@ -5468,6 +5464,11 @@ details-disclosure > details {
   background-color: rgb(254 240 138 / var(--tw-bg-opacity));
 }
 
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+
 .bg-black\/80 {
   background-color: rgb(0 0 0 / 0.8);
 }
@@ -5589,11 +5590,6 @@ details-disclosure > details {
 .bg-rose-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(251 113 133 / var(--tw-bg-opacity));
-}
-
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -5745,6 +5741,11 @@ details-disclosure > details {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(134 239 172 / 0));
 }
 
+.from-red-500 {
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(239 68 68 / 0));
+}
+
 .from-sky-200 {
   --tw-gradient-from: #bae6fd;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(186 230 253 / 0));
@@ -5808,11 +5809,6 @@ details-disclosure > details {
 .from-rose-300 {
   --tw-gradient-from: #fda4af;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(253 164 175 / 0));
-}
-
-.from-red-500 {
-  --tw-gradient-from: #ef4444;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(239 68 68 / 0));
 }
 
 .via-transparent {
@@ -6143,6 +6139,10 @@ details-disclosure > details {
   padding-left: 1rem;
 }
 
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
 .pt-\[12\%\] {
   padding-top: 12%;
 }
@@ -6181,10 +6181,6 @@ details-disclosure > details {
 
 .pl-8 {
   padding-left: 2rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
 }
 
 .pb-10 {
@@ -7411,10 +7407,6 @@ details-disclosure > details {
     width: 30%;
   }
 
-  .md\:w-1\/3 {
-    width: 33.333333%;
-  }
-
   .md\:w-screen {
     width: 100vw;
   }
@@ -7911,14 +7903,14 @@ details-disclosure > details {
     line-height: 1;
   }
 
-  .lg\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 
   .lg\:text-7xl {
