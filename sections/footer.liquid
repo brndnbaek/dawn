@@ -35,6 +35,8 @@
     }
   }
 {%- endstyle -%}
+
+{% comment %}
 <footer class="h-[9.5rem] group bg-amber-50 fixed bottom-0 w-full grid place-items-center m-0 p-0 z-10">
   <div class="w-full max-w-[800px] desktopFooter small-hide">
     {%- for block in section.blocks -%}
@@ -55,22 +57,20 @@
     </div>
   </div>
 </footer>
+{% endcomment %}
 
-{% comment %}
-<footer class="w-full h-40 mx-auto mt-20 bg-lt-apricot">
+<footer class="w-full pt-10 mx-auto  bg-lt-apricot">
   {%- for block in section.blocks -%}
-
-                    <ul class="flex justify-center gap-4">
-                      {%- for link in block.settings.menu.links -%}
-                        <li class="list-none">
-                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            {{ link.title }} |
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                
-          {%- endfor -%}
+    <ul class="grid w-full grid-cols-2 px-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
+      {%- for link in block.settings.menu.links -%}
+        <li class="list-none">
+          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+            {{ link.title }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endfor -%}
 
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
@@ -185,7 +185,6 @@
     </div>
   </div>
 </footer>
-{% endcomment %}
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {

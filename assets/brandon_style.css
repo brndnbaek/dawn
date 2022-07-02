@@ -4376,6 +4376,10 @@ details-disclosure > details {
   margin-bottom: 0.5rem;
 }
 
+.-ml-\[25vw\] {
+  margin-left: -25vw;
+}
+
 .mt-20 {
   margin-top: 5rem;
 }
@@ -4418,18 +4422,6 @@ details-disclosure > details {
 
 .mb-4 {
   margin-bottom: 1rem;
-}
-
-.-ml-10 {
-  margin-left: -2.5rem;
-}
-
-.-ml-\[4rem\] {
-  margin-left: -4rem;
-}
-
-.-ml-\[25vw\] {
-  margin-left: -25vw;
 }
 
 .block {
@@ -4520,8 +4512,8 @@ details-disclosure > details {
   height: 50vh;
 }
 
-.h-\[10vh\] {
-  height: 10vh;
+.h-\[9\.5rem\] {
+  height: 9.5rem;
 }
 
 .h-40 {
@@ -4618,22 +4610,6 @@ details-disclosure > details {
 
 .h-9 {
   height: 2.25rem;
-}
-
-.h-\[10rem\] {
-  height: 10rem;
-}
-
-.h-\[9rem\] {
-  height: 9rem;
-}
-
-.h-\[9\.25rem\] {
-  height: 9.25rem;
-}
-
-.h-\[9\.5rem\] {
-  height: 9.5rem;
 }
 
 .max-h-\[35vh\] {
@@ -4936,6 +4912,10 @@ details-disclosure > details {
   max-width: 1000px;
 }
 
+.max-w-\[800px\] {
+  max-width: 800px;
+}
+
 .max-w-\[1200px\] {
   max-width: 1200px;
 }
@@ -4954,10 +4934,6 @@ details-disclosure > details {
 
 .max-w-\[280px\] {
   max-width: 280px;
-}
-
-.max-w-\[800px\] {
-  max-width: 800px;
 }
 
 .flex-1 {
@@ -5199,6 +5175,10 @@ details-disclosure > details {
   justify-content: space-evenly;
 }
 
+.justify-items-center {
+  justify-items: center;
+}
+
 .gap-5 {
   gap: 1.25rem;
 }
@@ -5213,10 +5193,6 @@ details-disclosure > details {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-20 {
-  gap: 5rem;
 }
 
 .gap-10 {
@@ -5263,16 +5239,8 @@ details-disclosure > details {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.place-self-start {
-  place-self: start;
-}
-
 .place-self-center {
   place-self: center;
-}
-
-.self-start {
-  align-self: flex-start;
 }
 
 .self-end {
@@ -5470,6 +5438,11 @@ details-disclosure > details {
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
+.bg-amber-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 251 235 / var(--tw-bg-opacity));
+}
+
 .bg-lt-apricot {
   --tw-bg-opacity: 1;
   background-color: rgb(240 145 116 / var(--tw-bg-opacity));
@@ -5616,20 +5589,6 @@ details-disclosure > details {
 .bg-rose-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(251 113 133 / var(--tw-bg-opacity));
-}
-
-.bg-amber-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 230 138 / var(--tw-bg-opacity));
-}
-
-.bg-amber-100\/50 {
-  background-color: rgb(254 243 199 / 0.5);
-}
-
-.bg-amber-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 251 235 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -7478,6 +7437,10 @@ details-disclosure > details {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -7873,6 +7836,10 @@ details-disclosure > details {
 
   .lg\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:flex-row {

@@ -41,7 +41,7 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-paddin bg-gradient-to-br from-rose-100/50 to-amber-100/50 pb-12">
+<div class="section-{{ section.id }}-paddin bg-gradient-to-br from-rose-100/50 to-amber-100/50 pb-12 h-full">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -304,7 +304,7 @@
           <!-- sidebar filters -->
           <div id="FacetsWrapperDesktop" class="col-span-2 row-span-1 row-start-2 pt-6 mr-3 gap-y-4 small-hide DELfacets__wrapper">
             
-            <div class=" w-full max-w-[235px] sticky top-[5rem] overflow-y-scroll">
+            <div class=" w-full max-w-[235px] sticky top-[5rem] overflow-y-scroll hiddenscroll">
               {%- for filter in results.filters -%}
                 {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                 {% case filter.type %}
@@ -325,7 +325,7 @@
                           </a>
                         </facet-remove>
                       </div>
-                      <ul class="flex flex-col gap-2 text-lg lg:text-xl DELfacets__list list-unstyled max-h-[35vh] overflow-y-scroll" role="list">
+                      <ul class="flex flex-col gap-2 text-lg lg:text-lg DELfacets__list list-unstyled hiddenscroll max-h-[35vh] overflow-y-scroll" role="list">
                         {%- for value in filter.values -%}
                           <li class="ml-3 form-check{%if value.count == 0 and value.active == false%}hidden{%endif%}">
                             <input type="checkbox"
