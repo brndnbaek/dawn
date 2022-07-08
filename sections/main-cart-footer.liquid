@@ -6,15 +6,16 @@
 <div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
   <div>
     <div class="cart__footer">
-      {%- if section.settings.show_cart_note -%}
+      <div class="flex flex-col gap-y-4">
+        {%- if section.settings.show_cart_note -%}
         <cart-note class="cart__note field">
           <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
           <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
         </cart-note>
-      {%- endif -%}
-
-      {% render 'LT-insurance-addon' %}
-      
+        {%- endif -%}
+        {% render 'LT-insurance-addon' %}
+        
+      </div>
       <div class="cart__blocks">
         {% for block in section.blocks %}
           {%- case block.type -%}

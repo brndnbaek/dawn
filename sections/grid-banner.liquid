@@ -1,3 +1,5 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 <style>
   .DELLT_imgContainer li:first-child {
     visibility: visible;
@@ -80,8 +82,50 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/l-wVmfSl_pU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div>Check out our Youtube channel. The item featured on unboxing video is up for grab. More detail on giveaway rule on youtube channel. </div>
   </section>
-  {%endcomment%}
   
+  <div class="w-full mx-auto lg:w-3/4">
+    <div class="video-section isolate">
+      <div>
+          <div class="title-wrapper title-wrapper--no-top-margin">
+            <h2 class="title">Unboxing & Giveaway</h2>
+          </div>
+      </div>
+      <noscript>
+        <div class="video-section__media">
+          <a href="https://youtu.be/l-wVmfSl_pU" class="video-section__poster media media--transparent media--landscape">
+            <img src="https://i.ytimg.com/vi/l-wVmfSl_pU/maxresdefault.jpg" alt="" >  
+          </a>
+        </div>
+      </noscript>
+      <deferred-media class="video-section__media deferred-media no-js-hidden gradient global-media-settings" data-media-id="l-wVmfSl_pU">
+        <button
+          id="Deferred-Poster-Modal-l-wVmfSl_pU"
+          class="video-section__poster media deferred-media__poster media--landscape"
+          type="button"
+        >
+        <img src="https://i.ytimg.com/vi/l-wVmfSl_pU/maxresdefault.jpg" alt="" >  
+          <span class="deferred-media__poster-button motion-reduce">
+            {%- render 'icon-play' -%}
+          </span>
+        </button>
+        <template>
+            <iframe src="https://www.youtube.com/embed/l-wVmfSl_pU?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+        </template>
+      </deferred-media>
+    </div>
+  </div>
+
+  <!-- coupon code promo -->
+  <section class="flex w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-gradient-to-br from-red-200 to-purple-600 drop-shadow-lg mt-[5vh] justify-center items-center p-6">
+    <img src="{{ 'kpop_heart_sm.png' | asset_img_url: '200x' }}" alt="" class="max-h-[200px] w-auto">
+    <div class="flex flex-col pl-8">
+      <div class="font-extrabold text-center text-[4vw] text-slate-100 drop-shadow-lg">JULY SPECIAL</div>
+      <h2>TAKE AN EXTRA 15% OFF ON K-POP COLLECTION</h2>
+      <h2>WITH CODE: JULY2022KPOP</h2>
+    </div>
+  </section>
+  {%endcomment%}
+
   <!-- LT Difference Point out -->
   <section id="LT_difference"
     class="flex flex-col w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-gradient-to-br from-sky-200 to-indigo-400 drop-shadow-lg mt-[5vh]">
@@ -114,7 +158,7 @@
     </div>
   </section>
 
-  
+  {%comment%}
   <!-- new artist: le sserafim album promo -->
   <section class="max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] my-20 flex justify-center mx-auto bg-black/80 rounded relative">
       <img src="{{ 'lt_SserafimPromo.jpg' | asset_img_url: '600x' }}"
@@ -130,8 +174,8 @@
           </a>
         </div>
       </div>
-
   </section>
+{%endcomment%}
 
   <!-- BTS focus slide banner  ** temp. hidden-->
   <!-- <section class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] overflow-hidden my-20 group">
