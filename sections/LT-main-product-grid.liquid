@@ -548,11 +548,26 @@
               </div>
             {%- endfor -%}
           </div>
+          <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-8 border rounded mb-4 border-solid shadow bg-rose-400 border-rose-600">
+            {% if paginate.next %}
+            
+              <a href="{{ paginate.next.url }}{{ anchor }}" class="p-4 text-center no-underline cursor-pointer text-slate-700 hover:bg-rose-300 " aria-label="{{ 'general.pagination.next' | t }}" >
+                More
+              </a>
+                <span class="loading-overlay__spinner">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </span>
+              <!-- <a href="{{ paginate.next.url }}">Loading More</a> -->
+              {% else %}
+              <p class="text-center text-slate-700">All Loaded</p>
+            {% endif %}
+          </div>
 
-
-          {%- if paginate.pages > 1 -%}
-            {% render 'pagination', paginate: paginate, anchor: '' %}
-          {%- endif -%}
+          <!-- {%- if paginate.pages > 1 -%}
+            {% render 'pagination2', paginate: paginate, anchor: '' %}
+          {%- endif -%} -->
         </div>
       {%- endif -%}
     {%- endpaginate -%}
@@ -574,9 +589,15 @@
 
 <script>
   var screenWidth = window.innerWidth;
-  const endlessCollection = new Ajaxinate({
-  container: '#product-grid',
-  pagination: '.infinite_next',
+  // const endlessCollection = new Ajaxinate({
+  // container: '#product-grid',
+  // pagination: '.infinite_next',
+  // });
+  document.addEventListener("DOMContentLoaded", function() {
+    var endlessScroll = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '#AjaxinatePagination'
+    });
   });
 </script>
 {% schema %}
