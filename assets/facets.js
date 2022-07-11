@@ -71,9 +71,13 @@ class FacetFiltersForm extends HTMLElement {
     FacetFiltersForm.renderProductGridContainer(html);
     FacetFiltersForm.renderProductCount(html);
   }
-
+// infinite scroll added here to refresh auto loading when filter element selected 
   static renderProductGridContainer(html) {
     document.getElementById('ProductGridContainer').innerHTML = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductGridContainer').innerHTML;
+    const endlessCollection = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '#AjaxinatePagination',
+      });
   }
 
   static renderProductCount(html) {
