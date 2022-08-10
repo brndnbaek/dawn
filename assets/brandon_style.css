@@ -4310,6 +4310,10 @@ details-disclosure > details {
   margin: 0px;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -4610,6 +4614,18 @@ details-disclosure > details {
 
 .h-9 {
   height: 2.25rem;
+}
+
+.h-\[300px\] {
+  height: 300px;
+}
+
+.h-\[200px\] {
+  height: 200px;
+}
+
+.h-\[3500px\] {
+  height: 3500px;
 }
 
 .max-h-\[35vh\] {
@@ -5600,6 +5616,11 @@ details-disclosure > details {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -6123,6 +6144,16 @@ details-disclosure > details {
   padding-right: 0.25rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -6569,6 +6600,10 @@ details-disclosure > details {
 
 .outline-purple-400 {
   outline-color: #c084fc;
+}
+
+.outline-slate-500 {
+  outline-color: #64748b;
 }
 
 .blur-lg {
@@ -7540,6 +7575,11 @@ details-disclosure > details {
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .md\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   .md\:pt-0 {
