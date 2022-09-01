@@ -2,6 +2,8 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{'ajaxinate.min.js' | asset_url | script_tag  }}
+
 
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
@@ -554,9 +556,22 @@
       {%- endfor -%}
     </div>
 
-      {%- if paginate.pages > 1 -%}
+    <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-8 border rounded mb-4 border-solid shadow bg-rose-400 border-rose-600">
+      {% if paginate.next %}
+      
+        <a href="{{ paginate.next.url }}{{ anchor }}" class="w-full p-4 text-center no-underline cursor-pointer text-slate-700 hover:bg-rose-300 " aria-label="{{ 'general.pagination.next' | t }}" >
+          Click for More
+        </a>
+          
+        <!-- <a href="{{ paginate.next.url }}">Loading More</a> -->
+        {% else %}
+        <p class="text-center text-slate-700">All Loaded</p>
+      {% endif %}
+    </div>
+
+      <!-- {%- if paginate.pages > 1 -%}
         {% render 'pagination', paginate: paginate, anchor: '' %}
-      {%- endif -%}
+      {%- endif -%} -->
     </div>
 {%- endpaginate -%}
 </div>
@@ -574,6 +589,20 @@
   
 
 </div>
+
+<script>
+  var screenWidth = window.innerWidth;
+  // const endlessCollection = new Ajaxinate({
+  // container: '#product-grid',
+  // pagination: '#AjaxinatePagination',
+  // });
+  document.addEventListener("DOMContentLoaded", function() {
+    var endlessScroll = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '#AjaxinatePagination'
+    });
+  });
+</script>
 
 {% schema %}
 {
