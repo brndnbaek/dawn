@@ -4340,6 +4340,16 @@ details-disclosure > details {
   margin-bottom: 5rem;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -4976,6 +4986,10 @@ details-disclosure > details {
   flex-basis: 20%;
 }
 
+.basis-1\/2 {
+  flex-basis: 50%;
+}
+
 .origin-bottom {
   transform-origin: bottom;
 }
@@ -5383,6 +5397,11 @@ details-disclosure > details {
   border-color: rgb(251 146 60 / var(--tw-border-opacity));
 }
 
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
 .border-b-red-700 {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(185 28 28 / var(--tw-border-opacity));
@@ -5500,14 +5519,6 @@ details-disclosure > details {
   background-color: rgb(254 243 199 / var(--tw-bg-opacity));
 }
 
-.bg-slate-200\/50 {
-  background-color: rgb(226 232 240 / 0.5);
-}
-
-.bg-slate-200\/75 {
-  background-color: rgb(226 232 240 / 0.75);
-}
-
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
@@ -5591,11 +5602,6 @@ details-disclosure > details {
   background-color: rgb(253 186 116 / var(--tw-bg-opacity));
 }
 
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
-}
-
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
 }
@@ -5605,24 +5611,14 @@ details-disclosure > details {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
-.bg-slate-100\/50 {
-  background-color: rgb(241 245 249 / 0.5);
+.bg-blue-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
 }
 
-.bg-slate-100\/75 {
-  background-color: rgb(241 245 249 / 0.75);
-}
-
-.bg-slate-50\/50 {
-  background-color: rgb(248 250 252 / 0.5);
-}
-
-.bg-slate-50\/75 {
-  background-color: rgb(248 250 252 / 0.75);
-}
-
-.bg-white\/75 {
-  background-color: rgb(255 255 255 / 0.75);
+.bg-teal-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 246 228 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -5635,6 +5631,10 @@ details-disclosure > details {
 
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
+}
+
+.bg-opacity-10 {
+  --tw-bg-opacity: 0.1;
 }
 
 .bg-gradient-to-br {
@@ -5848,6 +5848,10 @@ details-disclosure > details {
   --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgb(0 0 0 / 0));
 }
 
+.via-slate-200 {
+  --tw-gradient-stops: var(--tw-gradient-from), #e2e8f0, var(--tw-gradient-to, rgb(226 232 240 / 0));
+}
+
 .to-amber-100\/50 {
   --tw-gradient-to: rgb(254 243 199 / 0.5);
 }
@@ -6008,6 +6012,18 @@ details-disclosure > details {
   --tw-gradient-to: #ec4899;
 }
 
+.to-slate-500 {
+  --tw-gradient-to: #64748b;
+}
+
+.to-slate-200 {
+  --tw-gradient-to: #e2e8f0;
+}
+
+.to-pink-300 {
+  --tw-gradient-to: #f9a8d4;
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -6018,6 +6034,10 @@ details-disclosure > details {
 
 .bg-scroll {
   background-attachment: scroll;
+}
+
+.bg-clip-padding {
+  background-clip: padding-box;
 }
 
 .bg-clip-text {
@@ -6091,6 +6111,10 @@ details-disclosure > details {
 
 .p-3 {
   padding: 0.75rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .py-4 {
@@ -6298,6 +6322,16 @@ details-disclosure > details {
   font-size: 4vw;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -6471,6 +6505,61 @@ details-disclosure > details {
   color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
+.text-purple-700 {
+  --tw-text-opacity: 1;
+  color: rgb(126 34 206 / var(--tw-text-opacity));
+}
+
+.text-pink-600 {
+  --tw-text-opacity: 1;
+  color: rgb(219 39 119 / var(--tw-text-opacity));
+}
+
+.text-teal-600 {
+  --tw-text-opacity: 1;
+  color: rgb(13 148 136 / var(--tw-text-opacity));
+}
+
+.text-teal-700 {
+  --tw-text-opacity: 1;
+  color: rgb(15 118 110 / var(--tw-text-opacity));
+}
+
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+
+.text-indigo-700 {
+  --tw-text-opacity: 1;
+  color: rgb(67 56 202 / var(--tw-text-opacity));
+}
+
+.text-orange-700 {
+  --tw-text-opacity: 1;
+  color: rgb(194 65 12 / var(--tw-text-opacity));
+}
+
+.text-indigo-400 {
+  --tw-text-opacity: 1;
+  color: rgb(129 140 248 / var(--tw-text-opacity));
+}
+
+.text-orange-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 146 60 / var(--tw-text-opacity));
+}
+
+.text-indigo-600 {
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity));
+}
+
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -6568,10 +6657,6 @@ details-disclosure > details {
   outline-color: #f09174;
 }
 
-.outline-slate-600 {
-  outline-color: #475569;
-}
-
 .outline-slate-400 {
   outline-color: #94a3b8;
 }
@@ -6639,6 +6724,11 @@ details-disclosure > details {
 
 .backdrop-blur-xl {
   --tw-backdrop-blur: blur(24px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.backdrop-filter {
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -7471,6 +7561,10 @@ details-disclosure > details {
 
   .md\:w-8 {
     width: 2rem;
+  }
+
+  .md\:w-1\/3 {
+    width: 33.333333%;
   }
 
   .md\:max-w-\[15rem\] {
