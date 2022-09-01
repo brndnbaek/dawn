@@ -598,7 +598,19 @@
 </script>
 {% schema %}
 {
-  "name": "LT Main Product Grid",
+  "name": "LT Main Product Grid",<script>
+    var screenWidth = window.innerWidth;
+    // const endlessCollection = new Ajaxinate({
+    // container: '#product-grid',
+    // pagination: '#AjaxinatePagination',
+    // });
+    document.addEventListener("DOMContentLoaded", function() {
+      var endlessScroll = new Ajaxinate({
+        container: '#product-grid',
+        pagination: '#AjaxinatePagination'
+      });
+    });
+  </script>
   "class": "section",
   "settings": [
     {
