@@ -85,18 +85,17 @@
               "mega_product": ""
             }
           },
-          "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2": {
+          "c59c4319-ed8b-4904-b244-43c9cc0b876f": {
             "type": "mega_header",
-            "disabled": true,
             "settings": {
-              "mega_width": false,
-              "mega_url": "\/pages\/reward",
-              "title": "Reward",
+              "mega_width": true,
+              "mega_url": "",
+              "title": "Gift Card",
               "header_title": "",
               "header_bg": "",
               "mega_image_size": 15,
-              "mega_link": "",
-              "mega_product": ""
+              "mega_link": "gift",
+              "mega_product": "gift-card"
             }
           },
           "c67a2580-cf88-4854-9bdb-2b9d15599154": {
@@ -111,13 +110,28 @@
               "mega_link": "",
               "mega_product": ""
             }
+          },
+          "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2": {
+            "type": "mega_header",
+            "disabled": true,
+            "settings": {
+              "mega_width": false,
+              "mega_url": "\/pages\/reward",
+              "title": "Reward",
+              "header_title": "",
+              "header_bg": "",
+              "mega_image_size": 15,
+              "mega_link": "",
+              "mega_product": ""
+            }
           }
         },
         "block_order": [
           "aa7a826d-0649-48ad-add1-38a8ebe97bb0",
           "f61f6d06-d1a5-4dfb-aefd-fd5c9473913e",
-          "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2",
-          "c67a2580-cf88-4854-9bdb-2b9d15599154"
+          "c59c4319-ed8b-4904-b244-43c9cc0b876f",
+          "c67a2580-cf88-4854-9bdb-2b9d15599154",
+          "12e2c6e0-ed0f-4b50-a7c9-bbc68b039af2"
         ],
         "settings": {
           "color_scheme": "background-1",
