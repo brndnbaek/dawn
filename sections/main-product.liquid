@@ -322,7 +322,9 @@
                         name="quantity"
                         id="Quantity-{{ section.id }}"
                         min="1"
+                        {% if product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_management == 'shopify' %}
                         max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
+                        {%endif%}
                         value="1"
                         form="{{ product_form_id }}"
                       >
@@ -331,9 +333,11 @@
                         {% render 'icon-plus' %}
                       </button>
                   </quantity-input>
+                  {% if product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_management == 'shopify' %}
                   <label class="mt-2 form__label">
                     <strong>{{ product.selected_or_first_available_variant.inventory_quantity }}</strong> IN STOCK
                   </label>
+                  {% endif %}
                 </div>
                 
               </div>

@@ -453,7 +453,7 @@
           <a class="text-black no-underline DELmegaA drawerbtn" href="{{block.settings.mega_url}}">{{block.settings.title}}</a>
           {% endif %}
           {% if block.settings.mega_link != blank %}
-          <div class="megaDrawerContent absolutePosition" style="width: {% if block.settings.mega_width == true %} 95% {% else %} min-content {% endif %};
+          <div class="megaDrawerContent absolutePosition" style="width: {% if block.settings.mega_width == true %} 95% {% else %}  {% endif %};
 {% if section.settings.logo_position != 'middle-left' %} top: 100%{% endif %}">
             {% if block.settings.title != blank %}
             <div class="megaDrawerHeader" style="background-color: {{block.settings.header_bg}}">

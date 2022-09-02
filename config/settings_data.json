@@ -88,7 +88,7 @@
           "c59c4319-ed8b-4904-b244-43c9cc0b876f": {
             "type": "mega_header",
             "settings": {
-              "mega_width": true,
+              "mega_width": false,
               "mega_url": "",
               "title": "Gift Card",
               "header_title": "",
