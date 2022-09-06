@@ -1264,7 +1264,8 @@ summary::-webkit-details-marker {
     padding-top: 0;
   }
   .media {
-    padding-top:100% !important;
+    /* padding-top:100% !important; */
+    /* padding top 100% hinders mobile image  */
   }
   .media > img {
     height: 30rem;
@@ -2267,7 +2268,7 @@ input[type='checkbox'] {
 /* shopify header z index removed to be under filter and sort */
 
 #shopify-section-header {
-  /* z-index: 100; */
+  z-index: 100; 
 }
 
 .shopify-section-header-sticky {
@@ -2479,7 +2480,7 @@ input[type='checkbox'] {
   top: 100%;
   left: 0;
   height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
-  width: 100%;
+  /* width: 100%; */
   display: block;
   position: absolute;
   background: rgba(var(--color-foreground), 0.5);
