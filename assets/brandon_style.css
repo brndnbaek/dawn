@@ -4893,6 +4893,14 @@ details-disclosure > details {
   width: 2.25rem;
 }
 
+.w-\[500px\] {
+  width: 500px;
+}
+
+.w-\[800px\] {
+  width: 800px;
+}
+
 .max-w-\[235px\] {
   max-width: 235px;
 }
@@ -4943,6 +4951,10 @@ details-disclosure > details {
 
 .max-w-\[280px\] {
   max-width: 280px;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
 }
 
 .flex-1 {
@@ -5266,6 +5278,10 @@ details-disclosure > details {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .overflow-y-hidden {
@@ -5610,6 +5626,11 @@ details-disclosure > details {
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-10 {
