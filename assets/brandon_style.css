@@ -1264,7 +1264,7 @@ summary::-webkit-details-marker {
     padding-top: 0;
   }
   .media {
-    /* padding-top:100% !important; */
+    padding-top:100% !important;
   }
   .media > img {
     height: 30rem;
