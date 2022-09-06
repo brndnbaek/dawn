@@ -536,14 +536,7 @@
                 {%- assign lazy_load = true -%}
               {%- endif -%}
               <div class="w-[90vw] h-[22rem] md:gap-y-0 md:w-[27.5rem] lg:w-[27.5rem] grid place-items-center">
-                {% render 'LT-cardProduct',
-                  card_product: product,
-                  media_aspect_ratio: section.settings.image_ratio,
-                  show_secondary_image: section.settings.show_secondary_image,
-                  show_vendor: section.settings.show_vendor,
-                  show_rating: section.settings.show_rating,
-                  lazy_load: lazy_load
-                %}
+                <img src="{{ product.featured_image | image_width: 500 }}" alt="">
                 
               </div>
             {%- endfor -%}
@@ -598,8 +591,8 @@
 </script>
 
 {% schema %}
-  {
-  "name": "LT Main Product Grid",
+{
+  "name": "LT Product Carousel View",
   "class": "section",
   "settings": [
     {
@@ -704,7 +697,7 @@
   ],
   "presets": [
     {
-      "name": "LT Product Grid"
+      "name": "LT Product Carousel"
     }
   ]
 }
