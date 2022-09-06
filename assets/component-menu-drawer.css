@@ -33,7 +33,7 @@ menu-drawer > details[open] > summary::before {
   transform: translateX(-100%);
   visibility: hidden;
   //increased to go over the absolute pics (from 3)
-  z-index: 1000; 
+  z-index: 100; 
   left: 0;
   top: 100%;
   width: calc(100vw - 2rem);
