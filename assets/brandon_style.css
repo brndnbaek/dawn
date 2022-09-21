@@ -4618,8 +4618,12 @@ details-disclosure > details {
   height: 2.25rem;
 }
 
-.h-\[75vh\] {
-  height: 75vh;
+.h-\[300px\] {
+  height: 300px;
+}
+
+.h-5\/6 {
+  height: 83.333333%;
 }
 
 .max-h-\[35vh\] {
@@ -4648,18 +4652,6 @@ details-disclosure > details {
 
 .max-h-\[4vh\] {
   max-height: 4vh;
-}
-
-.max-h-\[75vh\] {
-  max-height: 75vh;
-}
-
-.max-h-\[70vh\] {
-  max-height: 70vh;
-}
-
-.max-h-\[50vh\] {
-  max-height: 50vh;
 }
 
 .min-h-\[2\.5vh\] {
@@ -4910,10 +4902,6 @@ details-disclosure > details {
   width: 2.25rem;
 }
 
-.w-\[300px\] {
-  width: 300px;
-}
-
 .max-w-\[235px\] {
   max-width: 235px;
 }
@@ -4966,10 +4954,6 @@ details-disclosure > details {
   max-width: 280px;
 }
 
-.max-w-2xl {
-  max-width: 42rem;
-}
-
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -4988,10 +4972,6 @@ details-disclosure > details {
 
 .flex-grow-0 {
   flex-grow: 0;
-}
-
-.flex-grow {
-  flex-grow: 1;
 }
 
 .grow-0 {
@@ -5082,10 +5062,6 @@ details-disclosure > details {
   cursor: pointer;
 }
 
-.resize {
-  resize: both;
-}
-
 .snap-x {
   -ms-scroll-snap-type: x var(--tw-scroll-snap-strictness);
       scroll-snap-type: x var(--tw-scroll-snap-strictness);
@@ -5115,6 +5091,14 @@ details-disclosure > details {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.auto-cols-auto {
+  grid-auto-columns: auto;
+}
+
+.grid-flow-row {
+  grid-auto-flow: row;
 }
 
 .grid-cols-12 {
@@ -5659,6 +5643,14 @@ details-disclosure > details {
 
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
+}
+
+.bg-opacity-30 {
+  --tw-bg-opacity: 0.3;
+}
+
+.bg-opacity-0 {
+  --tw-bg-opacity: 0;
 }
 
 .bg-gradient-to-br {

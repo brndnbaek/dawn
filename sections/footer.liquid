@@ -64,7 +64,7 @@
     <ul class="grid w-full grid-cols-2 px-2 justify-items-center md:grid-cols-3 lg:grid-cols-4 list-unstyled">
       {%- for link in block.settings.menu.links -%}
         <li class="list-none">
-          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
             {{ link.title }}
           </a>
         </li>
@@ -73,7 +73,7 @@
       {%- if section.settings.show_social -%}
             {%- if settings.social_twitter_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_twitter_link }}" class="link list-social__link" >
+                <a href="{{ settings.social_twitter_link }}"  target="_blank" rel="noopener noreferrer" class="link list-social__link" >
                   {%- render 'icon-twitter' -%}
                   <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
                 </a>
@@ -81,7 +81,7 @@
             {%- endif -%}
             {%- if settings.social_facebook_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_facebook_link }}" class="link list-social__link" >
+                <a href="{{ settings.social_facebook_link }}"  target="_blank" rel="noopener noreferrer" class="link list-social__link" >
                   {%- render 'icon-facebook' -%}
                   <span class="ml-2 DELvisually-hidden">{{ 'general.social.links.facebook' | t }}</span>
                 </a>
@@ -89,7 +89,7 @@
             {%- endif -%}
             {%- if settings.social_pinterest_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_pinterest_link }}" class="link list-social__link" >
+                <a href="{{ settings.social_pinterest_link }}"  target="_blank" rel="noopener noreferrer" class="link list-social__link" >
                   {%- render 'icon-pinterest' -%}
                   <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
                 </a>
@@ -97,7 +97,7 @@
             {%- endif -%}
             {%- if settings.social_instagram_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_instagram_link }}" class="link list-social__link" >
+                <a href="{{ settings.social_instagram_link }}"  target="_blank" rel="noopener noreferrer" class="link list-social__link" >
                   {%- render 'icon-instagram' -%}
                   <span class="ml-2 DELvisually-hidden">{{ 'general.social.links.instagram' | t }}</span>
                 </a>
@@ -105,7 +105,7 @@
             {%- endif -%}
             {%- if settings.social_tiktok_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_tiktok_link }}" class="link list-social__link" >
+                <a href="{{ settings.social_tiktok_link }}"  target="_blank" rel="noopener noreferrer" class="link list-social__link" >
                   {%- render 'icon-tiktok' -%}
                   <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
                 </a>
@@ -121,7 +121,7 @@
             {%- endif -%}
             {%- if settings.social_youtube_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_youtube_link }}" class="link list-social__link" >
+                <a href="{{ settings.social_youtube_link }}"  target="_blank" rel="noopener noreferrer" class="link list-social__link" >
                   {%- render 'icon-youtube' -%}
                   <span class="ml-2 DELvisually-hidden">{{ 'general.social.links.youtube' | t }}</span>
                 </a>
