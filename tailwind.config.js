@@ -11,6 +11,9 @@ module.exports = {
     
   theme: {
     extend: {
+      aspectRatio: {
+        'vertical': '9 / 16',
+      },
       colors: {
         'lt-yellow': '#EFBC61',
         'lt-white': '#f7f7f5',

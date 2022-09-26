@@ -4,6 +4,7 @@
   .DELLT_imgContainer li:first-child {
     visibility: visible;
   }
+  
 </style>
 
 <main class="relative w-full h-full mx-auto bg-gradient-to-br from-rose-200 to-amber-200">
@@ -76,101 +77,54 @@
     </div>
   </section>
 
-{% comment %}
   <!-- youtube giveaway banner from blog post  -->
-  <section class="grid grid-flow-row auto-cols-auto mx-auto max-w-[1200px] ">
-<div class="">
-  <h2>Youtube Unboxing & Giveaway</h2>
-  <p>check out lilthingamajig youtube channel. The item featured on unboxing video is up for grab.</p>
-</div>
-<div class="grid grid-flow-row">
-  <h2>latest giveaway</h2>
-  <p>my hero academia</p>
-  {% for article in section.settings.blog.articles %}
-    {{ article.excerpt }}
-    Winner: {{ article.custom.giveaway_winner }}
-    <img src="{{ article.image | img_url: '300x300' }}" alt="">
-    <div class="w-1/3 aspect-square">
-      <iframe class="w-full h-full" src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/"}}" frameborder="0" controls="0"></iframe>
-    </div>
-    <div class="w-1/3 aspect-square">
-      <iframe class="w-full h-full" src="https://www.youtube.com/embed?listType=user_upload&list=Lil' Thingamajigs" title="YouTube video player" frameborder="0" controls="0"></iframe>
-    </div>
-  {% endfor %}
-  </section>
-{% endcomment %}
+  <section>
 
-  {% comment %}
-  <!-- youtube unboxing and giveaway -->
-  <section class="flex flex-col items-center w-full mx-auto w-[95%] md:w-11/12 mx-auto max-w-[1200px] bg-red-300 rounded shadow-lg">
-    <div class="py-4 text-transparent lg:text-3xl bg-gradient-to-r from-red-500 to-violet-500 bg-clip-text">Unboxing Series #1 - RWBY Ruby Rose Nendoroid</div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/l-wVmfSl_pU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div>Check out our Youtube channel. The item featured on unboxing video is up for grab. More detail on giveaway rule on youtube channel. </div>
+  </section>
+  <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-slate-50/10 justify-evenly rounded my-10 p-6 shadow-md">
+    <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
+      <img src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}" alt="" class="w-[150px] mr-10 translate-y-1">
+      <p class="text-3xl font-bold text-gray-800 md:text-5xl"><a href="{{blogs['youtube-giveaway'].url}}">Unboxing & Giveaway</a></p>
+      <!-- <p class="invisible md:visible">Check out our youtube channel and win giveaway prize</p> -->
+    </div>
+    
+    <!-- <div class="px-4 h-full aspect-vertical md:h-[350px] md:w-[200px] md:aspect-square rounded-md">
+      <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BRyquJqshXE?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&player=html5" frameborder="0" ></iframe>
+    </div> -->
+      <div class="flex flex-wrap justify-evenly">
+        {% for article in section.settings.blog.articles reversed %}
+        <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
+        <div class="flex flex-col rounded-md w-11/12 md:w-[30%] aspect-square">
+          <iframe class="w-full h-full rounded-md" src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0"}}" frameborder="0" ></iframe>
+          <h3 class="text-center">{% if article.metafields.custom.giveaway_winner %} Winner: {{ article.metafields.custom.giveaway_winner }} {% else %} <a href="{{article.metafields.custom.youtube_link}}" target="_blank">Enter Giveaway</a> {% endif %}</h3>
+        </div>
+          <!-- {{ article.excerpt }}
+          Winner: {% if article.custom.giveaway_winner %} {{ article.custom.giveaway_winner }}{% else %} TBA {% endif %} -->
+        
+        {% endfor %}
+      </div>
   </section>
   
-  <div class="w-full mx-auto lg:w-3/4">
-    <div class="video-section isolate">
-      <div>
-          <div class="title-wrapper title-wrapper--no-top-margin">
-            <h2 class="title">Unboxing & Giveaway</h2>
-          </div>
-      </div>
-      <noscript>
-        <div class="video-section__media">
-          <a href="https://youtu.be/l-wVmfSl_pU" class="video-section__poster media media--transparent media--landscape">
-            <img src="https://i.ytimg.com/vi/l-wVmfSl_pU/maxresdefault.jpg" alt="" >  
-          </a>
-        </div>
-      </noscript>
-      <deferred-media class="video-section__media deferred-media no-js-hidden gradient global-media-settings" data-media-id="l-wVmfSl_pU">
-        <button
-          id="Deferred-Poster-Modal-l-wVmfSl_pU"
-          class="video-section__poster media deferred-media__poster media--landscape"
-          type="button"
-        >
-        <img src="https://i.ytimg.com/vi/l-wVmfSl_pU/maxresdefault.jpg" alt="" >  
-          <span class="deferred-media__poster-button motion-reduce">
-            {%- render 'icon-play' -%}
-          </span>
-        </button>
-        <template>
-            <iframe src="https://www.youtube.com/embed/l-wVmfSl_pU?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
-        </template>
-      </deferred-media>
-    </div>
-  </div>
-
-  <!-- coupon code promo -->
-  <section class="flex w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-gradient-to-br from-red-200 to-purple-600 drop-shadow-lg mt-[5vh] justify-center items-center p-6">
-    <img src="{{ 'kpop_heart_sm.png' | asset_img_url: '200x' }}" alt="" class="max-h-[200px] w-auto">
-    <div class="flex flex-col pl-8">
-      <div class="font-extrabold text-center text-[4vw] text-slate-100 drop-shadow-lg">JULY SPECIAL</div>
-      <h2>TAKE AN EXTRA 15% OFF ON K-POP COLLECTION</h2>
-      <h2>WITH CODE: JULY2022KPOP</h2>
-    </div>
-  </section>
-  {%endcomment%}
-
   <!-- monthly promotion banner  -->
-  <section class="flex flex-col w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-gradient-to-br from-pink-300 via-slate-200 to-pink-300 drop-shadow-lg mt-[5vh]">
+  <section class="flex flex-col w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-slate-50/10 shadow-lg mt-[5vh]">
     <div class="sectiontitle">
-      <h2 class="text-3xl font-semibold text-center text-purple-700 md:text-5xl">September Special Deal</h2>
+      <h2 class="text-3xl font-semibold text-center text-gray-800 md:text-5xl">Discover</h2>
     </div>
-    <div class="flex flex-col flex-wrap items-center justify-center w-full p-10 md:justify-evenly md:flex-row">
+    <div class="flex flex-col flex-wrap items-center justify-center w-full p-10 md:justify-evenly md:flex-row gap-y-6">
       <!-- sticker promotion  -->
       <div class="grid w-full bg-cover rounded-lg md:w-1/3 h-[300px] place-items-center" style="background-image: url(http://cdn.shopify.com/s/files/1/0035/0729/0161/products/b2993d110deee15316547017937ffd5c.jpg?v=1616693048)">
-        <div class="w-11/12 py-10 text-center rounded-md h-11/12 bg-white bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 flex flex-col gap-6">
+        <div class="flex flex-col w-11/12 gap-6 py-10 text-center bg-white bg-opacity-0 rounded-md h-11/12 bg-clip-padding backdrop-filter backdrop-blur-sm">
           <div class="text-6xl font-bold text-indigo-600">MIX & MATCH STICKER</div>
           <div class="text-3xl font-semibold">BUY 5 GET 1 FREE</div>
           <div class="text-xl font-semibold">Discount automatically applies</div>
-          <a href="{{ collections['sticker'].url }}" class="no-underline mt-4">
+          <a href="{{ collections['sticker'].url }}" class="mt-4 no-underline">
             <span class="w-3/4 p-2 mx-auto my-6 text-xl bg-blue-300 rounded-xl drop-shadow-lg">Sticker Collection</span>
           </a>
         </div>
       </div>
       <!-- pencil promotion  -->
       <div class="grid w-full bg-cover rounded-lg md:w-1/3 h-[300px] place-items-center" style="background-image: url(http://cdn.shopify.com/s/files/1/0035/0729/0161/products/0T7A9037.JPG?v=1571802262&width=1445)">
-        <div class="w-11/12 py-10 text-center bg-teal-200 border border-gray-100 rounded-md h-11/12 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 flex flex-col gap-8">
+        <div class="flex flex-col w-11/12 gap-8 py-10 text-center bg-teal-200 border border-gray-100 rounded-md h-11/12 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
           <div class="text-6xl font-bold text-green-600">25% off Writing Material</div>
           <div class="text-2xl font-semibold">Minimum Purchase of 10 items</div>
           <div class="text-3xl font-semibold">Discount Code: PEN25</div>

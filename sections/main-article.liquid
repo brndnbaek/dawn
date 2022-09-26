@@ -1,6 +1,8 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
-
-<article class="flex flex-col items-center pt-32 bg-fixed bg-top bg-no-repeat bg-cover 123article-template" itemscope itemtype="http://schema.org/BlogPosting" style="background-image:url({{ article.image | image_url: width: 1200}});"">
+<style>
+  
+</style>
+<article class="flex flex-col items-center pt-32" itemscope itemtype="http://schema.org/BlogPosting">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
