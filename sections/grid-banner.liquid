@@ -92,7 +92,8 @@
       <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BRyquJqshXE?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&player=html5" frameborder="0" ></iframe>
     </div> -->
       <div class="flex flex-wrap justify-evenly">
-        {% for article in section.settings.blog.articles reversed %}
+        <div><a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA" target="_blank"><img src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}" alt="" class="aspect-square"></a></div>
+        {% for article in section.settings.blog.articles limit:2 %}
         <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
         <div class="flex flex-col rounded-md w-11/12 md:w-[30%] aspect-square">
           <iframe class="w-full h-full rounded-md" src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0"}}" frameborder="0" ></iframe>
