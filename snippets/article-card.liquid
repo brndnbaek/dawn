@@ -66,11 +66,11 @@
       {% if settings.card_style == 'card' and media_height == nil and article.image == empty or show_image == false %} ratio{% endif %}"
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
-        <div class="card__inner h-[350px] mb-6">
+        <div class="card__inner h-[300px] mb-6">
         {%- if show_image == true and article.image -%}
           <div class="article-card__image-wrapper card__media">
             <div class="bg-transparent rounded article-card__image media media--hover-effect">
-              <img src="{{ article.image.src | image_url: width: 350 }}" alt="" class="object-contain">
+              <img src="{{ article.image.src | image_url: width: 350 }}" alt="" class="object-contain aspect-square">
             </div>
           </div>
         {%- endif -%}
@@ -91,13 +91,13 @@
             </div>
             {%- if show_excerpt -%}
               {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-                <p class="article-card__excerpt rte-width">
+                <div class="article-card__excerpt rte-width">
                   {%- if article.excerpt.size > 0 -%}
                     {{ article.excerpt | strip_html | truncatewords: 30 }}
                   {%- else -%}
                     {{ article.content | strip_html | truncatewords: 30 }}
                   {%- endif -%}
-                </p>
+                </div>
               {%- endif -%}
               <div class="article-card__footer">
                 {%- if article.comments_count > 0 and blog.comments_enabled? -%}
@@ -132,7 +132,7 @@
             {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
               <p class="article-card__excerpt rte-width">
                 {%- if article.excerpt.size > 0 -%}
-                  {{ article.excerpt | strip_html | truncatewords: 30 }}
+                  {{ article.excerpt | truncatewords: 30 }}
                 {%- else -%}
                   {{ article.content | strip_html | truncatewords: 30 }}
                 {%- endif -%}

@@ -4937,6 +4937,10 @@ details-disclosure > details {
   width: 300px;
 }
 
+.w-48 {
+  width: 12rem;
+}
+
 .max-w-\[235px\] {
   max-width: 235px;
 }
