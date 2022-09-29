@@ -1240,13 +1240,13 @@ summary::-webkit-details-marker {
     padding-top: 0;
   }
   .media {
-    /* padding-top:100% !important; */
+    padding-top:100% !important;
     /* padding top 100% hinders mobile image  */
   }
   .media > img {
-    height: 30rem;
-    object-fit: cover;
-    width: auto;
+    /* height: 30vh; */
+    /* object-fit: cover; */
+    /* width: auto; */
     
   }
 }
