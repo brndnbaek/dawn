@@ -532,7 +532,7 @@
     <div class="collection DELpage-width">
       <div class="loading-overlay gradient"></div>
 <!-- new type layered card grid style  -->
-    <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col flex-wrap items-center mt-6 gap-y-16 md:gap-8 md:flex-row md:justify-evenly md:items-start md:gap-y-12">
+    <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col flex-wrap items-center mt-6 mb-10 gap-y-16 md:gap-x-10 md:flex-row md:justify-evenly md:items-start md:gap-y-16">
       <!-- Todo - need to replicate cardproduct snippet for category card -->
       <!-- <li>
         {% render 'LT-categoryCard'%}
@@ -556,22 +556,21 @@
       {%- endfor -%}
     </div>
 
-    <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-8 border rounded mb-4 border-solid shadow bg-rose-400 border-rose-600">
+    <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-10 border rounded border-solid shadow bg-rose-400 border-rose-600">
       {% if paginate.next %}
-      
+        
         <a href="{{ paginate.next.url }}{{ anchor }}" class="w-full p-4 text-center no-underline cursor-pointer text-slate-700 hover:bg-rose-300 " aria-label="{{ 'general.pagination.next' | t }}" >
-          Click for More
-        </a>
+          Loading
+        </a> 
           
         <!-- <a href="{{ paginate.next.url }}">Loading More</a> -->
+        
         {% else %}
         <p class="text-center text-slate-700">All Loaded</p>
       {% endif %}
     </div>
 
-      <!-- {%- if paginate.pages > 1 -%}
-        {% render 'pagination', paginate: paginate, anchor: '' %}
-      {%- endif -%} -->
+      
     </div>
 {%- endpaginate -%}
 </div>
