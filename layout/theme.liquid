@@ -235,9 +235,11 @@
         {%- section 'fixed-cart' -%}
       {% comment %} {%- endif -%}  {% endcomment %}
     </div>  
+
     {% unless template == 'collection' %}
       {% section 'footer' %}
     {% endunless %}
+    
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
