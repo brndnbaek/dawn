@@ -10,6 +10,12 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- style -%}
+  .lt-grid {
+      display: grid;
+      /* grid-template-columns: repeat(auto-fill, minmax(min(310px, 400px), 1fr)); */
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+      justify-items: center;
+    }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -21,6 +27,8 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .my-floating-cart {display: none;}
+	.js-my-cart-open .my-floating-cart { display:block;}
 {%- endstyle -%}
 {%- liquid
   if search.performed
@@ -41,7 +49,8 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-paddin bg-gradient-to-br from-rose-100/50 to-amber-100/50 pb-12 h-full">
+
+<div class="section-{{ section.id }}-paddin pb-12 h-full">
 
   {{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -294,7 +303,7 @@
     </div>
 <!-- recreated page layout to show filter&sort with product grid  -->
     <facet-filters-form class="DELfacets ">
-      <form id="FacetFiltersForm" class="relative grid grid-cols-12 DELfacets__form">
+      <form id="FacetFiltersForm" class="relative grid grid-cols-24 DELfacets__form">
 
         <!-- {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
@@ -302,7 +311,7 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="col-span-2 row-span-1 row-start-2 pt-6 mr-3 gap-y-4 small-hide DELfacets__wrapper">
+          <div id="FacetsWrapperDesktop" class="col-span-3 col-start-1 row-span-1 row-start-2 pt-6 mr-3 gap-y-4 small-hide DELfacets__wrapper">
             
             <div class=" w-full max-w-[235px] sticky top-[5rem] overflow-y-scroll hiddenscroll">
               {%- for filter in results.filters -%}
@@ -312,7 +321,7 @@
                   <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
                     <summary class="flex p-1 text-lg rounded-lg lg:p-2 lg:text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                       <div class="flex justify-start">
-                        <span class="w-full">{{ filter.label | escape }}</span>
+                        <span class="w-full text-xl">{{ filter.label | escape }}</span>
                         {% render 'icon-caret' %}
                       </div>
                     </summary>
@@ -355,7 +364,7 @@
                   <details id="Details-{{ forloop.index }}-{{ section.id }}" class="border-t-0 border-gray-200 border-solid border-x-0 DELdisclosure-has-popup DELfacets__disclosure js-filter" data-index="{{ forloop.index }}">
                     <summary class="flex p-2 text-2xl DELfacets__summary DELcaption-large DELfocus-offset">
                       <div class="">
-                        <span>{{ filter.label | escape }}</span>
+                        <span class="text-xl">{{ filter.label | escape }}</span>
                         {% render 'icon-caret' %}
                       </div>
                     </summary>
@@ -512,7 +521,7 @@
         
         
         <!-- product grid  -->
-  <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-10 md:col-start-3">
+  <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-21 md:col-start-4">
       {%- paginate collection.products by 12 -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty DELpage-width" id="product-grid" data-id="{{ section.id }}">
@@ -528,6 +537,8 @@
         <div class="collection DELpage-width">
           <div class="loading-overlay gradient"></div>
 <!-- new type layered cards style            -->
+          {% comment %} 
+          Version 1 - collection grid (multiple aspect ratio adaption)
           <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap items-center justify-center px-2 mt-6 md:px-0 gap-y-16 md:gap-x-9 md:flex-row md:justify-evenly md:items-start md:gap-y-20 ">
             
             {%- for product in collection.products -%}
@@ -547,8 +558,31 @@
                 
               </div>
             {%- endfor -%}
+          </div> {% endcomment %}
+          
+          {% comment %} Version 2 - single aspect ratio rising view  {% endcomment %}
+          <div id="product-grid" data-id="{{ section.id }}" class="lt-grid 123product-grid">
+            {%- for product in collection.products -%}
+              {% assign lazy_load = false %}
+              {%- if forloop.index > 2 -%}
+                {%- assign lazy_load = true -%}
+              {%- endif -%}
+              <!-- <li class="123grid__item"> -->
+                {% render 'LT-cardProductV2',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load,
+                  show_quick_add: section.settings.enable_quick_add,
+                  section_id: section.id
+
+                %}
+              <!-- </li> -->
+            {%- endfor -%}
           </div>
-          <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-10 border rounded mb-4 border-solid shadow bg-rose-300 border-rose-600">
+          <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-16 border rounded mb-4 border-solid shadow bg-rose-300 border-rose-600">
             {% if paginate.next %}
             
               <a href="{{ paginate.next.url }}{{ anchor }}" class="w-full p-4 text-center no-underline cursor-pointer text-slate-700 hover:bg-rose-300 " aria-label="{{ 'general.pagination.next' | t }}" >

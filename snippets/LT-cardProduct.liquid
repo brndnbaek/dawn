@@ -88,6 +88,26 @@
       {% render 'LTprice2', product: card_product, price_class: 'text-center text-slate-700 font-semibold text-2xl' %}
     </a>
   </div>
+
+  {% comment %} add to cart button  {% endcomment %}
+  <div class="absolute top-[35%] right-[1.25rem] rounded-lg px-2 py-1 text-xl text-neutral-600">
+    {% if card_product.variants.size == 1 %}
+    <form action="{{ routes.cart_url }}" method="post">
+      <a data-ajax-cart-request-button
+      href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1">Add to Cart</a>
+    </form>
+    {% else %}
+    Click to see variants
+    {% endif %}
+  </div>
+  {% comment %} <div class="absolute top-[35%] right-[1.25rem] rounded-lg px-2 py-1 text-xl text-neutral-600">
+    
+    <form method="post" action="/cart/add">
+      <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" />
+      <input type="hidden" type="number" id="quantity" name="quantity" value="1"/>
+      <input type="submit" value="Add to cart" class="btn" />
+    </form>
+  </div> {% endcomment %}
   
   <!-- top-right sub description box -->
   <div class="absolute mx-auto top-4 {%if image_def < 0.8 %} w-[40%] md:w-[40%] right-0{%elsif image_def > 1.2 %}w-1/3 right-0{%else%} w-2/5 right-0{%endif%}">

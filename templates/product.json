@@ -142,11 +142,11 @@
         "share"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
+        "enable_sticky_info": false,
+        "gallery_layout": "thumbnail_slider",
         "media_size": "small",
         "mobile_thumbnails": "show",
-        "hide_variants": true,
+        "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
@@ -269,6 +269,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h1",

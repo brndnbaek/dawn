@@ -8,7 +8,7 @@
   }
 {%- endstyle -%}
 
-<div class="flex flex-col justify-center w-full py-4 mx-auto overflow-hidden md:px-12 bg-amber-50">
+<div class="flex flex-col justify-center w-full py-4 mx-auto overflow-hidden md:px-12 ">
   <!-- <div class="absolute inset-0 flex flex-wrap items-center justify-around w-11/12 gap-5 opacity-25 h-4/5">
     {% for product in collection.products limit:10 %}
     <img src="{{product.featured_image | img_url:'50x'}}" alt="" class="object-contain" >
@@ -26,7 +26,13 @@
       {% if collection.handle == 'writing-material' %}
         <div class="text-xl text-slate-600">25% off for 10 or more pens w/ CODE: PEN25</div>
       {% else %}
-        <div class="text-xl text-slate-600">Free Shipping on Orders Over $60</div>
+        <section class="flex flex-col items-center text-xl" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
+              {% if cart.total_price < 6000 %}
+                  <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money}} more, you qualify for free U.S. shipping!</p>
+              {% elsif cart.total_price > 6000 %}
+                  <p>Your order qualifies for free U.S. shipping! Enjoy the savings.</p>
+              {% endif %}
+        </section>
       {% endif %}
       
 
