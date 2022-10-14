@@ -29,6 +29,13 @@
   }
   .my-floating-cart {display: none;}
 	.js-my-cart-open .my-floating-cart { display:block;}
+
+  @media (min-width: 2000px) {
+    .infiniteScrollAdjust {
+      margin-top: 30rem;
+    }
+
+  }
 {%- endstyle -%}
 {%- liquid
   if search.performed
@@ -522,7 +529,7 @@
         
         <!-- product grid  -->
   <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-21 md:col-start-4">
-      {%- paginate collection.products by 12 -%}
+      {%- paginate collection.products by 18 -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty DELpage-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
@@ -582,7 +589,7 @@
               <!-- </li> -->
             {%- endfor -%}
           </div>
-          <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-16 border rounded mb-4 border-solid shadow bg-rose-300 border-rose-600">
+          <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-[5rem] border rounded mb-4 border-solid shadow bg-rose-300 border-rose-600 infiniteScrollAdjust">
             {% if paginate.next %}
             
               <a href="{{ paginate.next.url }}{{ anchor }}" class="w-full p-4 text-center no-underline cursor-pointer text-slate-700 hover:bg-rose-300 " aria-label="{{ 'general.pagination.next' | t }}" >

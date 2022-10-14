@@ -619,10 +619,11 @@
         {%- endif -%}
       </a>
       <!-- growave wishlist icon added -->
-      {% capture the_snippet_fave_icon_menu %}{% include 'ssw-widget-faveicon-menu' with product.id %}{% endcapture %}
+      {% comment %} {% capture the_snippet_fave_icon_menu %}{% include 'ssw-widget-faveicon-menu' with product.id %}{% endcapture %}
       {% unless the_snippet_fave_icon_menu contains 'Liquid error' %}
         <div class="123flex 123items-center 123justify-center ml-2 w-[6rem] text-neutral-600">{{ the_snippet_fave_icon_menu }}</div>
-      {% endunless %}
+      {% endunless %} {% endcomment %}
+      
     </div>
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>

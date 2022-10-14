@@ -77,10 +77,7 @@
     </div>
   </section>
 
-  <!-- youtube giveaway banner from blog post  -->
-  <section>
-
-  </section>
+  
   <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-slate-50/10 justify-evenly rounded my-10 p-6 shadow-md">
     <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
       <img src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}" alt="" class="w-[150px] mr-10 translate-y-1">
@@ -92,7 +89,7 @@
       <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BRyquJqshXE?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&player=html5" frameborder="0" ></iframe>
     </div> -->
       <div class="flex flex-wrap justify-evenly">
-        <div><a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA" target="_blank"><img src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}" alt="" class="aspect-square"></a></div>
+        <div><a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA?sub_confirmation=1" target="_blank"><img src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}" alt="" class="aspect-square"></a></div>
         {% for article in section.settings.blog.articles limit:2 %}
         <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
         <div class="flex flex-col rounded-md w-11/12 md:w-[30%] aspect-square">

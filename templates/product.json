@@ -91,7 +91,7 @@
           "settings": {
             "heading": "Shipping",
             "icon": "truck",
-            "content": "<p><strong>Shipping Options<\/strong><\/p><p>Orders placed before 1 pm ET will be processed the same day(weekday). Shipping options are selected at checkout.<\/p><p><\/p><p>- For orders above $60, delivery is <strong>FREE.<\/strong><\/p><p><a href=\"\/policies\/shipping-policy\" title=\"Shipping Policy\">Additional Information<\/a><\/p>",
+            "content": "<p><strong>Shipping Options<\/strong><\/p><p>Orders placed before 10 am ET will be processed the same day(weekday). Shipping options are selected at checkout.<\/p><p><\/p><p>- For orders above $60, delivery is <strong>FREE.<\/strong><\/p><p><a href=\"\/policies\/shipping-policy\" title=\"Shipping Policy\">Additional Information<\/a><\/p>",
             "page": ""
           }
         },
