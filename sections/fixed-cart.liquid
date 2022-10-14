@@ -91,7 +91,7 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
   });
   </script> {% endcomment %}
 
-<form action="{{ routes.cart_url }}" method="post" class="my-cart invisible md:hidden lg:visible lg:block w-[150px] pr-4 lg:fixed lg:h-5/6 lg:overflow-scroll lg:no-scrollbar">
+<form action="{{ routes.cart_url }}" method="post" class="my-cart invisible md:hidden lg:visible lg:block w-[150px] pr-4 fixed ">
 <!-- data-ajax-cart-section makes the element's HTML update
 when the cart gets changed -->
 <div data-ajax-cart-section class="flex flex-col items-center {%if cart == empty %}invisible{% endif %}">
@@ -111,7 +111,7 @@ when the cart gets changed -->
 
 <!-- data-ajax-cart-section-scroll keeps the scroll position unchanged
 when the element's HTML is changed -->
-<div class="my-cart__items" data-ajax-cart-section-scroll>
+<div class="my-cart__items overflow-y-scroll h-[80vh] hiddenscroll" data-ajax-cart-section-scroll>
   {% for item in cart.items %}
     <div class="flex flex-col mb-6 group">
       {% assign item_index = forloop.index %}
