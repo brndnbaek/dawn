@@ -231,9 +231,9 @@
     </main>
 
     <div id="my-side-cart" class="my-side-cart js-contents" data-id="{{ section.id }}">
-      {% comment %} {%- if template == 'collection' or template == 'product' -%} {% endcomment %}
+      {%- if template == 'collection' or template == 'product' -%}
         {%- section 'fixed-cart' -%}
-      {% comment %} {%- endif -%}  {% endcomment %}
+      {%- endif -%} 
     </div>  
 
     {% unless template == 'collection' %}
