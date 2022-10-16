@@ -102,10 +102,19 @@
       {% endif %}
   
       {% case card_product.type %}
+				{% when 'K-Cosmetic' %}
+					<div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.item_type }}</div>
         {% when 'Kpop CD' %}
           <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.artist }}</div>
         {% when 'Gundam Model Kit' %}  
-          <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.grade }}</div>
+          <div class="TextBar right-2 top-2 absolute flex items-baseline">
+						<div class="text-slate-600 text-lg">
+												{{ card_product.metafields.my_fields.grade }}&nbsp
+											</div>
+						<div class="text-base">
+												{{ card_product.metafields.my_fields.gundam_series }}
+											</div>
+					</div>
         {% when 'Figure' %}
           <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.series | truncate: 50 }}</div>
       {% endcase %}
@@ -140,15 +149,41 @@
           </div>
         {% endif %}
   
-      <div class=" ContentBox bg-gradient-to-br from-gray-200 via-gray-50 to-gray-200 shadow grid grid-rows-7 relative">
+      <div class=" ContentBox bg-gradient-to-br from-gray-200 via-gray-50 to-gray-200 shadow grid grid-rows-8 relative">
         {% if difference < 3888000 %}
             <span class="new-label text-rose-600 font-semibold">new</span>
           {% endif %}
-        <div class="row-span-5 text-xl font-semibold px-10 pt-4 text-center flex flex-col justify-between">
-          <div class="text-slate-600">
+        <div class="row-span-6 text-xl font-semibold px-8 pt-4 text-center flex flex-col justify-between">
+          <div class="text-slate-600 leading-[1.2] ">
               <a href="{{ card_product.url }}" class="no-underline full-unstyled-link">
-              {{ card_product.title | escape | remove: 'K-Pop CD ' | truncate: 80  }}
-            </a>
+								{% case card_product.type %}
+									{% when 'Writing Material' %}
+										{% assign splitTitle = card_product.title | split: " - " %}
+										{{ splitTitle[0]}}<br />
+										{{ splitTitle[1]}}<br />
+										{{ splitTitle[2] | truncate: 35 }}
+										{{ splitTitle[3] | truncate: 35 }}
+									{% when 'Plush' %}
+										{% assign splitTitle = card_product.title | split: " - " %}
+										{% for linetitle in splitTitle %}
+											{{ linetitle  }}<br />
+										{% endfor %}
+									{% when 'K-Cosmetic' %}
+										{{ card_product.title | escape | replace_first: "] ", "]<br />" | newline_to_br }}
+									{% when 'Kpop CD' %}
+										{{ card_product.title | escape | remove: 'K-Pop CD ' | replace_first: " &#39;", "<br />'"| newline_to_br | truncate: 80  }}
+									{% when 'Gundam Model Kit' or 'Other Model Kit' %}
+										{{ card_product.title | escape | remove: 'Model Kit' | truncate: 80  }}
+									{% when 'Figure' %}
+										{% assign splitTitle = card_product.title | split: " - " %}
+										{{ splitTitle[0]}}<br />
+										{{ splitTitle[1]}}<br />
+										{{ splitTitle[2] | truncate: 35 }}
+										{{ splitTitle[3] | truncate: 35 }}
+									{% else %}
+										{{ card_product.title | escape | remove: 'K-Pop CD ' | truncate: 80  }}
+								{% endcase %}
+            	</a>
           </div>
           {% render 'price', product: card_product, price_class: 'font-bold' %}
         </div>
