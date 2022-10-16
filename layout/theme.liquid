@@ -45,10 +45,10 @@
     {{ content_for_header }}
 
     {%- liquid
-            assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-            assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-            assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-          %}
+               assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+               assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+               assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+             %}
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -352,26 +352,15 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`
       }
 
+      // scroll side cart element to top when scroll more than 200
       window.onscroll = function(e) {
         var move_div = document.getElementById('test-cart');
-        if (pageYOffset > 200)
+        if (pageYOffset > 200) 
           move_div.style.top = 0;
-          else
-          move_div.style.top = 150 + 'px';            
-
-        {%- comment -%} var vertical_position = 0;
-        if (pageYOffset)  // usual
-          vertical_position = pageYOffset;
-         else if (document.documentElement.clientHeight)  // ie
-          vertical_position = document.documentElement.scrollTop;
-         else if (document.body)  // ie quirks
-          vertical_position = document.body.scrollTop;
+         else 
+          move_div.style.top = 150 + 'px';
         
 
-
-        var your_div = document.getElementById('test-cart');
-        {%- comment -%} your_div.style.top = (vertical_position - 50) + 'px'; // 200 is arbitrary.. just to show you could now position it how you want {%- endcomment -%}
-        your_div.style.top = 2 + 'px'; // 200 is arbitrary.. just to show you could now position it how you want {%- endcomment -%}
       }
     </script>
 
