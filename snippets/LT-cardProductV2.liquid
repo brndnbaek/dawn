@@ -100,6 +100,9 @@
     {% endif %}
 
     {% case card_product.type %}
+      {% when 'Other Model Kit' %}
+        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.brand }}
+        </div>
       {% when 'K-Cosmetic' %}
         <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.item_type }}
         </div>
@@ -135,7 +138,9 @@
     </div>
   {% elsif ImageRatio < 0.9 %}
     <div class="PortraitImg relative">
-      <img src="{{ card_product.featured_media | image_url: height: 250 }}" alt="" class="max-h-full rounded shadow-2xl shadow-neutral-400 group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500">
+      <a href="{{ card_product.url}}">
+        <img src="{{ card_product.featured_media | image_url: height: 250 }}" alt="" class="max-h-full rounded shadow-2xl shadow-neutral-400 group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500">
+      </a>
     </div>
   {% else %}
     <div class="SquareImg relative">

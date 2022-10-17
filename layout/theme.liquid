@@ -45,10 +45,10 @@
     {{ content_for_header }}
 
     {%- liquid
-               assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-               assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-               assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-             %}
+                assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+                assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+                assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+              %}
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -358,8 +358,9 @@
         if (pageYOffset > 200) 
           move_div.style.top = 0;
          else 
-          move_div.style.top = 150 + 'px';
+          move_div.style.top = 170 + 'px';
         
+
 
       }
     </script>

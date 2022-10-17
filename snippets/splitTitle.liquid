@@ -19,8 +19,16 @@
         {{ card_product.title | escape | replace_first: "] ", "]<br />" | newline_to_br }}
       {% when 'Kpop CD' %}
         {{ card_product.title | escape | remove: 'K-Pop CD ' | replace_first: " &#39;", "<br />'"| newline_to_br | truncate: 80  }}
-      {% when 'Gundam Model Kit' or 'Other Model Kit' %}
+      {% when 'Gundam Model Kit' %}
         {{ card_product.title | escape | remove: 'Model Kit' | truncate: 80  }}
+      {% when 'Other Model Kit' %}
+        {% assign splitTitle = card_product.title | remove: "Model Kit" | split: " - " %}
+        {{ splitTitle[0]}}
+        <br/>
+        {{ splitTitle[1]}}
+        <br/>
+        {{ splitTitle[2] | truncate: 35 }}
+        {{ splitTitle[3] | truncate: 35 }}
       {% when 'Figure' %}
         {% assign splitTitle = card_product.title | split: " - " %}
         {{ splitTitle[0]}}

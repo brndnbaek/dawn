@@ -1340,7 +1340,8 @@ button.shopify-payment-button__button--unbranded,
 .customer button,
 button.shopify-payment-button__button--unbranded {
   min-width: calc(12rem + var(--buttons-border-width) * 2);
-  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  /* min-height: calc(4.5rem + var(--buttons-border-width) * 2); */
+  min-height: 5rem;
 }
 
 .shopify-payment-button__button--branded {
@@ -4546,6 +4547,10 @@ button.chat-toggle.chat-toggle--text-button {
   height: 2.25rem;
 }
 
+.h-\[3rem\] {
+  height: 3rem;
+}
+
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -4578,8 +4583,16 @@ button.chat-toggle.chat-toggle--text-button {
   max-height: 4vh;
 }
 
+.max-h-\[4rem\] {
+  max-height: 4rem;
+}
+
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
+}
+
+.min-h-\[3rem\] {
+  min-height: 3rem;
 }
 
 .w-full {
