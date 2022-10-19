@@ -1,4 +1,4 @@
-<div class="text-slate-600 leading-[1.2] ">
+<div class="text-slate-600 leading-[1.3] ">
   <a href="{{ card_product.url }}" class="no-underline full-unstyled-link">
     {% case card_product.type %}
       {% when 'Writing Material' %}
@@ -18,9 +18,29 @@
       {% when 'K-Cosmetic' %}
         {{ card_product.title | escape | replace_first: "] ", "]<br />" | newline_to_br }}
       {% when 'Kpop CD' %}
-        {{ card_product.title | escape | remove: 'K-Pop CD ' | replace_first: " &#39;", "<br />'"| newline_to_br | truncate: 80  }}
+        {%- comment -%} {% assign splitTitle = card_product.title | split: " - " %}
+        {{ splitTitle[0] | remove: 'K-Pop ' | remove: 'CD ' | replace_first: " '", "<br />'" | newline_to_br }}
+        <br/>
+        {{ splitTitle[1] | replace_first: " '", "<br />'" }}
+        <br/>
+        {{ splitTitle[2] | truncate: 35 }} {%- endcomment -%}
+        {% assign splitTitle = card_product.title | split: " - " %}
+        {% assign kpopArtist = splitTitle[0] | split: " '" %}
+        {% assign kpopAlbum = splitTitle[1] | split: " '" %}
+        <div class="text-2xl font-extrabold text-slate-700">{{ kpopArtist[0] | remove: 'K-Pop ' | remove: 'CD ' }}</div>
+        <div class="font-semibold text-slate-600">{{ kpopArtist[1]}}</div>
+        <div class="font-light text-slate-700">{{ kpopAlbum[0] }}</div>
+        <div class="font-semibold text-slate-600">{{ kpopAlbum[1] | remove_last: "'"  | truncate: 35 }}</div>
       {% when 'Gundam Model Kit' %}
-        {{ card_product.title | escape | remove: 'Model Kit' | truncate: 80  }}
+        {% assign splitTitle = card_product.title | remove: "Model Kit" | split: " #" %}
+        {{ splitTitle[0]}}
+        <br/>
+        {% if splitTitle[1] %}
+        {{ splitTitle[1] | prepend: "#"}}
+        {% endif %}
+        <br/>
+        {{ splitTitle[2] | truncate: 35 }}
+        {{ splitTitle[3] | truncate: 35 }}
       {% when 'Other Model Kit' %}
         {% assign splitTitle = card_product.title | remove: "Model Kit" | split: " - " %}
         {{ splitTitle[0]}}
@@ -38,7 +58,13 @@
         {{ splitTitle[2] | truncate: 35 }}
         {{ splitTitle[3] | truncate: 35 }}
       {% else %}
-        {{ card_product.title | escape | remove: 'K-Pop CD ' | truncate: 80  }}
+        {% assign splitTitle = card_product.title | split: " - " %}
+        {{ splitTitle[0]}}
+        <br/>
+        {{ splitTitle[1]}}
+        <br/>
+        {{ splitTitle[2] | truncate: 35 }}
+        {{ splitTitle[3] | truncate: 35 }}
     {% endcase %}
   </a>
 </div>

@@ -245,13 +245,30 @@
                 {{- block.settings.text -}}
               </p>
             {%- when 'title' -%}
-              <h1 class="product__title" {{ block.shopify_attributes }}>
+              {%- comment -%} <h1 class="product__title" {{ block.shopify_attributes }}>
                 {%if product.type == 'Kpop CD' %}
                   {{ product.title | remove:'K-Pop CD' |remove:'K-pop CD' |escape }}
                 {%else%}
                   {{ product.title | escape | remove: ' -' }}
                 {%endif%}
-              </h1>
+              </h1> {%- endcomment -%}
+              {% case product.type %}
+                {% when 'Kpop CD' %}
+                  {% assign splitTitle = product.title | split: " - " %}
+                  {% assign kpopArtist = splitTitle[0] | split: " '" %}
+                  {% assign kpopAlbum = splitTitle[1] | split: " '" %}
+                  <h1 class="text-6xl font-extrabold text-slate-700">{{ kpopArtist[0] | remove: 'K-Pop ' | remove: 'CD ' }}</h1>
+                  <h2 class="text-3xl font-semibold text-slate-700">{{ kpopArtist[1] | remove_last: "'"}}</h2>
+                  <h2 class="text-3xl font-regular text-slate-700">{{ kpopAlbum[0] }}</h2>
+                  <h2 class="text-4xl font-semibold text-slate-700">{{ kpopAlbum[1] | remove_last: "'"  | truncate: 35 }}</h2>
+                {% else %}
+                  {% assign splitTitle = product.title | split: " - " %}
+                  <h1 class="block text-5xl md:text-6xl font-bold text-slate-700">{{ splitTitle[0] }}</h1>
+                  <h2 class="block text-4xl md:text-5xl font-semibold text-slate-700">{{ splitTitle[1] }}</h2>
+                  <h2 class="block text-4xl md:text-5xl font-bold text-slate-700">{{ splitTitle[2] }}</h2>
+                  
+              {% endcase %}
+
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
