@@ -122,7 +122,7 @@ button.chat-toggle.chat-toggle--text-button {
 @media (max-width: 749px) {
   .ssw-reward-tab {
     transform:scale(.75);
-    bottom:5vh !important;
+    bottom:4rem !important;
     right: 1vw !important;
   }
   #dummy-chat-button-iframe {

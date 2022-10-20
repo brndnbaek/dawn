@@ -77,8 +77,77 @@
     </div>
   </section>
 
-  
-  <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-slate-50/10 justify-evenly rounded my-10 p-6 shadow-md">
+  <!-- monthly promotion banner  -->
+  <section class="flex flex-col w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-transparent shadow mt-[5vh]">
+    {%- comment -%} <div class="sectiontitle">
+      <h2 class="text-3xl font-semibold text-center text-gray-800 md:text-5xl">Discover</h2>
+    </div> {%- endcomment -%}
+
+    <div class="flex flex-col flex-wrap items-center justify-center w-full p-10 md:justify-evenly md:flex-row gap-6">
+      {%- comment -%} popup parade b1g1 half off {%- endcomment -%}
+
+      <!-- sticker promotion  -->
+      <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-rose-400">
+        <div class="flex flex-col justify-between w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
+          <div class="text-4xl md:text-6xl font-bold text-rose-600">Popup Parade Figures</div>
+          <div class="text-xl md:text-3xl font-semibold text-slate-600">BUY 1 GET 1 50% OFF</div>
+          <div class="text-base md:text-xl font-semibold">Discount automatically applies</div>
+          <a href="{{ collections['popup-parade'].url }}" class="mt-4 no-underline">
+            <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-rose-400 text-slate-700 rounded-xl drop-shadow-lg hover:bg-rose-200">View Collection</span>
+          </a>
+        </div>
+      </div>
+      <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-indigo-700">
+        <div class="flex flex-col justify-between  w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
+          <div class="text-4xl md:text-6xl font-bold text-indigo-600">MIX & MATCH STICKER</div>
+          <div class="text-xl md:text-3xl font-semibold">BUY 5 GET 1 FREE</div>
+          <div class="text-base md:text-xl font-semibold">Discount automatically applies</div>
+          <a href="{{ collections['sticker'].url }}" class="mt-4 no-underline">
+            <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-indigo-400 hover:bg-indigo-200 rounded-xl drop-shadow-lg">Sticker Collection</span>
+          </a>
+        </div>
+      </div>
+      <!-- pencil promotion  -->
+      <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-green-700">
+        <div class="flex flex-col justify-between w-11/12 gap-8 py-10 text-center rounded-md h-11/12">
+          <div class="text-3xl md:text-5xl font-bold text-green-600">25% off Writing Material</div>
+          <div class="text-xl md:text-2xl font-semibold">Minimum Purchase of 10 items</div>
+          <div class="text-base md:text-3xl font-semibold">Discount Code: PEN25</div>
+          <a href="{{ collections['writing-material'].url }}" class="no-underline">
+            <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-green-400 hover:bg-green-200 rounded-xl drop-shadow-lg">Writing Material</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+<!--Popup parade left image banner -->
+<a href="{{ collections['popup-parade'].url }}" class="no-underline">
+  <section id="popup_banner"
+    class="db_banner group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[200px] sm:h-[300px] md:h-[400px] relative max-w-[1200px]">
+    <div
+      class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
+      <a href="{{ collections['popup-parade'].url }}" class="after:absolute after:inset-0">
+        <img src="{{'LT_popupBanner.png' | asset_img_url:'400x' }}" alt=""
+          class="absolute origin-bottom bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 duration-500" loading="lazy">
+      </a>
+    </div>
+    <div
+      class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-pink-200 to-pink-400 col-span-full group-hover:duration-1000">
+      <div class="flex flex-row-reverse h-full">
+        <div class="flex flex-col w-[45%]  justify-center items-center gap-4">
+          <div class="text-2xl font-semibold text-center text-transparent lg:py-8 sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-br from-sky-500 to-indigo-700">Popup Parade Figures</div>
+          <div class="w-11/12 pb-2 pl-4 text-sm font-semibold leading-normal text-xl md:text-xl lg:text-3xl">Limited Time</div>
+          <div class="w-11/12 pb-2 pl-4 text-sm font-semibold leading-normal text-xl md:text-xl lg:text-3xl">Buy 1 Get 1 50% OFF</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</a>
+
+  {%- comment -%} youtube promotion {%- endcomment -%}
+  <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-transparent justify-evenly rounded my-10 p-6 shadow">
     <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
       <img src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}" alt="" class="w-[150px] mr-10 translate-y-1">
       <p class="text-3xl font-bold text-gray-800 md:text-5xl"><a href="{{blogs['youtube-giveaway'].url}}" class="text-gray-800">Unboxing & Giveaway</a></p>
@@ -103,36 +172,7 @@
       </div>
   </section>
   
-  <!-- monthly promotion banner  -->
-  <section class="flex flex-col w-[95%] md:w-11/12 mx-auto max-w-[1200px] rounded-lg bg-slate-50/10 shadow-lg mt-[5vh]">
-    <div class="sectiontitle">
-      <h2 class="text-3xl font-semibold text-center text-gray-800 md:text-5xl">Discover</h2>
-    </div>
-    <div class="flex flex-col flex-wrap items-center justify-center w-full p-10 md:justify-evenly md:flex-row gap-y-6">
-      <!-- sticker promotion  -->
-      <div class="grid w-full bg-cover rounded-lg md:w-1/3 h-[300px] place-items-center" style="background-image: url(http://cdn.shopify.com/s/files/1/0035/0729/0161/products/b2993d110deee15316547017937ffd5c.jpg?v=1616693048)">
-        <div class="flex flex-col w-11/12 gap-6 py-10 text-center bg-white bg-opacity-0 rounded-md h-11/12 bg-clip-padding backdrop-filter backdrop-blur-sm">
-          <div class="text-6xl font-bold text-indigo-600">MIX & MATCH STICKER</div>
-          <div class="text-3xl font-semibold">BUY 5 GET 1 FREE</div>
-          <div class="text-xl font-semibold">Discount automatically applies</div>
-          <a href="{{ collections['sticker'].url }}" class="mt-4 no-underline">
-            <span class="w-3/4 p-2 mx-auto my-6 text-xl bg-blue-300 rounded-xl drop-shadow-lg">Sticker Collection</span>
-          </a>
-        </div>
-      </div>
-      <!-- pencil promotion  -->
-      <div class="grid w-full bg-cover rounded-lg md:w-1/3 h-[300px] place-items-center" style="background-image: url(http://cdn.shopify.com/s/files/1/0035/0729/0161/products/0T7A9037.JPG?v=1571802262&width=1445)">
-        <div class="flex flex-col w-11/12 gap-8 py-10 text-center bg-teal-200 border border-gray-100 rounded-md h-11/12 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
-          <div class="text-6xl font-bold text-green-600">25% off Writing Material</div>
-          <div class="text-2xl font-semibold">Minimum Purchase of 10 items</div>
-          <div class="text-3xl font-semibold">Discount Code: PEN25</div>
-          <a href="{{ collections['writing-material'].url }}" class="no-underline">
-            <span class="w-3/4 p-2 mx-auto my-6 text-xl bg-blue-300 rounded-xl drop-shadow-lg">Writing Material</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
   
   <!-- LT Difference Point out -->
   <section id="LT_difference"
@@ -263,29 +303,7 @@
     </section>
   </a>
 
-  <!--Popup parade left image banner -->
-  <a href="{{ collections['popup-parade'].url }}" class="no-underline">
-    <section id="popup_banner"
-      class="db_banner group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] relative max-w-[1200px]">
-      <div
-        class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
-        <a href="{{ collections['popup-parade'].url }}" class="after:absolute after:inset-0">
-          <img src="{{'LT_popupBanner.png' | asset_img_url:'400x' }}" alt=""
-            class="absolute origin-bottom bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 duration-500" loading="lazy">
-        </a>
-      </div>
-      <div
-        class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-pink-200 to-pink-400 col-span-full group-hover:duration-1000">
-        <div class="flex flex-row-reverse h-full">
-          <div class="flex flex-col w-[45%]  justify-center gap-4">
-            <div class="text-2xl font-semibold text-center text-transparent lg:py-8 sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-br from-sky-500 to-indigo-700">Popup Parade Figures</div>
-            <div class="w-11/12 pb-2 pl-4 text-sm font-normal leading-normal sm:text-lg md:text-xl lg:text-3xl">High quality figures at affordable prices</div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-  </a>
+  
 
   <!--Twice right side image banner -->
 <!--   

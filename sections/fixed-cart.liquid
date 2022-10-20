@@ -91,7 +91,7 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
   });
   </scrip> {% endcomment %}
 
-<form action="{{ routes.cart_url }}" id="test-cart" method="post" class="fixed transition duration-500 my-cart invisible md:hidden lg:visible lg:block w-[150px] pr-4">
+<form action="{{ routes.cart_url }}" id="test-cart" method="post" class="fixed transition duration-500 my-cart invisible sm:hidden md:hidden lg:visible lg:block w-[150px] pr-4 h-[70vh]">
 <!-- data-ajax-cart-section makes the element's HTML update
 when the cart gets changed -->
 <div data-ajax-cart-section class="flex flex-col items-center {%if cart == empty %}invisible{% endif %}">
@@ -159,7 +159,13 @@ when the element's HTML is changed -->
         {% endif %}
 
         <div class="text-xl font-bold mt-3 text-center">
-          {{ item.final_price | money }}
+          {% if item.final_price != item.original_price %}
+          <span class="line-through text-slate-400 text-sm">{{ item.original_price | money }}</span> 
+          <span class="text-lg">{{ item.final_price | money }}</span>
+          <span class="block text-base text-slate-600">Discount Applied</span>
+          {%- else -%}
+          <span class="text-xl">{{ item.final_price | money }}</span>
+          {% endif %}
           {% if item.quantity > 1 %}
             <span> (x{{item.quantity}})</span>
           {% endif %}

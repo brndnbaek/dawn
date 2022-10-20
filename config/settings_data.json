@@ -198,6 +198,11 @@
         "type": "main-password-footer",
         "settings": {
         }
+      },
+      "fixed-cart": {
+        "type": "fixed-cart",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
