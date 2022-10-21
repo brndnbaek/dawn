@@ -85,6 +85,7 @@
     content: 'Adding to cart…' display: block;
   }
 {% endstyle %}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 
 <div class="lt_cardgrid w-full group relative">
@@ -154,7 +155,7 @@
     {% if difference < 3888000 %}
       <span class="new-label text-rose-600 font-semibold">new</span>
     {% endif %}
-    <div class="row-span-6 text-xl font-semibold px-8 pt-4 text-center flex flex-col justify-between">
+    <div class="row-span-6 text-xl font-semibold px-6 pt-4 text-center flex flex-col justify-between">
       {% render 'splitTitle', card_product: card_product %}
       {% render 'price', product: card_product, price_class: 'font-bold' %}
     </div>
@@ -174,7 +175,7 @@
         <form action="{{ routes.cart_url }}" method="post">
           {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
             {% if all_products[card_product.metafields.my_fields.addon].available == true %}
-              <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1&id={{all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">add w/ gift</a>
+              <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1&&items[1]id={{all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">add w/ gift</a>
             {%else%}
               <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">Quick Add</a>
             {% endif %}
@@ -184,6 +185,7 @@
             sold out
           {% endif %}
         </form>
+
 
         {% comment %}
           check if the card product is already added to the cart

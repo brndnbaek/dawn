@@ -4559,6 +4559,10 @@ button.chat-toggle.chat-toggle--text-button {
   height: 70vh;
 }
 
+.h-\[3rem\] {
+  height: 3rem;
+}
+
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
