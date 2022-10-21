@@ -89,17 +89,23 @@
     </a>
   </div>
 
-  {% comment %} add to cart button  {% endcomment %}
+  {% comment %} add to cart button  
   <div class="absolute top-[35%] right-[1.25rem] rounded-lg px-2 py-1 text-xl text-neutral-600">
-    {% if card_product.variants.size == 1 %}
     <form action="{{ routes.cart_url }}" method="post">
-      <a data-ajax-cart-request-button
-      href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1">Add to Cart</a>
+      {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
+        {% if all_products[card_product.metafields.my_fields.addon].available == true %}
+          <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1&&items[1]id={{all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">add w/ gift</a>
+        {%else%}
+          <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">Quick Add</a>
+        {% endif %}
+      {%elsif card_product.variants.size > 1 %}
+        <a href="{{ card_product.url }}" class="lt-cardbutton">View Options</a>
+      {% elsif card_product.selected_or_first_available_variant.available == false %}
+        sold out
+      {% endif %}
     </form>
-    {% else %}
-    Click to see variants
-    {% endif %}
   </div>
+  {% endcomment %}
   {% comment %} <div class="absolute top-[35%] right-[1.25rem] rounded-lg px-2 py-1 text-xl text-neutral-600">
     
     <form method="post" action="/cart/add">
