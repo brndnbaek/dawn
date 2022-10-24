@@ -4603,8 +4603,32 @@ button.chat-toggle.chat-toggle--text-button {
   max-height: 4vh;
 }
 
+.max-h-\[250px\] {
+  max-height: 250px;
+}
+
+.max-h-\[260px\] {
+  max-height: 260px;
+}
+
+.max-h-\[255px\] {
+  max-height: 255px;
+}
+
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
+}
+
+.min-h-\[10rem\] {
+  min-height: 10rem;
+}
+
+.min-h-\[9rem\] {
+  min-height: 9rem;
+}
+
+.min-h-\[8\.5rem\] {
+  min-height: 8.5rem;
 }
 
 .w-full {
@@ -4963,6 +4987,10 @@ button.chat-toggle.chat-toggle--text-button {
   flex-basis: 25%;
 }
 
+.basis-4\/5 {
+  flex-basis: 80%;
+}
+
 .origin-bottom {
   transform-origin: bottom;
 }
@@ -5273,6 +5301,10 @@ button.chat-toggle.chat-toggle--text-button {
   overflow: hidden;
 }
 
+.overflow-clip {
+  overflow: clip;
+}
+
 .overflow-y-hidden {
   overflow-y: hidden;
 }
@@ -5293,6 +5325,34 @@ button.chat-toggle.chat-toggle--text-button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.text-clip {
+  text-overflow: clip;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.whitespace-pre {
+  white-space: pre;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
 }
 
 .break-words {
@@ -6871,6 +6931,11 @@ button.chat-toggle.chat-toggle--text-button {
 
 .drop-shadow-lg {
   --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.drop-shadow {
+  --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 

@@ -151,21 +151,21 @@
   {% assign   difference = date_now | minus: date_created %}
 
   {% if ImageRatio > 1.2 %}
-    <div class="LandscapeImg relative">
+    <div class="LandscapeImg">
       <a href="{{ card_product.url}}">
-        <img src="{{ card_product.featured_media | image_url: width: 300 }}" alt="" class="w-full -translate-x-[1rem] object-contain group-hover:duration-500 duration-500 {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
+        <img src="{{ card_product.featured_media | image_url: width: 350 }}" alt="" class="w-full -translate-x-[1rem] object-contain group-hover:duration-500 duration-500 drop-shadow {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
       </a>
     </div>
   {% elsif ImageRatio < 0.9 %}
-    <div class="PortraitImg relative">
+    <div class="PortraitImg">
       <a href="{{ card_product.url}}">
-        <img src="{{ card_product.featured_media | image_url: height: 250 }}" alt="" class="max-h-full group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500 {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
+        <img src="{{ card_product.featured_media | image_url: height: 300 }}" alt="" class="max-h-[255px] group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500 drop-shadow {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
       </a>
     </div>
   {% else %}
     <div class="SquareImg relative">
       <a href="{{ card_product.url }}">
-        <img src="{{ card_product.featured_media | image_url: width: 260 }}" alt="" class="w-[20rem] group-hover:duration-500 duration-500 group-hover:-translate-y-[1rem] group-hover:w-[21rem] aspect-square h-auto {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
+        <img src="{{ card_product.featured_media | image_url: width: 350 }}" alt="" class="w-[20rem] group-hover:duration-500 duration-500 group-hover:-translate-y-[1rem] group-hover:w-[21rem] aspect-square h-auto drop-shadow {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
       </a>
     </div>
   {% endif %}
@@ -174,7 +174,7 @@
     {% if difference < 3888000 %}
       <span class="new-label text-rose-600 font-semibold">new</span>
     {% endif %}
-    <div class="row-span-6 text-xl font-semibold px-6 pt-4 text-center flex flex-col justify-between">
+    <div class="row-span-6 text-xl px-6 pt-2 min-h-[8.5rem] text-center flex flex-col justify-between">
       {% render 'splitTitle', card_product: card_product %}
       {% render 'price', product: card_product, price_class: 'font-bold' %}
     </div>
