@@ -25,6 +25,10 @@
         </div>
       {% if collection.handle == 'writing-material' %}
         <div class="text-xl text-slate-600">25% off for 10 or more pens w/ CODE: PEN25</div>
+      {% elsif collection.handle == 'stationery' %}
+        <div class="text-xl text-slate-600">Cyber Monday Sale - Add to cart to see sale price</div>
+      {% elsif collection.handle == 'plush' %}
+        <div class="text-xl text-slate-600">Cyber Monday Sale - Add to cart to see sale price</div>
       {% else %}
         <section class="flex flex-col items-center px-4" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
               {% if cart.total_price < 6000 %}

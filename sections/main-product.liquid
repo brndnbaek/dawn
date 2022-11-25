@@ -291,6 +291,11 @@
                   </div>
                 {%else%}
                   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+                  {% if product.tags contains "plush" %}
+                  <span class="text-xl bg-rose-100 p-2 rounded">Add to cart to see sale price</span>
+                  {% elsif product.tags contains "stationery" %}
+                  <span class="text-xl bg-rose-100 p-2 rounded">Add to cart to see sale price</span>
+                  {%endif%}
                 {%endif%}
               </div>
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
