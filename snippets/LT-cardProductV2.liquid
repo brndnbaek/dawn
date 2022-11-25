@@ -89,7 +89,7 @@
 
 
 <div class="lt_cardgrid w-full group relative">
-  <div class="GridArea bg-gradient-to-t from-slate-50/50 to-slate-300 text-slate-700/50 relative">
+  <div class="GridArea bg-gradient-to-t from-purple-50/50 to-purple-100 text-slate-700/50 relative">
     <div class="absolute top-1 left-1 flex items-center text-lg p-1 text-gray-500">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -115,9 +115,18 @@
           <div class="absolute top-1 left-1 group-hover:opacity-100 opacity-0 text-xs leading-none text-rose-600 transition">360° Video</div>
         </div>
       {% endif %}
+
+      
     </div>
 
+   {% if card_product.tags contains "BFCM20" %}
+    <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">Cyber Monday - <span class="text-red-400 font-semibold text-xl">20%</span> Off</div>
+    {%elsif card_product.tags contains "BFCM35" %}
+    <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">Cyber Monday - <span class="text-red-400 font-semibold text-xl">35%</span> Off</div>
+    {%elsif card_product.tags contains "BFCM50" %}
+    <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">Cyber Monday - <span class="text-red-400 font-semibold text-xl">50%</span> Off</div>
 
+  {%else%}
     {% case card_product.type %}
       {% when 'Other Model Kit' %}
         <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.brand }}
@@ -142,6 +151,7 @@
         <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.series | truncate: 50 }}
         </div>
     {% endcase %}
+    {%endif%}
   </div>
 
   {% assign ImageRatio = card_product.featured_media.aspect_ratio %}
@@ -169,13 +179,30 @@
     </div>
   {% endif %}
 
-  <div class=" ContentBox bg-gradient-to-br from-gray-200 via-gray-50 to-gray-200 shadow grid grid-rows-8 relative">
+  <div class=" ContentBox bg-gradient-to-b from-purple-200 via-purple-100 to-purple-50 shadow grid grid-rows-8 relative">
     {% if difference < 3888000 %}
       <span class="new-label text-rose-600 font-semibold">new</span>
     {% endif %}
     <div class="row-span-6 text-xl px-6 pt-2 min-h-[8.5rem] text-center flex flex-col justify-between">
       {% render 'splitTitle', card_product: card_product %}
-      {% render 'price', product: card_product, price_class: 'font-bold' %}
+      {% if card_product.tags contains "BFCM20" %}
+        <div class="flex justify-center items-baseline gap-4">
+          <div class="text-2xl font-bold">Sale {{ card_product.price | times:0.8 |money }}</div>
+          <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
+        </div>
+      {% elsif card_product.tags contains "BFCM35" %}
+        <div class="flex justify-center gap-6">
+          <div class="text-2xl font-bold">Sale {{ card_product.price | times: 0.65 | money }}</div>
+          <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
+        </div>
+      {% elsif card_product.tags contains "BFCM50" %}
+        <div class="flex justify-center gap-6">
+          <div class="text-2xl font-bold">Sale {{ card_product.price | times: 0.5 | money }}</div>
+          <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
+        </div>
+      {%else%}
+        {% render 'price', product: card_product, price_class: 'font-bold' %}
+      {%endif%}
     </div>
 
     <div class="row-span-2 rounded-b-md text-slate-600 flex items-center justify-center pt-2">
