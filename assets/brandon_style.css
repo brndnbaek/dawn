@@ -5857,6 +5857,16 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(233 213 255 / 0));
 }
 
+.from-slate-50\/50 {
+  --tw-gradient-from: rgb(248 250 252 / 0.5);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(248 250 252 / 0));
+}
+
+.from-slate-200 {
+  --tw-gradient-from: #e2e8f0;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(226 232 240 / 0));
+}
+
 .via-transparent {
   --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgb(0 0 0 / 0));
 }
@@ -5867,6 +5877,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .via-purple-100 {
   --tw-gradient-stops: var(--tw-gradient-from), #f3e8ff, var(--tw-gradient-to, rgb(243 232 255 / 0));
+}
+
+.via-slate-100 {
+  --tw-gradient-stops: var(--tw-gradient-from), #f1f5f9, var(--tw-gradient-to, rgb(241 245 249 / 0));
 }
 
 .to-amber-50 {
@@ -6027,6 +6041,26 @@ button.chat-toggle.chat-toggle--text-button {
 
 .to-purple-50 {
   --tw-gradient-to: #faf5ff;
+}
+
+.to-slate-100 {
+  --tw-gradient-to: #f1f5f9;
+}
+
+.to-slate-50 {
+  --tw-gradient-to: #f8fafc;
+}
+
+.to-slate-200 {
+  --tw-gradient-to: #e2e8f0;
+}
+
+.to-slate-50\/50 {
+  --tw-gradient-to: rgb(248 250 252 / 0.5);
+}
+
+.to-slate-100\/50 {
+  --tw-gradient-to: rgb(241 245 249 / 0.5);
 }
 
 .bg-cover {

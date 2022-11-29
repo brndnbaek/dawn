@@ -271,19 +271,19 @@
 
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                {% if product.tags contains "BFCM20" %}
+                {% if product.tags contains "saleTag20" %}
                   <div class="flex gap-6 p-4 items-center rounded-lg bg-rose-200">
                     <div>Cyber Monday Deal -</div>
                     <div class="text-2xl font-bold">{{ product.price | times: 0.8 | money }}</div>
                     <div class="text-xl line-through text-red-600">{{ product.price | money }}</div>
                   </div>
-                  {% elsif product.tags contains "BFCM35" %}
+                  {% elsif product.tags contains "saleTag35" %}
                   <div class="flex gap-6 p-4 items-center rounded-lg bg-amber-200">
                     <div>Cyber Monday Deal -</div>
                     <div class="text-2xl font-bold">{{ product.price | times: 0.65 | money }}</div>
                     <div class="text-xl line-through text-red-600">{{ product.price | money }}</div>
                   </div>
-                  {% elsif product.tags contains "BFCM50" %}
+                  {% elsif product.tags contains "saleTag50" %}
                   <div class="flex gap-6 p-4 items-center rounded-lg bg-orange-200">
                     <div>Cyber Monday Deal -</div>
                     <div class="text-2xl font-bold">{{ product.price | times: 0.5 | money }}</div>
@@ -291,11 +291,6 @@
                   </div>
                 {%else%}
                   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
-                  {% if product.tags contains "plush" %}
-                  <span class="text-xl bg-rose-100 p-2 rounded">Add to cart to see sale price</span>
-                  {% elsif product.tags contains "stationery" %}
-                  <span class="text-xl bg-rose-100 p-2 rounded">Add to cart to see sale price</span>
-                  {%endif%}
                 {%endif%}
               </div>
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
