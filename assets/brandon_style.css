@@ -6389,6 +6389,14 @@ button.chat-toggle.chat-toggle--text-button {
   padding-bottom: 0.25rem;
 }
 
+.pt-\[4vh\] {
+  padding-top: 4vh;
+}
+
+.pt-\[2vh\] {
+  padding-top: 2vh;
+}
+
 .text-left {
   text-align: left;
 }
