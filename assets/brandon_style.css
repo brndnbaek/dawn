@@ -4103,6 +4103,14 @@ button.chat-toggle.chat-toggle--text-button {
   left: -2.75rem;
 }
 
+.top-5 {
+  top: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -4591,6 +4599,18 @@ button.chat-toggle.chat-toggle--text-button {
   max-height: 4vh;
 }
 
+.max-h-\[250px\] {
+  max-height: 250px;
+}
+
+.max-h-\[200px\] {
+  max-height: 200px;
+}
+
+.max-h-\[225px\] {
+  max-height: 225px;
+}
+
 .min-h-\[8\.5rem\] {
   min-height: 8.5rem;
 }
@@ -4905,6 +4925,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .max-w-\[280px\] {
   max-width: 280px;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px;
 }
 
 .flex-1 {
@@ -5241,6 +5265,10 @@ button.chat-toggle.chat-toggle--text-button {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
+.place-self-start {
+  place-self: start;
+}
+
 .place-self-center {
   place-self: center;
 }
@@ -5255,6 +5283,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .justify-self-end {
   justify-self: end;
+}
+
+.justify-self-center {
+  justify-self: center;
 }
 
 .overflow-hidden {
@@ -5632,6 +5664,56 @@ button.chat-toggle.chat-toggle--text-button {
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.bg-gray-900\/50 {
+  background-color: rgb(17 24 39 / 0.5);
+}
+
+.bg-white\/80 {
+  background-color: rgb(255 255 255 / 0.8);
+}
+
+.bg-gray-100\/80 {
+  background-color: rgb(243 244 246 / 0.8);
+}
+
+.bg-gray-50\/80 {
+  background-color: rgb(249 250 251 / 0.8);
+}
+
+.bg-rose-50\/80 {
+  background-color: rgb(255 241 242 / 0.8);
+}
+
+.bg-rose-200\/80 {
+  background-color: rgb(254 205 211 / 0.8);
+}
+
+.bg-amber-200\/80 {
+  background-color: rgb(253 230 138 / 0.8);
+}
+
+.bg-lime-200\/80 {
+  background-color: rgb(217 249 157 / 0.8);
+}
+
+.bg-cyan-200\/80 {
+  background-color: rgb(165 243 252 / 0.8);
+}
+
+.bg-rose-200\/50 {
+  background-color: rgb(254 205 211 / 0.5);
 }
 
 .bg-opacity-20 {
@@ -6626,6 +6708,11 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -6780,6 +6867,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .outline-rose-300 {
   outline-color: #fda4af;
+}
+
+.outline-red-600 {
+  outline-color: #dc2626;
 }
 
 .blur-lg {
