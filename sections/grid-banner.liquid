@@ -145,7 +145,7 @@
             <div class="text-4xl md:text-6xl font-bold text-rose-600 relative w-full drop-shadow-lg">
               Flash Sale
             </div>
-              <div class="text-lg text-slate-600 font-semibold">{{ saleitem[0].title | remove: " -" }}</div>
+              <div class="text-lg text-slate-50 rounded font-semibold bg-red-500">{{ saleitem[0].title | remove: " -" }}</div>
               <div class="">
                 {% if saleitem[0].selected_or_first_available_variant.inventory_quantity > 0 %}
                   <span class="text-base line-through text-red-400">{{saleitem[0].compare_at_price | money }}</span>
