@@ -5042,6 +5042,46 @@ button.chat-toggle.chat-toggle--text-button {
           animation: bounce 1s infinite;
 }
 
+@-webkit-keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@-webkit-keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -5251,6 +5291,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .place-self-start {
   place-self: start;
+}
+
+.place-self-end {
+  place-self: end;
 }
 
 .place-self-center {
@@ -5657,6 +5701,16 @@ button.chat-toggle.chat-toggle--text-button {
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
+}
+
+.bg-orange-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 146 60 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -6623,6 +6677,36 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.text-cyan-700 {
+  --tw-text-opacity: 1;
+  color: rgb(14 116 144 / var(--tw-text-opacity));
+}
+
+.text-cyan-400 {
+  --tw-text-opacity: 1;
+  color: rgb(34 211 238 / var(--tw-text-opacity));
+}
+
+.text-purple-700 {
+  --tw-text-opacity: 1;
+  color: rgb(126 34 206 / var(--tw-text-opacity));
+}
+
+.text-rose-700 {
+  --tw-text-opacity: 1;
+  color: rgb(190 18 60 / var(--tw-text-opacity));
+}
+
+.text-orange-600 {
+  --tw-text-opacity: 1;
+  color: rgb(234 88 12 / var(--tw-text-opacity));
+}
+
+.text-indigo-700 {
+  --tw-text-opacity: 1;
+  color: rgb(67 56 202 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -6789,6 +6873,22 @@ button.chat-toggle.chat-toggle--text-button {
 
 .outline-slate-700 {
   outline-color: #334155;
+}
+
+.outline-cyan-600 {
+  outline-color: #0891b2;
+}
+
+.outline-purple-600 {
+  outline-color: #9333ea;
+}
+
+.outline-orange-400 {
+  outline-color: #fb923c;
+}
+
+.outline-indigo-400 {
+  outline-color: #818cf8;
 }
 
 .blur-lg {

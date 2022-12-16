@@ -126,7 +126,7 @@
         {% assign saving = saleitem[0].compare_at_price | minus: saleitem[0].price %}
         {% assign amount = saving | at_least: amount %}
         {% capture saved_amount %}{{ amount | money_without_trailing_zeros }} {% endcapture %}
-        <img src="{{ saleitem[0].featured_media | image_url: height: 225 }}" alt="" class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
+          <img src="{{ saleitem[0].featured_media | image_url: height: 225 }}" alt="" class="place-self-end justify-self-center max-w-[250px] max-h-[225px] absolute  object-cover top-3 drop-shadow-lg">
         <div class="absolute top-2 right-2 text-lg p-2 text-red-700 font-semibold">
           {% if saleitem[0].selected_or_first_available_variant.inventory_quantity < 10 %}
           <div class="bg-white/90 rounded-full p-1">Only {{ saleitem[0].selected_or_first_available_variant.inventory_quantity }} left </div>
@@ -142,14 +142,90 @@
         <div class="flex flex-col justify-end items-center w-11/12 gap-6 py-4 text-center rounded-md h-11/12 mx-auto">
           <div class="bg-slate-100 rounded shadow w-full pb-2 pt-6 px-4">
             <a href="{{ saleitem[0].url }}" class="mt-4 no-underline relative">
-            <div class="text-4xl md:text-6xl font-bold text-rose-600 relative w-full drop-shadow-lg">
+            <div class="text-4xl md:text-6xl font-bold text-rose-600 relative w-full drop-shadow-lg animate-pulse">
               Flash Sale
             </div>
               <div class="text-lg text-slate-50 rounded font-semibold bg-red-500">{{ saleitem[0].title | remove: " -" }}</div>
               <div class="">
                 {% if saleitem[0].selected_or_first_available_variant.inventory_quantity > 0 %}
-                  <span class="text-base line-through text-red-400">{{saleitem[0].compare_at_price | money }}</span>
+                  <span class="text-base line-through text-red-400 font-semibold">{{saleitem[0].compare_at_price | money }}</span>
                   <span class="text-2xl font-semibold text-slate-900">{{saleitem[0].price | money}}</span>
+                {% else %}
+                  <span>Sold Out</span>
+                {% endif %}
+              </div>
+            </a>
+            </div>
+          </div>
+        </div>    
+      {%- comment -%} flash sale box {%- endcomment -%}
+      <div class="grid w-full rounded-lg md:w-[30%] h-[300px] outline outline-indigo-400 relative">
+        {% assign saleitem = collections['flashsale'].products %}
+        {% assign saving2 = saleitem[1].compare_at_price | minus: saleitem[1].price %}
+        {% assign amount = saving | at_least: amount %}
+        {% capture saved_amount %}{{ amount | money_without_trailing_zeros }} {% endcapture %}
+        <img src="{{ saleitem[1].featured_media | image_url: height: 225 }}" alt="" class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
+        <div class="absolute top-2 right-2 text-lg p-2 text-indigo-700 font-semibold">
+          {% if saleitem[1].selected_or_first_available_variant.inventory_quantity < 10 %}
+          <div class="bg-white/90 rounded-full p-1">Only {{ saleitem[1].selected_or_first_available_variant.inventory_quantity }} left </div>
+          {% else %}
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+          </svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="flex flex-col justify-end items-center w-11/12 gap-6 py-4 text-center rounded-md h-11/12 mx-auto">
+          <div class="bg-slate-100 rounded shadow w-full pb-2 pt-6 px-4">
+            <a href="{{ saleitem[1].url }}" class="mt-4 no-underline relative">
+            <div class="text-4xl md:text-6xl font-bold text-indigo-600 relative w-full drop-shadow-lg animate-pulse">
+              Flash Sale
+            </div>
+              <div class="text-lg text-slate-50 rounded font-semibold bg-indigo-400">{{ saleitem[1].title | remove: " -" }}</div>
+              <div class="">
+                {% if saleitem[1].selected_or_first_available_variant.inventory_quantity > 0 %}
+                  <span class="text-base line-through text-red-400 font-semibold">{{saleitem[1].compare_at_price | money }}</span>
+                  <span class="text-2xl font-semibold text-slate-900">{{saleitem[1].price | money}}</span>
+                {% else %}
+                  <span>Sold Out</span>
+                {% endif %}
+              </div>
+            </a>
+            </div>
+          </div>
+        </div>    
+      {%- comment -%} flash sale box 3{%- endcomment -%}
+      <div class="grid w-full rounded-lg md:w-[30%] h-[300px] outline outline-purple-600 relative">
+        {% assign saleitem = collections['flashsale'].products %}
+        {% assign saving3 = saleitem[2].compare_at_price | minus: saleitem[2].price %}
+        {% assign amount = saving | at_least: amount %}
+        {% capture saved_amount %}{{ amount | money_without_trailing_zeros }} {% endcapture %}
+        <img src="{{ saleitem[2].featured_media | image_url: height: 225 }}" alt="" class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
+        <div class="absolute top-2 right-2 text-lg p-2 text-purple-700 font-semibold">
+          {% if saleitem[2].selected_or_first_available_variant.inventory_quantity < 10 %}
+          <div class="bg-white/90 rounded-full p-1">Only {{ saleitem[2].selected_or_first_available_variant.inventory_quantity }} left </div>
+          {% else %}
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+          </svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="flex flex-col justify-end items-center w-11/12 gap-6 py-4 text-center rounded-md h-11/12 mx-auto">
+          <div class="bg-slate-100 rounded shadow w-full pb-2 pt-6 px-4">
+            <a href="{{ saleitem[2].url }}" class="mt-4 no-underline relative">
+            <div class="text-4xl md:text-6xl font-bold text-purple-600 relative w-full drop-shadow-lg animate-pulse">
+              Flash Sale
+            </div>
+              <div class="text-lg text-slate-600 rounded font-semibold bg-purple-400">{{ saleitem[2].title | remove: " -" }}</div>
+              <div class="">
+                {% if saleitem[2].selected_or_first_available_variant.inventory_quantity > 0 %}
+                  <span class="text-base line-through text-red-400 font-semibold">{{saleitem[2].compare_at_price | money }}</span>
+                  <span class="text-2xl font-semibold text-slate-900">{{saleitem[2].price | money}}</span>
                 {% else %}
                   <span>Sold Out</span>
                 {% endif %}
@@ -170,6 +246,8 @@
           </a>
         </div>
       </div> {%- endcomment -%}
+
+      {% comment %} loona boycott box
       <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-slate-700">
         <div class="flex flex-col justify-between  w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
           <div class="text-2xl md:text-4xl font-bold text-slate-600">#WeStandWith<span class="text-rose-600">LOONA</span></div>
@@ -177,9 +255,9 @@
           <div class="text-base md:text-xl font-semibold">Upcoming Loona album from BlockBerryCreative will not be in stock.</div>
           </div>
       </div>
-
+    {% endcomment %}
       {%- comment -%} sticker promotion  {%- endcomment -%}
-      <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-indigo-700">
+      <div class="hidden grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-indigo-700">
         <div class="flex flex-col justify-between  w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
           <div class="text-4xl md:text-6xl font-bold text-indigo-600">MIX & MATCH STICKER</div>
           <div class="text-xl md:text-3xl font-semibold">BUY 5 GET 1 FREE</div>
