@@ -76,8 +76,8 @@
             "type": "mega_header",
             "settings": {
               "mega_width": false,
-              "mega_url": "shopify:\/\/pages\/specials",
-              "title": "Specials & Offers",
+              "mega_url": "shopify:\/\/collections\/clearance-sale",
+              "title": "Sale",
               "header_title": "",
               "header_bg": "",
               "mega_image_size": 15,
