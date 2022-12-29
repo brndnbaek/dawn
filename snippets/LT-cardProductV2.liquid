@@ -89,7 +89,7 @@
 
 
 <div class="lt_cardgrid w-full group relative">
-  <div class="GridArea bg-gradient-to-t from-slate-200 to-slate-100/50 text-slate-700/50 relative">
+  <div class="GridArea shadow bg-gradient-to-b from-gray-200 to-gray-100/50 text-slate-700/50 relative group-hover:bg-gradient-to-t group-hover:transition-all">
     <div class="absolute top-1 left-1 flex items-center text-lg p-1 text-gray-500">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -119,14 +119,7 @@
       
     </div>
 
-   {% if card_product.tags contains "saleTag20" %}
-    <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">Cyber Monday - <span class="text-red-400 font-semibold text-xl">20%</span> Off</div>
-    {%elsif card_product.tags contains "saleTag35" %}
-    <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">Cyber Monday - <span class="text-red-400 font-semibold text-xl">35%</span> Off</div>
-    {%elsif card_product.tags contains "saleTag50" %}
-    <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">Cyber Monday - <span class="text-red-400 font-semibold text-xl">50%</span> Off</div>
-
-  {%else%}
+   
     {% case card_product.type %}
       {% when 'Other Model Kit' %}
         <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.brand }}
@@ -151,7 +144,6 @@
         <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">{{ card_product.metafields.my_fields.series | truncate: 50 }}
         </div>
     {% endcase %}
-    {%endif%}
   </div>
 
   {% assign ImageRatio = card_product.featured_media.aspect_ratio %}
@@ -179,7 +171,7 @@
     </div>
   {% endif %}
 
-  <div class=" ContentBox bg-gradient-to-b from-slate-200 via-slate-100 to-slate-50 shadow grid grid-rows-8 relative">
+  <div class=" ContentBox bg-gradient-to-b from-gray-200 via-gray-100 to-gray-50 shadow grid grid-rows-8 relative group-hover:shadow-none">
     {% if difference < 3888000 %}
       <span class="new-label text-rose-600 font-semibold">new</span>
     {% endif %}
