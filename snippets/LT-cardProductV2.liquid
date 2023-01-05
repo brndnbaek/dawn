@@ -160,13 +160,13 @@
   {% elsif ImageRatio < 0.9 %}
     <div class="PortraitImg">
       <a href="{{ card_product.url}}">
-        <img src="{{ card_product.featured_media | image_url: height: 300 }}" alt="" class="max-h-[255px] group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500 drop-shadow {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
+  <img src="{{ card_product.featured_media | image_url: height: 300 }}" alt="" class="max-h-[255px] group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {%endif%}" style="background-color:unset;">
       </a>
     </div>
   {% else %}
     <div class="SquareImg relative">
       <a href="{{ card_product.url }}">
-        <img src="{{ card_product.featured_media | image_url: width: 350 }}" alt="" class="w-[20rem] group-hover:duration-500 duration-500 group-hover:-translate-y-[1rem] group-hover:w-[21rem] aspect-square h-auto drop-shadow {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {%endunless%}" style="background-color:unset;">
+<img src="{{ card_product.featured_media | image_url: width: 350 }}" alt="" class="w-[20rem] group-hover:duration-500 duration-500 group-hover:-translate-y-[1rem] group-hover:w-[21rem] aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {%endif%}" style="background-color:unset;">
       </a>
     </div>
   {% endif %}
