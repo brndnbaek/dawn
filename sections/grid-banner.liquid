@@ -332,11 +332,11 @@
               alt=""
               class="aspect-square"></a>
         </div>
-        {% for article in section.settings.blog.articles limit: 2 %}
+        {% for article in section.settings.blog.articles limit: 1 %}
           <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
-          <div class="flex flex-col rounded-md w-11/12 md:w-[30%] aspect-square">
+          <div class="flex flex-col rounded-md w-11/12 md:w-[54%]">
             <iframe
-              class="w-full h-full rounded-md"
+              class="w-full h-auto rounded-md aspect-video"
               src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0"}}"
               frameborder="0"></iframe>
             <h3 class="text-center">
