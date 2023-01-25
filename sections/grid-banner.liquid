@@ -11,20 +11,30 @@
     {% render 'divider-wave', fill_color: 'amber' %}
   </header>
 
-  <section class="relative w-full pt-[8rem] pb-[2rem] mx-auto max-w-[1200px]">
-    <a href="{{ collections['kpop-albums'].url }}" class="after:absolute after:inset-0 no-underline">
-      <div class="flex flex-col gap-2 relative items-center text-center">
-        <div class="absolute flex w-20 1-top-4 md:top-2 left-1 md:left-[20%] text-base md:text-xl text-rose-400">
-          End of Year Special
-        </div>
-        <div class="block font-extrabold leading-normal lg:leading-[2] text-transparent text-5xl lg:text-8xl bg-gradient-to-r from-rose-400 to-violet-500 bg-clip-text">
+  <section class="w-[95%] md:w-10/12 mx-auto max-w-[1100px] gap-y-8 pt-[8rem] mx-auto flex flex-wrap justify-around">
+    <div class="flex flex-col gap-2 relative items-center text-center w-10/12 md:w-[45%] outline outline-purple-400 rounded-md">
+        <a href="{{ collections['kpop-albums'].url }}" class="after:absolute after:inset-0 no-underline">
+        
+        <div class="block font-bold leading-normal lg:leading-[2] text-transparent text-4xl lg:text-6xl bg-gradient-to-r from-rose-400 to-violet-500 bg-clip-text ">
           <span class="block">K-Pop Albums</span>
           <span class="block">Buy 1 Get 1 50% Off</span>
         </div>
-        <div class="flex flex-wrap w-[70%] lg:w-[40%] text-base md:text-xl lg:text-2xl pb-2 text-left">Discount applies automatically when add to cart.</div>
+        <div class="flex flex-wrap  text-base md:text-xl lg:text-xl pb-2 text-left">Discount applies automatically when add to cart.</div>
 
+        </a>
       </div>
-    </a>
+
+      <div class="flex flex-col gap-2 relative items-center text-center w-10/12 md:w-[45%] outline outline-cyan-600 rounded-md">
+        <a href="{{ collections['donggubat'].url }}" class="after:absolute after:inset-0 no-underline">
+        
+        <div class="block font-bold leading-normal lg:leading-[2] text-transparent text-4xl lg:text-6xl bg-gradient-to-r from-emerald-600 to-cyan-500 bg-clip-text ">
+          <span class="block">Donggubat</span>
+          <span class="block">Buy 1 Get 1 FREE</span>
+        </div>
+        <div class="flex flex-wrap text-base md:text-xl lg:text-xl pb-2 px-2">Plastic-free and Zero waste, Produced by Organic and Vegan Certificated Factory</div>
+
+        </a>
+      </div>
   </section>
 
 
