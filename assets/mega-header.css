@@ -297,7 +297,8 @@
     fill: none;
     stroke: black;
     display: flex;
-    width: 25px;
+    width: 15px;
+    margin-left:2px;
     }
     .drawerbtn--tablet svg > path {
     transition: all 700ms ease-out;
