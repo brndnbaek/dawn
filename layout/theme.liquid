@@ -39,6 +39,7 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'brandon_script.js' | asset_url }}" defer="defer"></script>
 
     <!-- GSAP3.0 cdn added here -->
 
@@ -359,10 +360,15 @@
           move_div.style.top = 0;
          else 
           move_div.style.top = 170 + 'px';
-        
-
-
       }
+
+      {% if cart.items.size == 0 and cart.attributes.insurance-addon == blank %}
+        document.addEventListener("DOMContentLoaded", function() {
+          Shopify.Cart.InsuranceAddon.reset();
+        });
+      
+      {% endif %}
+
     </script>
 
 

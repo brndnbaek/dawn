@@ -75,7 +75,9 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
   }
 });
 
+
 </script>
+
 
 {% comment %} <script type="application/json" data-ajax-cart-initial-state >
   {{ cart | json }}
@@ -104,10 +106,12 @@ when the cart gets changed -->
     }
     {%endstyle%}
 {%endif%}
-<h4>Subtotal: {{ cart.total_price | money }}</h4>
-<button type="submit" id="checkout" class="lt-cardbutton mb-4" name="checkout">
+<h4 class="text-center">Subtotal: {{ cart.total_price | money }}</h4>
+{% comment %} <button type="submit" id="checkout" class="lt-cardbutton mb-4" name="checkout">
   {{ 'sections.cart.checkout' | t }}
-</button>
+</button> {% endcomment %}
+
+<a href="{{ routes.cart_url }}" class="lt-cardbutton mb-4 text-xl unstyled">View Cart</a>
 
 <!-- data-ajax-cart-section-scroll keeps the scroll position unchanged
 when the element's HTML is changed -->
