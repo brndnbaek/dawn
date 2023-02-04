@@ -1,0 +1,124 @@
+{%- style -%}
+
+  
+{%- endstyle -%}
+<div class="page-width">
+  {% render 'section-title' %}
+
+</div>
+
+<div class="relative w-full">
+    <div class="flex snap-x overflow-x-scroll scroll-smooth justify-start gap-4 py-4 md:gap-6 page-width max-w-[1200px] tw_scroll page-width hiddenscroll">
+        {% assign array_keyword = section.settings.popular_keywords | split: ',' %}
+        {% for keyword in array_keyword limit:25 %}
+        {%assign target = keyword | handle%}
+        {% if collections[target].products.size != 0%}
+        {% capture url %}/collections/{{target}}{%endcapture%}
+        {%else%}
+        {% capture url %}/search?q={{keyword}}&options%5Bprefix%5D=last{%endcapture%}
+        {%endif%}
+        {%assign keytag  = keyword | downcase %}
+            <div class="px-3 py-2 text-xl rounded-2xl outline-2 outline-rose-300 outline grow-0 shrink-0 link_style hover:outline-4 hover:bg-rose-50 snap-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1 align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>{{keyword | link_to: url}}
+            </div>
+        {% endfor %}
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-16 w-14 h-14 text-white rounded-full p-2 top-[30%] bg-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+</div>
+
+
+
+<!-- <div class="flex w-screen pb-6 page-width bg-lt-white">
+    <div class="flex flex-col items-center justify-center flex-shrink-0 px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+          </svg>
+    </div>
+    <div class="flex items-center gap-6 p-6 overflow-x-scroll snap-mandatory snap-x tw_scroll">
+        {% for block in section.blocks  %}
+        <a href="{{block.settings.collection.url}}" class="no-underline">
+            <div class="relative w-40 h-40 snap-center shrink-0 sm:h-80 sm:w-80 group">
+                    <img src="{{block.settings.collection.image | img_url: '400x400' }}" alt=""
+                    class="absolute object-contain w-full h-full p-4">
+                    <div
+                    class="absolute bottom-0 w-full text-base text-center duration-200 transform bg-black text-lt-white bg-opacity-40 backdrop-blur-md group-hover:hidden md:text-xl lg:text-2xl">{{block.settings.collection.title}}</div>
+            </div>
+        </a>
+        {%endfor%}
+    </div>
+    <div class="flex flex-col items-center justify-center flex-shrink-0 px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+          </svg>
+    </div>
+</div> -->
+
+{% schema %}
+{
+"name": "Popular Keywords",
+"class": "section",
+"tag": "section",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "Most searched keywords. See what others are buying.",
+"label": "type in banner heading"
+},
+{
+"type": "text",
+"id": "popular_keywords",
+"default": "BTS,Twice,BT21,Hello Kitty,Demon Slayer,TXT,Stray Kids,One Piece,Ateez,Enhypen,Gundam,Plush,Sailor Moon,Naruto,Itzy,Red Velvet,Nendoroid,Pokemon,NCT,Rilakkuma,Loona,Sticker,Keychain,jojo,Kuromi,Jujutsu Kaisen,Dragon Ball,Blackpink,Monsta X,Seventeen,Aespa,Haikyuu,P1harmony,Hatsune Miku",
+"label": "import popular keywords(separated by comma)"
+}
+],
+"blocks": [
+{
+"type": "category",
+"name": "category selection",
+"settings": [
+{
+"type": "collection",
+"id": "collection",
+"label": "selected collection"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "category image"
+},
+{
+"type": "text",
+"id": "title",
+"label": "category text label"
+},
+{
+"type": "url",
+"id": "link",
+"label": "category url link"
+}
+]
+}
+],
+"presets": [
+{
+"name": "popular keyword",
+"blocks": [
+{
+"type": "category"
+},
+{
+"type": "category"
+},
+{
+"type": "category"
+}
+]
+}
+]
+}
+{% endschema %}

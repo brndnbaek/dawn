@@ -1,0 +1,170 @@
+<style>
+	input:checked ~ .dot {
+		transform: translateX(100%);
+		background-color: #48bb78;
+	}
+  .dot:hover {
+    scale: 1.05;
+    opacity: .75;
+  }
+	.dot {
+    background-color: red;
+  }
+</style>
+{% if all_products["insurance-addon"] %}
+    
+    <div
+      id="is-a-insurance"
+      style="clear: left; margin: 30px 0"
+      class="clearfix rte"
+    >
+      <div class="flex items-center w-full p-2 bg-gray-200 shadow">
+        <label for="insurance-addon" class="flex items-center mr-3 cursor-pointer">
+					<div class="relative">
+						<input
+							id="insurance-addon"
+							type="checkbox"
+							name="attributes[insurance-addon]"
+							value="yes"
+							{% if cart.attributes.insurance-addon == 'true'  %}
+							checked="checked"
+              
+              {% endif %}
+							style="float: none"
+							class="sr-only"
+						/>
+						<div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner">
+						</div>
+						<div class="absolute w-6 h-6 transition bg-white rounded-full shadow dot -left-1 -top-1">
+						</div>
+					</div>
+				</label>
+        <label
+          for="insurance-addon"
+          style="display:inline; padding-left: 5px; float: none;"
+            class="{% if cart.attributes.insurance-addon == 'false' %}line-through text-gray-400{%endif%}"
+        >
+          Package Loss & Theft Protection
+        </label>
+      </div>
+			<div class="p-3 text-lg">
+				For {{ all_products["insurance-addon"].price | money }}
+									your order is insured from loss & theft.
+				<br>*By deselecting shipping protection, Lilthingamajigs is not liable for lost, or stolen items.
+			</div>
+    </div>
+    
+    {% assign id = all_products["insurance-addon"].variants.first.id %} 
+    {% assign insurance_addon_in_cart = 0 %} 
+        {% for item in cart.items %} 
+            {% if item.id == id %} 
+                {% assign insurance_addon_in_cart = item.quantity %} 
+            {% endif %}
+        {% endfor %}
+    
+    <style>
+      #updates_{{ id }} { display: none; }
+    </style>
+    
+    <script>
+      Shopify.Cart = Shopify.Cart || {};
+    
+      Shopify.Cart.InsuranceAddon = {};
+    
+      Shopify.Cart.InsuranceAddon.set = function() {
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+    
+        var request = {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify({ updates: { {{ id }}: 1 }, attributes: { 'insurance-addon': true } })
+        };
+        fetch('/cart/update.js', request)
+        .then(function() {
+          location.href = '/cart';
+        });
+      }
+    
+      Shopify.Cart.InsuranceAddon.remove = function() {
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+    
+        var request = {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': false } })
+        };
+        fetch('/cart/update.js', request)
+        .then(function() {
+          location.href = '/cart';
+        });
+      }
+
+				Shopify.Cart.InsuranceAddon.reset = function() {
+					var headers = new Headers({ 'Content-Type': 'application/json' });
+					var request = {
+						method: 'POST',
+						headers: headers,
+						body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': true } })
+					};
+					fetch('/cart/update.js', request)
+					.then(function() {
+						location.href = '/cart';
+					});
+				}
+
+      
+  
+      // document.addEventListener("DOMContentLoaded", function() {
+      //   Shopify.Cart.InsuranceAddon.reset();
+      // });
+      // If we have nothing but gift-wrap items in the cart.
+      {% if cart.items.size == 1 and insurance_addon_in_cart > 0 %}
+      document.addEventListener("DOMContentLoaded", function(){
+        Shopify.Cart.InsuranceAddon.reset();
+      });
+      // If we have more than one gift-wrap item in the cart.
+      {% elsif insurance_addon_in_cart > 1 %}
+      document.addEventListener("DOMContentLoaded", function(){
+        Shopify.Cart.InsuranceAddon.set();
+      });
+      
+      {% elsif cart.attributes.insurance-addon == blank %}
+      document.addEventListener("DOMContentLoaded", function(){
+        Shopify.Cart.InsuranceAddon.set();
+      });
+      
+      {% elsif cart.items.size >= 1 and insurance_addon_in_cart == 0 and cart.attributes.insurance-addon == 'true' %}
+      document.addEventListener("DOMContentLoaded", function() {
+        Shopify.Cart.InsuranceAddon.set();
+      });
+
+      
+
+      {% endif %}
+      
+      
+      // When the gift-wrapping checkbox is checked or unchecked.
+      
+      document.addEventListener("DOMContentLoaded", function(){
+        document.querySelector('[name="attributes[insurance-addon]"]').addEventListener("change", function(event) {
+          if (event.target.checked) {
+            Shopify.Cart.InsuranceAddon.set();
+          } else {
+            Shopify.Cart.InsuranceAddon.remove();
+          }
+    
+        });
+    
+        
+      });
+    </script>
+    
+    {% else %}
+    <p>{{ all_products["insurance-addon"].title }}</p>
+    <p style="clear: left; margin: 30px 0" class="rte">
+      You attempted to add a insurance-addon script to your shopping cart, but it
+      won't work because you don't have a product with handle
+      <code>insurance-addon</code> 
+    </p>
+    
+    {% endif %}

@@ -1,0 +1,118 @@
+
+
+{%- style -%}
+.section-{{ section.id }}-padding {
+padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+@media screen and (min-width: 750px) {
+.section-{{ section.id }}-padding {
+padding-top: {{ section.settings.padding_top }}px;
+padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+}
+{%- endstyle -%}
+
+{% assign series_array = section.settings.series_list | newline_to_br | split: '<br />' | sort %}
+
+
+<!-- <div class="text-center">
+  <h3>All Characters</h3>
+</div> -->
+<section class="w-5/6 mx-auto">
+  <div class="flex flex-wrap justify-center w-4/5 mx-auto mb-10 font-semibold">
+  
+    {% assign print_letter ="" %}
+    {% assign array_tag = section.settings.series_list | split: ',' | uniq | sort %}
+    {% for t in array_tag %}
+      {% assign simpletag = t | downcase  %}
+      {% if collections.all.all_tags contains simpletag %}
+        {% assign alphabet_on = t | upcase | truncate:1, '' %}
+  
+          {%unless alphabet_on == print_letter %}
+  
+          <a class="px-3 mx-1 mb-2 rounded-md hover:text-yellow-200 hover:bg-gray-500 hover:border text-slate-700" href="#{{alphabet_on}}">
+            <div class="text-xl md:text-2xl ">{{alphabet_on}}</div>
+          </a>
+          {% endunless %}
+        {% assign print_letter = alphabet_on %}
+        {%endif%}
+    {% endfor %}
+  </div>
+  
+  <!-- <div class="grid w-5/6 grid-cols-2 gap-2 mx-auto md:grid-cols-4 lg:grid-cols-5"> -->
+    <div class="flex flex-wrap justify-start gap-4 mx-12 w-5/6 max-w-[1000px] gap-y-6 mx-auto  overflow-y-scroll h-[50vh]">
+    {% assign current_letter = "" %}
+    {% assign array_tag = section.settings.series_list | split: ',' | uniq |sort_natural %}
+    {% for t in array_tag %}
+    {% assign simpletag = t | downcase %}
+    {% if collections.all.all_tags contains simpletag %}
+    {% assign first_letter = t | upcase | truncate:1, '' %}
+    {% capture url %}/collections/figure/{{ t | handle}}{%endcapture%}
+  
+    {% unless first_letter == current_letter %}
+    <div id="{{first_letter}}" class="w-full text-center tw_smallEM scroll-mt-10">
+      {{ first_letter }}</div>
+    {% endunless %}
+    <!-- <div class="text-gray-900 capitalize">
+      <a class="p-1 text-gray-900 no-underline rounded hover:text-gray-900 hover:bg-green-300"
+        href="{{collections.all.url}}/{{ t | join: "+" | replace: " ","-" }}">
+        {{t}}
+      </a>
+    </div> -->
+  
+      <button class="text-xl LT_button grow-0 link_style ">
+        {{t | link_to: url}}
+      </button>
+    {% assign current_letter = first_letter %}
+    {% endif %}
+  
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "Featured Series",
+"tag": "section",
+"class": "section",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "Featured Series",
+"label": "Heading Title"
+},
+{
+"type": "textarea",
+"id": "series_list",
+"label": "type in series separated by comma"
+}
+],
+
+"blocks": [
+{
+"name":"Series",
+"type": "series",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Series Image"
+},
+{
+"type": "text",
+"id": "seriestitle",
+"label": "Series Title"
+}
+]
+}
+],
+"presets": [
+{
+"name": "featured series"
+}
+]
+}
+{% endschema %}

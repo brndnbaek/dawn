@@ -1,0 +1,261 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'LT_style-facets.css' | asset_url | stylesheet_tag }}
+
+
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+{% javascript %}
+  // Save existing sort parameters
+  Shopify.queryParams = {};
+  if(location.search.length) {
+    for(var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+
+  // Add existing sort parameters to current URL
+  document.querySelector('.LTsort-by').addEventListener('change', function(e) {
+    var value = e.currentTarget.value;
+    Shopify.queryParams.sort_by = value;
+    location.search = new URLSearchParams(Shopify.queryParams).toString();
+  });
+{% endjavascript %}
+    
+<div class="grid grid-cols-5 gap-4 page-width">
+    <script src="{{ 'LT_facets.js' | asset_url }}" defer="defer"></script>
+    <div class="flex justify-end sort-by--container col-span-full">
+      <div class="flex active-facets active-facets-desktop">
+      <facet-filters-form class="small-hide medium-hide">
+      <form id="FacetFiltersForm2" class="flex flex-col gap-8">
+        {%- for filter in results.filters -%}
+          {%- for value in filter.active_values -%}
+            <facet-remove>
+              <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
+                <span class="active-facets__button-inner button button--tertiary">
+                  {{ value.label | escape }}
+                  {% render 'icon-close-small' %}
+                  <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                </span>
+              </a>
+            </facet-remove>
+          {%- endfor -%}
+          {% if filter.type == "price_range" %}
+            {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+              <facet-remove>
+                <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
+                  <span class="active-facets__button-inner button button--tertiary">
+                    {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                    {% render 'icon-close-small' %}
+                    <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                  </span>
+                </a>
+              </facet-remove>
+            {%- endif -%}
+          {% endif %}
+        {%- endfor -%}
+        <facet-remove class="active-facets__button-wrapper">
+          <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
+            <span>{{ 'products.facets.clear_all' | t }}</span>
+          </a>
+        </facet-remove>
+      </form>
+    </facet-filters-form>
+    <p>123</p>
+  </div>
+      
+      <div class="w-1/4">
+        <label for="LTsort-by">Sort by</label>
+        <select id="LTsort-by" class="LTsort-by">
+          {% for option in collection.sort_options %}
+            <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>{{ option.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="max-h-screen overflow-y-scroll col-span-full lg:col-span-1" id="main-collection-filters" data-id="{{ section.id }}">
+      {% render 'LT_facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices  %}
+    </div>
+  
+  <div id="LT_ProductGridContainer" class="col-span-full lg:col-start-2 lg:col-span-4 DELdivide_grid">
+    {%- paginate collection.products by section.settings.products_per_page -%}
+      {%- if collection.products.size == 0 -%}
+        <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+          <div class="loading-overlay gradient"></div>
+          <div class="title-wrapper center">
+            <h2 class="title title--primary">
+              {{ 'sections.collection_template.empty' | t }}<br>
+              {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+            </h2>
+          </div>
+        </div>
+      {%- else -%}
+        <div class="collection ">
+          <div class="loading-overlay gradient"></div>
+  
+          <ul id="product-grid" data-id="{{ section.id }}" class="
+            grid_dawn grid--2-col product-grid
+            {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max {% endif %}">
+            {%- for product in collection.products -%}
+              {% assign lazy_load = false %}
+              {%- if forloop.index > 2 -%}
+                {%- assign lazy_load = true -%}
+              {%- endif -%}
+
+              <li class="p-4 bg-white rounded-md grid__item drop-shadow-md">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load
+                %}
+              </li>
+            {%- endfor -%}
+          </ul>
+  
+          {%- if paginate.pages > 1 -%}
+            {% render 'pagination', paginate: paginate, anchor: '' %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "LT Product Grid BU",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "square",
+      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "collapse_on_larger_devices",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.collapse_on_larger_devices.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "LT Product Grid BU"
+    }
+  ]
+}
+{% endschema %}

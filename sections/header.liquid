@@ -1,0 +1,915 @@
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print"
+  onload="this.media='all'">
+{%- if settings.predictive_search_enabled -%}
+<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
+{{ 'mega-header.css' | asset_url | stylesheet_tag }}
+<noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
+
+<style>
+  header-drawer {
+    justify-self: start;
+    margin-left: -1.2rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    header-drawer {
+      display: none;
+    }
+  }
+
+  .menu-drawer-container {
+    display: flex;
+    /* z-index: 50; */
+  }
+
+  .list-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-menu--inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  summary.list-menu__item {
+    padding-right: 2.7rem;
+  }
+
+  .list-menu__item {
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+  }
+
+  .list-menu__item--link {
+    text-decoration: none;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    line-height: 1.8;
+  }
+
+  @media screen and (min-width: 750px) {
+    .list-menu__item--link {
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+</style>
+
+<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+  <symbol id="icon-search" viewbox="0 0 18 19" fill="none">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z"
+      fill="currentColor" />
+  </symbol>
+
+  <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+    <path
+      d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z"
+      fill="currentColor">
+  </symbol>
+</svg>
+
+<{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}
+  class="relative header-wrapper bg-amber-100 pt-4 DELcolor-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %} ">
+  <!-- outline outline-2 outline-lt-apricot <-removed from class  -->
+  <header
+    class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
+    
+    <div id="mobile-notification" class="grid place-items-center fixed animate invisible z-10 w-screen h-[12rem] text-center bg-blue-300 inset-0 transition duration-1000" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
+      Item added to your cart
+        {% if cart.total_price < 6000 %}
+            <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money}} more, you qualify for free U.S. shipping!</p>
+        {% elsif cart.total_price > 6000 %}
+            <p>Your order qualifies for free U.S. shipping! Enjoy the savings.</p>
+        {% endif %}
+    </div>
+  
+
+    {%- if section.settings.menu != blank -%}
+    <header-drawer data-breakpoint="tablet">
+      <details class="menu-drawer-container">
+        <summary class="header__icon header__icon--menu header__icon--summary link focus-inset"
+          aria-label="{{ 'sections.header.menu' | t }}">
+          <span>
+            {% render 'icon-hamburger' %}
+            {% render 'icon-close' %}
+          </span>
+        </summary>
+        <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
+          <div class="menu-drawer__inner-container">
+            <div class="menu-drawer__navigation-container">
+              <!-- ======================= -->
+              <nav class="megaContainer--tablet">
+                <div class="megaHeader megaHeader--tablet">
+                  {% for block in section.blocks %}
+                  {% assign blockIndex = forloop.index0 %}
+                  {% if block.settings.title == 'Home' %}
+                  <a class="megaA" href="/" style="width: 100%; text-align: left;">{{block.settings.title}}</a>
+                  {% else %}
+                  <div class="megaDrawer" style="width: 100%;">
+                    {% if block.settings.mega_url != blank %}
+                    <a class="drawerbtn megaA" href="{{block.settings.mega_url}}"
+                      style="width: 100%; justify-content: space-between;">{{block.settings.title}}</a>
+                    {% else %}
+                    <label for="megaDrawerInput--{{forloop.index0}}" class="drawerbtn drawerbtn--tablet"
+                      style="width: 100%; justify-content: space-between;">
+                      {{block.settings.title}}
+                      {% if block.settings.mega_link != blank %}
+                      <svg viewBox="0 0 10 10" class="svgDd megaSvg" data-svg="svgDd--{{forloop.index0}}">
+                        <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
+                      </svg>
+                      <svg viewBox="0 0 10 10" class="svgClose megaSvg" data-svg="svgClose--{{forloop.index0}}">
+                        <path d="M2,2 L5,5 L8,8 L5,5 L8,2 L2,8" />
+                      </svg>
+                      {% endif %}
+                    </label>
+                    <input type="checkbox" id="megaDrawerInput--{{forloop.index0}}" onclick="checkInput(this)"
+                      data-input="{{forloop.index0}}" >
+                    <div class="megaDrawerContent--tablet">
+                      {% if block.settings.title != blank %}
+                      <div class="megaDrawerHeader megaDrawerHeader--tablet"
+                        style="background-color: {{block.settings.header_bg}}">
+                        <h2>{{block.settings.header_title}}</h2>
+                      </div>
+                      {% else %}
+                      <div class="megaDrawerHeader megaDrawerHeader--tablet" style="background-color: inherit;"></div>
+                      {% endif %}
+                      <div class="megaDrawerWrapper--tablet">
+                        {% if block.settings.mega_link != blank %}
+                        <div class="megaLinkContainer" style="flex-direction: column; width: 100%;">
+                          {% for link in block.settings.mega_link.links %}
+                          <div class="megaLinkBox--tablet" {% if link.links == blank %} style="padding: 0 5%"
+                            {% endif %}>
+                            {% if link.links == blank %}
+
+                            <a class="megaLink" href="{{link.url}}">{{ link.title | escape }}</a>
+                            {% else %}
+                            <label for="megaLink--{{blockIndex}}-{{forloop.index0}}">
+
+                              <span>{{ link.title | escape }}</span>
+                              <span class="arrowDown">
+                                <svg viewBox="0 0 10 10" class="childSvgDd megaSvg"
+                                  data-svg="childSvgDd--{{blockIndex}}-{{forloop.index0}}">
+                                  <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
+                                </svg>
+                                <svg viewBox="0 0 10 10" class="childSvgClose megaSvg"
+                                  data-svg="childSvgClose--{{blockIndex}}-{{forloop.index0}}">
+                                  <path d="M2,2 L5,5 L8,8 L5,5 L8,2 L2,8" />
+                                </svg>
+                              </span>
+                            </label>
+                            <input type="checkbox" id="megaLink--{{blockIndex}}-{{forloop.index0}}"
+                              onclick="checkInput(this)" data-child-input="{{blockIndex}}-{{forloop.index0}}">
+                            {% endif %}
+                            <div class="childLinkContainer">
+                              {% for child_link in link.links %}
+                              <a href="{{child_link.url}}">{{child_link.title | escape }}</a>
+                              {% endfor %}
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+
+                  {% endif %}
+                  {% endfor %}
+                </div>
+              </nav>
+              <!-- ======================= -->
+              <div class="menu-drawer__utility-links">
+                {%- if shop.customer_accounts_enabled -%}
+                <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                  class="menu-drawer__account link focus-inset h5">
+                  {% render 'icon-account' %}
+                  {%- liquid
+                        if customer
+                          echo 'customer.account_fallback' | t
+                        else
+                          echo 'customer.log_in' | t
+                        endif
+                      -%}
+                </a>
+                {%- endif -%}
+                <ul class="list list-social list-unstyled" role="list">
+                  {%- if settings.social_twitter_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_twitter_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-twitter' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_facebook_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_facebook_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-facebook' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_pinterest_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_pinterest_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-pinterest' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_instagram_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_instagram_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-instagram' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_tumblr_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_tumblr_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-tumblr' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_snapchat_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_snapchat_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-snapchat' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_youtube_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_youtube_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-youtube' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                  {%- if settings.social_vimeo_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_vimeo_link }}" class="link list-social__link"
+                      aria-describedby="a11y-external-message">
+                      {%- render 'icon-vimeo' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
+                    </a>
+                  </li>
+                  {%- endif -%}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </header-drawer>
+    {%- endif -%}
+    <!-- =======================static search bar ============ -->
+    {%- if settings.predictive_search_enabled -%}
+    <predictive-search class="search-modal__form searchbar" 
+      data-loading-text="{{ 'accessibility.loading' | t }}">
+    <!-- <predictive-search class="search-modal__form searchbar" style="grid-area: 1/2/auto;"
+      data-loading-text="{{ 'accessibility.loading' | t }}"> -->
+      {%- endif -%}
+
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+
+        <div class="flex justify-center pt-2 pb-4 mx-auto md:pt-0 form-container">
+          <div class="w-[45rem] relative">
+          <!-- <div class="DELfield w-[90%] h-[90%] md:h-[80%] md:h-full"> -->
+
+            <input class="w-full h-16 pl-4 text-lg border-0 rounded-lg shadow-sm lg:text-xl DELsearch__input DELfield__input focus:outline-rose-200 bg-lt-white" id="Search-In-Modal" type="search" name="q" value="" size="38"
+              placeholder="What can we help you find today?" {%- if settings.predictive_search_enabled -%}
+              role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list"
+              aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list"
+              autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" {%- endif -%}>
+
+            <!-- TCC: modified label old was: 'general.search.search' | t {{ 'general.search.search' | t }}-->
+            <!-- <label class="text-lg md:text-xl lg:text-2xl field__label alignSearchText"
+              for="Search-In-Modal">{{ "What can we help you find today?" }}</label> -->
+            <input type="hidden" name="options[prefix]" value="last">
+            <button class="absolute top-0 right-0 mt-5 mr-4 text-gray-600 bg-transparent border-0 DELsearch__button DELfield__button" aria-label="{{ 'general.search.search' | t }}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <!-- <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search">
+              </svg> -->
+            </button>
+          </div>
+        </div>
+
+        {%- if settings.predictive_search_enabled  -%}
+        <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+          <div class="predictive-search__loading-state">
+            <!-- <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg> -->
+          </div>
+        </div>
+
+        <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+        {%- endif -%}
+      </form>
+
+      {%- if settings.predictive_search_enabled -%}
+    </predictive-search>
+    {%- endif -%}
+
+
+    <!-- =======================static search bar ============ -->
+
+
+    <!-- {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
+      <details-modal class="header__search">
+        <details>
+          <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <span>
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search">
+              </svg>
+              <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-close">
+              </svg>
+            </span>
+          </summary>
+          <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="modal-overlay"></div>
+            <div class="search-modal__content" tabindex="-1">
+              {%- if settings.predictive_search_enabled -%}
+                <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+              {%- endif -%}
+                <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <div class="field">
+                    <input class="search__input field__input" 
+                      id="Search-In-Modal-1"
+                      type="search"
+                      name="q"
+                      value=""
+                      placeholder="{{ 'general.search.search' | t }}"
+                      {%- if settings.predictive_search_enabled -%}
+                        role="combobox"
+                        aria-expanded="false"
+                        aria-owns="predictive-search-results-list"
+                        aria-controls="predictive-search-results-list"
+                        aria-haspopup="listbox"
+                        aria-autocomplete="list"
+                        autocorrect="off"
+                        autocomplete="off"
+                        autocapitalize="off"
+                        spellcheck="false" 
+                      {%- endif -%}
+                    >
+                    <label class="field__label" for="Search-In-Modal-1">{{ 'general.search.search' | t }}</label>
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                      <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                        <use href="#icon-search">
+                      </svg>
+                    </button> 
+                  </div>
+                  
+                  {%- if settings.predictive_search_enabled -%}
+                    <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                      <div class="predictive-search__loading-state">
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
+                    </div>
+
+                    <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                  {%- endif -%}
+                </form>
+              {%- if settings.predictive_search_enabled -%}
+                </predictive-search>
+              {%- endif -%} 
+              <button type="button" class="modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+                  <use href="#icon-close">
+                </svg>
+              </button>
+            </div>
+          </div>
+        </details>
+      </details-modal>
+    {%- endif -%} -->
+
+    {%- if request.page_type == 'index' -%}
+    <h1 class="header__heading">
+      {%- endif -%}
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        {%- if section.settings.logo != blank -%}
+        {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+          <img
+          srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+          src="{{ section.settings.logo | img_url: image_size }}" loading="lazy" class="header__heading-logo"
+          width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}"
+          alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+        {%- else -%}
+        <span class="h2">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+      {%- if request.page_type == 'index' -%}
+    </h1>
+    {%- endif -%}
+
+    {%- if section.settings.menu != blank -%}
+    <!-- ================== -->
+    {% assign mega_img_file = section.settings.mega_drawer_image | strip_html | downcase | parse_json | append: '}' | prepend: '{' %}
+    {% assign sample_img = sample | file_url %}
+
+    <nav class="megaContainer"
+      style="{% if section.settings.logo_position == 'top-center' %} grid-area: navigation; {% endif %} grid-area: navigation; ">
+      <div class="megaHeader alignCenter">
+        {% for block in section.blocks %}
+        {% if block.settings.title == 'Home' %}
+        <a class="megaA drawerbtn" href="/">{{block.settings.title}}</a>
+        {% else %}
+
+        <div class="megaDrawer alignCenter shrink-0" style="height: 50px">
+          {% if block.settings.mega_url == blank %}
+          <button class="drawerbtn">{{block.settings.title}}
+            <span> <svg viewBox="0 -.5 11 10" class="megaSvg">
+                <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
+              </svg>
+            </span>
+          </button>
+          {% else %}
+          <a class="text-black no-underline DELmegaA drawerbtn" href="{{block.settings.mega_url}}">{{block.settings.title}}</a>
+          {% endif %}
+          {% if block.settings.mega_link != blank %}
+          <div class="megaDrawerContent absolutePosition" style="width: {% if block.settings.mega_width == true %} 95% {% else %}  {% endif %};
+{% if section.settings.logo_position != 'middle-left' %} top: 100%{% endif %}">
+            {% if block.settings.title != blank %}
+            <div class="megaDrawerHeader" style="background-color: {{block.settings.header_bg}}">
+              <h2>{{block.settings.header_title}}</h2>
+            </div>
+            {% else %}
+            <div class="megaDrawerHeader" style="background-color: inherit;"></div>
+            {% endif %}
+
+            <div class="megaDrawerWrapper">
+              {% if block.settings.mega_link != blank %}
+              <div class="flex-wrap megaLinkContainer">
+                {% for link in block.settings.mega_link.links %}
+                <div class="flex-wrap megaLinkBox" style="padding: 20px">
+                  <div class="megaLinkImage" data-mega-image="{{link.title | downcase | replace: ' ', '-' }}">
+
+                  </div>
+                  <a {% if link.links != blank %} class="megaLink" href="{{link.url}}" {% else %}
+                    style="font-weight:600; text-align: center" {% endif %}>{{ link.title | escape }}</a>
+                  {% for child_link in link.links %}
+                  <a href="{{child_link.url}}">{{child_link.title | escape }}</a>
+                  {% endfor %}
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+              {% if block.settings.mega_product != blank %}
+              <a href="{{block.settings.mega_product.url}}" style="text-decoration: none">
+                <div class="megaProduct">
+                  {%- assign product_media = block.settings.mega_product.selected_or_first_available_variant.featured_media | default: block.settings.mega_product.featured_media -%}
+                  <div class="megaProductImage">
+                    <img src="{{product_media | img_url: master }}" alt="{{product_media.alt | escape }}">
+                  </div>
+
+                  <div class="megaProductInfo">
+                    <h4 style="margin: 0 0 5%;">{{block.settings.mega_product.title | escape}}</h4>
+                    <!-- <p style="margin: 0;">{{block.settings.mega_product.price | money}}</p> -->
+                  </div>
+                </div>
+              </a>
+              {% endif %}
+              {% if block.settings.mega_image != blank %}
+              {% if block.settings.mega_image_link != blank %}
+              <a href="{{block.settings.mega_image_link}}">
+                {% endif %}
+                <div class="megaImage">
+                  <img src="{{block.settings.mega_image | img_url: 'master'}}"
+                    alt="{{block.settings.mega_image.alt | escape }}"
+                    style="width: {{block.settings.mega_image_size}}%;">
+                </div>
+                {% if block.settings.mega_image_link != blank %}</a>{% endif %}
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+    <script>
+      function checkInput(input) {
+        const inputNum = input.dataset.input;
+        const childInputNum = input.dataset.childInput;
+        if (inputNum) {
+          console.log(inputNum);
+          if (input.checked == true) {
+            document.querySelector(`[data-svg="svgDd--${inputNum}"]`).style.display = "none";
+            document.querySelector(`[data-svg="svgClose--${inputNum}"]`).style.display = "block";
+          } else {
+            document.querySelector(`[data-svg="svgDd--${inputNum}"]`).style.display = "block";
+            document.querySelector(`[data-svg="svgClose--${inputNum}"]`).style.display = "none";
+          }
+        }
+        if (childInputNum) {
+          console.log(childInputNum);
+          if (input.checked == true) {
+            document.querySelector(`[data-svg="childSvgDd--${childInputNum}"]`).style.display = "none";
+            document.querySelector(`[data-svg="childSvgClose--${childInputNum}"]`).style.display = "block";
+          } else {
+            document.querySelector(`[data-svg="childSvgDd--${childInputNum}"]`).style.display = "block";
+            document.querySelector(`[data-svg="childSvgClose--${childInputNum}"]`).style.display = "none";
+          }
+        }
+      }
+
+      const megaImgRaw = "{{mega_img_file}}";
+      const megaImgSplit = megaImgRaw.split(/[,]/).map(col => col.replace(/[\"\s{}]/g, '')).map(s => s.split('.'));
+      const megaImgJSON = Object.fromEntries(megaImgSplit);
+
+      const megaLink = "{{sample_img}}";
+
+      window.onload = function () {
+        const megaImage = document.querySelectorAll('.megaLinkImage');
+        megaImage.forEach(function (image) {
+          for (const img in megaImgJSON) {
+            const imageBox = document.querySelector(`[data-mega-image="${img}"]`);
+            if (image.dataset.megaImage == img) {
+              const imgUrl = `${[img]}.${megaImgJSON[img]}`
+              const assetImgUrl = megaLink.split('?')[0] + `${imgUrl}`;
+              imageBox.insertAdjacentHTML(
+                'beforeend',
+                `<img src="${assetImgUrl}" alt="${assetImgUrl} + '.' + 'alt'">`);
+            }
+          }
+        })
+      }
+    </script>
+    <!-- ================== -->
+    {%- endif -%}
+
+    <div class="items-center header__icons">
+      {%- if shop.customer_accounts_enabled -%}
+      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+        class="header__icon header__icon--account link text-stone-700 focus-inset{% if section.settings.menu != blank %} small-hide-removed{% endif %}">
+        <!-- {% render 'icon-account' %} -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-10" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+        </svg>
+        <span class="visually-hidden">
+          {%- liquid
+              if customer
+                echo 'customer.account_fallback' | t
+              else
+                echo 'customer.log_in' | t
+              endif
+            -%}
+        </span>
+      </a>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}" class="text-stone-700 header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {%- liquid
+          if cart == empty
+            render 'icon-cart-empty'
+          else
+            render 'icon-cart'
+          endif
+        -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <!-- cart icon bubble refresh when side cart quantity changes -->
+        <div class="cart-count-bubble" data-ajax-cart-section data-ajax-cart-bind-state="cart.item_count">
+          {%- if cart.item_count < 100 -%}
+          <span aria-hidden="true">{{ cart.item_count }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+        </div>
+        {%- endif -%}
+      </a>
+      <!-- growave wishlist icon added -->
+      {% comment %} {% capture the_snippet_fave_icon_menu %}{% include 'ssw-widget-faveicon-menu' with product.id %}{% endcapture %}
+      {% unless the_snippet_fave_icon_menu contains 'Liquid error' %}
+        <div class="123flex 123items-center 123justify-center ml-2 w-[6rem] text-neutral-600">{{ the_snippet_fave_icon_menu }}</div>
+      {% endunless %} {% endcomment %}
+      {%- comment -%} <a href="http://lilthinga.com/pages/wishlist" class="header__icon w-6 text-red-700">
+        {% render 'icon-heart' %}
+      </a> {%- endcomment -%}
+      <a href="/pages/wishlist" class="w-8 h-8 ml-4 text-pink-700">
+        {% render 'icon-heart' %}
+      </a>
+
+    </div>
+  </header>
+</{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
+
+{%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
+
+{% javascript %}
+class StickyHeader extends HTMLElement {
+constructor() {
+super();
+}
+
+connectedCallback() {
+this.header = document.getElementById('shopify-section-header');
+this.headerBounds = {};
+this.currentScrollTop = 0;
+this.preventReveal = false;
+
+this.onScrollHandler = this.onScroll.bind(this);
+this.hideHeaderOnScrollUp = () => this.preventReveal = true;
+
+this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+window.addEventListener('scroll', this.onScrollHandler, false);
+
+this.createObserver();
+}
+
+disconnectedCallback() {
+this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+window.removeEventListener('scroll', this.onScrollHandler);
+}
+
+createObserver() {
+let observer = new IntersectionObserver((entries, observer) => {
+this.headerBounds = entries[0].intersectionRect;
+observer.disconnect();
+});
+
+observer.observe(this.header);
+}
+
+onScroll() {
+const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+requestAnimationFrame(this.hide.bind(this));
+} else if (scrollTop < this.currentScrollTop && scrollTop> this.headerBounds.bottom) {
+  if (!this.preventReveal) {
+  requestAnimationFrame(this.reveal.bind(this));
+  } else {
+  window.clearTimeout(this.isScrolling);
+
+  this.isScrolling = setTimeout(() => {
+  this.preventReveal = false;
+  }, 66);
+
+  requestAnimationFrame(this.hide.bind(this));
+  }
+  } else if (scrollTop <= this.headerBounds.top) { requestAnimationFrame(this.reset.bind(this)); }
+    this.currentScrollTop=scrollTop; } hide() {
+      //permanent sticky header fix
+    this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky' );
+    this.closeMenuDisclosure(); this.closeSearchModal(); } reveal() {
+    this.header.classList.add('shopify-section-header-sticky', 'animate' );
+    this.header.classList.remove('shopify-section-header-hidden'); } reset() {
+    this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky' , 'animate' ); }
+    closeMenuDisclosure() { this.disclosures=this.disclosures || this.header.querySelectorAll('details-disclosure');
+    this.disclosures.forEach(disclosure=> disclosure.close());
+    }
+
+    closeSearchModal() {
+    this.searchModal = this.searchModal || this.header.querySelector('details-modal');
+    this.searchModal.close(false);
+    }
+    }
+
+    customElements.define('sticky-header', StickyHeader);
+    {% endjavascript %}
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": {
+          {
+            shop.name | json
+          }
+        },
+        {
+          %
+          if section.settings.logo %
+        } {
+          %
+          assign image_size = section.settings.logo.width | append: 'x' %
+        }
+        "logo": {
+          {
+            section.settings.logo | img_url: image_size | prepend: "https:" | json
+          }
+        },
+        {
+          %
+          endif %
+        }
+        "sameAs": [{
+            {
+              settings.social_twitter_link | json
+            }
+          },
+          {
+            {
+              settings.social_facebook_link | json
+            }
+          },
+          {
+            {
+              settings.social_pinterest_link | json
+            }
+          },
+          {
+            {
+              settings.social_instagram_link | json
+            }
+          },
+          {
+            {
+              settings.social_tumblr_link | json
+            }
+          },
+          {
+            {
+              settings.social_snapchat_link | json
+            }
+          },
+          {
+            {
+              settings.social_youtube_link | json
+            }
+          },
+          {
+            {
+              settings.social_vimeo_link | json
+            }
+          }
+        ],
+        "url": {
+          {
+            shop.url | append: page.url | json
+          }
+        }
+      }
+    </script>
+
+    {%- if request.page_type == 'index' -%}
+    {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": {
+          {
+            shop.name | json
+          }
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            {
+              potential_action_target | json
+            }
+          },
+          "query-input": "required name=search_term_string"
+        },
+        "url": {
+          {
+            shop.url | append: page.url | json
+          }
+        }
+      }
+    </script>
+    {%- endif -%}
+
+    {% schema %}
+    {
+    "name": "t:sections.header.name",
+    "settings": [
+    {
+    "type": "select",
+    "id": "color_scheme",
+    "options": [
+    {
+    "value": "accent-1",
+    "label": "t:sections.header.settings.color_scheme.options__1.label"
+    },
+    {
+    "value": "accent-2",
+    "label": "t:sections.header.settings.color_scheme.options__2.label"
+    },
+    {
+    "value": "background-1",
+    "label": "t:sections.header.settings.color_scheme.options__3.label"
+    },
+    {
+    "value": "background-2",
+    "label": "t:sections.header.settings.color_scheme.options__4.label"
+    },
+    {
+    "value": "inverse",
+    "label": "t:sections.header.settings.color_scheme.options__5.label"
+    }
+    ],
+    "default": "background-1",
+    "label": "t:sections.header.settings.color_scheme.label"
+    },
+    {
+    "type": "image_picker",
+    "id": "logo",
+    "label": "t:sections.header.settings.logo.label"
+    },
+    {
+    "type": "range",
+    "id": "logo_width",
+    "min": 50,
+    "max": 300,
+    "step": 10,
+    "default": 250,
+    "unit": "t:sections.header.settings.logo_width.unit",
+    "label": "t:sections.header.settings.logo_width.label"
+    },
+    {
+    "type": "select",
+    "id": "logo_position",
+    "options": [
+    {
+    "value": "middle-left",
+    "label": "t:sections.header.settings.logo_position.options__1.label"
+    },
+    {
+    "value": "top-left",
+    "label": "t:sections.header.settings.logo_position.options__2.label"
+    },
+    {
+    "value": "top-center",
+    "label": "t:sections.header.settings.logo_position.options__3.label"
+    }
+    ],
+    "default": "middle-left",
+    "label": "t:sections.header.settings.logo_position.label"
+    },
+    {
+    "type": "link_list",
+    "id": "menu",
+    "default": "main-menu",
+    "label": "t:sections.header.settings.menu.label"
+    },
+    {
+    "type": "checkbox",
+    "id": "show_line_separator",
+    "default": true,
+    "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+    "type": "checkbox",
+    "id": "enable_sticky_header",
+    "default": true,
+    "label": "t:sections.header.settings.enable_sticky_header.label",
+    "info": "t:sections.header.settings.enable_sticky_header.info"
+    }
+    ,{
+    "type": "richtext",
+    "id": "mega_drawer_image",
+    "label": "Enter the mega-link images",
+    "default": "<p> first-second-third.jpg, firstname.png, Firstname.gif<\/p>", "info"
+        : "Use '-' if it is a two-word image name. File extension must match the file uploaded. Separate the image with comma. See default"
+        } ], "blocks" : [ { "name" : "mega header" , "type" : "mega_header" , "settings" : [ { "type" : "checkbox"
+        , "id" : "mega_width" , "default" : false, "label" : "Drawer full-width" }, { "type" : "url" , "label"
+        : "mega url" , "id" : "mega_url" , "info" : "Provide link if no drawer" }, { "type" : "text" , "label"
+        : "mega url title" , "id" : "title" }, { "type" : "text" , "label" : "mega header" , "id" : "header_title" },
+        { "type" : "color" , "label" : "header color" , "id" : "header_bg" }, { "type" : "image_picker" , "label"
+        : "mega image" , "id" : "mega_image" }, { "type" : "range" , "label" : "mega image size" , "id"
+        : "mega_image_size" , "default" : 15, "max" : 100, "min" : 10 }, { "type" : "link_list" , "label" : "mega link"
+        , "id" : "mega_link" }, { "type" : "product" , "label" : "mega product" , "id" : "mega_product" } ] } ] }
+        {% endschema %}

@@ -1,0 +1,242 @@
+{% comment %}
+    Renders a product card
+
+    Accepts:
+    - card_product: {Object} Product Liquid object (optional)
+    - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+    - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+    - show_vendor: {Boolean} Show the product vendor. Default: false
+    - show_rating: {Boolean} Show the product rating. Default: false
+    - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
+    - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+    Usage:
+    {% render 'card-product', show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+{% assign my_meta = card_product.metafields.my_fields %}    
+
+<div class="LT_productCard relative w-full ml-10 md:ml-[3rem] h-full mt-3 md:mt-[2rem] bg-white shadow-md backdrop-blur-xl bg-opacity-40 rounded-lg group grow-0 shrink-0 antialiased shadow-neutral-300" >
+  {% assign image_def = card_product.featured_media.aspect_ratio %}
+  {% if image_def > 1.3 %}
+  <div class="absolute w-[240px] md:w-[19rem] h-auto top-2 -left-8 md:top-[2rem] md:-left-[1.5rem] group-hover:scale-110 group-hover:duration-500 transition group-hover:-translate-x-6 group-hover:-translate-y-6">
+    <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+      <img src="{{card_product.featured_media | image_url: height:350}}" alt="{{ card_product.title }}" class="object-cover w-full h-full origin-bottom-right rounded-lg shadow-md shadow-neutral-400" loading=lazy></a>
+      <!-- {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
+        {% unless the_snippet_fave_icon contains 'Liquid error' %}
+            {{ the_snippet_fave_icon }}
+        {% endunless %} -->
+  </div>
+  
+  {% elsif image_def < 0.85 %}
+  <div class="absolute h-[80%] max-h-[80%] md:max-h-[18rem] -top-[1rem] md:-top-[1.5rem] left-12  md:left-[1.5rem] max-w-[45%] md:max-w-[15rem] top-0 group-hover:-translate-x-6 group-hover:-translate-y-6 group-hover:scale-110 duration-500">
+    <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+      <img src="{{card_product.featured_media | image_url: height:350}}" alt="{{ card_product.title }}" class="relative object-cover object-top w-full h-full origin-bottom-right rounded-lg shadow-md shadow-neutral-400" loading=lazy></a>
+      <!-- {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
+        {% unless the_snippet_fave_icon contains 'Liquid error' %}
+            {{ the_snippet_fave_icon }}
+        {% endunless %} -->
+      </div>
+    {% else %}
+
+  <div class="absolute w-[190px] md:w-[60%] bottom-[5.5rem] -left-[1.5rem] h-auto group-hover:-translate-x-4 group-hover:-translate-y-4 group-hover:scale-105 group-hover:duration-500 duration-500 group-hover:transition-all">
+    <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+      <img src="{{card_product.featured_media | image_url: height:350}}" alt="{{ card_product.title }}" class="relative object-cover w-full h-full rounded-lg shadow-md shadow-neutral-400" loading=lazy></a>
+        <!-- <div class="absolute top-0 right-0 scale-75" > -->
+          <!-- {% capture the_snippet_fave_icon %}{% render 'LT-widget-faveicon' with card_product.id %}{% endcapture %}
+        {% unless the_snippet_fave_icon contains 'Liquid error' %}
+            {{ the_snippet_fave_icon }}
+        {% endunless %} -->
+        <!-- </div> -->
+  </div>
+  {%endif%}
+
+  <!-- Title box absolute location and style per image ratio  -->
+  {%if card_product.tags contains 'model kit' %}
+  <div class="flex flex-col items-center justify-end w-full h-full px-8 pb-1 ">
+    <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words group-hover:text-indigo-800 h-[4.5rem]">
+      <a href="{{card_product.url}}" class="no-underline text-neutral-800">
+        {{card_product.title | escape | remove_first:my_meta.brand | truncate:80}}
+      
+      <div class="absolute inset-0 w-full h-full bg-indigo-200 opacity-30 group-hover:opacity-50 filter rounded-xl blur-lg mix-blend-darken"> </div></a>
+    </div>
+  </div>
+  
+  {%elsif card_product.type == 'Kpop CD' %}
+  <div class="flex flex-col items-center justify-end w-full h-full px-4 pb-1">
+    <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words text-neutral-800 ">
+      <a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | escape |remove:'K-Pop'|remove:'K-pop' | remove:'CD' | replace_first: "&#39;", "<br />'" | truncate:80}}
+      <div class="absolute inset-0 w-full h-full bg-indigo-200 opacity-30 group-hover:opacity-50 filter rounded-xl blur-lg mix-blend-darken"> </div></a>
+    </div>
+  </div>
+  {%else %}
+  <div class="flex flex-col items-center justify-end w-full h-full px-8 pb-1">
+    <div class="relative mx-auto text-xl font-semibold leading-tight text-center break-words text-neutral-800 ">
+      <a href="{{card_product.url}}" class="no-underline text-neutral-800">{{card_product.title | escape | truncate:80}}
+      <div class="absolute inset-0 w-full h-full bg-indigo-200 opacity-30 group-hover:opacity-50 filter rounded-xl blur-lg mix-blend-darken"> </div>
+    </a>
+    </div>
+  </div>
+  {%endif%}
+
+
+  <!-- whole block linkable trick -->
+  <!-- <a href="{{card_product.url}}"><span class="absolute top-0 left-0 z-10 w-1/2 h-full"></span></a> -->
+  
+  <!-- pricing box  -->
+  <div class="absolute top-[55%] right-[1.25rem] rounded-lg px-2 py-1 drop-shadow-lg text-neutral-600  {%if card_product.available %} group-hover:bg-rose-200{%else%} group-hover:bg-neutral-300{%endif%} group-hover:duration-500 duration-500">
+    <a href="{{card_product.url}}" class="{%if card_product.available%}no-underline {%else%}line-through{%endif%}">
+      {% render 'LTprice2', product: card_product, price_class: 'text-center text-slate-700 font-semibold text-2xl' %}
+    </a>
+  </div>
+
+  {% comment %} add to cart button  
+  <div class="absolute top-[35%] right-[1.25rem] rounded-lg px-2 py-1 text-xl text-neutral-600">
+    <form action="{{ routes.cart_url }}" method="post">
+      {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
+        {% if all_products[card_product.metafields.my_fields.addon].available == true %}
+          <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1&&items[1]id={{all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">add w/ gift</a>
+        {%else%}
+          <a data-ajax-cart-request-button href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1" class="lt-cardbutton">Quick Add</a>
+        {% endif %}
+      {%elsif card_product.variants.size > 1 %}
+        <a href="{{ card_product.url }}" class="lt-cardbutton">View Options</a>
+      {% elsif card_product.selected_or_first_available_variant.available == false %}
+        sold out
+      {% endif %}
+    </form>
+  </div>
+  {% endcomment %}
+  {% comment %} <div class="absolute top-[35%] right-[1.25rem] rounded-lg px-2 py-1 text-xl text-neutral-600">
+    
+    <form method="post" action="/cart/add">
+      <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" />
+      <input type="hidden" type="number" id="quantity" name="quantity" value="1"/>
+      <input type="submit" value="Add to cart" class="btn" />
+    </form>
+  </div> {% endcomment %}
+  
+  <!-- top-right sub description box -->
+  <div class="absolute mx-auto top-4 {%if image_def < 0.8 %} w-[40%] md:w-[40%] right-0{%elsif image_def > 1.2 %}w-1/3 right-0{%else%} w-2/5 right-0{%endif%}">
+    <div class="flex flex-col items-start list-none gap-y-1">
+      
+      <!-- check and show if the product has free addon available. -->
+        {% if all_products[card_product.metafields.my_fields.addon].available == true %}
+        <span class="flex items-center px-1 py-1 text-lg font-medium text-red-500 bg-red-100 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1 animate-bounce" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd" />
+          <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" />
+        </svg> Free Gift</span>
+        {% endif %}
+
+        
+      <!-- conditional list to show artist link either collection or by searh -->
+      {% capture artist %}{{my_meta.artist | handle}}{%endcapture%}
+      {%if collections[artist].products.size != 0 %}
+      <a href="/collections/{{artist}}" class="no-underline text-slate-700">
+      <li class="text-lg md:text-base empty:hidden ">{{card_product.metafields.my_fields.artist}}</li>
+      </a>
+      {%elsif my_meta.artist %}
+      <li class="text-lg md:text-base empty:hidden ">
+      <a href="/search?q={{artist}}" class="no-underline">{{card_product.metafields.my_fields.artist}}</a>
+      </li>
+      {%endif%}
+
+      <!-- conditional list to show series link either collection or by search -->
+      {% capture series %}{{my_meta.series | handle}}{%endcapture%}
+      {%if collections[series].products.size != 0 %}
+      <a href="/collections/{{my_meta.series | handle }}" class="no-underline text-slate-700 small-hide">
+        <li class="text-base empty:hidden ">{{card_product.metafields.my_fields.series | truncate:15}}
+        </li>
+      </a>
+      {%elsif my_meta.series %}
+        <li class="text-base empty:hidden small-hide">
+          <a href="/search?q={{my_meta.series | handle }}" class="no-underline"></a>
+          {{card_product.metafields.my_fields.series | truncate:15}}
+          </a>
+        </li>
+      {%endif%}
+
+      <!-- conditional list to show item type link either collection or by searh -->
+      {% capture type %}{{my_meta.item_type | handle}}{%endcapture%}
+      {%if collections[type].products.size != 0 %}
+      <a href="/collections/{{type}}" class="no-underline text-slate-700 small-hide">
+        <li class="text-base empty:hidden ">{{card_product.metafields.my_fields.item_type | truncate:15}}
+        </li>
+      </a>
+      {%elsif my_meta.item_type %}
+      <li class="text-base rounded-md empty:hidden small-hide">
+      <a href="/search?q={{my_meta.item_type }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.item_type | truncate:15}}</a>
+      </li>
+      {%endif%}
+      
+      <!-- conditional list to show product line link either collection or by searh -->
+      {% capture lines %}{{my_meta.product_lines | handle}}{%endcapture%}
+      {%if collections[lines].products.size != 0 %}
+      <a href="/collections/{{lines}}" class="no-underline text-slate-700">
+        <li class="text-base empty:hidden ">{{card_product.metafields.my_fields.product_lines | truncate:15}}
+        </li>
+      </a>
+      {%elsif my_meta.product_lines %}
+      <li class="text-base empty:hidden ">
+        <a href="/search?q={{my_meta.product_lines }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.product_lines | truncate:15}}</a>
+      </li>
+      {%endif%}
+
+      <!-- conditional list to show brand link either collection or by searh -->
+      {% capture brand %}{{my_meta.brand | handle}}{%endcapture%}
+      {%if collections[brand].products.size != 0 %}
+      <a href="/collections/{{brand}}" class="no-underline text-slate-700 small-hide">
+        <li class="text-base empty:hidden">
+          {{card_product.metafields.my_fields.brand | truncate:15}}
+        </li>
+      </a>
+      {%elsif my_meta.brand %}
+      <li class="text-base break-words empty:hidden small-hide">
+      <a href="/search?q={{my_meta.brand }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.brand | truncate:15}}</a>
+      </li>
+      {%endif%}
+
+      <!-- conditional list to show grade link either collection or by searh -->
+      {% capture grade %}{{my_meta.grade | handle}}{%endcapture%}
+      {%if collections[grade].products.size != 0 %}
+      <a href="/collections/{{grade}}" class="no-underline text-slate-700 small-hide">
+        <li class="text-base empty:hidden">{{card_product.metafields.my_fields.grade | truncate:15}}
+        </li>
+      </a>
+      {%elsif my_meta.grade %}
+      <li class="text-base empty:hidden small-hide">
+      <a href="/search?q={{my_meta.grade }}" class="no-underline text-slate-700">{{card_product.metafields.my_fields.grade | truncate:15}}</a>
+      </li>
+      {%endif%}
+    </div>
+    
+  </div>
+  
+  <!-- badge labels  -->
+  <div class="absolute flex gap-x-2 -top-3 right-1 ">
+    
+    {% assign date_created = card_product.created_at | date:'%s' %}
+  {% assign     date_now = 'now' | date:'%s' %}
+  {% assign   difference = date_now | minus: date_created %}
+  {% if difference < 3888000 %}
+      <div class="flex items-center justify-center px-1 text-sm text-white rounded-md shadow-lg h-7 bg-emerald-500">New</div>
+    {%endif%}
+    {%if card_product.compare_at_price > card_product.price %}
+      <div class="flex items-center justify-center px-1 text-sm text-white bg-pink-500 rounded-md shadow-lg h-7">Sale</div>
+    {%endif%}
+    {%- if card_product.available == false -%}
+      <span class="flex items-center justify-center px-1 text-sm text-white bg-gray-500 rounded-md shadow-lg h-7">Soldout</span>
+    {%endif%}
+    {%- if card_product.variants.first.inventory_quantity == 1 -%}
+      <span class="flex items-center justify-center px-1 text-base text-gray-800 bg-orange-500 rounded-md shadow-lg h-7">Last</span>
+    {%endif%} 
+    {% if card_product.metafields.ssw.review.count > '0' %}
+      <div class="flex items-center justify-center h-5 px-1 bg-purple-100 rounded-md shadow-lg outline-purple-400 outline outline-1 ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+        </svg>
+      </div>
+    {%endif%} 
+  </div>
+  
+  </div>
+

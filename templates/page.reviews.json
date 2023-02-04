@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "1645287030721e3126": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"ssw-html-widget\" data-request-url=\"reviews\" ><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1645287030721e3126"
+  ]
+}
