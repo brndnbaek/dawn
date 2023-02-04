@@ -25,6 +25,8 @@
         </div>
       {% if collection.handle == 'writing-material' %}
         <div class="text-xl text-slate-600">25% off for 10 or more pens w/ CODE: PEN25</div>
+      {% elsif collection.handle == 'kpop-albums' %}
+        <div class="text-xl text-slate-600">Don't Miss Online Exlcusive K-Pop Albums BOGO 50% </div>
       {% else %}
         <section class="flex flex-col items-center px-4" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
               {% if cart.total_price < 6000 %}
