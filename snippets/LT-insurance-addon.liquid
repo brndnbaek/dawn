@@ -3,13 +3,7 @@
 		transform: translateX(100%);
 		background-color: #48bb78;
 	}
-  .dot:hover {
-    scale: 1.05;
-    opacity: .75;
-  }
-	.dot {
-    background-color: red;
-  }
+	
 </style>
 {% if all_products["insurance-addon"] %}
     
@@ -26,10 +20,9 @@
 							type="checkbox"
 							name="attributes[insurance-addon]"
 							value="yes"
-							{% if cart.attributes.insurance-addon == 'true'  %}
+							{% if cart.attributes.insurance-addon != blank %}
 							checked="checked"
-              
-              {% endif %}
+							{% endif %}
 							style="float: none"
 							class="sr-only"
 						/>
@@ -42,9 +35,8 @@
         <label
           for="insurance-addon"
           style="display:inline; padding-left: 5px; float: none;"
-            class="{% if cart.attributes.insurance-addon == 'false' %}line-through text-gray-400{%endif%}"
         >
-          Package Loss & Theft Protection
+          Package Loss & Theft Protection 
         </label>
       </div>
 			<div class="p-3 text-lg">
@@ -91,7 +83,7 @@
         var request = {
           method: 'POST',
           headers: headers,
-          body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': false } })
+          body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': '' } })
         };
         fetch('/cart/update.js', request)
         .then(function() {
@@ -120,7 +112,7 @@
       // If we have nothing but gift-wrap items in the cart.
       {% if cart.items.size == 1 and insurance_addon_in_cart > 0 %}
       document.addEventListener("DOMContentLoaded", function(){
-        Shopify.Cart.InsuranceAddon.reset();
+        Shopify.Cart.InsuranceAddon.remove();
       });
       // If we have more than one gift-wrap item in the cart.
       {% elsif insurance_addon_in_cart > 1 %}
@@ -128,17 +120,20 @@
         Shopify.Cart.InsuranceAddon.set();
       });
       
-      {% elsif cart.attributes.insurance-addon == blank %}
-      document.addEventListener("DOMContentLoaded", function(){
-        Shopify.Cart.InsuranceAddon.set();
-      });
-      
-      {% elsif cart.items.size >= 1 and insurance_addon_in_cart == 0 and cart.attributes.insurance-addon == 'true' %}
+      // {% elsif cart.attributes.insurance-addon != blank and cart.items.size > 1 and insurance_addon_in_cart == 0 %}
+      // document.addEventListener("DOMContentLoaded", function(){
+      //   Shopify.Cart.InsuranceAddon.set();
+      // });
+
+      {% elsif cart.items.size >= 1 and insurance_addon_in_cart != 1 and cart.attributes.insurance-addon != blank %}
       document.addEventListener("DOMContentLoaded", function() {
         Shopify.Cart.InsuranceAddon.set();
       });
 
-      
+      {% elsif cart.items.size == 0 and cart.attributes.insurance-addon == blank %}
+      document.addEventListener("DOMContentLoaded", function() {
+        Shopify.Cart.InsuranceAddon.reset();
+      });
 
       {% endif %}
       

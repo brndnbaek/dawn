@@ -4077,6 +4077,10 @@ button.chat-toggle.chat-toggle--text-button {
   left: 0px;
 }
 
+.left-1 {
+  left: 0.25rem;
+}
+
 .top-3 {
   top: 0.75rem;
 }
@@ -4147,10 +4151,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .right-1 {
   right: 0.25rem;
-}
-
-.left-1 {
-  left: 0.25rem;
 }
 
 .-left-1 {
@@ -4445,6 +4445,10 @@ button.chat-toggle.chat-toggle--text-button {
   aspect-ratio: 9 / 16;
 }
 
+.aspect-\[12\/4\] {
+  aspect-ratio: 12 / 4;
+}
+
 .aspect-video {
   aspect-ratio: 16 / 9;
 }
@@ -4541,10 +4545,6 @@ button.chat-toggle.chat-toggle--text-button {
   height: 200px;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-\[240px\] {
   height: 240px;
 }
@@ -4579,6 +4579,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .h-\[350px\] {
   height: 350px;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .h-5 {
@@ -4765,12 +4769,16 @@ button.chat-toggle.chat-toggle--text-button {
   width: 1.5rem;
 }
 
-.w-\[95\%\] {
-  width: 95%;
+.w-20 {
+  width: 5rem;
 }
 
-.w-10\/12 {
-  width: 83.333333%;
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[95\%\] {
+  width: 95%;
 }
 
 .w-3\/4 {
@@ -4873,12 +4881,16 @@ button.chat-toggle.chat-toggle--text-button {
   width: 3rem;
 }
 
-.w-20 {
-  width: 5rem;
-}
-
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[85\%\] {
+  width: 85%;
+}
+
+.w-10\/12 {
+  width: 83.333333%;
 }
 
 .max-w-\[235px\] {
@@ -4917,10 +4929,6 @@ button.chat-toggle.chat-toggle--text-button {
   max-width: 800px;
 }
 
-.max-w-\[1100px\] {
-  max-width: 1100px;
-}
-
 .max-w-\[1200px\] {
   max-width: 1200px;
 }
@@ -4939,6 +4947,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .max-w-\[280px\] {
   max-width: 280px;
+}
+
+.max-w-\[1100px\] {
+  max-width: 1100px;
 }
 
 .flex-1 {
@@ -5244,10 +5256,6 @@ button.chat-toggle.chat-toggle--text-button {
        column-gap: 1rem;
 }
 
-.gap-y-8 {
-  row-gap: 2rem;
-}
-
 .gap-y-1 {
   row-gap: 0.25rem;
 }
@@ -5255,6 +5263,10 @@ button.chat-toggle.chat-toggle--text-button {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+
+.gap-y-8 {
+  row-gap: 2rem;
 }
 
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -5807,6 +5819,21 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-emerald-400 {
+  --tw-gradient-from: #34d399;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(52 211 153 / 0));
+}
+
+.from-emerald-700 {
+  --tw-gradient-from: #047857;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(4 120 87 / 0));
+}
+
+.from-emerald-600 {
+  --tw-gradient-from: #059669;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(5 150 105 / 0));
+}
+
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to);
@@ -6081,6 +6108,10 @@ button.chat-toggle.chat-toggle--text-button {
   padding-top: 8rem;
 }
 
+.pb-\[2rem\] {
+  padding-bottom: 2rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -6133,6 +6164,10 @@ button.chat-toggle.chat-toggle--text-button {
   padding-bottom: 0.25rem;
 }
 
+.pb-\[1rem\] {
+  padding-bottom: 1rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -6179,6 +6214,11 @@ button.chat-toggle.chat-toggle--text-button {
   line-height: 1.25rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -6186,11 +6226,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .text-6xl {
   font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-5xl {
-  font-size: 3rem;
   line-height: 1;
 }
 
@@ -6318,6 +6353,11 @@ button.chat-toggle.chat-toggle--text-button {
 .text-slate-400 {
   --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
+.text-rose-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 113 133 / var(--tw-text-opacity));
 }
 
 .text-transparent {
@@ -6578,16 +6618,12 @@ button.chat-toggle.chat-toggle--text-button {
   outline-width: 2px;
 }
 
-.outline-purple-400 {
-  outline-color: #c084fc;
-}
-
-.outline-cyan-600 {
-  outline-color: #0891b2;
-}
-
 .outline-cyan-400 {
   outline-color: #22d3ee;
+}
+
+.outline-purple-400 {
+  outline-color: #c084fc;
 }
 
 .outline-teal-400 {
@@ -6644,6 +6680,22 @@ button.chat-toggle.chat-toggle--text-button {
 
 .outline-rose-300 {
   outline-color: #fda4af;
+}
+
+.outline-emerald-600 {
+  outline-color: #059669;
+}
+
+.outline-cyan-600 {
+  outline-color: #0891b2;
+}
+
+.outline-rose-600 {
+  outline-color: #e11d48;
+}
+
+.outline-purple-300 {
+  outline-color: #d8b4fe;
 }
 
 .blur-lg {
@@ -7777,6 +7829,14 @@ button.chat-toggle.chat-toggle--text-button {
     line-height: 1.75rem;
   }
 
+  .md\:top-2 {
+    top: 0.5rem;
+  }
+
+  .md\:left-\[20\%\] {
+    left: 20%;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -8147,6 +8207,11 @@ button.chat-toggle.chat-toggle--text-button {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 
   .lg\:text-6xl {
