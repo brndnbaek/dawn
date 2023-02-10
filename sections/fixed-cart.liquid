@@ -93,7 +93,7 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
   });
   </scrip> {% endcomment %}
 
-<form action="{{ routes.cart_url }}" id="test-cart" method="post" class="fixed transition duration-500 my-cart invisible sm:hidden md:hidden lg:visible lg:block w-[150px] pr-4 h-[70vh]">
+<form action="{{ routes.cart_url }}" id="test-cart" method="post" class="fixed transition duration-500 my-cart invisible sm:hidden md:hidden lg:visible lg:block w-[150px] right-0 pr-4 h-[70vh]">
 <!-- data-ajax-cart-section makes the element's HTML update
 when the cart gets changed -->
 <div data-ajax-cart-section class="flex flex-col items-center {%if cart == empty %}invisible{% endif %}">

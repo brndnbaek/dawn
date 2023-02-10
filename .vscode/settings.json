@@ -1,14 +1,14 @@
 {
   "editor.fontSize": 15,
   "editor.formatOnSave": false,
-  "liquid.format": true,
+  //"liquid.format": true,
   "editor.wordWrap": "on",
   "editor.fontFamily": "Fira Code",
-  "javascript.format.enable": false,
+  //"javascript.format.enable": false,
   "better-comments.multilineComments": true,
   "better-comments.highlightPlainText": true,
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "meslolgs nf",
-  "liquid.format.enable": true,
+  //"liquid.format.enable": true,
 }
