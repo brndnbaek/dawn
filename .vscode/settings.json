@@ -10,5 +10,9 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "meslolgs nf",
+  "[liquid]": {
+    "editor.defaultFormatter": "Shopify.theme-check-vscode",
+    "editor.formatOnSave": true
+  },
   //"liquid.format.enable": true,
 }

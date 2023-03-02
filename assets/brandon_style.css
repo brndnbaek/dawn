@@ -4057,6 +4057,10 @@ button.chat-toggle.chat-toggle--text-button {
   top: -1rem;
 }
 
+.right-0 {
+  right: 0px;
+}
+
 .right-2 {
   right: 0.5rem;
 }
@@ -4087,10 +4091,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .top-1\/2 {
   top: 50%;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .left-2 {
@@ -4879,10 +4879,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .w-9 {
   width: 2.25rem;
-}
-
-.w-\[155px\] {
-  width: 155px;
 }
 
 .max-w-\[235px\] {
