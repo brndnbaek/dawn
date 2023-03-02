@@ -90,6 +90,7 @@
         <img
           src="{{ saleitem[0].featured_media | image_url: height: 225 }}"
           alt=""
+          loading="lazy"
           class="place-self-end justify-self-center max-w-[250px] max-h-[225px] absolute  object-cover top-3 drop-shadow-lg">
         <div class="absolute top-2 right-2 text-lg p-2 text-red-700 font-semibold">
           {% if saleitem[0].selected_or_first_available_variant.inventory_quantity < 10 %}
@@ -146,6 +147,7 @@
         <img
           src="{{ saleitem[1].featured_media | image_url: height: 225 }}"
           alt=""
+          loading="lazy"
           class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
         <div class="absolute top-2 right-2 text-lg p-2 text-indigo-700 font-semibold">
           {% if saleitem[1].selected_or_first_available_variant.inventory_quantity < 10 %}
@@ -202,6 +204,7 @@
         <img
           src="{{ saleitem[2].featured_media | image_url: height: 225 }}"
           alt=""
+          loading="lazy"
           class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
         <div class="absolute top-2 right-2 text-lg p-2 text-purple-700 font-semibold">
           {% if saleitem[2].selected_or_first_available_variant.inventory_quantity < 10 %}
@@ -325,9 +328,10 @@
         <img
           src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}"
           alt=""
+          loading="lazy"
           class="w-[150px] mr-10 translate-y-1">
         <p class="text-3xl font-bold text-gray-800 md:text-5xl">
-          <a href="{{blogs['youtube-giveaway'].url}}" class="text-gray-800">Unboxing & Giveaway</a>
+          <a href="{{ blogs['youtube-giveaway'].url }}" class="text-gray-800">Unboxing & Giveaway</a>
         </p>
         <!-- <p class="invisible md:visible">Check out our youtube channel and win giveaway prize</p> -->
       </div>
@@ -340,6 +344,7 @@
           <a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA?sub_confirmation=1" target="_blank"><img
               src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}"
               alt=""
+              loading="lazy"
               class="aspect-square"></a>
         </div>
         {% for article in section.settings.blog.articles limit: 1 %}
@@ -347,13 +352,13 @@
           <div class="flex flex-col rounded-md w-11/12 md:w-[54%]">
             <iframe
               class="w-full h-auto rounded-md aspect-video"
-              src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0"}}"
+              src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0" }}"
               frameborder="0"></iframe>
             <h3 class="text-center">
               {% if article.metafields.custom.giveaway_winner %}
                 Winner: {{ article.metafields.custom.giveaway_winner }}
               {% else %}
-                <a href="{{article.metafields.custom.youtube_link}}" target="_blank">Enter Giveaway</a>
+                <a href="{{ article.metafields.custom.youtube_link }}" target="_blank">Enter Giveaway</a>
               {% endif %}
             </h3>
           </div>
@@ -374,7 +379,7 @@
         <div class="flex items-center w-full md:w-[30%] flex-col p-2">
           <div class="flex items-center justify-center gap-4 px-2 ">
             <img
-              src="{{'free-delivery.png' | asset_img_url: '50x'}}"
+              src="{{ 'free-delivery.png' | asset_img_url: '50x' }}"
               alt=""
               class="w-14 lg:w-20"
               loading="lazy">
@@ -386,7 +391,7 @@
         <div class="flex flex-col w-full md:w-[30%] p-2">
           <div class="flex items-center justify-center gap-4 px-2">
             <img
-              src="{{'authentic.png' | asset_img_url: '50x'}}"
+              src="{{ 'authentic.png' | asset_img_url: '50x' }}"
               alt=""
               class="w-14 lg:w-20"
               loading="lazy">
@@ -397,7 +402,7 @@
         <div class="flex flex-col p-2 md:w-[30%] w-full">
           <div class="flex items-center justify-center gap-4 px-2 ">
             <img
-              src="{{'live-chat.png' | asset_img_url: '50x'}}"
+              src="{{ 'live-chat.png' | asset_img_url: '50x' }}"
               alt=""
               class="w-14 lg:w-20"
               loading="lazy">
@@ -432,7 +437,7 @@
       <a href="{{ collections['bts'].url }}" class="no-underline">
       <div
       class="absolute grid w-full h-full bg-cover rounded-lg shadow-lg place-items-center LT_btsBanner LT_btsBanner01"
-      style="background-image: url('{{ 'LT_btsBanner.jpg' | asset_img_url:'1200x' }}');">
+      style="background-image: url('{{ 'LT_btsBanner.jpg' | asset_img_url: '1200x' }}');">
       <div class="flex flex-col self-end">
       <h2
       class="text-2xl font-semibold text-center text-transparent sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-r group-hover:bg-gradient-to-l from-pink-500 to-violet-500">
@@ -441,7 +446,7 @@
       </div>
       </div>
       <div class="absolute grid w-full h-full bg-center bg-cover rounded-lg shadow-lg place-items-center LT_btsBanner LT_btsBanner02"
-      style="background-image: url('{{ 'LT_btsAlbums.jpg' | asset_img_url:'1200x' }}');" data-src="{{ asset_img_url }}" data-width="[500, 1200]" data-aspectratio="12/4" data-sizes="auto" data-parent-fit="cover">
+      style="background-image: url('{{ 'LT_btsAlbums.jpg' | asset_img_url: '1200x' }}');" data-src="{{ asset_img_url }}" data-width="[500, 1200]" data-aspectratio="12/4" data-sizes="auto" data-parent-fit="cover">
       <p></p>
       </div>
       </a>
@@ -451,7 +456,7 @@
       <section id="db_banner" class="db_banner group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] relative max-w-[1200px]"> <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
         <a href="{{ collections['dragon-ball-merch'].url }}" class="after:absolute after:inset-0">
           <img
-            src="{{'LT_dbBanner.png' | asset_img_url: '400x' }}"
+            src="{{ 'LT_dbBanner.png' | asset_img_url: '400x' }}"
             alt=""
             class="absolute origin-bottom group-hover:scale-105 bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 duration-500"
             loading="lazy">
@@ -477,6 +482,7 @@
         <img
           src="{{ 'LT_figuartsminiDS.png' | asset_img_url: 'x400' }}"
           alt=""
+          loading="lazy"
           class="object-contain w-full h-full duration-500 group-hover:scale-105 group-hover:duration-1000">
       </div>
       <p class="left-[2%] top-1/2 w-[30%] md:visible invisible absolute p-4 bg-gray-400/75 text-gray-800 text-base md:text-xl lg:text-2xl rounded-lg">Figuarts Mini captures the charm of your favorite characters in a stylized palm size!</p>
@@ -489,7 +495,7 @@
     <section id="ds_banner" class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] max-w-[1200px]">
       <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-6 row-span-3 row-start-1">
         <img
-          src="{{'LT_dsBanner.png' | asset_img_url:'400x' }}"
+          src="{{ 'LT_dsBanner.png' | asset_img_url: '400x' }}"
           alt=""
           class="absolute bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 group-hover:scale-105 origin-bottom duration-500"
           loading="lazy">
@@ -514,11 +520,11 @@
     <section id="ds_banner"
     class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] max-w-[1200px]">
     <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-6 row-span-3 row-start-1">
-    <img src="{{'LT_twiceCutout.png' | asset_img_url:'400x' }}" alt=""
+    <img src="{{ 'LT_twiceCutout.png' | asset_img_url: '400x' }}" alt=""
     class="absolute bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 group-hover:scale-105 origin-bottom duration-500" loading="lazy">
     </div>
     <div
-    class="row-span-2 row-start-2 bg-center bg-no-repeat bg-cover rounded-lg shadow-lg col-span-full " style="background-image:url('{{'LT_twiceBg3.jpg' | asset_img_url:'1200x'}}');">
+    class="row-span-2 row-start-2 bg-center bg-no-repeat bg-cover rounded-lg shadow-lg col-span-full " style="background-image:url('{{ 'LT_twiceBg3.jpg' | asset_img_url: '1200x' }}');">
     <div class="flex flex-row h-full bg-gradient-to-b from-rose-200/30 to-rose-200/90">
     <div class="flex flex-col w-[55%] justify-center text-slate-900 gap-4">
     <div class="text-2xl font-semibold text-center text-transparent lg:py-8 sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-br from-pink-800 to-pink-400">TWICE</div>
@@ -532,8 +538,9 @@
     <a href="{{ collections['gundam-model-kit'].url }}" class="no-underline"> <section id="gundam_banner" class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] max-w-[1200px]">
       <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
         <img
-          src="{{'LT_gundam.png' | asset_img_url:'400x' }}"
+          src="{{ 'LT_gundam.png' | asset_img_url: '400x' }}"
           alt=""
+          loading="lazy"
           class="absolute pl-2 bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 group-hover:scale-105 origin-bottom duration-500">
       </div>
       <div class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-red-200 to-red-400 col-span-full">
@@ -553,13 +560,13 @@
     class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] rounded-lg shadow-lg max-h-[400px] aspect-[12/4] overflow-hidden mt-24">
     <a href="{{ collections['boy-group'].url }}" class="no-underline">
     <div class="absolute grid w-full h-full bg-cover place-items-center LT_slides LT_slide01"
-    style="background-image:url('{{'LT_solomenBanner.jpg' | asset_img_url:'1200x'}}');">
+    style="background-image:url('{{ 'LT_solomenBanner.jpg' | asset_img_url: '1200x' }}');">
     <h1
     class="self-end text-2xl font-semibold text-transparent md:text-5xl lg:text-7xl bg-gradient-to-br from-sky-400 to-sky-600 bg-clip-text">
     K-Pop Male Solo Artists</h1>
     </div>
     <div class="absolute grid w-full h-full bg-cover place-items-center LT_slides LT_slide02"
-    style="background-image:url('{{'LT_solofmBanner.jpg' | asset_img_url:'1200x'}}');">
+    style="background-image:url('{{ 'LT_solofmBanner.jpg' | asset_img_url: '1200x' }}');">
     <h1
     class="self-end text-2xl font-semibold text-transparent md:text-5xl lg:text-7xl bg-gradient-to-b from-rose-300 to-pink-500 bg-clip-text drop-shadow-lg">
     K-Pop Female Solo Artists</h1>
@@ -568,7 +575,7 @@
   </section> --><!-- sumikko gurashi banner -->
   <!-- <a href="{{ collections['sumikko-gurashi'].url }}">
     <section class="grid place-items-center max-w-[1200px] md:w-11/12 w-[95%] mx-auto lg:pt-[5rem] pt-[2rem]">
-    <img src="{{'LT_sumikkoBanner.png' | asset_img_url:'900x' }}" alt="" class="w-full h-full">
+    <img src="{{ 'LT_sumikkoBanner.png' | asset_img_url: '900x' }}" alt="" class="w-full h-full">
     </section>
   </a> --><section class="h-[7rem] block"> </section>
   <!-- big main banner  -->
@@ -580,8 +587,8 @@
 </main>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js" defer="defer"></script>
-<script src="{{ 'LT_gsap.js' | asset_url }}" defer="defer"></script>
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js" defer="defer"></script>
+<script src="{{ 'LT_gsap.js' | asset_url }}" defer="defer"></script> {% endcomment %}
 
 
 {% schema %}

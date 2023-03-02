@@ -39,7 +39,7 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'brandon_script.js' | asset_url }}" defer="defer"></script>
+    {% comment %} <script src="{{ 'brandon_script.js' | asset_url }}" defer="defer"></script> {% endcomment %}
 
     <!-- GSAP3.0 cdn added here -->
 
@@ -306,7 +306,6 @@
     <!-- {% section 'announcement-bar' %} -->
     {% section 'header' %}
 
-
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
@@ -353,22 +352,8 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`
       }
 
-      // scroll side cart element to top when scroll more than 200
-      window.onscroll = function(e) {
-        var move_div = document.getElementById('test-cart');
-        if (pageYOffset > 200) 
-          move_div.style.top = 0;
-         else 
-          move_div.style.top = 170 + 'px';
-      }
 
-      {% if cart.items.size == 0 and cart.attributes.insurance-addon == blank %}
-        document.addEventListener("DOMContentLoaded", function() {
-          Shopify.Cart.InsuranceAddon.reset();
-        });
       
-      {% endif %}
-
     </script>
 
 

@@ -75,7 +75,7 @@
 
             {%- for media in sortedMedia -%}
               {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-                <li id="Slide-{{ section.id }}-{{ media.id }}" class="{%if media.aspect_ratio > 0.3%}grid__item{%else%}grid__item2 w-full{%endif%} product__media-item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+                <li id="Slide-{{ section.id }}-{{ media.id }}" class="{% if media.aspect_ratio > 0.3 %}grid__item{%else%}grid__item2 w-full{% endif %} product__media-item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                   {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                   {% render 'product-thumbnail', media: media, position: media_position, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true, media_width: media_width, lazy_load: true %}
                 </li>
@@ -186,16 +186,16 @@
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
         <div class="flex gap-4">
 
-          {%assign product_meta = product.metafields.my_fields%}
-          {%capture lineup%}
-            {{product_meta.product_lines | handle}}
-          {%endcapture%}
-          {%capture item_type%}
-            {{product_meta.item_type | handle}}
-          {%endcapture%}
-          {%capture artist%}
-            {{product_meta.artist | handle}}
-          {%endcapture%}
+          {% assign product_meta = product.metafields.my_fields %}
+          {% capture lineup %}
+            {{ product_meta.product_lines | handle }}
+          {% endcapture %}
+          {% capture item_type %}
+            {{ product_meta.item_type | handle }}
+          {% endcapture %}
+          {% capture artist %}
+            {{ product_meta.artist | handle }}
+          {% endcapture %}
 
           {% assign addon = all_products[product.metafields.my_fields.addon] %}
           {% case product.type %}
@@ -208,31 +208,31 @@
                   </svg>Free Gift</span>
               {% endif %}
               {% if collections[artist].products.size != 0 %}
-                <a href="/collections/{{artist}}" class="flex items-center px-2 py-1 text-lg text-indigo-500 bg-indigo-100 rounded-lg outline outline-1 full-unstyled-link outline-indigo-500">{{product.metafields.my_fields.artist}}
+                <a href="/collections/{{ artist }}" class="flex items-center px-2 py-1 text-lg text-indigo-500 bg-indigo-100 rounded-lg outline outline-1 full-unstyled-link outline-indigo-500">{{ product.metafields.my_fields.artist }}
                 </a>
               {%elsif product.metafields.my_fields.artist %}
-                <a href="/search?q={{product.metafields.my_fields.artist}}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-indigo-500 bg-indigo-100 rounded-lg outline outline-1 full-unstyled-link outline-indigo-500">{{product.metafields.my_fields.artist}}
+                <a href="/search?q={{ product.metafields.my_fields.artist }}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-indigo-500 bg-indigo-100 rounded-lg outline outline-1 full-unstyled-link outline-indigo-500">{{product.metafields.my_fields.artist}}
                 </a>
-              {%endif%}
+              {% endif %}
 
             {% when 'Figure'%}
 
               {% if collections[lineup].products.size != 0 %}
-                <a href="/collections/{{lineup}}" class="flex items-center inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.product_lines}}
+                <a href="/collections/{{ lineup }}" class="flex items-center inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{ product.metafields.my_fields.product_lines }}
                 </a>
               {%elsif product.metafields.my_fields.product_lines %}
-                <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.product_lines}}
+                <a href="/search?q={{ product.metafields.my_fields.product_lines }}&type=product&options%5Bprefix%5D=none" class="inline-block px-2 text-lg text-green-500 rounded-lg hover:text-gray-200 hover:bg-green-500 outline outline-green-500 outline-1 full-unstyled-link">{{product.metafields.my_fields.product_lines}}
                 </a>
-              {%endif%}
-          {%endcase%}
+              {% endif %}
+          {% endcase %}
 
           {% if collections[item_type].products.size != 0 %}
-            <a href="/collections/{{item_type}}" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{product.metafields.my_fields.item_type}}
+            <a href="/collections/{{ item_type }}" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{ product.metafields.my_fields.item_type }}
             </a>
           {%elsif product.metafields.my_fields.item_type %}
-            <a href="/search?q={{product.metafields.my_fields.product_lines}}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{product.metafields.my_fields.item_type}}
+            <a href="/search?q={{ product.metafields.my_fields.product_lines }}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{ product.metafields.my_fields.item_type }}
             </a>
-          {%endif%}
+          {% endif %}
 
 
         </div>
@@ -258,7 +258,7 @@
                   {% assign kpopArtist = splitTitle[0] | split: " '" %}
                   {% assign kpopAlbum = splitTitle[1] | split: " '" %}
                   <h1 class="text-6xl font-extrabold text-slate-700">{{ kpopArtist[0] | remove: 'K-Pop ' | remove: 'CD ' }}</h1>
-                  <h2 class="text-3xl font-semibold text-slate-700">{{ kpopArtist[1] | remove_last: "'"}}</h2>
+                  <h2 class="text-3xl font-semibold text-slate-700">{{ kpopArtist[1] | remove_last: "'" }}</h2>
                   <h2 class="text-3xl font-regular text-slate-700">{{ kpopAlbum[0] }}</h2>
                   <h2 class="text-4xl font-semibold text-slate-700">{{ kpopAlbum[1] | remove_last: "'" }}</h2>
                 {% else %}
@@ -291,7 +291,7 @@
                   </div>
                 {%else%}
                   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
-                {%endif%}
+                {% endif %}
               </div>
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
                 <div class="product__tax caption rte">
@@ -316,7 +316,7 @@
                 <div class="product__description rte">
                   {% if addon.available == true %}
                     <div class="p-4 text-lg italic md:text-xl bg-lime-100">
-                      <span>This product includes Pre-order first press gift({{addon.metafields.my_fields.item_type}}
+                      <span>This product includes Pre-order first press gift({{ addon.metafields.my_fields.item_type }}
                         )*.
                         <br/></span>
                       <span>Free gift is shipped with the order. Only 1 free gift per order.<br/>
@@ -361,7 +361,7 @@
                     <input id="maxquantity-{{ section.id }}" class="quantity__input" type="number" name="quantity" id="Quantity-{{ section.id }}" min="1"
                       {% if product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_management == 'shopify' %}
                       max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
-                      {%endif%}
+                      {% endif %}
                       value="1" form="{{ product_form_id }}">
                     <button class="quantity__button no-js-hidden" name="plus" type="button">
                       <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}
@@ -529,7 +529,7 @@
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
                     <!-- free poster or addon associated with the product will be added to cart automatically when the main product is added -->
                     {% if all_products[product.metafields.my_fields.addon].available == true %}
-                      <input type="hidden" name="items[1]id" value="{{all_products[product.metafields.my_fields.addon].selected_or_first_available_variant.id}}">
+                      <input type="hidden" name="items[1]id" value="{{ all_products[product.metafields.my_fields.addon].selected_or_first_available_variant.id }}">
                     {% endif %}
                     <div class="product-form__buttons">
                       <button type="submit" name="add" class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>

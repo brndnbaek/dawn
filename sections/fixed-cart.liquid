@@ -96,16 +96,16 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
 <form action="{{ routes.cart_url }}" id="test-cart" method="post" class="fixed transition duration-500 my-cart invisible sm:hidden md:hidden lg:visible lg:block w-[150px] right-0 pr-4 h-[70vh]">
 <!-- data-ajax-cart-section makes the element's HTML update
 when the cart gets changed -->
-<div data-ajax-cart-section class="flex flex-col items-center {%if cart == empty %}invisible{% endif %}">
-{%if cart == empty%}
-  {%style%}
+<div data-ajax-cart-section class="flex flex-col items-center {% if cart == empty %}invisible{% endif %}">
+{% if cart == empty %}
+  {% style %}
     @media (min-width: 749px) {
       body{
         grid-template-columns: 1fr 0px;
       }
     }
-    {%endstyle%}
-{%endif%}
+    {% endstyle %}
+{% endif %}
 <h4 class="text-center">Subtotal: {{ cart.total_price | money }}</h4>
 {% comment %} <button type="submit" id="checkout" class="lt-cardbutton mb-4" name="checkout">
   {{ 'sections.cart.checkout' | t }}
@@ -138,14 +138,14 @@ when the element's HTML is changed -->
             {% else %}
               <div class="w-full h-full">
                 <a href="{{ item.url }}" class="text-slate-700" tabindex="-1" aria-hidden="true">
-                  <div class="text-lg px-4">{{item.title}}</div>
+                  <div class="text-lg px-4">{{ item.title }}</div>
                 </a>
                 {%- comment -%} <div class="absolute w-10 h-10 rounded-full bg-rose-100 text-slate-800 right-2 top-2 text-center">
                   <div class="w-full h-full grid place-items-center rotate-6 font-semibold">x{{ item.quantity }}</div>
                 </div> {%- endcomment -%}
               </div>
               
-            {%endif%}
+            {% endif %}
             {% unless item.product.tags contains 'not for sale' %}
               <div class="absolute w-full h-1/4 bg-gray-200 bottom-0 flex flex-nowrap justify-center items-center invisible group-hover:visible transition duration-500">
                 <a data-ajax-cart-request-button
@@ -171,7 +171,7 @@ when the element's HTML is changed -->
                   x
                 </a>
               </div>
-            {%endunless%}
+            {% endunless %}
           </div>
           </a>
         {%- comment -%} {%else%}
@@ -189,7 +189,7 @@ when the element's HTML is changed -->
           <span class="text-xl">{{ item.final_price | money }}</span>
           {% endif %}
           {% if item.quantity > 1 %}
-            <span> (x{{item.quantity}})</span>
+            <span> (x{{ item.quantity }})</span>
           {% endif %}
         </div>
       {% endunless %}

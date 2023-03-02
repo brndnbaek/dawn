@@ -5,7 +5,6 @@
 	}
 	
 </style>
-{% if all_products["insurance-addon"] %}
     
     <div
       id="is-a-insurance"
@@ -20,7 +19,7 @@
 							type="checkbox"
 							name="attributes[insurance-addon]"
 							value="yes"
-							{% if cart.attributes.insurance-addon != blank %}
+							{% if cart.attributes.insurance-addon == 'true' %}
 							checked="checked"
 							{% endif %}
 							style="float: none"
@@ -58,6 +57,8 @@
       #updates_{{ id }} { display: none; }
     </style>
     
+
+
     <script>
       Shopify.Cart = Shopify.Cart || {};
     
@@ -69,7 +70,7 @@
         var request = {
           method: 'POST',
           headers: headers,
-          body: JSON.stringify({ updates: { {{ id }}: 1 }, attributes: { 'insurance-addon': true } })
+          body: JSON.stringify({ updates: { {{ id }}: 1 }, attributes: { 'insurance-addon': 'true' } })
         };
         fetch('/cart/update.js', request)
         .then(function() {
@@ -83,7 +84,7 @@
         var request = {
           method: 'POST',
           headers: headers,
-          body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': '' } })
+          body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': 'false' } })
         };
         fetch('/cart/update.js', request)
         .then(function() {
@@ -91,18 +92,18 @@
         });
       }
 
-				Shopify.Cart.InsuranceAddon.reset = function() {
-					var headers = new Headers({ 'Content-Type': 'application/json' });
-					var request = {
-						method: 'POST',
-						headers: headers,
-						body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': true } })
-					};
-					fetch('/cart/update.js', request)
-					.then(function() {
-						location.href = '/cart';
-					});
-				}
+      Shopify.Cart.InsuranceAddon.reset = function() {
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+        var request = {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'insurance-addon': 'true' } })
+        };
+        fetch('/cart/update.js', request)
+        .then(function() {
+          location.href = '/cart';
+        });
+      }
 
       
   
@@ -110,9 +111,14 @@
       //   Shopify.Cart.InsuranceAddon.reset();
       // });
       // If we have nothing but gift-wrap items in the cart.
-      {% if cart.items.size == 1 and insurance_addon_in_cart > 0 %}
+      {% comment %} //{%  cart.items.size == 1 and insurance_addon_in_cart > 0 %} {% endcomment %}
+      //document.addEventListener("DOMContentLoaded", function(){
+      //  Shopify.Cart.InsuranceAddon.remove();
+      //});
+
+      {% if cart.attributes.insurance-addon == blank %}
       document.addEventListener("DOMContentLoaded", function(){
-        Shopify.Cart.InsuranceAddon.remove();
+        Shopify.Cart.InsuranceAddon.set();
       });
       // If we have more than one gift-wrap item in the cart.
       {% elsif insurance_addon_in_cart > 1 %}
@@ -120,19 +126,9 @@
         Shopify.Cart.InsuranceAddon.set();
       });
       
-      // {% elsif cart.attributes.insurance-addon != blank and cart.items.size > 1 and insurance_addon_in_cart == 0 %}
-      // document.addEventListener("DOMContentLoaded", function(){
-      //   Shopify.Cart.InsuranceAddon.set();
-      // });
-
-      {% elsif cart.items.size >= 1 and insurance_addon_in_cart != 1 and cart.attributes.insurance-addon != blank %}
+      {% elsif cart.items.size >= 1 and insurance_addon_in_cart != 1 and cart.attributes.insurance-addon == 'true' %}
       document.addEventListener("DOMContentLoaded", function() {
         Shopify.Cart.InsuranceAddon.set();
-      });
-
-      {% elsif cart.items.size == 0 and cart.attributes.insurance-addon == blank %}
-      document.addEventListener("DOMContentLoaded", function() {
-        Shopify.Cart.InsuranceAddon.reset();
       });
 
       {% endif %}
@@ -147,19 +143,6 @@
           } else {
             Shopify.Cart.InsuranceAddon.remove();
           }
-    
         });
-    
-        
       });
     </script>
-    
-    {% else %}
-    <p>{{ all_products["insurance-addon"].title }}</p>
-    <p style="clear: left; margin: 30px 0" class="rte">
-      You attempted to add a insurance-addon script to your shopping cart, but it
-      won't work because you don't have a product with handle
-      <code>insurance-addon</code> 
-    </p>
-    
-    {% endif %}

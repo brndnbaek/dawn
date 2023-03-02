@@ -42,3 +42,5 @@ Shopify.Cart = Shopify.Cart || {};
 						location.href = '/cart';
 					});
 				}
+
+      {% endif %}

@@ -35,7 +35,7 @@
         <div class="text-slate-700 font-medium">{{ kpopAlbum[1] | remove_last: "'" | truncate: 35 }}</div>
       {% when 'Gundam Model Kit' %}
         {% assign splitTitle = card_product.title | split: ' #' %}
-        <span class="block font-semibold {% if splitTitle[1] %}text-lg{%else%}text-xl text-slate-800{%endif%}">
+        <span class="block font-semibold {% if splitTitle[1] %}text-lg{%else%}text-xl text-slate-800{% endif %}">
           {{- splitTitle[0] }}
         </span>
         {% if splitTitle[1] %}
@@ -45,7 +45,7 @@
         {{ splitTitle[3] | truncate: 35 }}
       {% when 'Other Model Kit' %}
         {% assign splitTitle = card_product.title | remove: 'Model Kit' | split: ' - ' %}
-        <span class="block font-semibold px-2 {% if splitTitle[1] %}text-lg{%else%}text-xl text-slate-800{%endif%}">
+        <span class="block font-semibold px-2 {% if splitTitle[1] %}text-lg{%else%}text-xl text-slate-800{% endif %}">
           {{- splitTitle[0] }}
         </span>
         {% if splitTitle[1] %}

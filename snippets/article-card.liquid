@@ -70,7 +70,7 @@
         {%- if show_image == true and article.image -%}
           <div class="article-card__image-wrapper card__media">
             <div class="bg-transparent rounded article-card__image media media--hover-effect">
-              <img src="{{ article.image.src | image_url: width: 350 }}" alt="" class="object-contain aspect-square">
+              <img src="{{ article.image.src | image_url: width: 350 }}" alt="" class="object-contain aspect-square" loading="lazy">
             </div>
           </div>
         {%- endif -%}

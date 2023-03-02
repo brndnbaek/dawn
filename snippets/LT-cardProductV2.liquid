@@ -168,22 +168,24 @@
 
   {% if ImageRatio > 1.2 %}
     <div class="LandscapeImg">
-      <a href="{{ card_product.url}}">
+      <a href="{{ card_product.url }}">
         <img
           src="{{ card_product.featured_media | image_url: width: 350 }}"
           alt=""
-          class="w-full -translate-x-[1rem] object-contain group-hover:duration-500 duration-500 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {%endif%}"
+          loading="lazy"
+          class="w-full -translate-x-[1rem] object-contain group-hover:duration-500 duration-500 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
           style="background-color:unset;"
         >
       </a>
     </div>
   {% elsif ImageRatio < 0.9 %}
     <div class="PortraitImg">
-      <a href="{{ card_product.url}}">
+      <a href="{{ card_product.url }}">
         <img
           src="{{ card_product.featured_media | image_url: height: 300 }}"
           alt=""
-          class="max-h-[255px] group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {%endif%}"
+          loading="lazy"
+          class="max-h-[255px] group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-500 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
           style="background-color:unset;"
         >
       </a>
@@ -194,7 +196,8 @@
         <img
           src="{{ card_product.featured_media | image_url: width: 350 }}"
           alt=""
-          class="w-[20rem] group-hover:duration-500 duration-500 group-hover:-translate-y-[1rem] group-hover:w-[21rem] aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {%endif%}"
+          loading="lazy"
+          class="w-[20rem] group-hover:duration-500 duration-500 group-hover:-translate-y-[1rem] group-hover:w-[21rem] aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
           style="background-color:unset;"
         >
       </a>
@@ -244,14 +247,14 @@
             {% if all_products[card_product.metafields.my_fields.addon].available == true %}
               <a
                 data-ajax-cart-request-button
-                href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1&&items[1]id={{all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id}}&quantity=1"
+                href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1&&items[1]id={{ all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id }}&quantity=1"
                 class="lt-cardbutton"
                 >add w/ gift</a
               >
             {% else %}
               <a
                 data-ajax-cart-request-button
-                href="{{ routes.cart_add_url }}?id={{card_product.selected_or_first_available_variant.id}}&quantity=1"
+                href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1"
                 class="lt-cardbutton"
                 >Quick Add</a
               >

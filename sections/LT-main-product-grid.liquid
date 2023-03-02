@@ -2,7 +2,7 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{'ajaxinate.min.js' | asset_url | script_tag  }}
+{{ 'ajaxinate.min.js' | asset_url | script_tag }}
 
 
 <link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -602,9 +602,7 @@
             {% endif %}
           </div>
 
-          <!-- {%- if paginate.pages > 1 -%}
-            {% render 'pagination2', paginate: paginate, anchor: '' %}
-          {%- endif -%} -->
+         
         </div>
       {%- endif -%}
     {%- endpaginate -%}
@@ -636,6 +634,14 @@
       pagination: '#AjaxinatePagination'
     });
   });
+
+  window.onscroll = function(e) {
+    var move_div = document.getElementById('test-cart');
+    if (pageYOffset > 200) 
+      move_div.style.top = 0;
+     else 
+      move_div.style.top = 170 + 'px';
+  }
 </script>
 
 {% schema %}

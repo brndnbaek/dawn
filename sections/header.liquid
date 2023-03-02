@@ -93,7 +93,7 @@
     <div id="mobile-notification" class="grid place-items-center fixed animate invisible z-10 w-screen h-[12rem] text-center bg-blue-300 inset-0 transition duration-1000" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
       Item added to your cart
         {% if cart.total_price < 6000 %}
-            <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money}} more, you qualify for free U.S. shipping!</p>
+            <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money }} more, you qualify for free U.S. shipping!</p>
         {% elsif cart.total_price > 6000 %}
             <p>Your order qualifies for free U.S. shipping! Enjoy the savings.</p>
         {% endif %}
@@ -119,32 +119,32 @@
                   {% for block in section.blocks %}
                   {% assign blockIndex = forloop.index0 %}
                   {% if block.settings.title == 'Home' %}
-                  <a class="megaA" href="/" style="width: 100%; text-align: left;">{{block.settings.title}}</a>
+                  <a class="megaA" href="/" style="width: 100%; text-align: left;">{{ block.settings.title }}</a>
                   {% else %}
                   <div class="megaDrawer" style="width: 100%;">
                     {% if block.settings.mega_url != blank %}
-                    <a class="drawerbtn megaA" href="{{block.settings.mega_url}}"
-                      style="width: 100%; justify-content: space-between;">{{block.settings.title}}</a>
+                    <a class="drawerbtn megaA" href="{{ block.settings.mega_url }}"
+                      style="width: 100%; justify-content: space-between;">{{ block.settings.title }}</a>
                     {% else %}
-                    <label for="megaDrawerInput--{{forloop.index0}}" class="drawerbtn drawerbtn--tablet"
+                    <label for="megaDrawerInput--{{ forloop.index0 }}" class="drawerbtn drawerbtn--tablet"
                       style="width: 100%; justify-content: space-between;">
-                      {{block.settings.title}}
+                      {{ block.settings.title }}
                       {% if block.settings.mega_link != blank %}
-                      <svg viewBox="0 0 10 10" class="svgDd megaSvg" data-svg="svgDd--{{forloop.index0}}">
+                      <svg viewBox="0 0 10 10" class="svgDd megaSvg" data-svg="svgDd--{{ forloop.index0 }}">
                         <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
                       </svg>
-                      <svg viewBox="0 0 10 10" class="svgClose megaSvg" data-svg="svgClose--{{forloop.index0}}">
+                      <svg viewBox="0 0 10 10" class="svgClose megaSvg" data-svg="svgClose--{{ forloop.index0 }}">
                         <path d="M2,2 L5,5 L8,8 L5,5 L8,2 L2,8" />
                       </svg>
                       {% endif %}
                     </label>
-                    <input type="checkbox" id="megaDrawerInput--{{forloop.index0}}" onclick="checkInput(this)"
-                      data-input="{{forloop.index0}}" >
+                    <input type="checkbox" id="megaDrawerInput--{{ forloop.index0 }}" onclick="checkInput(this)"
+                      data-input="{{ forloop.index0 }}" >
                     <div class="megaDrawerContent--tablet">
                       {% if block.settings.title != blank %}
                       <div class="megaDrawerHeader megaDrawerHeader--tablet"
-                        style="background-color: {{block.settings.header_bg}}">
-                        <h2>{{block.settings.header_title}}</h2>
+                        style="background-color: {{ block.settings.header_bg }}">
+                        <h2>{{ block.settings.header_title }}</h2>
                       </div>
                       {% else %}
                       <div class="megaDrawerHeader megaDrawerHeader--tablet" style="background-color: inherit;"></div>
@@ -157,28 +157,28 @@
                             {% endif %}>
                             {% if link.links == blank %}
 
-                            <a class="megaLink" href="{{link.url}}">{{ link.title | escape }}</a>
+                            <a class="megaLink" href="{{ link.url }}">{{ link.title | escape }}</a>
                             {% else %}
-                            <label for="megaLink--{{blockIndex}}-{{forloop.index0}}">
+                            <label for="megaLink--{{ blockIndex }}-{{ forloop.index0 }}">
 
                               <span>{{ link.title | escape }}</span>
                               <span class="arrowDown">
                                 <svg viewBox="0 0 10 10" class="childSvgDd megaSvg"
-                                  data-svg="childSvgDd--{{blockIndex}}-{{forloop.index0}}">
+                                  data-svg="childSvgDd--{{ blockIndex }}-{{ forloop.index0 }}">
                                   <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
                                 </svg>
                                 <svg viewBox="0 0 10 10" class="childSvgClose megaSvg"
-                                  data-svg="childSvgClose--{{blockIndex}}-{{forloop.index0}}">
+                                  data-svg="childSvgClose--{{ blockIndex }}-{{ forloop.index0 }}">
                                   <path d="M2,2 L5,5 L8,8 L5,5 L8,2 L2,8" />
                                 </svg>
                               </span>
                             </label>
-                            <input type="checkbox" id="megaLink--{{blockIndex}}-{{forloop.index0}}"
-                              onclick="checkInput(this)" data-child-input="{{blockIndex}}-{{forloop.index0}}">
+                            <input type="checkbox" id="megaLink--{{ blockIndex }}-{{ forloop.index0 }}"
+                              onclick="checkInput(this)" data-child-input="{{ blockIndex }}-{{ forloop.index0 }}">
                             {% endif %}
                             <div class="childLinkContainer">
                               {% for child_link in link.links %}
-                              <a href="{{child_link.url}}">{{child_link.title | escape }}</a>
+                              <a href="{{ child_link.url }}">{{ child_link.title | escape }}</a>
                               {% endfor %}
                             </div>
                           </div>
@@ -325,7 +325,7 @@
           </div>
         </div>
 
-        {%- if settings.predictive_search_enabled  -%}
+        {%- if settings.predictive_search_enabled -%}
         <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
           <div class="predictive-search__loading-state">
             <!-- <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66"
@@ -451,26 +451,26 @@
       <div class="megaHeader alignCenter">
         {% for block in section.blocks %}
         {% if block.settings.title == 'Home' %}
-        <a class="megaA drawerbtn" href="/">{{block.settings.title}}</a>
+        <a class="megaA drawerbtn" href="/">{{ block.settings.title }}</a>
         {% else %}
 
         <div class="megaDrawer alignCenter shrink-0" style="height: 50px">
           {% if block.settings.mega_url == blank %}
-          <button class="drawerbtn">{{block.settings.title}}
+          <button class="drawerbtn">{{ block.settings.title }}
             <span> <svg viewBox="0 -.5 11 10" class="megaSvg">
                 <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
               </svg>
             </span>
           </button>
           {% else %}
-          <a class="text-black no-underline DELmegaA drawerbtn" href="{{block.settings.mega_url}}">{{block.settings.title}}</a>
+          <a class="text-black no-underline DELmegaA drawerbtn" href="{{ block.settings.mega_url }}">{{ block.settings.title }}</a>
           {% endif %}
           {% if block.settings.mega_link != blank %}
           <div class="megaDrawerContent absolutePosition" style="width: {% if block.settings.mega_width == true %} 95% {% else %}  {% endif %};
 {% if section.settings.logo_position != 'middle-left' %} top: 100%{% endif %}">
             {% if block.settings.title != blank %}
-            <div class="megaDrawerHeader" style="background-color: {{block.settings.header_bg}}">
-              <h2>{{block.settings.header_title}}</h2>
+            <div class="megaDrawerHeader" style="background-color: {{ block.settings.header_bg }}">
+              <h2>{{ block.settings.header_title }}</h2>
             </div>
             {% else %}
             <div class="megaDrawerHeader" style="background-color: inherit;"></div>
@@ -481,41 +481,42 @@
               <div class="flex-wrap megaLinkContainer">
                 {% for link in block.settings.mega_link.links %}
                 <div class="flex-wrap megaLinkBox" style="padding: 20px">
-                  <div class="megaLinkImage" data-mega-image="{{link.title | downcase | replace: ' ', '-' }}">
+                  <div class="megaLinkImage" data-mega-image="{{ link.title | downcase | replace: ' ', '-' }}">
 
                   </div>
-                  <a {% if link.links != blank %} class="megaLink" href="{{link.url}}" {% else %}
+                  <a {% if link.links != blank %} class="megaLink" href="{{ link.url }}" {% else %}
                     style="font-weight:600; text-align: center" {% endif %}>{{ link.title | escape }}</a>
                   {% for child_link in link.links %}
-                  <a href="{{child_link.url}}">{{child_link.title | escape }}</a>
+                  <a href="{{ child_link.url }}">{{ child_link.title | escape }}</a>
                   {% endfor %}
                 </div>
                 {% endfor %}
               </div>
               {% endif %}
               {% if block.settings.mega_product != blank %}
-              <a href="{{block.settings.mega_product.url}}" style="text-decoration: none">
+              <a href="{{ block.settings.mega_product.url }}" style="text-decoration: none">
                 <div class="megaProduct">
                   {%- assign product_media = block.settings.mega_product.selected_or_first_available_variant.featured_media | default: block.settings.mega_product.featured_media -%}
                   <div class="megaProductImage">
-                    <img src="{{product_media | img_url: master }}" alt="{{product_media.alt | escape }}">
+                    <img src="{{ product_media | img_url: master }}" alt="{{ product_media.alt | escape }}" loading="lazy">
                   </div>
 
                   <div class="megaProductInfo">
-                    <h4 style="margin: 0 0 5%;">{{block.settings.mega_product.title | escape}}</h4>
-                    <!-- <p style="margin: 0;">{{block.settings.mega_product.price | money}}</p> -->
+                    <h4 style="margin: 0 0 5%;">{{ block.settings.mega_product.title | escape }}</h4>
+                    <!-- <p style="margin: 0;">{{ block.settings.mega_product.price | money }}</p> -->
                   </div>
                 </div>
               </a>
               {% endif %}
               {% if block.settings.mega_image != blank %}
               {% if block.settings.mega_image_link != blank %}
-              <a href="{{block.settings.mega_image_link}}">
+              <a href="{{ block.settings.mega_image_link }}">
                 {% endif %}
                 <div class="megaImage">
-                  <img src="{{block.settings.mega_image | img_url: 'master'}}"
-                    alt="{{block.settings.mega_image.alt | escape }}"
-                    style="width: {{block.settings.mega_image_size}}%;">
+                  <img src="{{ block.settings.mega_image | img_url: 'master' }}"
+                    alt="{{ block.settings.mega_image.alt | escape }}"
+                    loading="lazy"
+                    style="width: {{ block.settings.mega_image_size }}%;">
                 </div>
                 {% if block.settings.mega_image_link != blank %}</a>{% endif %}
               {% endif %}
@@ -554,11 +555,11 @@
         }
       }
 
-      const megaImgRaw = "{{mega_img_file}}";
+      const megaImgRaw = "{{ mega_img_file }}";
       const megaImgSplit = megaImgRaw.split(/[,]/).map(col => col.replace(/[\"\s{}]/g, '')).map(s => s.split('.'));
       const megaImgJSON = Object.fromEntries(megaImgSplit);
 
-      const megaLink = "{{sample_img}}";
+      const megaLink = "{{ sample_img }}";
 
       window.onload = function () {
         const megaImage = document.querySelectorAll('.megaLinkImage');

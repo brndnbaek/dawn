@@ -531,7 +531,7 @@
 <!-- new type layered cards style            -->
           <div id="product-grid" data-id="{{ section.id }}" class="flex flex-col gap-4 p-2">
             
-            {%- for product in collection.products -%}
+            {% for product in collection.products %}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}

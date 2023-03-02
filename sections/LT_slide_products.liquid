@@ -22,9 +22,9 @@
   <div class="collection-list-wrapper page-width isolate{% if section.settings.swipe_on_mobile == true %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {% unless section.settings.title == blank %}
       <div class="title-wrapper-with-link{% if section.settings.swipe_on_mobile == true %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %} title-wrapper--no-top-margin">
-        {% assign LT_title = section.settings.title | split: " "  %}
+        {% assign LT_title = section.settings.title | split: " " %}
         <div class="tw_smallheading">
-          <em class="tw_smallEM">{{LT_title.first}}</em> {{section.settings.title | remove_first:LT_title.first}}
+          <em class="tw_smallEM">{{ LT_title.first }}</em> {{ section.settings.title | remove_first: LT_title.first }}
         </div>
         <!-- <h2 class="collection-list-title">{{ section.settings.title | escape }}</h2> -->
   

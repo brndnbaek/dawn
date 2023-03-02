@@ -17,7 +17,7 @@
     <div class="relative flex flex-col h-[24rem] drop-shadow-lg items-center">
       <a href="{{product.url}}" class="absolute w-full h-full no-underline">
       </a>
-        <img src="{{product.featured_image | img_url: '250x' }}" alt="" class="object-cover object-top w-52 h-[17rem] rounded-t-lg">
+        <img src="{{product.featured_image | img_url: '250x' }}" alt="" loading="lazy" class="object-cover object-top w-52 h-[17rem] rounded-t-lg">
         <div class="h-[5rem] px-2 bg-red-100 w-52">
           <div class="pt-2 text-base text-gray-700">{{product.metafields.my_fields.series}}-{{product.metafields.my_fields.product_lines}}-{{product.metafields.my_fields.item_type}}</div>
         </div>
