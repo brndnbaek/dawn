@@ -131,3 +131,8 @@ button.chat-toggle.chat-toggle--text-button {
     left: -20px !important;
   }
 }
+.responsive-ytvideo {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+}

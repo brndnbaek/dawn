@@ -3124,6 +3124,12 @@ button.chat-toggle.chat-toggle--text-button {
   }
 }
 
+.responsive-ytvideo {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
