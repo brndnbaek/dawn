@@ -30,18 +30,6 @@
             "text_style": "subtitle"
           }
         },
-        "82ab975f-5329-4ea8-b2d5-b0b530d07551": {
-          "type": "shopify:\/\/apps\/loyalty-program-reviews-3\/blocks\/block.product.reviewAvgProfile\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
-          "settings": {
-            "margin": "",
-            "textColor": "",
-            "fontSize": "",
-            "ratingIconColor": "",
-            "ratingIconSize": "",
-            "questionsIconColor": "",
-            "questionsIconSize": ""
-          }
-        },
         "price": {
           "type": "price",
           "settings": {
@@ -60,6 +48,7 @@
         },
         "f6f86c8e-d56e-4d69-b24f-a409b244da22": {
           "type": "inventory_count",
+          "disabled": true,
           "settings": {
             "show_inventory_threshold": 0,
             "text_color": ""
@@ -69,6 +58,18 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true
+          }
+        },
+        "82ab975f-5329-4ea8-b2d5-b0b530d07551": {
+          "type": "shopify:\/\/apps\/loyalty-program-reviews-3\/blocks\/block.product.reviewAvgProfile\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "settings": {
+            "margin": "",
+            "textColor": "",
+            "fontSize": "",
+            "ratingIconColor": "",
+            "ratingIconSize": "",
+            "questionsIconColor": "",
+            "questionsIconSize": ""
           }
         },
         "description": {
@@ -122,12 +123,12 @@
         "vendor",
         "title",
         "caption",
-        "82ab975f-5329-4ea8-b2d5-b0b530d07551",
         "price",
         "variant_picker",
         "quantity_selector",
         "f6f86c8e-d56e-4d69-b24f-a409b244da22",
         "buy_buttons",
+        "82ab975f-5329-4ea8-b2d5-b0b530d07551",
         "description",
         "collapsible-row-0",
         "collapsible-row-1",

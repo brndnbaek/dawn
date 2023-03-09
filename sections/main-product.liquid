@@ -31,9 +31,9 @@
 {%- endif -%}
 
 <section class="page-width section-{{ section.id }}-padding">
-  <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid_dawn grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <div class="product product--{{ section.settings.media_size }} {% if product.type == 'Kpop CD' %}product--stacked {%else%}product--{{ section.settings.gallery_layout }} {% endif %} grid_dawn grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper">
-      <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
+      <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{% if product.type == 'Kpop CD' %}stacked{%else%}{{ section.settings.gallery_layout }}{% endif %}">
         <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
         <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
           <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -106,7 +106,7 @@
           </button>
         {%- endif -%}
         {%- if media_count > 1 and section.settings.gallery_layout != 'stacked' or section.settings.mobile_thumbnails == 'show' -%}
-          <slider-component id="GalleryThumbnails-{{ section.id }}" class="thumbnail-slider slider-mobile-gutter{% if section.settings.mobile_thumbnails == 'hide' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}">
+          <slider-component id="GalleryThumbnails-{{ section.id }}" class="visible md:invisible thumbnail-slider slider-mobile-gutter{% if section.settings.mobile_thumbnails == 'hide' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}">
             <button type="button" class="slider-button slider-button--prev{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}" aria-controls="GalleryThumbnails-{{ section.id }}" data-step="3">{% render 'icon-caret' %}
             </button>
             <ul id="Slider-Thumbnails-{{ section.id }}" class="thumbnail-list list-unstyled slider slider--mobile{% if section.settings.gallery_layout == 'thumbnail_slider' %} slider--tablet-up{% endif %}">
@@ -185,7 +185,7 @@
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-        <div class="flex gap-4">
+        <div class="flex gap-4 justify-center md:justify-start">
 
           {% assign product_meta = product.metafields.my_fields %}
           {% capture lineup %}
@@ -258,15 +258,19 @@
                   {% assign splitTitle = product.title | split: " - " %}
                   {% assign kpopArtist = splitTitle[0] | split: " '" %}
                   {% assign kpopAlbum = splitTitle[1] | split: " '" %}
-                  <h1 class="text-6xl font-extrabold text-slate-700">{{ kpopArtist[0] | remove: 'K-Pop ' | remove: 'CD ' }}</h1>
-                  <h2 class="text-3xl font-semibold text-slate-700">{{ kpopArtist[1] | remove_last: "'" }}</h2>
-                  <h2 class="text-3xl font-regular text-slate-700">{{ kpopAlbum[0] }}</h2>
-                  <h2 class="text-4xl font-semibold text-slate-700">{{ kpopAlbum[1] | remove_last: "'" }}</h2>
+                  <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="text-6xl font-extrabold text-slate-700">{{ kpopArtist[0] | remove: 'K-Pop ' | remove: 'CD ' }}</div>
+                    <div class="text-3xl font-semibold text-slate-700">{{ kpopArtist[1] | remove_last: "'" }}</div>
+                    <div class="text-3xl font-regular text-slate-700">{{ kpopAlbum[0] }}</div>
+                    <div class="text-4xl font-semibold text-slate-700">{{ kpopAlbum[1] | remove_last: "'" }}</div>
+                  </div>
                 {% else %}
                   {% assign splitTitle = product.title | split: " - " %}
-                  <h1 class="block text-5xl md:text-6xl font-bold text-slate-700">{{ splitTitle[0] }}</h1>
-                  <h2 class="block text-4xl md:text-5xl font-semibold text-slate-700">{{ splitTitle[1] }}</h2>
-                  <h2 class="block text-4xl md:text-5xl font-bold text-slate-700">{{ splitTitle[2] }}</h2>
+                  <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="block text-5xl md:text-6xl font-bold text-slate-700">{{ splitTitle[0] }}</div>
+                    <div class="block text-4xl md:text-5xl font-semibold text-slate-700">{{ splitTitle[1] }}</div>
+                    <div class="block text-4xl md:text-5xl font-bold text-slate-700">{{ splitTitle[2] }}</div>
+                  </div>
                   
               {% endcase %}
 
@@ -291,7 +295,7 @@
                     <div class="text-xl line-through text-red-600">{{ product.price | money }}</div>
                   </div>
                 {%else%}
-                  {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+                  {%- render 'LT_price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                 {% endif %}
               </div>
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -313,6 +317,14 @@
                 {%- endform -%}
               </div>
             {%- when 'description' -%}
+              <div class="self-end w-full lg:w-1/2">
+                {% capture the_snippet_fave %}
+                  {% include 'socialshopwave-widget-fave' %}
+                {% endcapture %}
+                {% unless the_snippet_fave contains 'Liquid error' %}
+                  {{ the_snippet_fave }}
+                {% endunless %}
+              </div>
               {% if addon.available == true %}
                 <div class="p-4 text-lg italic md:text-xl bg-lime-100">
                   <span>This product includes Pre-order first press gift({{ addon.metafields.my_fields.item_type }}
@@ -324,7 +336,7 @@
               {% endif %}
               {%- if product.description != blank -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <details id="Details-{{ block.id }}-{{ section.id }}" open>
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: 'clipboard' %}
@@ -334,25 +346,13 @@
                       </div>
                       {% render 'icon-caret' %}
                     </summary>
-                    <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div class="accordion__content rte prose prose-2xl prose-slate" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ product.description | split: '<!--split-->' | last }}
                     </div>
                   </details>
                 </div>
               {% endif %}
-                {% comment %} <div class="product__description rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                  {% if addon.available == true %}
-                    <div class="p-4 text-lg italic md:text-xl bg-lime-100">
-                      <span>This product includes Pre-order first press gift({{ addon.metafields.my_fields.item_type }}
-                        )*.
-                        <br/></span>
-                      <span>Free gift is shipped with the order. Only 1 free gift per order.<br/>
-                        *Poster is folded and randomly selected.</span>
-                    </div>
-                  {% endif %}
-                  {{ product.description }}
-                </div>
-              {% endcomment %}
+               
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
             {%- when 'collapsible_tab' -%}
@@ -374,8 +374,8 @@
                 </details>
               </div>
             {%- when 'quantity_selector' -%}
-              <div class="flex items-end" id="inventory-{{ section.id }}">
-                <div class="w-full DELproduct-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
+              <div class="" id="inventory-{{ section.id }}">
+                <div class="flex flex-col DELproduct-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
                   <label class="form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                   </label>
@@ -406,14 +406,7 @@
                 </div>
 
               </div>
-              <div class="self-end w-full lg:w-1/2">
-                {% capture the_snippet_fave %}
-                  {% include 'socialshopwave-widget-fave' %}
-                {% endcapture %}
-                {% unless the_snippet_fave contains 'Liquid error' %}
-                  {{ the_snippet_fave }}
-                {% endunless %}
-              </div>
+              
 
             {% when 'youtube_video' %}
               {% if product.metafields.my_fields.ytvideo %}
