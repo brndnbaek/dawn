@@ -1236,8 +1236,8 @@ summary::-webkit-details-marker {
 /* brandon added to mix square and portrait images on mobile view /padding-top method defaulted to 100%*/
 @media screen and (max-width: 749px) {
   .slider__slide {
-    max-height: 35rem !important;
-    padding-top: 0;
+    /* max-height: 35rem !important; */
+    /* padding-top: 0; */
   }
   .media {
     padding-top:100% !important;

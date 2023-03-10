@@ -20,6 +20,7 @@
     %}
 {% endcomment %}
 
+
 <noscript>
   {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
     <span class="product__media-icon motion-reduce">{% render 'icon-play' %}</span>
@@ -87,8 +88,7 @@
       endcase
     -%}
   </span>
-
-  <div class="product__media media media--transparent gradient global-media-settings" style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;">
+  <div class="product__media media media--transparent gradient global-media-settings {% if product.type == 'Kpop CD' %}{% else %} lg:h-[50vh]{% endif %}" style="{% if product.type == 'Kpop CD' %}padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;{% endif %}">
     <img
       srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
         {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
@@ -122,7 +122,7 @@
   {%- if media.media_type == 'model' -%}
     <product-model class="deferred-media media media--transparent gradient global-media-settings no-js-hidden" style="padding-top: 100%" data-media-id="{{ media.id }}">
   {%- else -%}
-    <deferred-media class="deferred-media gradient global-media-settings media no-js-hidden" style="{%if media.media_type == 'video' %}aspect-ratio: 9/16 {% else %} padding-top: {{ 1 | divided_by: media.aspect_ratio | times: 100 }}% {%endif%}" data-media-id="{{ media.id }}">
+    <deferred-media class="deferred-media gradient global-media-settings media no-js-hidden md:h-[50vh] m-auto" style="{%if media.media_type == 'video' %}{% else %} padding-top: {{ 1 | divided_by: media.aspect_ratio | times: 100 }}% {%endif%}" data-media-id="{{ media.id }}">
   {%- endif -%}
   <button id="Deferred-Poster-Modal-{{ media.id }}" class="deferred-media__poster" type="button">
     <span class="deferred-media__poster-button motion-reduce">

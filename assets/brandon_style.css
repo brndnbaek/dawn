@@ -1259,8 +1259,8 @@ summary::-webkit-details-marker {
 
 @media screen and (max-width: 749px) {
   .slider__slide {
-    max-height: 35rem !important;
-    padding-top: 0;
+    /* max-height: 35rem !important; */
+    /* padding-top: 0; */
   }
   .media {
     padding-top:100% !important;
@@ -4485,6 +4485,10 @@ button.chat-toggle.chat-toggle--text-button {
   margin: 0px;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -4528,11 +4532,6 @@ button.chat-toggle.chat-toggle--text-button {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .mr-2 {
@@ -4863,6 +4862,34 @@ button.chat-toggle.chat-toggle--text-button {
   height: 2.25rem;
 }
 
+.h-\[550px\] {
+  height: 550px;
+}
+
+.h-\[35vh\] {
+  height: 35vh;
+}
+
+.h-\[45vh\] {
+  height: 45vh;
+}
+
+.h-\[40vh\] {
+  height: 40vh;
+}
+
+.h-\[10vh\] {
+  height: 10vh;
+}
+
+.h-\[30vh\] {
+  height: 30vh;
+}
+
+.h-\[20vh\] {
+  height: 20vh;
+}
+
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -5109,10 +5136,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .w-9 {
   width: 2.25rem;
-}
-
-.w-\[200px\] {
-  width: 200px;
 }
 
 .max-w-\[235px\] {
@@ -6380,6 +6403,14 @@ button.chat-toggle.chat-toggle--text-button {
   padding-bottom: 0.25rem;
 }
 
+.pt-\[customPadding\%\] {
+  padding-top: customPadding%;
+}
+
+.pt-\[100\%\] {
+  padding-top: 100%;
+}
+
 .text-left {
   text-align: left;
 }
@@ -7276,6 +7307,10 @@ button.chat-toggle.chat-toggle--text-button {
     height: 20rem;
   }
 
+  .sm\:h-\[50vh\] {
+    height: 50vh;
+  }
+
   .sm\:w-80 {
     width: 20rem;
   }
@@ -7397,6 +7432,14 @@ button.chat-toggle.chat-toggle--text-button {
     height: 2rem;
   }
 
+  .md\:h-\[500px\] {
+    height: 500px;
+  }
+
+  .md\:h-\[50vh\] {
+    height: 50vh;
+  }
+
   .md\:max-h-\[18rem\] {
     max-height: 18rem;
   }
@@ -7491,10 +7534,6 @@ button.chat-toggle.chat-toggle--text-button {
 
   .md\:flex-nowrap {
     flex-wrap: nowrap;
-  }
-
-  .md\:place-items-start {
-    place-items: start;
   }
 
   .md\:items-start {
@@ -8085,6 +8124,14 @@ button.chat-toggle.chat-toggle--text-button {
 
   .lg\:h-\[8\.5rem\] {
     height: 8.5rem;
+  }
+
+  .lg\:h-\[40vh\] {
+    height: 40vh;
+  }
+
+  .lg\:h-\[50vh\] {
+    height: 50vh;
   }
 
   .lg\:w-\[27\.5rem\] {
