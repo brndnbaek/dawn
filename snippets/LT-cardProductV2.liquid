@@ -58,14 +58,12 @@
     animation-duration: 500;
   }
   .new-label {
-    padding: 3px;
     text-transform: uppercase;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -1rem;
+    left: 0rem;
     z-index: 2;
     font-size: 0.75rem;
-    border-radius: 2px;
   }
   .tooltip {
     visibility: hidden;
@@ -206,9 +204,9 @@
 
   <div class=" ContentBox bg-gradient-to-b from-gray-200 via-gray-100 to-gray-50 shadow grid grid-rows-8 relative group-hover:shadow-none">
     {% if difference < 3888000 %}
-      <span class="new-label text-rose-600 font-semibold">new</span>
+      <span class="new-label text-rose-500 font-semibold">new</span>
     {% endif %}
-    <div class="row-span-6 text-xl px-6 pt-2 min-h-[8.5rem] text-center flex flex-col justify-between">
+    <div class="row-span-6 text-xl px-4 pt-2 min-h-[8.5rem] text-center flex flex-col justify-between">
       {% render 'splitTitle', card_product: card_product %}
       {% if card_product.tags contains 'saleTag20' %}
         <div class="flex justify-center items-baseline gap-4">

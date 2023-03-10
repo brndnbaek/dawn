@@ -1,4 +1,4 @@
-<div class="text-slate-600 leading-[1.3] basis-4/5">
+<div class="text-slate-700 leading-[1.3] basis-4/5">
   <a href="{{ card_product.url }}" class="no-underline full-unstyled-link">
     {% case card_product.type %}
       {% when 'Writing Material' %}
@@ -35,24 +35,23 @@
         <div class="text-slate-700 font-medium">{{ kpopAlbum[1] | remove_last: "'" | truncate: 35 }}</div>
       {% when 'Gundam Model Kit' %}
         {% assign splitTitle = card_product.title | split: ' #' %}
-        <span class="block font-semibold {% if splitTitle[1] %}text-lg{%else%}text-xl text-slate-800{% endif %}">
+        <span class="block font-semibold {% if splitTitle[1] %}text-lg text-slate-700{%else%}text-xl text-slate-700{% endif %}">
           {{- splitTitle[0] }}
         </span>
         {% if splitTitle[1] %}
-          <span class="block font-semibold text-xl text-slate-800">{{ splitTitle[1] | prepend: '#' }} </span>
+          <span class="block font-semibold text-xl text-slate-700">{{ splitTitle[1] | prepend: '#' }} </span>
         {% endif %}
         <span class="block">{{ splitTitle[2] | truncate: 35 }} </span>
         {{ splitTitle[3] | truncate: 35 }}
       {% when 'Other Model Kit' %}
         {% assign splitTitle = card_product.title | remove: 'Model Kit' | split: ' - ' %}
-        <span class="block font-semibold px-2 {% if splitTitle[1] %}text-lg{%else%}text-xl text-slate-800{% endif %}">
+        <span class="block font-semibold text-slate-700 text-xl">
           {{- splitTitle[0] }}
         </span>
         {% if splitTitle[1] %}
-          <br>
-          {{ splitTitle[1] }}
-          <br>
-          {{ splitTitle[2] | truncate: 35 }}
+          <span class="block font-semibold text-xl text-slate-700 
+            {% if splitTitle[2] %}text-lg italic py-1{% endif %}">{{ splitTitle[1] }}</span>
+          <span class="block font-semibold text-xl text-slate-700">{{ splitTitle[2] | truncate: 50 }}</span>
           {{ splitTitle[3] | truncate: 35 }}
         {% endif %}
       {% when 'Figure' %}

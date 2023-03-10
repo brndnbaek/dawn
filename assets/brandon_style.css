@@ -4862,34 +4862,6 @@ button.chat-toggle.chat-toggle--text-button {
   height: 2.25rem;
 }
 
-.h-\[550px\] {
-  height: 550px;
-}
-
-.h-\[35vh\] {
-  height: 35vh;
-}
-
-.h-\[45vh\] {
-  height: 45vh;
-}
-
-.h-\[40vh\] {
-  height: 40vh;
-}
-
-.h-\[10vh\] {
-  height: 10vh;
-}
-
-.h-\[30vh\] {
-  height: 30vh;
-}
-
-.h-\[20vh\] {
-  height: 20vh;
-}
-
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -5918,6 +5890,16 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
+.bg-slate-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -6403,14 +6385,6 @@ button.chat-toggle.chat-toggle--text-button {
   padding-bottom: 0.25rem;
 }
 
-.pt-\[customPadding\%\] {
-  padding-top: customPadding%;
-}
-
-.pt-\[100\%\] {
-  padding-top: 100%;
-}
-
 .text-left {
   text-align: left;
 }
@@ -6421,6 +6395,14 @@ button.chat-toggle.chat-toggle--text-button {
 
 .text-right {
   text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-start {
+  text-align: start;
 }
 
 .align-middle {
@@ -6744,6 +6726,11 @@ button.chat-toggle.chat-toggle--text-button {
 .text-slate-500 {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.text-rose-500 {
+  --tw-text-opacity: 1;
+  color: rgb(244 63 94 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -7307,10 +7294,6 @@ button.chat-toggle.chat-toggle--text-button {
     height: 20rem;
   }
 
-  .sm\:h-\[50vh\] {
-    height: 50vh;
-  }
-
   .sm\:w-80 {
     width: 20rem;
   }
@@ -7430,10 +7413,6 @@ button.chat-toggle.chat-toggle--text-button {
 
   .md\:h-8 {
     height: 2rem;
-  }
-
-  .md\:h-\[500px\] {
-    height: 500px;
   }
 
   .md\:h-\[50vh\] {
@@ -8124,10 +8103,6 @@ button.chat-toggle.chat-toggle--text-button {
 
   .lg\:h-\[8\.5rem\] {
     height: 8.5rem;
-  }
-
-  .lg\:h-\[40vh\] {
-    height: 40vh;
   }
 
   .lg\:h-\[50vh\] {
