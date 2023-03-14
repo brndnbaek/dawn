@@ -13,9 +13,9 @@
   }
   .SquareImg {
     grid-column: 2 / 20;
-    grid-row: 1 / 15;
+    grid-row: 1 / 14;
     justify-self: center;
-    align-self: center
+    align-self: center;
   }
   .PortraitImg {
     grid-column: 6 / 16;
@@ -205,7 +205,7 @@
           width="{{ card_product.featured_media.width }}"
           height="{{ card_product.fetured_media.height }}"
           loading="lazy"
-          class="w-[20rem] group-hover:duration-500 duration-300 group-hover:-translate-y-[1rem]  aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
+          class="w-[21.5rem] group-hover:duration-500 duration-300 group-hover:-translate-y-[1rem]  aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
           style="background-color:unset;"
         >
       </a>

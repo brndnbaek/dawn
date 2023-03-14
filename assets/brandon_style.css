@@ -5173,6 +5173,14 @@ button.chat-toggle.chat-toggle--text-button {
   width: 100%;
 }
 
+.w-\[20\.5rem\] {
+  width: 20.5rem;
+}
+
+.w-\[21\.5rem\] {
+  width: 21.5rem;
+}
+
 .max-w-\[235px\] {
   max-width: 235px;
 }
