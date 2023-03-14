@@ -6,16 +6,16 @@
   }
 </style>
 
-<main class="relative w-full h-full mx-auto bg-gradient-to-br from-rose-200 to-amber-200">
+<main class="relative w-full h-full mx-auto bg-gradient-to-br from-pink-50 to-amber-100">
   <header class="top-0 left-0 border-0 LT_waveDivider">
     {% render 'divider-wave', fill_color: 'amber' %}
   </header>
 
   <section class="w-[95%] md:w-10/12 mx-auto max-w-[1100px] gap-y-8 pt-[8rem] mx-auto flex flex-wrap justify-around" >
-    <div class="flex flex-col gap-2 relative items-center text-center w-10/12 md:w-[45%] outline outline-purple-400 rounded-xl">
+    <div class="flex flex-col gap-2 relative items-center text-center w-10/12 md:w-[45%] bg-no-repeat rounded-xl bg-cover" style="background-image: url('{{ 'kpop_banner_bg.jpg' | asset_url }}')">
         <a href="{{ collections['kpop-albums'].url }}" class="after:absolute after:inset-0 no-underline">
         
-        <div class="block font-bold leading-normal lg:leading-[2] text-transparent text-4xl lg:text-6xl bg-gradient-to-r from-rose-400 to-violet-500 bg-clip-text ">
+        <div class="block font-bold leading-normal lg:leading-[2] text-4xl lg:text-6xl text-slate-700">
           <span class="block">K-Pop Albums</span>
           <span class="block">Buy 1 Get 1 50% Off</span>
         </div>
@@ -282,20 +282,7 @@
           </a>
         </div>
       </div>
-      <!-- pencil promotion  -->
-      {% comment %}
-        <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-green-700">
-        <div class="flex flex-col justify-between w-11/12 gap-8 py-10 text-center rounded-md h-11/12">
-        <div class="text-3xl md:text-5xl font-bold text-green-600">25% off Writing Material</div>
-        <div class="text-xl md:text-2xl font-semibold">Minimum Purchase of 10 items</div>
-        <div class="text-base md:text-3xl font-semibold">Discount Code: PEN25</div>
-        <a href="{{ collections['writing-material'].url }}" class="no-underline">
-        <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-green-400 hover:bg-green-200 rounded-xl drop-shadow-lg">Writing Material</span>
-        </a>
-        </div>
-        </div>
-        </div>
-      {% endcomment %}
+      
     </section>
 
     <!--Popup parade left image banner -->
@@ -324,7 +311,8 @@
     </a> {%- endcomment -%}
 
     {%- comment -%} youtube promotion {%- endcomment -%}
-      <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-transparent justify-evenly rounded my-10 p-6 shadow"> <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
+      <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-white/20  justify-evenly rounded my-10 p-6 shadow"> 
+      <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
         <img
           src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}"
           alt=""
@@ -339,33 +327,35 @@
       <!-- <div class="px-4 h-full aspect-vertical md:h-[350px] md:w-[200px] md:aspect-square rounded-md">
         <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BRyquJqshXE?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&player=html5" frameborder="0" ></iframe>
       </div> -->
-      <div class="flex flex-wrap justify-evenly">
-        <div>
-          <a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA?sub_confirmation=1" target="_blank"><img
+      <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-evenly">
+          <a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA?sub_confirmation=1" target="_blank" class="mx-auto"><img
               src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}"
               alt=""
+              width="350"
+              height="350"
               loading="lazy"
-              class="aspect-square"></a>
-        </div>
-        {% for article in section.settings.blog.articles limit: 1 %}
-          <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
-          <div class="flex flex-col rounded-md w-11/12 md:w-[54%]">
-            <iframe
-              class="w-full h-auto rounded-md aspect-video"
-              src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0" }}"
-              frameborder="0"></iframe>
-            <h3 class="text-center">
-              {% if article.metafields.custom.giveaway_winner %}
-                Winner: {{ article.metafields.custom.giveaway_winner }}
-              {% else %}
-                <a href="{{ article.metafields.custom.youtube_link }}" target="_blank">Enter Giveaway</a>
-              {% endif %}
-            </h3>
-          </div>
-          <!-- {{ article.excerpt }}
-          Winner: {% if article.custom.giveaway_winner %} {{ article.custom.giveaway_winner }}{% else %} TBA {% endif %} -->
-
-        {% endfor %}
+              class="aspect-square">
+          </a>
+          
+          {% for article in section.settings.blog.articles limit: 1 %}
+            <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
+            <div class="grid place-items-center w-screen">
+              <iframe
+                class="aspect-video md:h-[350px] md:w-auto w-[95%] h-auto mr-0 ml-0" 
+                src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube-nocookie.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0" }}"
+                frameborder="0"></iframe>
+              <h3 class="text-center">
+                {% if article.metafields.custom.giveaway_winner %}
+                  Winner: {{ article.metafields.custom.giveaway_winner }}
+                {% else %}
+                  <a href="{{ article.metafields.custom.youtube_link }}" target="_blank">Enter Giveaway</a>
+                {% endif %}
+              </h3>
+            </div>
+            <!-- {{ article.excerpt }}
+            Winner: {% if article.custom.giveaway_winner %} {{ article.custom.giveaway_winner }}{% else %} TBA {% endif %} -->
+  
+          {% endfor %}
       </div>
     </section>
 
@@ -477,7 +467,7 @@
   <!-- Figuarts Mini -->
   <a href="{{ collections['figuarts-mini'].url }}" class="no-underline">
     <section class="mx-auto max-w-[1200px] w-[95%] md:w-11/12 aspect-[12/4] overflow-hidden my-20 group relative rounded grid place-items-center">
-      <div class="absolute bottom-0 w-full rounded bg-gradient-to-r from-gray-500 to-green-400 h-2/3"></div>
+      <div class="absolute bottom-0 w-full rounded bg-gradient-to-r from-gray-500 to-green-400 h-2/3"> </div>
       <div class="absolute bottom-0 w-11/12">
         <img
           src="{{ 'LT_figuartsminiDS.png' | asset_img_url: 'x400' }}"
