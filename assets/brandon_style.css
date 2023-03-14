@@ -5467,6 +5467,10 @@ button.chat-toggle.chat-toggle--text-button {
   flex-wrap: nowrap;
 }
 
+.place-content-end {
+  place-content: end;
+}
+
 .place-items-center {
   place-items: center;
 }
@@ -5513,6 +5517,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.justify-items-end {
+  justify-items: end;
 }
 
 .justify-items-center {
@@ -7797,6 +7805,10 @@ button.chat-toggle.chat-toggle--text-button {
     flex-wrap: nowrap;
   }
 
+  .md\:place-content-end {
+    place-content: end;
+  }
+
   .md\:items-start {
     align-items: flex-start;
   }
@@ -7821,6 +7833,10 @@ button.chat-toggle.chat-toggle--text-button {
   .md\:prose-lg :where(p):not(:where([class~="not-prose"] *)) {
     margin-top: 1.3333333em;
     margin-bottom: 1.3333333em;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
   }
 
   .md\:prose-lg :where([class~="lead"]):not(:where([class~="not-prose"] *)) {

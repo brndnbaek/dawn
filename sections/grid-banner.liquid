@@ -327,7 +327,7 @@
       <!-- <div class="px-4 h-full aspect-vertical md:h-[350px] md:w-[200px] md:aspect-square rounded-md">
         <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BRyquJqshXE?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&player=html5" frameborder="0" ></iframe>
       </div> -->
-      <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-evenly">
+      <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between md:w-11/12 mx-auto w-full">
           <a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA?sub_confirmation=1" target="_blank" class="mx-auto"><img
               src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}"
               alt=""
@@ -339,9 +339,9 @@
           
           {% for article in section.settings.blog.articles limit: 1 %}
             <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
-            <div class="grid place-items-center w-screen">
+            <div class="grid  place-items-center md:place-content-end w-screen">
               <iframe
-                class="aspect-video md:h-[350px] md:w-auto w-[95%] h-auto mr-0 ml-0" 
+                class="aspect-video md:h-[350px] md:w-auto w-[95%] h-auto mx-auto" 
                 src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube-nocookie.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0" }}"
                 frameborder="0"></iframe>
               <h3 class="text-center">
