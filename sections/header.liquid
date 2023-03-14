@@ -90,7 +90,7 @@
   <header
     class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     
-    <div id="mobile-notification" class="grid place-items-center fixed animate invisible z-10 w-screen h-[12rem] text-center bg-blue-300 inset-0 transition duration-1000" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
+    <div id="mobile-notification" class="grid place-items-center fixed animate invisible z-10 w-screen py-4 h-[7rem] sm:h-[9rem] text-center bg-blue-300 text-lg sm:text-xl inset-0 transition duration-1000" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
       Item added to your cart
         {% if cart.total_price < 6000 %}
             <p>Have your eye on anything else? If you spend {{ 6000 | minus: cart.total_price | money }} more, you qualify for free U.S. shipping!</p>

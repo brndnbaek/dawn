@@ -91,7 +91,7 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 <div class="lt_cardgrid w-full group relative h-[340px] sm:h-[400px]">
-  <div class="GridArea bg-gradient-to-b from-zinc-200 to-gray-100/50 text-slate-700/50 relative  group-hover:transition-all">
+  <div class="GridArea bg-gradient-to-b from-zinc-200 to-gray-100/50 text-slate-700/50 relative group-hover:from-zinc-300  group-hover:transition-all">
     <div class="absolute top-1 left-1 flex items-center text-lg p-1 text-gray-500">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -192,7 +192,7 @@
           width="{{ card_product.featured_media.width }}"
           height="{{ card_product.fetured_media.height }}"
           loading="lazy"
-          class="max-h-[220px] sm:max-h-[255px] w-auto group-hover:-translate-y-[1.25rem] group-hover:duration-500 duration-300 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
+          class="max-h-[220px] sm:max-h-[255px] w-auto -translate-y-[1.25rem] drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
           style="background-color:unset;"
         >
       </a>
@@ -206,7 +206,7 @@
           width="{{ card_product.featured_media.width }}"
           height="{{ card_product.fetured_media.height }}"
           loading="lazy"
-          class="w-[21.5rem] group-hover:duration-500 duration-300 group-hover:-translate-y-[1rem]  aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
+          class="w-[21.5rem] -translate-y-[1rem]  aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
           style="background-color:unset;"
         >
       </a>

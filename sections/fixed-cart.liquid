@@ -59,9 +59,12 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
         // Show a pop-up
         {% comment %} document.getElementById('cart-notification').classList.add('animate','active'); {% endcomment %}
         var popupwin = document.getElementById('mobile-notification');
+        var dawnNotification = document.getElementById("cart-notification")
+        //dawnNotification.classList.add('active', 'animate');
         popupwin.classList.remove('invisible');
         function new_popup() {
-          setTimeout(function() { popupwin.classList.add('invisible');}, 2500);
+          setTimeout(function() { popupwin.classList.add('invisible');}, 3000);
+          //setTimeout(function() { dawnNotification.classList.remove('active', 'animate');}, 2500);
         }
         new_popup();
         {% comment %} var popupwin = document.getElementById('cart-notification');

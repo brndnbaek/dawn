@@ -4909,6 +4909,10 @@ button.chat-toggle.chat-toggle--text-button {
   height: 340px;
 }
 
+.h-\[9rem\] {
+  height: 9rem;
+}
+
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -5364,6 +5368,16 @@ button.chat-toggle.chat-toggle--text-button {
 
 .-translate-x-\[1rem\] {
   --tw-translate-x: -1rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-\[1\.25rem\] {
+  --tw-translate-y: -1.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-\[1rem\] {
+  --tw-translate-y: -1rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -7561,6 +7575,12 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.group:hover .group-hover\:from-zinc-300 {
+  --tw-gradient-from: #d4d4d8;
+  --tw-gradient-to: rgb(212 212 216 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .group:hover .group-hover\:to-gray-200 {
   --tw-gradient-to: #e5e7eb;
 }
@@ -7638,6 +7658,14 @@ button.chat-toggle.chat-toggle--text-button {
 
   .sm\:h-\[400px\] {
     height: 400px;
+  }
+
+  .sm\:h-\[12rem\] {
+    height: 12rem;
+  }
+
+  .sm\:h-\[9rem\] {
+    height: 9rem;
   }
 
   .sm\:max-h-\[255px\] {
