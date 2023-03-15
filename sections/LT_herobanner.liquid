@@ -1,0 +1,75 @@
+
+
+
+{% comment %} <section class="relative flex flex-col h-[10rem]">
+  <header class="top-0 left-0 border-0 LT_waveDivider">
+    {% render 'divider-wave', fill_color: 'amber' %}
+  </header>
+</section> {% endcomment %}
+  <div class="hidden h-[15vw] sm:h-[18vw] w-full bg-gradient-to-br from-amber-100 to-rose-50  relative w-full overflow-hidden">
+    <div class="absolute text-[9vw] sm:text-[10vw] w-full text-center leading-none font-bold text-gray-50 h-[12vw] top-10 drop-shadow-xl">
+      New Figure
+    </div>
+    {% comment %} png image scrolls {% endcomment %}
+    <div class="flex banner-animation left-0 absolute pt-[2vw] sm:pt-[5vw]">
+      {% comment %} loop no. 1 {% endcomment %}
+      <div class="flex">
+        {% assign count = 0 %}
+        {% for product in collections.all.products %}
+          {% if count == 10 %}
+            {% break %}
+          {% endif %}
+          {% if product.featured_image.src contains '.png' and product.type == 'Figure' %}
+            <a href="{{ product.url }}" class="">
+              <img
+                src="{{ product.featured_image | image_url: width: 350 }}"
+                loading="lazy"
+                alt=""
+                width="300"
+                height="300"
+                class="aspect-square object-contain w-[14vw] sm:w-[13vw] h-auto relative pt-10 hover:scale-110 hover:rounded-full hover:bg-gray-100/30 origin-bottom"
+              >
+            </a>
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% comment %} loop no. 2 {% endcomment %}
+      <div class="flex">
+        {% assign count = 0 %}
+        {% for product in collections.all.products %}
+          {% if count == 10 %}
+            {% break %}
+          {% endif %}
+          {% if product.featured_image.src contains '.png' and product.type == 'Figure' %}
+            <a href="{{ product.url }}">
+              <img
+                src="{{ product.featured_image | image_url: width: 350 }}"
+                loading="lazy"
+                alt=""
+                width="300"
+                height="300"
+                class="aspect-square object-contain w-[14vw] sm:w-[12vw] h-auto relative pt-10"
+              >
+            </a>
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+
+{% schema %}
+{
+  "name": "LT Herobanner",
+
+  "presets": [
+    {
+      "name": "LT Herobanner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -3130,6 +3130,51 @@ button.chat-toggle.chat-toggle--text-button {
   height: auto;
 }
 
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, #F2C)
+}
+
+.link-underline-orange {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#f09174, #f09174)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.banner-animation {
+  width: 200%;
+  animation: marquee 120s linear infinite;
+  transform: translate(0, 0%);
+}
+
+.banner-animation:hover {
+  animation-play-state: paused;
+}
+
+.banner-container {
+  position: absolute;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -4412,6 +4457,10 @@ button.chat-toggle.chat-toggle--text-button {
   left: -2.75rem;
 }
 
+.top-10 {
+  top: 2.5rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -4474,10 +4523,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .row-span-2 {
   grid-row: span 2 / span 2;
-}
-
-.row-span-6 {
-  grid-row: span 6 / span 6;
 }
 
 .row-span-5 {
@@ -4657,12 +4702,8 @@ button.chat-toggle.chat-toggle--text-button {
   margin-bottom: 5rem;
 }
 
-.mr-0 {
-  margin-right: 0px;
-}
-
-.ml-0 {
-  margin-left: 0px;
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .block {
@@ -4813,10 +4854,6 @@ button.chat-toggle.chat-toggle--text-button {
   height: 7rem;
 }
 
-.h-\[12rem\] {
-  height: 12rem;
-}
-
 .h-\[90\%\] {
   height: 90%;
 }
@@ -4865,6 +4902,10 @@ button.chat-toggle.chat-toggle--text-button {
   height: 1.75rem;
 }
 
+.h-\[340px\] {
+  height: 340px;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -4901,16 +4942,40 @@ button.chat-toggle.chat-toggle--text-button {
   height: 2.25rem;
 }
 
-.h-\[320px\] {
-  height: 320px;
+.h-\[15vw\] {
+  height: 15vw;
 }
 
-.h-\[340px\] {
-  height: 340px;
+.h-\[12vw\] {
+  height: 12vw;
 }
 
-.h-\[9rem\] {
-  height: 9rem;
+.h-\[13vw\] {
+  height: 13vw;
+}
+
+.h-\[10rem\] {
+  height: 10rem;
+}
+
+.h-\[14vw\] {
+  height: 14vw;
+}
+
+.h-\[18vw\] {
+  height: 18vw;
+}
+
+.h-\[20vw\] {
+  height: 20vw;
+}
+
+.h-\[22vw\] {
+  height: 22vw;
+}
+
+.h-2 {
+  height: 0.5rem;
 }
 
 .max-h-\[35vh\] {
@@ -4941,8 +5006,8 @@ button.chat-toggle.chat-toggle--text-button {
   max-height: 80%;
 }
 
-.max-h-\[255px\] {
-  max-height: 255px;
+.max-h-\[220px\] {
+  max-height: 220px;
 }
 
 .max-h-\[24rem\] {
@@ -4953,32 +5018,12 @@ button.chat-toggle.chat-toggle--text-button {
   max-height: 4vh;
 }
 
-.max-h-\[350px\] {
-  max-height: 350px;
-}
-
-.max-h-\[300px\] {
-  max-height: 300px;
-}
-
-.max-h-\[220px\] {
-  max-height: 220px;
-}
-
-.max-h-\[180px\] {
-  max-height: 180px;
-}
-
-.min-h-\[8rem\] {
-  min-height: 8rem;
+.min-h-\[6rem\] {
+  min-height: 6rem;
 }
 
 .min-h-\[2\.5vh\] {
   min-height: 2.5vh;
-}
-
-.min-h-\[6rem\] {
-  min-height: 6rem;
 }
 
 .w-full {
@@ -5153,8 +5198,12 @@ button.chat-toggle.chat-toggle--text-button {
   width: 40%;
 }
 
-.w-\[20rem\] {
-  width: 20rem;
+.w-\[300px\] {
+  width: 300px;
+}
+
+.w-\[21\.5rem\] {
+  width: 21.5rem;
 }
 
 .w-4 {
@@ -5189,40 +5238,36 @@ button.chat-toggle.chat-toggle--text-button {
   width: 2.25rem;
 }
 
-.w-\[400px\] {
-  width: 400px;
+.w-\[14vw\] {
+  width: 14vw;
 }
 
-.w-\[200px\] {
-  width: 200px;
+.w-\[12vw\] {
+  width: 12vw;
 }
 
-.w-\[100\%\] {
-  width: 100%;
+.w-\[23\%\] {
+  width: 23%;
 }
 
-.w-\[20\.5rem\] {
-  width: 20.5rem;
+.w-\[10\%\] {
+  width: 10%;
 }
 
-.w-\[21\.5rem\] {
-  width: 21.5rem;
+.w-\[15\%\] {
+  width: 15%;
 }
 
-.w-\[19rem\] {
-  width: 19rem;
+.w-\[16vw\] {
+  width: 16vw;
 }
 
-.w-\[16rem\] {
-  width: 16rem;
+.w-\[18vw\] {
+  width: 18vw;
 }
 
-.w-\[15\.5rem\] {
-  width: 15.5rem;
-}
-
-.w-\[300px\] {
-  width: 300px;
+.w-\[48\%\] {
+  width: 48%;
 }
 
 .max-w-\[235px\] {
@@ -5297,14 +5342,6 @@ button.chat-toggle.chat-toggle--text-button {
   max-width: 280px;
 }
 
-.max-w-full {
-  max-width: 100%;
-}
-
-.max-w-\[16rem\] {
-  max-width: 16rem;
-}
-
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -5347,10 +5384,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .basis-4\/5 {
   flex-basis: 80%;
-}
-
-.basis-2\/3 {
-  flex-basis: 66.666667%;
 }
 
 .origin-bottom {
@@ -5505,16 +5538,12 @@ button.chat-toggle.chat-toggle--text-button {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 
-.grid-rows-8 {
-  grid-template-rows: repeat(8, minmax(0, 1fr));
+.grid-rows-7 {
+  grid-template-rows: repeat(7, minmax(0, 1fr));
 }
 
 .grid-rows-2 {
   grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
-.grid-rows-7 {
-  grid-template-rows: repeat(7, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -5535,10 +5564,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .flex-nowrap {
   flex-wrap: nowrap;
-}
-
-.place-content-end {
-  place-content: end;
 }
 
 .place-items-center {
@@ -5587,10 +5612,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .justify-evenly {
   justify-content: space-evenly;
-}
-
-.justify-items-end {
-  justify-items: end;
 }
 
 .justify-items-center {
@@ -5659,6 +5680,18 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .place-self-start {
@@ -5763,10 +5796,6 @@ button.chat-toggle.chat-toggle--text-button {
   border-bottom-left-radius: 0.375rem;
 }
 
-.rounded-bl-md {
-  border-bottom-left-radius: 0.375rem;
-}
-
 .border-0 {
   border-width: 0px;
 }
@@ -5782,18 +5811,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .border-t-0 {
   border-top-width: 0px;
-}
-
-.border-l {
-  border-left-width: 1px;
-}
-
-.border-l-4 {
-  border-left-width: 4px;
-}
-
-.border-b {
-  border-bottom-width: 1px;
 }
 
 .border-solid {
@@ -5828,16 +5845,6 @@ button.chat-toggle.chat-toggle--text-button {
 .border-orange-400 {
   --tw-border-opacity: 1;
   border-color: rgb(251 146 60 / var(--tw-border-opacity));
-}
-
-.border-gray-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity));
-}
-
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .bg-white {
@@ -5947,9 +5954,8 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(129 140 248 / var(--tw-bg-opacity));
 }
 
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+.bg-white\/20 {
+  background-color: rgb(255 255 255 / 0.2);
 }
 
 .bg-black\/80 {
@@ -6127,16 +6133,57 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
-.bg-white\/20 {
-  background-color: rgb(255 255 255 / 0.2);
-}
-
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
 }
 
-.bg-white\/70 {
-  background-color: rgb(255 255 255 / 0.7);
+.bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.3);
+}
+
+.bg-gray-700\/70 {
+  background-color: rgb(55 65 81 / 0.7);
+}
+
+.bg-gray-700\/50 {
+  background-color: rgb(55 65 81 / 0.5);
+}
+
+.bg-rose-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(190 18 60 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700\/20 {
+  background-color: rgb(55 65 81 / 0.2);
+}
+
+.bg-teal-400\/10 {
+  background-color: rgb(45 212 191 / 0.1);
+}
+
+.bg-blue-400\/20 {
+  background-color: rgb(96 165 250 / 0.2);
+}
+
+.bg-blue-400\/40 {
+  background-color: rgb(96 165 250 / 0.4);
+}
+
+.bg-amber-400\/40 {
+  background-color: rgb(251 191 36 / 0.4);
+}
+
+.bg-zinc-400\/40 {
+  background-color: rgb(161 161 170 / 0.4);
+}
+
+.bg-purple-400\/40 {
+  background-color: rgb(192 132 252 / 0.4);
+}
+
+.bg-lime-400\/40 {
+  background-color: rgb(163 230 53 / 0.4);
 }
 
 .bg-opacity-20 {
@@ -6175,15 +6222,9 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-rose-200 {
-  --tw-gradient-from: #fecdd3;
-  --tw-gradient-to: rgb(254 205 211 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-rose-400 {
-  --tw-gradient-from: #fb7185;
-  --tw-gradient-to: rgb(251 113 133 / 0);
+.from-pink-50 {
+  --tw-gradient-from: #fdf2f8;
+  --tw-gradient-to: rgb(253 242 248 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -6283,86 +6324,33 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-gray-200 {
-  --tw-gradient-from: #e5e7eb;
-  --tw-gradient-to: rgb(229 231 235 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .from-zinc-200 {
   --tw-gradient-from: #e4e4e7;
   --tw-gradient-to: rgb(228 228 231 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-yellow-200 {
-  --tw-gradient-from: #fef08a;
-  --tw-gradient-to: rgb(254 240 138 / 0);
+.from-pink-300 {
+  --tw-gradient-from: #f9a8d4;
+  --tw-gradient-to: rgb(249 168 212 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-yellow-100 {
-  --tw-gradient-from: #fef9c3;
-  --tw-gradient-to: rgb(254 249 195 / 0);
+.from-amber-100 {
+  --tw-gradient-from: #fef3c7;
+  --tw-gradient-to: rgb(254 243 199 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-yellow-50 {
-  --tw-gradient-from: #fefce8;
-  --tw-gradient-to: rgb(254 252 232 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-slate-50 {
-  --tw-gradient-from: #f8fafc;
-  --tw-gradient-to: rgb(248 250 252 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-slate-100 {
-  --tw-gradient-from: #f1f5f9;
-  --tw-gradient-to: rgb(241 245 249 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-slate-200 {
-  --tw-gradient-from: #e2e8f0;
-  --tw-gradient-to: rgb(226 232 240 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-stone-200 {
-  --tw-gradient-from: #e7e5e4;
-  --tw-gradient-to: rgb(231 229 228 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-purple-100 {
-  --tw-gradient-from: #f3e8ff;
-  --tw-gradient-to: rgb(243 232 255 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-purple-50 {
-  --tw-gradient-from: #faf5ff;
-  --tw-gradient-to: rgb(250 245 255 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-pink-50 {
-  --tw-gradient-from: #fdf2f8;
-  --tw-gradient-to: rgb(253 242 248 / 0);
+.from-transparent {
+  --tw-gradient-from: transparent;
+  --tw-gradient-to: rgb(0 0 0 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to);
-}
-
-.via-gray-100 {
-  --tw-gradient-to: rgb(243 244 246 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), #f3f4f6, var(--tw-gradient-to);
 }
 
 .via-zinc-100 {
@@ -6376,14 +6364,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .to-amber-100 {
   --tw-gradient-to: #fef3c7;
-}
-
-.to-amber-200 {
-  --tw-gradient-to: #fde68a;
-}
-
-.to-violet-500 {
-  --tw-gradient-to: #8b5cf6;
 }
 
 .to-pink-400 {
@@ -6400,6 +6380,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .to-black\/80 {
   --tw-gradient-to: rgb(0 0 0 / 0.8);
+}
+
+.to-violet-500 {
+  --tw-gradient-to: #8b5cf6;
 }
 
 .to-red-300 {
@@ -6442,20 +6426,28 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-gradient-to: rgb(243 244 246 / 0.5);
 }
 
-.to-gray-50 {
-  --tw-gradient-to: #f9fafb;
-}
-
 .to-zinc-50 {
   --tw-gradient-to: #fafafa;
 }
 
-.bg-contain {
-  background-size: contain;
+.to-rose-200 {
+  --tw-gradient-to: #fecdd3;
+}
+
+.to-rose-50 {
+  --tw-gradient-to: #fff1f2;
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent;
 }
 
 .bg-cover {
   background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
 }
 
 .bg-fixed {
@@ -6703,6 +6695,42 @@ button.chat-toggle.chat-toggle--text-button {
   padding-top: 0.25rem;
 }
 
+.pt-\[1vw\] {
+  padding-top: 1vw;
+}
+
+.pt-\[5rem\] {
+  padding-top: 5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pt-\[2vw\] {
+  padding-top: 2vw;
+}
+
+.pt-14 {
+  padding-top: 3.5rem;
+}
+
+.pt-\[4vw\] {
+  padding-top: 4vw;
+}
+
+.pt-\[6vw\] {
+  padding-top: 6vw;
+}
+
+.pt-\[5vw\] {
+  padding-top: 5vw;
+}
+
 .text-left {
   text-align: left;
 }
@@ -6769,6 +6797,38 @@ button.chat-toggle.chat-toggle--text-button {
   line-height: 1rem;
 }
 
+.text-\[9vw\] {
+  font-size: 9vw;
+}
+
+.text-\[10vw\] {
+  font-size: 10vw;
+}
+
+.text-\[8vw\] {
+  font-size: 8vw;
+}
+
+.text-\[7vw\] {
+  font-size: 7vw;
+}
+
+.text-\[4vw\] {
+  font-size: 4vw;
+}
+
+.text-\[5vw\] {
+  font-size: 5vw;
+}
+
+.text-\[9vmin\] {
+  font-size: 9vmin;
+}
+
+.text-\[5vmin\] {
+  font-size: 5vmin;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -6819,10 +6879,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .leading-none {
   line-height: 1;
-}
-
-.leading-\[1\.3\] {
-  line-height: 1.3;
 }
 
 .leading-\[1\.1\] {
@@ -6894,10 +6950,6 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
-.text-transparent {
-  color: transparent;
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -6963,9 +7015,8 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(126 34 206 / var(--tw-text-opacity));
 }
 
-.text-green-600 {
-  --tw-text-opacity: 1;
-  color: rgb(22 163 74 / var(--tw-text-opacity));
+.text-transparent {
+  color: transparent;
 }
 
 .text-gray-100 {
@@ -7045,6 +7096,46 @@ button.chat-toggle.chat-toggle--text-button {
 .text-slate-500 {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.text-rose-100 {
+  --tw-text-opacity: 1;
+  color: rgb(255 228 230 / var(--tw-text-opacity));
+}
+
+.text-amber-100 {
+  --tw-text-opacity: 1;
+  color: rgb(254 243 199 / var(--tw-text-opacity));
+}
+
+.text-purple-100 {
+  --tw-text-opacity: 1;
+  color: rgb(243 232 255 / var(--tw-text-opacity));
+}
+
+.text-pink-100 {
+  --tw-text-opacity: 1;
+  color: rgb(252 231 243 / var(--tw-text-opacity));
+}
+
+.text-rose-200 {
+  --tw-text-opacity: 1;
+  color: rgb(254 205 211 / var(--tw-text-opacity));
+}
+
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+
+.text-rose-300 {
+  --tw-text-opacity: 1;
+  color: rgb(253 164 175 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -7158,20 +7249,16 @@ button.chat-toggle.chat-toggle--text-button {
   outline-width: 2px;
 }
 
-.outline-0 {
-  outline-width: 0px;
-}
-
-.outline-purple-400 {
-  outline-color: #c084fc;
-}
-
 .outline-cyan-600 {
   outline-color: #0891b2;
 }
 
 .outline-cyan-400 {
   outline-color: #22d3ee;
+}
+
+.outline-purple-400 {
+  outline-color: #c084fc;
 }
 
 .outline-teal-400 {
@@ -7200,10 +7287,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .outline-indigo-700 {
   outline-color: #4338ca;
-}
-
-.outline-green-700 {
-  outline-color: #15803d;
 }
 
 .outline-teal-300 {
@@ -7357,6 +7440,16 @@ button.chat-toggle.chat-toggle--text-button {
   display: none;
 }
 
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:rounded-full:hover {
+  border-radius: 9999px;
+}
+
 .hover\:border:hover {
   border-width: 1px;
 }
@@ -7416,11 +7509,6 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(199 210 254 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-green-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-teal-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(94 234 212 / var(--tw-bg-opacity));
@@ -7444,6 +7532,10 @@ button.chat-toggle.chat-toggle--text-button {
 .hover\:bg-orange-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-100\/30:hover {
+  background-color: rgb(243 244 246 / 0.3);
 }
 
 .hover\:text-4xl:hover {
@@ -7501,10 +7593,6 @@ button.chat-toggle.chat-toggle--text-button {
   display: none;
 }
 
-.group:hover .group-hover\:w-\[21rem\] {
-  width: 21rem;
-}
-
 .group:hover .group-hover\:-translate-x-6 {
   --tw-translate-x: -1.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -7521,16 +7609,6 @@ button.chat-toggle.chat-toggle--text-button {
 }
 
 .group:hover .group-hover\:-translate-y-4 {
-  --tw-translate-y: -1rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:-translate-y-\[1\.25rem\] {
-  --tw-translate-y: -1.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:-translate-y-\[1rem\] {
   --tw-translate-y: -1rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -7557,6 +7635,15 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
 
+.group:hover .group-hover\:bg-amber-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 158 11 / var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:bg-opacity-90 {
+  --tw-bg-opacity: 0.9;
+}
+
 .group:hover .group-hover\:bg-gradient-to-tl {
   background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
@@ -7565,24 +7652,10 @@ button.chat-toggle.chat-toggle--text-button {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
 
-.group:hover .group-hover\:bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.group:hover .group-hover\:from-gray-400 {
-  --tw-gradient-from: #9ca3af;
-  --tw-gradient-to: rgb(156 163 175 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .group:hover .group-hover\:from-zinc-300 {
   --tw-gradient-from: #d4d4d8;
   --tw-gradient-to: rgb(212 212 216 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.group:hover .group-hover\:to-gray-200 {
-  --tw-gradient-to: #e5e7eb;
 }
 
 .group:hover .group-hover\:text-indigo-800 {
@@ -7600,20 +7673,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
-}
-
-.group:hover .group-hover\:shadow-none {
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.group:hover .group-hover\:outline-1 {
-  outline-width: 1px;
-}
-
-.group:hover .group-hover\:outline-slate-700 {
-  outline-color: #334155;
 }
 
 .group:hover .group-hover\:transition-all {
@@ -7640,16 +7699,16 @@ button.chat-toggle.chat-toggle--text-button {
 
 @media (min-width: 640px) {
 
-  .sm\:invisible {
-    visibility: hidden;
-  }
-
   .sm\:hidden {
     display: none;
   }
 
   .sm\:h-\[300px\] {
     height: 300px;
+  }
+
+  .sm\:h-\[9rem\] {
+    height: 9rem;
   }
 
   .sm\:h-80 {
@@ -7660,12 +7719,16 @@ button.chat-toggle.chat-toggle--text-button {
     height: 400px;
   }
 
-  .sm\:h-\[12rem\] {
-    height: 12rem;
+  .sm\:h-\[15vw\] {
+    height: 15vw;
   }
 
-  .sm\:h-\[9rem\] {
-    height: 9rem;
+  .sm\:h-\[17vw\] {
+    height: 17vw;
+  }
+
+  .sm\:h-\[18vw\] {
+    height: 18vw;
   }
 
   .sm\:max-h-\[255px\] {
@@ -7680,20 +7743,64 @@ button.chat-toggle.chat-toggle--text-button {
     width: 20rem;
   }
 
-  .sm\:w-\[21\.5rem\] {
-    width: 21.5rem;
-  }
-
-  .sm\:w-auto {
-    width: auto;
-  }
-
   .sm\:w-full {
     width: 100%;
   }
 
+  .sm\:w-\[12vw\] {
+    width: 12vw;
+  }
+
+  .sm\:w-\[16vw\] {
+    width: 16vw;
+  }
+
+  .sm\:w-\[18vw\] {
+    width: 18vw;
+  }
+
+  .sm\:w-\[25vw\] {
+    width: 25vw;
+  }
+
+  .sm\:w-\[23\%\] {
+    width: 23%;
+  }
+
+  .sm\:w-\[18\%\] {
+    width: 18%;
+  }
+
+  .sm\:w-\[15\%\] {
+    width: 15%;
+  }
+
+  .sm\:w-\[13vw\] {
+    width: 13vw;
+  }
+
+  .sm\:gap-8 {
+    gap: 2rem;
+  }
+
   .sm\:pt-2 {
     padding-top: 0.5rem;
+  }
+
+  .sm\:pt-\[3vw\] {
+    padding-top: 3vw;
+  }
+
+  .sm\:pt-\[4vw\] {
+    padding-top: 4vw;
+  }
+
+  .sm\:pt-\[5vw\] {
+    padding-top: 5vw;
+  }
+
+  .sm\:pt-10 {
+    padding-top: 2.5rem;
   }
 
   .sm\:text-2xl {
@@ -7711,12 +7818,54 @@ button.chat-toggle.chat-toggle--text-button {
     line-height: 1.75rem;
   }
 
-  .sm\:leading-\[1\.3\] {
-    line-height: 1.3;
+  .sm\:text-\[10vw\] {
+    font-size: 10vw;
   }
 
-  .group:hover .group-hover\:sm\:visible {
-    visibility: visible;
+  .sm\:text-\[8vw\] {
+    font-size: 8vw;
+  }
+
+  .sm\:text-\[7vw\] {
+    font-size: 7vw;
+  }
+
+  .sm\:text-\[6vw\] {
+    font-size: 6vw;
+  }
+
+  .sm\:text-\[5vw\] {
+    font-size: 5vw;
+  }
+
+  .sm\:text-\[9vw\] {
+    font-size: 9vw;
+  }
+
+  .sm\:text-\[4vw\] {
+    font-size: 4vw;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .sm\:text-\[10vmin\] {
+    font-size: 10vmin;
+  }
+
+  .sm\:text-\[4vmin\] {
+    font-size: 4vmin;
+  }
+
+  .sm\:leading-\[1\.3\] {
+    line-height: 1.3;
   }
 }
 
@@ -7878,8 +8027,8 @@ button.chat-toggle.chat-toggle--text-button {
     width: 200px;
   }
 
-  .md\:w-\[54\%\] {
-    width: 54%;
+  .md\:w-auto {
+    width: auto;
   }
 
   .md\:w-\[65ch\] {
@@ -7902,12 +8051,12 @@ button.chat-toggle.chat-toggle--text-button {
     width: 2rem;
   }
 
-  .md\:w-auto {
-    width: auto;
+  .md\:w-\[23\%\] {
+    width: 23%;
   }
 
-  .md\:w-full {
-    width: 100%;
+  .md\:w-\[15\%\] {
+    width: 15%;
   }
 
   .md\:max-w-\[15rem\] {
@@ -7916,14 +8065,6 @@ button.chat-toggle.chat-toggle--text-button {
 
   .md\:shrink-0 {
     flex-shrink: 0;
-  }
-
-  .md\:basis-1\/3 {
-    flex-basis: 33.333333%;
-  }
-
-  .md\:basis-2\/3 {
-    flex-basis: 66.666667%;
   }
 
   .md\:grid-cols-4 {
@@ -7967,13 +8108,13 @@ button.chat-toggle.chat-toggle--text-button {
     line-height: 1.7777778;
   }
 
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
   .md\:prose-lg :where(p):not(:where([class~="not-prose"] *)) {
     margin-top: 1.3333333em;
     margin-bottom: 1.3333333em;
-  }
-
-  .md\:justify-between {
-    justify-content: space-between;
   }
 
   .md\:prose-lg :where([class~="lead"]):not(:where([class~="not-prose"] *)) {
@@ -7981,10 +8122,6 @@ button.chat-toggle.chat-toggle--text-button {
     line-height: 1.4545455;
     margin-top: 1.0909091em;
     margin-bottom: 1.0909091em;
-  }
-
-  .md\:justify-around {
-    justify-content: space-around;
   }
 
   .md\:justify-evenly {
@@ -8031,6 +8168,10 @@ button.chat-toggle.chat-toggle--text-button {
 
   .md\:gap-6 {
     gap: 1.5rem;
+  }
+
+  .md\:gap-8 {
+    gap: 2rem;
   }
 
   .md\:gap-x-9 {
@@ -8578,6 +8719,14 @@ button.chat-toggle.chat-toggle--text-button {
 
   .lg\:w-\[20rem\] {
     width: 20rem;
+  }
+
+  .lg\:w-\[23\%\] {
+    width: 23%;
+  }
+
+  .lg\:w-\[15\%\] {
+    width: 15%;
   }
 
   .lg\:max-w-\[150px\] {

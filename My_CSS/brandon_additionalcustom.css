@@ -136,3 +136,44 @@ button.chat-toggle.chat-toggle--text-button {
   width: 100%;
   height: auto;
 }
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, #F2C)
+}
+.link-underline-orange {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#f09174, #f09174)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+.banner-animation {
+  width: 200%;
+  animation: marquee 120s linear infinite;
+  transform: translate(0, 0%);
+}
+.banner-animation:hover {
+  animation-play-state: paused;
+}
+.banner-container {
+  position: absolute;
+}

@@ -6,312 +6,233 @@
   }
 </style>
 
-<main class="relative w-full h-full mx-auto bg-gradient-to-br from-pink-50 to-amber-100">
-  <header class="top-0 left-0 border-0 LT_waveDivider">
+<main class="relative w-full h-full mx-auto bg-gradient-to-br from-pink-50 to-amber-100 overflow-hidden">
+  {% comment %} <header class="top-0 left-0 border-0 LT_waveDivider">
     {% render 'divider-wave', fill_color: 'amber' %}
-  </header>
+  </header> {% endcomment %}
 
-  <section class="w-[95%] md:w-10/12 mx-auto max-w-[1100px] gap-y-8 pt-[8rem] mx-auto flex flex-wrap justify-around" >
-    <div class="flex flex-col gap-2 relative items-center text-center w-10/12 md:w-[45%] bg-no-repeat rounded-xl bg-cover" style="background-image: url('{{ 'kpop_banner_bg.jpg' | asset_url }}')">
-        <a href="{{ collections['kpop-albums'].url }}" class="after:absolute after:inset-0 no-underline">
-        
-        <div class="block font-bold leading-normal lg:leading-[2] text-4xl lg:text-6xl text-slate-700">
-          <span class="block">K-Pop Albums</span>
-          <span class="block">Buy 1 Get 1 50% Off</span>
-        </div>
-        <div class="flex flex-wrap  text-base md:text-xl lg:text-xl pb-2 px-2 text-left text-slate-700">Don't miss your chance to save! Available only ot our online store.</div>
-
-        </a>
-      </div>
-
-      <div class="flex flex-col gap-2 relative items-center text-center w-10/12 md:w-[45%] outline-cyan-600 rounded-xl bg-contain" style="background-image: url('https://cdn.shopify.com/s/files/1/0035/0729/0161/products/45132_40641_4718.jpg?v=1675887390');">
-        <a href="{{ collections['donggubat'].url }}" class="after:absolute after:inset-0 no-underline bg-gray-700/40 ">
-        
-        <div class="block font-bold leading-normal lg:leading-[2] text-4xl lg:text-6xl text-white">
-          <span class="block">Donggubat</span>
-          <span class="block">Buy 1 Get 1 FREE</span>
-        </div>
-        <div class="flex flex-wrap text-base md:text-xl lg:text-xl pb-2 px-2 text-gray-50">Plastic-free and Zero waste, Produced by Organic and Vegan Certificated Factory</div>
-
-        </a>
-      </div>
-  </section>
-
-
-  <!-- monthly promotion banner  -->
-  <section class="flex flex-col w-[95%] md:w-11/12 mx-auto max-w-[1200px] pt-[2vh] hidden">
-
-    <div class="flex flex-col flex-wrap items-center justify-center w-full p-10 md:justify-evenly md:flex-row gap-6">
-      {%- comment -%} 
-
-        <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-cyan-400">
-        <div class="flex flex-col justify-between w-11/12 gap-6 py-10 text-center rounded-md h-full">
-        <div class="text-4xl md:text-5xl font-bold text-cyan-600">CYBER MONDAY</div>
-        <div class="text-xl md:text-3xl font-semibold text-slate-600">Up to 50% Off</div>
-        <div class="text-xl text-slate-700 font-semibold">Sale starts on Nov 25th through 28th</div>
-        <a href="{{ collections['black-friday-cyber-monday-sale'].url }}" class="mt-4 no-underline">
-        <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-cyan-400 text-slate-700 rounded-xl drop-shadow-lg hover:bg-cyan-200">SALE</span>
-        </a>
-        <div class="text-base md:text-xl">Discount automatically applies</div>
-
-        </div>
-        </div>
-        <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-purple-400">
-        <div class="flex flex-col justify-between w-11/12 gap-6 py-10 text-center rounded-md h-full">
-        <div class="text-4xl md:text-5xl font-bold text-purple-600">ALL STATIONERY</div>
-        <div class="text-xl md:text-3xl font-semibold text-slate-600">20% OFF</div>
-        <div class="text-xl text-slate-700 font-semibold">Sale starts on Nov 25th through 28th</div>
-        <a href="{{ collections['stationery'].url }}" class="mt-4 no-underline">
-        <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-purple-400 text-slate-700 rounded-xl drop-shadow-lg hover:bg-purple-200">SALE</span>
-        </a>
-        <div class="text-base md:text-xl">Discount automatically applies</div>
-        </div>
-        </div>
-        <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-teal-400">
-        <div class="flex flex-col justify-between w-11/12 gap-6 py-10 text-center rounded-md h-full">
-        <div class="text-4xl md:text-5xl font-bold text-teal-600">ALL PLUSH</div>
-        <div class="text-xl md:text-3xl font-semibold text-slate-600">20% OFF</div>
-        <div class="text-xl text-slate-700 font-semibold">Sale starts on Nov 25th through 28th</div>
-        <a href="{{ collections['plush'].url }}" class="mt-4 no-underline">
-        <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-teal-400 text-slate-700 rounded-xl drop-shadow-lg hover:bg-teal-200">SALE</span>
-        </a>
-        <div class="text-base md:text-xl">Discount automatically applies</div>
-        </div>
-        </div>
-      {%- endcomment -%}
-
-      {%- comment -%} flash sale box {%- endcomment -%}
-        <div class="grid w-full rounded-lg md:w-[30%] h-[300px] outline outline-red-600 relative"> {% assign saleitem = collections['flashsale'].products %}
-        {% assign saving = saleitem[0].compare_at_price | minus: saleitem[0].price %}
-        {% assign amount = saving | at_least: amount %}
-        {% capture saved_amount %}
-          {{ amount | money_without_trailing_zeros }}
-        {% endcapture %}
-        <img
-          src="{{ saleitem[0].featured_media | image_url: height: 225 }}"
-          alt=""
-          loading="lazy"
-          class="place-self-end justify-self-center max-w-[250px] max-h-[225px] absolute  object-cover top-3 drop-shadow-lg">
-        <div class="absolute top-2 right-2 text-lg p-2 text-red-700 font-semibold">
-          {% if saleitem[0].selected_or_first_available_variant.inventory_quantity < 10 %}
-            <div class="bg-white/90 rounded-full p-1">Only {{ saleitem[0].selected_or_first_available_variant.inventory_quantity }} left
-            </div>
-          {% else %}
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-              </svg>
-            </div>
+  <div class="h-[22vw] sm:h-[18vw] w-full bg-gradient-to-b from-amber-100 to-transparent relative w-full overflow-hidden">
+    <div class="absolute text-[9vmin] sm:text-[10vmin] w-full text-center leading-none font-bold text-gray-50 h-[12vw] top-10 drop-shadow-xl">
+      New Figure
+    </div>
+    {% comment %} png image scrolls {% endcomment %}
+    <div class="flex banner-animation left-0 absolute pt-[5vw] sm:pt-[5vw]">
+      {% comment %} loop no. 1 {% endcomment %}
+      <div class="flex">
+        {% assign count = 0 %}
+        {% for product in collections.all.products %}
+          {% if count == 10 %}
+            {% break %}
           {% endif %}
-        </div>
-        <div class="flex flex-col justify-end items-center w-11/12 gap-6 py-4 text-center rounded-md h-11/12 mx-auto">
-          <div class="bg-slate-100 rounded shadow w-full pb-2 pt-6 px-4">
-            <a href="{{ saleitem[0].url }}" class="mt-4 no-underline relative">
-              <div class="text-4xl md:text-6xl font-bold text-rose-600 relative w-full drop-shadow-lg animate-pulse">
-                Flash Sale
-              </div>
-              <div class="text-lg text-slate-50 rounded font-semibold bg-red-500">{{ saleitem[0].title | remove: " -" }}</div>
-              <div class="">
-                {% if saleitem[0].selected_or_first_available_variant.inventory_quantity > 0 %}
-                  <span class="text-base line-through text-red-400 font-semibold">{{ saleitem[0].compare_at_price | money }}</span>
-                  <span class="text-2xl font-semibold text-slate-900">{{ saleitem[0].price | money }}</span>
-                {% else %}
-                  <span>Sold Out</span>
-                {% endif %}
-              </div>
+          {% if product.featured_image.src contains '.png' and product.type == 'Figure' %}
+            <a href="{{ product.url }}" class="">
+              <img
+                src="{{ product.featured_image | image_url: width: 350 }}"
+                loading="lazy"
+                alt=""
+                width="300"
+                height="300"
+                class="aspect-square object-contain w-[18vw] sm:w-[13vw] h-auto relative pt-10 hover:scale-110 hover:rounded-full hover:bg-gray-100/30 origin-bottom"
+              >
             </a>
-          </div>
-        </div>
-      </div>
-      {%- comment -%} flash sale box {%- endcomment -%}
-      <div class="grid w-full rounded-lg md:w-[30%] h-[300px] outline outline-indigo-400 relative">
-        {% assign saleitem = collections['flashsale'].products %}
-        {% assign saving2 = saleitem[1].compare_at_price | minus: saleitem[1].price %}
-        {% assign amount = saving | at_least: amount %}
-        {% capture saved_amount %}
-          {{ amount | money_without_trailing_zeros }}
-        {% endcapture %}
-        <img
-          src="{{ saleitem[1].featured_media | image_url: height: 225 }}"
-          alt=""
-          loading="lazy"
-          class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
-        <div class="absolute top-2 right-2 text-lg p-2 text-indigo-700 font-semibold">
-          {% if saleitem[1].selected_or_first_available_variant.inventory_quantity < 10 %}
-            <div class="bg-white/90 rounded-full p-1">Only {{ saleitem[1].selected_or_first_available_variant.inventory_quantity }} left
-            </div>
-          {% else %}
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-              </svg>
-            </div>
+            {% assign count = count | plus: 1 %}
           {% endif %}
-        </div>
-        <div class="flex flex-col justify-end items-center w-11/12 gap-6 py-4 text-center rounded-md h-11/12 mx-auto">
-          <div class="bg-slate-100 rounded shadow w-full pb-2 pt-6 px-4">
-            <a href="{{ saleitem[1].url }}" class="mt-4 no-underline relative">
-              <div class="text-4xl md:text-6xl font-bold text-indigo-600 relative w-full drop-shadow-lg animate-pulse">
-                Flash Sale
-              </div>
-              <div class="text-lg text-slate-50 rounded font-semibold bg-indigo-400">{{ saleitem[1].title | remove: " -" }}</div>
-              <div class="">
-                {% if saleitem[1].selected_or_first_available_variant.inventory_quantity > 0 %}
-                  <span class="text-base line-through text-red-400 font-semibold">{{ saleitem[1].compare_at_price | money }}</span>
-                  <span class="text-2xl font-semibold text-slate-900">{{ saleitem[1].price | money }}</span>
-                {% else %}
-                  <span>Sold Out</span>
-                {% endif %}
-              </div>
-            </a>
-          </div>
-        </div>
+        {% endfor %}
       </div>
-      {%- comment -%} flash sale box 3{%- endcomment -%}
-      <div class="grid w-full rounded-lg md:w-[30%] h-[300px] outline outline-purple-600 relative">
-        {% assign saleitem = collections['flashsale'].products %}
-        {% assign saving3 = saleitem[2].compare_at_price | minus: saleitem[2].price %}
-        {% assign amount = saving | at_least: amount %}
-        {% capture saved_amount %}
-          {{ amount | money_without_trailing_zeros }}
-        {% endcapture %}
-        <img
-          src="{{ saleitem[2].featured_media | image_url: height: 225 }}"
-          alt=""
-          loading="lazy"
-          class="max-w-[250px] max-h-[225px] absolute place-self-start justify-self-center object-cover top-3 drop-shadow-lg">
-        <div class="absolute top-2 right-2 text-lg p-2 text-purple-700 font-semibold">
-          {% if saleitem[2].selected_or_first_available_variant.inventory_quantity < 10 %}
-            <div class="bg-white/90 rounded-full p-1">Only {{ saleitem[2].selected_or_first_available_variant.inventory_quantity }} left
-            </div>
-          {% else %}
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-              </svg>
-            </div>
+      {% comment %} loop no. 2 {% endcomment %}
+      <div class="flex">
+        {% assign count = 0 %}
+        {% for product in collections.all.products %}
+          {% if count == 10 %}
+            {% break %}
           {% endif %}
-        </div>
-        <div class="flex flex-col justify-end items-center w-11/12 gap-6 py-4 text-center rounded-md h-11/12 mx-auto">
-          <div class="bg-slate-100 rounded shadow w-full pb-2 pt-6 px-4">
-            <a href="{{ saleitem[2].url }}" class="mt-4 no-underline relative">
-              <div class="text-4xl md:text-6xl font-bold text-purple-600 relative w-full drop-shadow-lg animate-pulse">
-                Flash Sale
-              </div>
-              <div class="text-lg text-slate-600 rounded font-semibold bg-purple-400">{{ saleitem[2].title | remove: " -" }}</div>
-              <div class="">
-                {% if saleitem[2].selected_or_first_available_variant.inventory_quantity > 0 %}
-                  <span class="text-base line-through text-red-400 font-semibold">{{ saleitem[2].compare_at_price | money }}</span>
-                  <span class="text-2xl font-semibold text-slate-900">{{ saleitem[2].price | money }}</span>
-                {% else %}
-                  <span>Sold Out</span>
-                {% endif %}
-              </div>
+          {% if product.featured_image.src contains '.png' and product.type == 'Figure' %}
+            <a href="{{ product.url }}">
+              <img
+                src="{{ product.featured_image | image_url: width: 350 }}"
+                loading="lazy"
+                alt=""
+                width="300"
+                height="300"
+                class="aspect-square object-contain w-[14vw] sm:w-[12vw] h-auto relative pt-10 hover:scale-110 hover:rounded-full hover:bg-gray-100/30 origin-bottom"
+              >
             </a>
-          </div>
-        </div>
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
       </div>
+    </div>
+  </div>
 
-
-      {%- comment -%} <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-rose-400">
-        <div class="flex flex-col justify-between w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
-        <div class="text-4xl md:text-6xl font-bold text-rose-600">Popup Parade Figures</div>
-        <div class="text-xl md:text-3xl font-semibold text-slate-600">BUY 1 GET 1 50% OFF</div>
-        <div class="text-base md:text-xl font-semibold">Discount automatically applies</div>
-        <a href="{{ collections['popup-parade'].url }}" class="mt-4 no-underline">
-        <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-rose-400 text-slate-700 rounded-xl drop-shadow-lg hover:bg-rose-200">View Collection</span>
-        </a>
+    <section class="flex flex-col pt-14 page-width relative">
+        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
+          LilThinga YouTube
         </div>
-      </div> {%- endcomment -%}
-
-      {% comment %} loona boycott box
-        <div class="grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-slate-700">
-        <div class="flex flex-col justify-between  w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
-        <div class="text-2xl md:text-4xl font-bold text-slate-600">#WeStandWith<span class="text-rose-600">LOONA</span></div>
-        <div class="text-base md:text-xl font-semibold">In response to Orbits request, Lilthinga.com is boycotting <span class="line-through text-gray-500">BlockBerryCreative</span>. </div>
-        <div class="text-base md:text-xl font-semibold">Upcoming Loona album from BlockBerryCreative will not be in stock.</div>
+        <div class="absolute h-8 bg-lime-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+        {% comment %} png image scrolls {% endcomment %}
+        <div class="flex flex-wrap md:flex-no-wrap overflow-hidden gap-4 md:gap-8 w-full justify-center mt-6 relative">
+          {% comment %} loop no. 1 {% endcomment %}
+            {% assign count = 0 %}
+            {% for article in blogs['youtube-giveaway'].articles %}
+              {% if count == 4 %}
+                {% break %}
+              {% endif %}
+              {% if article.image %}
+                <a href="{{ article.url }}" class="w-[45%] lg:w-[23%]">
+                  <img
+                    src="{{ article.image | image_url: width: 400 }}"
+                    loading="lazy"
+                    alt=""
+                    width="400"
+                    height="200"
+                    class="aspect-video object-contain h-auto w-full rounded"
+                  >
+                </a>
+                {% assign count = count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
         </div>
-        </div>
-      {% endcomment %}
-      {%- comment -%} sticker promotion  {%- endcomment -%}
-        <div class="hidden grid w-full bg-cover rounded-lg md:w-[30%] md:h-[300px] place-items-center outline outline-indigo-700"> <div class="flex flex-col justify-between  w-11/12 gap-6 py-10 text-center rounded-md h-11/12">
-          <div class="text-4xl md:text-6xl font-bold text-indigo-600">MIX & MATCH STICKER</div>
-          <div class="text-xl md:text-3xl font-semibold">BUY 5 GET 1 FREE</div>
-          <div class="text-base md:text-xl font-semibold">Discount automatically applies</div>
-          <a href="{{ collections['sticker'].url }}" class="mt-4 no-underline">
-            <span class="w-3/4 px-4 py-2 mx-auto my-6 text-xl bg-indigo-400 hover:bg-indigo-200 rounded-xl drop-shadow-lg">Sticker Collection</span>
-          </a>
-        </div>
-      </div>
-      
     </section>
 
-    <!--Popup parade left image banner -->
-    {%- comment -%} <a href="{{ collections['popup-parade'].url }}" class="no-underline">
-      <section id="popup_banner"
-      class="db_banner group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[200px] sm:h-[300px] md:h-[400px] relative max-w-[1200px]">
-      <div
-      class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
-      <a href="{{ collections['popup-parade'].url }}" class="after:absolute after:inset-0">
-      <img src="{{'LT_popupBanner.png' | asset_img_url:'400x' }}" alt=""
-      class="absolute origin-bottom bottom-0 left-0 w-full max-w-[400px] group-hover:duration-1000 duration-500" loading="lazy">
-      </a>
-      </div>
-      <div
-      class="row-span-2 row-start-2 rounded-lg shadow-lg bg-gradient-to-br group-hover:bg-gradient-to-tl from-pink-200 to-pink-400 col-span-full group-hover:duration-1000">
-      <div class="flex flex-row-reverse h-full">
-      <div class="flex flex-col w-[45%]  justify-center items-center gap-4">
-      <div class="text-2xl font-semibold text-center text-transparent lg:py-8 sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-br from-sky-500 to-indigo-700">Popup Parade Figures</div>
-      <div class="w-11/12 pb-2 pl-4 text-sm font-semibold leading-normal text-xl md:text-xl lg:text-3xl">Limited Time</div>
-      <div class="w-11/12 pb-2 pl-4 text-sm font-semibold leading-normal text-xl md:text-xl lg:text-3xl">Buy 1 Get 1 50% OFF</div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </section>
-    </a> {%- endcomment -%}
+    <section class="flex flex-col pt-14 page-width relative">
+        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
+          Gundam The Witch From Mercury
+        </div>
+        <div class="absolute h-8 bg-blue-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+        {% comment %} png image scrolls {% endcomment %}
+        <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center items-end mt-2 relative">
+          {% comment %} loop no. 1 {% endcomment %}
+            {% assign count = 0 %}
+            {% for product in collections['the-witch-from-mercury'].products %}
+              {% if count == 4 %}
+                {% break %}
+              {% endif %}
+              {% if product.featured_image.aspect_ratio > 1 and product.selected_or_first_available_variant.inventory_quantity > 0 %}
+                <a href="{{ product.url }}" class="w-[48%] lg:w-[23%]">
+                  <img
+                    src="{{ product.featured_image | image_url: width: 400 }}"
+                    loading="lazy"
+                    alt=""
+                    width="400"
+                    height="200"
+                    class="aspect-video object-contain h-auto w-full rounded"
+                  >
+                </a>
+                {% assign count = count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          </div>
+    </section>
+    <section class="flex flex-col pt-14 page-width relative">
+        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
+          New K-Pop Albums
+        </div>
+        <div class="absolute h-8 bg-purple-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+        {% comment %} png image scrolls {% endcomment %}
+        <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center mt-6 relative">
+          {% comment %} loop no. 1 {% endcomment %}
+            {% assign count = 0 %}
+            {% for product in collections['new-kpop'].products %}
+              {% if count == 6 %}
+                {% break %}
+              {% endif %}
+              {% if product.featured_image.src contains '.jpg' and product.type == 'Kpop CD' %}
+                <a href="{{ product.url }}" class="w-[30%] lg:w-[15%]">
+                  <img
+                    src="{{ product.featured_image | image_url: width: 500 }}"
+                    loading="lazy"
+                    alt=""
+                    width="500"
+                    height="200"
+                    class="aspect-square object-contain h-auto w-full rounded"
+                  >
+                </a>
+                {% assign count = count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section class="flex flex-col pt-14 page-width">
+      {% comment %} section title  {% endcomment %}
+        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
+          Savings
+        </div>
+      {% comment %} blocks row  {% endcomment %}
+        <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center mt-4">
+          
+          {% comment %} 1st block  {% endcomment %}
+          <div class="flex flex-col gap-2 relative w-10/12 md:w-[30%] bg-no-repeat rounded-xl bg-cover overflow-hidden" style="background-image: url('{{ 'kpop_banner_bg.jpg' | asset_url }}')">
+            <a href="{{ collections['kpop-albums'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/20 h-full">
+            
+            <div class="block font-bold text-2xl sm:text-4xl text-white text-center drop-shadow">
+              <span class="block">K-Pop Albums</span>
+              <span class="block">Buy 1 Get 1 50% Off</span>
+            </div>
+            <div class="text-base md:text-xl lg:text-3xl py-4 px-2 text-center text-white font-semibold">Don't miss your chance to save! Available only ot our online store.</div>
+            </a>
+          </div> 
+
+          {% comment %} 2nd block  {% endcomment %}
+          <div class="flex flex-col gap-2 relative w-10/12 md:w-[30%] bg-no-repeat rounded-xl bg-cover overflow-hidden" style="background-image: url('https://cdn.shopify.com/s/files/1/0035/0729/0161/products/45132_40641_4718.jpg?v=1675887390');">
+            <a href="{{ collections['donggubat'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/50 h-full py-4">
+            <div class="block font-bold text-2xl sm:text-4xl text-white text-center drop-shadow">
+              <span class="block">Donggubat</span>
+              <span class="block">Buy 1 Get 1 FREE</span>
+            </div>
+            <div class="text-base md:text-xl lg:text-3xl py-4 px-2 text-center text-white font-semibold">Plastic-free and Zero waste, Produced by Organic and Vegan Certificated Factory</div>
+            </a>
+          </div>
+
+          <div class="flex flex-col items-center justify-around bg-rose-700 w-10/12 md:w-[30%] p-3 rounded-xl overflow-hidden">
+            <div class="text-2xl sm:text-4xl text-white font-semibold drop-shadow text-center">Subscribe to our emails</div>
+            <div class="text-lg sm:text-3xl text-white text-center py-4">Be the first to know about new collections and exclusive offers.</div>
+            {% form 'customer', class: 'newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper mx-auto">
+                <div class="field">
+                  <input
+                    id="NewsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                    {{ 'newsletter.label' | t }}
+                  </label>
+                  <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                    {% render 'icon-arrow' %}
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+              {%- endif -%}
+            {% endform %}
+          </div>
+
+        </div>
+    </section>
 
     {%- comment -%} youtube promotion {%- endcomment -%}
-      <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-white/20  justify-evenly rounded my-10 p-6 shadow"> 
+      <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-white/20  justify-evenly rounded my-10 p-6 shadow hidden"> 
       <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
         <img
           src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}"
@@ -403,45 +324,8 @@
       </div>
     </section>
 
-    {% comment %}
-      <!-- new artist: le sserafim album promo -->
-      <section class="max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] my-20 flex justify-center mx-auto bg-black/80 rounded relative">
-      <img src="{{ 'lt_SserafimPromo.jpg' | asset_img_url: '600x' }}"
-      alt="Le Sserafim 1st album cover poster"
-      loading="lazy"
-      class="object-contain max-h-[400px] w-auto">
-      <div class="absolute w-full h-full text-white bg-gradient-to-r from-black/80 via-transparent to-black/80">
-      <div class="flex flex-col items-center justify-between w-full h-full">
-      <h4 class="font-semibold leading-[0rem] text-gray-100 pl-10">The female BTS? HYBE's First K Pop Girl Group</h4>
-      <h2 class="text-center font-bold leading-[0rem] text-white block">LE SSERAFIM</h2>
-      <a href="{{ all_products['k-pop-cd-le-sserafim-1st-mini-album-fearless'].url }}" class="self-center pb-20 no-underline ">
-      <div class="px-2 py-1 text-teal-300 rounded-md hover:bg-teal-300 hover:text-black hover:duration-300 outline outline-1 outline-teal-300">View</div>
-      </a>
-      </div>
-      </div>
-      </section>
-    {% endcomment %}
-
-    <!-- BTS focus slide banner  ** temp. hidden-->
-    <!-- <section class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] max-h-[400px] aspect-[12/4] overflow-hidden my-20 group">
-      <a href="{{ collections['bts'].url }}" class="no-underline">
-      <div
-      class="absolute grid w-full h-full bg-cover rounded-lg shadow-lg place-items-center LT_btsBanner LT_btsBanner01"
-      style="background-image: url('{{ 'LT_btsBanner.jpg' | asset_img_url: '1200x' }}');">
-      <div class="flex flex-col self-end">
-      <h2
-      class="text-2xl font-semibold text-center text-transparent sm:text-2xl md:text-4xl lg:text-6xl bg-clip-text bg-gradient-to-r group-hover:bg-gradient-to-l from-pink-500 to-violet-500">
-      BTS Collection</h2>
-      <p class="inline-block py-2 text-base text-center bg-purple-400 rounded-lg text-lt-white sm:text-lg md:text-xl lg:text-3xl">SHOP COLLECTION</p>
-      </div>
-      </div>
-      <div class="absolute grid w-full h-full bg-center bg-cover rounded-lg shadow-lg place-items-center LT_btsBanner LT_btsBanner02"
-      style="background-image: url('{{ 'LT_btsAlbums.jpg' | asset_img_url: '1200x' }}');" data-src="{{ asset_img_url }}" data-width="[500, 1200]" data-aspectratio="12/4" data-sizes="auto" data-parent-fit="cover">
-      <p></p>
-      </div>
-      </a>
-    </section> -->
-
+    
+{%comment%}
     <!--DragonBall left image banner -->
       <section id="db_banner" class="db_banner group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] relative max-w-[1200px]"> <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
         <a href="{{ collections['dragon-ball-merch'].url }}" class="after:absolute after:inset-0">
@@ -502,7 +386,7 @@
       </div>
     </section>
   </a>
-
+{%endcomment%}
 
   <!--Twice right side image banner -->
   <!--   
@@ -524,8 +408,11 @@
     </div>
     </div>
     </section>
-  </a> --><!--Gundam left image banner -->
-    <a href="{{ collections['gundam-model-kit'].url }}" class="no-underline"> <section id="gundam_banner" class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] max-w-[1200px]">
+  </a> -->
+  
+  <!--Gundam left image banner 
+  
+  <a href="{{ collections['gundam-model-kit'].url }}" class="no-underline"> <section id="gundam_banner" class="group grid grid-cols-9 grid-rows-3 md:w-11/12 w-[95%] mx-auto h-[240px] sm:h-[300px] md:h-[400px] max-w-[1200px]">
       <div class="relative z-10 flex flex-col justify-end h-full col-span-4 col-start-1 row-span-3 row-start-1 lg:col-start-2">
         <img
           src="{{ 'LT_gundam.png' | asset_img_url: '400x' }}"
@@ -542,32 +429,10 @@
         </div>
       </div>
     </section>
-  </a>
+  </a>-->
 
 
-  <!-- Kpop artist slide banner  -->
-  <!-- <section
-    class="relative mx-auto max-w-[1200px] md:w-11/12 w-[95%] rounded-lg shadow-lg max-h-[400px] aspect-[12/4] overflow-hidden mt-24">
-    <a href="{{ collections['boy-group'].url }}" class="no-underline">
-    <div class="absolute grid w-full h-full bg-cover place-items-center LT_slides LT_slide01"
-    style="background-image:url('{{ 'LT_solomenBanner.jpg' | asset_img_url: '1200x' }}');">
-    <h1
-    class="self-end text-2xl font-semibold text-transparent md:text-5xl lg:text-7xl bg-gradient-to-br from-sky-400 to-sky-600 bg-clip-text">
-    K-Pop Male Solo Artists</h1>
-    </div>
-    <div class="absolute grid w-full h-full bg-cover place-items-center LT_slides LT_slide02"
-    style="background-image:url('{{ 'LT_solofmBanner.jpg' | asset_img_url: '1200x' }}');">
-    <h1
-    class="self-end text-2xl font-semibold text-transparent md:text-5xl lg:text-7xl bg-gradient-to-b from-rose-300 to-pink-500 bg-clip-text drop-shadow-lg">
-    K-Pop Female Solo Artists</h1>
-    </div>
-    </a>
-  </section> --><!-- sumikko gurashi banner -->
-  <!-- <a href="{{ collections['sumikko-gurashi'].url }}">
-    <section class="grid place-items-center max-w-[1200px] md:w-11/12 w-[95%] mx-auto lg:pt-[5rem] pt-[2rem]">
-    <img src="{{ 'LT_sumikkoBanner.png' | asset_img_url: '900x' }}" alt="" class="w-full h-full">
-    </section>
-  </a> --><section class="h-[7rem] block"> </section>
+  <section class="h-[7rem] block"> </section>
   <!-- big main banner  -->
 
   <!-- {% render 'LT_diffBlock' %} -->

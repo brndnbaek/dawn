@@ -454,16 +454,16 @@
         <a class="megaA drawerbtn" href="/">{{ block.settings.title }}</a>
         {% else %}
 
-        <div class="megaDrawer alignCenter shrink-0" style="height: 50px">
+        <div class="megaDrawer alignCenter shrink-0 text-slate-800" style="height: 50px">
           {% if block.settings.mega_url == blank %}
-          <button class="drawerbtn">{{ block.settings.title }}
+          <button class="drawerbtn text-slate-800">{{ block.settings.title }}
             <span> <svg viewBox="0 -.5 11 10" class="megaSvg">
                 <path d="M5,6 L5,6 L2,3 L5,6 L5,6 L8,3" />
               </svg>
             </span>
           </button>
           {% else %}
-          <a class="text-black no-underline DELmegaA drawerbtn" href="{{ block.settings.mega_url }}">{{ block.settings.title }}</a>
+          <a class="text-slate-700 no-underline DELmegaA drawerbtn" href="{{ block.settings.mega_url }}">{{ block.settings.title }}</a>
           {% endif %}
           {% if block.settings.mega_link != blank %}
           <div class="megaDrawerContent absolutePosition" style="width: {% if block.settings.mega_width == true %} 95% {% else %}  {% endif %};
