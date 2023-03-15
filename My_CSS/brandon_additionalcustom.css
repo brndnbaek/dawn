@@ -168,7 +168,7 @@ button.chat-toggle.chat-toggle--text-button {
 }
 .banner-animation {
   width: 200%;
-  animation: marquee 120s linear infinite;
+  animation: marquee 60s linear infinite;
   transform: translate(0, 0%);
 }
 .banner-animation:hover {

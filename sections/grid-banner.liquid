@@ -32,7 +32,7 @@
                 alt=""
                 width="300"
                 height="300"
-                class="aspect-square object-contain w-[18vw] sm:w-[13vw] h-auto relative pt-10 hover:scale-110 hover:rounded-full hover:bg-gray-100/30 origin-bottom"
+                class="aspect-square object-contain w-[18vw] sm:w-[13vw] h-auto relative pt-10 hover:scale-105 hover:rounded-full hover:bg-white/30 origin-bottom drop-shadow"
               >
             </a>
             {% assign count = count | plus: 1 %}
@@ -68,7 +68,7 @@
         <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-blue-300 drop-shadow-xl">
           Gundam The Witch From Mercury
         </div>
-        <div class="absolute h-8 bg-blue-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+        <div class="absolute h-8 bg-blue-400/40 w-11/12 bottom-0 mx-auto rounded drop-shadow"> </div>
         {% comment %} png image scrolls {% endcomment %}
         <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center items-end mt-2 relative">
           {% comment %} loop no. 1 {% endcomment %}
@@ -85,7 +85,7 @@
                     alt=""
                     width="400"
                     height="200"
-                    class="aspect-video object-contain h-auto w-full rounded"
+                    class="aspect-video object-contain h-auto w-full rounded hover:scale-105 drop-shadow"
                   >
                 </a>
                 {% assign count = count | plus: 1 %}
@@ -97,7 +97,7 @@
         <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-purple-300 drop-shadow-xl">
           New K-Pop Albums
         </div>
-        <div class="absolute h-8 bg-purple-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+        <div class="absolute h-8 bg-purple-400/40 w-11/12 bottom-0 mx-auto rounded drop-shadow"> </div>
         {% comment %} png image scrolls {% endcomment %}
         <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center mt-6 relative">
           {% comment %} loop no. 1 {% endcomment %}
@@ -114,7 +114,7 @@
                     alt=""
                     width="500"
                     height="200"
-                    class="aspect-square object-contain h-auto w-full rounded"
+                    class="aspect-square object-contain h-auto w-full rounded hover:scale-105 drop-shadow"
                   >
                 </a>
                 {% assign count = count | plus: 1 %}
@@ -127,7 +127,7 @@
       <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-green-400 drop-shadow-xl">
         LilThinga YouTube
       </div>
-      <div class="absolute h-8 bg-green-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+      <div class="absolute h-8 bg-green-400/40 w-11/12 bottom-0 mx-auto rounded drop-shadow"> </div>
       {% comment %} png image scrolls {% endcomment %}
       <div class="flex flex-wrap md:flex-no-wrap overflow-hidden gap-4 md:gap-8 w-full justify-center mt-6 relative">
         {% comment %} loop no. 1 {% endcomment %}
@@ -144,7 +144,7 @@
                   alt=""
                   width="400"
                   height="200"
-                  class="aspect-video object-contain h-auto w-full rounded"
+                  class="aspect-video object-contain h-auto w-full rounded hover:scale-105 drop-shadow"
                 >
               </a>
               {% assign count = count | plus: 1 %}
@@ -163,7 +163,7 @@
           
           {% comment %} 1st block  {% endcomment %}
           <div class="flex flex-col gap-2 relative w-10/12 md:w-[30%] bg-no-repeat rounded-xl bg-cover overflow-hidden" style="background-image: url('{{ 'kpop_banner_bg.jpg' | asset_url }}')">
-            <a href="{{ collections['kpop-albums'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/20 h-full">
+            <a href="{{ collections['kpop-albums'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/20 hover:bg-gray-700/10 h-full">
             
             <div class="block font-bold text-2xl sm:text-4xl text-white text-center drop-shadow">
               <span class="block">K-Pop Albums</span>
@@ -175,7 +175,7 @@
 
           {% comment %} 2nd block  {% endcomment %}
           <div class="flex flex-col gap-2 relative w-10/12 md:w-[30%] bg-no-repeat rounded-xl bg-cover overflow-hidden" style="background-image: url('https://cdn.shopify.com/s/files/1/0035/0729/0161/products/45132_40641_4718.jpg?v=1675887390');">
-            <a href="{{ collections['donggubat'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/50 h-full py-4">
+            <a href="{{ collections['donggubat'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/50 h-full py-4 hover:bg-gray-700/10">
             <div class="block font-bold text-2xl sm:text-4xl text-white text-center drop-shadow">
               <span class="block">Donggubat</span>
               <span class="block">Buy 1 Get 1 FREE</span>
