@@ -64,38 +64,8 @@
     </div>
   </div>
 
-    <section class="flex flex-col pt-14 page-width relative">
-        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
-          LilThinga YouTube
-        </div>
-        <div class="absolute h-8 bg-lime-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
-        {% comment %} png image scrolls {% endcomment %}
-        <div class="flex flex-wrap md:flex-no-wrap overflow-hidden gap-4 md:gap-8 w-full justify-center mt-6 relative">
-          {% comment %} loop no. 1 {% endcomment %}
-            {% assign count = 0 %}
-            {% for article in blogs['youtube-giveaway'].articles %}
-              {% if count == 4 %}
-                {% break %}
-              {% endif %}
-              {% if article.image %}
-                <a href="{{ article.url }}" class="w-[45%] lg:w-[23%]">
-                  <img
-                    src="{{ article.image | image_url: width: 400 }}"
-                    loading="lazy"
-                    alt=""
-                    width="400"
-                    height="200"
-                    class="aspect-video object-contain h-auto w-full rounded"
-                  >
-                </a>
-                {% assign count = count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-        </div>
-    </section>
-
-    <section class="flex flex-col pt-14 page-width relative">
-        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
+    <section class="flex flex-col pt-14 mb-4 page-width relative">
+        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-blue-300 drop-shadow-xl">
           Gundam The Witch From Mercury
         </div>
         <div class="absolute h-8 bg-blue-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
@@ -123,8 +93,8 @@
             {% endfor %}
           </div>
     </section>
-    <section class="flex flex-col pt-14 page-width relative">
-        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
+    <section class="flex flex-col pt-14 mb-4 page-width relative">
+        <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-purple-300 drop-shadow-xl">
           New K-Pop Albums
         </div>
         <div class="absolute h-8 bg-purple-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
@@ -153,6 +123,36 @@
         </div>
     </section>
     
+    <section class="flex flex-col pt-14 page-width relative">
+      <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-green-400 drop-shadow-xl">
+        LilThinga YouTube
+      </div>
+      <div class="absolute h-8 bg-green-400/40 w-11/12 bottom-0 mx-auto rounded"> </div>
+      {% comment %} png image scrolls {% endcomment %}
+      <div class="flex flex-wrap md:flex-no-wrap overflow-hidden gap-4 md:gap-8 w-full justify-center mt-6 relative">
+        {% comment %} loop no. 1 {% endcomment %}
+          {% assign count = 0 %}
+          {% for article in blogs['youtube-giveaway'].articles %}
+            {% if count == 4 %}
+              {% break %}
+            {% endif %}
+            {% if article.image %}
+              <a href="{{ article.url }}" class="w-[45%] lg:w-[23%]">
+                <img
+                  src="{{ article.image | image_url: width: 400 }}"
+                  loading="lazy"
+                  alt=""
+                  width="400"
+                  height="200"
+                  class="aspect-video object-contain h-auto w-full rounded"
+                >
+              </a>
+              {% assign count = count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+      </div>
+  </section>
+
     <section class="flex flex-col pt-14 page-width">
       {% comment %} section title  {% endcomment %}
         <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-rose-300 drop-shadow">
@@ -231,6 +231,7 @@
         </div>
     </section>
 
+    
     {%- comment -%} youtube promotion {%- endcomment -%}
       <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-white/20  justify-evenly rounded my-10 p-6 shadow hidden"> 
       <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
