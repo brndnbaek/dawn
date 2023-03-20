@@ -249,34 +249,16 @@
 
 {% comment %} *content box section {% endcomment %}
 
-  <div class="relative flex flex-col justify-between shadow-xl ContentBox bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 from-zinc-300">
+  <div class="relative flex flex-col justify-between shadow-xl ContentBox bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 from-zinc-300 py-2">
     {% if difference < 3888000 %}
       <span class="font-semibold new-label text-rose-500">new</span>
     {% endif %}
-    <div class="text-xl px-2 py-1 h-[65%] flex flex-col justify-between items-center">
+    <div class="text-[1.4rem] px-3 flex flex-col justify-between items-center">
       {% render 'splitTitle', card_product: card_product %}
-      {% render 'price', product: card_product, price_class: 'font-bold' %}
-      
-      {% comment %} {% if card_product.tags contains 'saleTag20' %}
-        <div class="flex items-baseline justify-center gap-4">
-          <div class="text-2xl font-bold">Sale {{ card_product.price | times: 0.8 | money }}</div>
-          <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
-        </div>
-      {% elsif card_product.tags contains 'saleTag35' %}
-        <div class="flex justify-center gap-6">
-          <div class="text-2xl font-bold">Sale {{ card_product.price | times: 0.65 | money }}</div>
-          <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
-        </div>
-      {% elsif card_product.tags contains 'saleTag50' %}
-        <div class="flex justify-center gap-6">
-          <div class="text-2xl font-bold">Sale {{ card_product.price | times: 0.5 | money }}</div>
-          <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
-        </div>
-      {% else %}
-    {% endif %} {% endcomment %}
     </div>
 
-    <div class="flex items-stretch justify-center h-[35%] py-1 text-slate-600">
+    <div class="flex items-end justify-around text-slate-600 pb-2">
+      {% render 'price', product: card_product, price_class: 'font-bold' %}
         <form action="{{ routes.cart_url }}" method="post">
           {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
             {% if all_products[card_product.metafields.my_fields.addon].available == true %}

@@ -1,5 +1,5 @@
-<div class="text-slate-700 font-semibold leading-[1.1] sm:leading-[1.3] basis-4/5">
-  <a href="{{ card_product.url }}" class="flex flex-col justify-around h-full text-center no-underline full-unstyled-link">
+<div class="text-slate-700 font-semibold leading-[1.1] sm:leading-[1.4] w-full">
+  <a href="{{ card_product.url }}" class="flex flex-col justify-evenly items-center text-center h-full no-underline full-unstyled-link">
     {% case card_product.type %}
       {% when 'Writing Material' %}
         {% assign splitTitle = card_product.title | split: ' - ' %}
@@ -35,50 +35,83 @@
         <div>{{ albumTitle }}</div>
 
       {% when 'Gundam Model Kit' %}
-        {% assign target_substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ' ' %}
-        {% if card_product.title contains target_substring %}
-          {% assign splitTitle = card_product.title | split: target_substring %}
-          <span class="block font-semibold {% if splitTitle[1] %}text-center{%else%}text-slate-700{% endif %}">
-            {{- splitTitle[0] }}
-          </span>
-            <span class="block font-medium text-slate-700">{{ splitTitle[1] }} </span>
+        {% assign substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ' ' %}
+        {% assign removeProductLine = card_product.title | replace: substring, ' ' | remove: 'Model Kit' %}
+        {% assign lineSplit = removeProductLine | replace: ' #', '<br>#' | replace: ' (', '<br>' | remove: ')' %}
+        {% if lineSplit contains '<br>' %}
+          {% assign threeLines = lineSplit | split: '<br>' %}
+        <div>{{ threeLines[0] }}</div>
+        <div>{{ threeLines[1] }}</div>
+        <div>{{ threeLines[2] | truncate: 33 }}</div>
           {% else %}
-          {% assign splitTitle = card_product.title | split: ' #' %}
-          <span class="block font-semibold {% if splitTitle[1] %}text-center{%else%}text-slate-700{% endif %}">
-            {{- splitTitle[0] }}
-          </span>
-          {% if splitTitle[1] %}
-            <span class="block font-medium text-slate-700">{{ splitTitle[1] | prepend: '#' }} </span>
-          {% endif %}
-          <span class="block">{{ splitTitle[2] | truncate: 35 }} </span>
-          {{ splitTitle[3] | truncate: 35 }}
+          <div>{{ lineSplit }}</div>
         {% endif %}
       
       {% when 'Other Model Kit' %}
+        {% assign substring = card_product.metafields.my_fields.product_lines | prepend: '- ' %}
+        {% assign removeProductLine = card_product.title | replace: substring, '' | remove: 'Model Kit' %}
+        {% assign lineSplit = removeProductLine | replace: ' - ', '<br>' | replace: ' #', '<br>#' | replace: ' (', '<br>' | remove: ')' | replace: ' [', '<br>' | remove: ']' %}
+          {% assign threeLines = lineSplit | split: '<br>' %}
+        <div class="">{{ threeLines[0] }}</div>
+        <div>{{ threeLines[1] }}</div>
+        <div>{{ threeLines[2] | truncate: 33 }}</div>
+        
+        {% comment %} {% unless dashSplit[0] contains ' #' %}
+          <span class="block">{{dashSplit[0]}}</span>
+            {% if card_product.metafields.my_fields.product_lines %}
+              {% unless dashSplit[2] contains ' (' %}
+                <span class="block">{{ dashSplit[2] }}</span>
+              {% else %}
+                {% assign bracketSplit = dashSplit[2] | split: ' (' %}
+                  <span class="block">{{ bracketSplit[0] }}</span>
+                  <span class="block">{{ bracketSplit[1] | remove: ')' }}</span>
+              {% endunless %}
+            {% else %}
+              {% unless dashSplit[1] contains ' (' %}
+                <span class="block">{{ dashSplit[1]}}</span>
+              {% else %}
+                {% assign bracketSplit = dashSplit[0] | split: ' (' %}
+                  <div>{{ bracketSplit[0] }}</div>
+                  <div>{{ bracketSplit[1] | remove: ')'}}</div>
+              {% endunless%}
+            {% endif %}
+          {% else %}
+            {% assign sharpSplit = dashSplit[0] | split: ' #' %}
+            <div>{{ sharpSplit[0] }}</div>
+            {% if sharpSplit[1] contains ' (' %}
+              {% assign bracketSplit = sharpSplit[1] | split: ' ('%}
+                <div>{{ bracketSplit[0] }}</div>
+                <div>{{ bracketSplit[1] | remove: ')' }}</div>
+              {% else %}
+                <div>{{ sharpSplit[1] }}</div>
+            {% endif %}
+          {% endunless %} {% endcomment %}
+
+
+
+{% comment %} 
         {% assign splitTitle = card_product.title | remove: 'Model Kit' | split: ' - ' %}
-        <span class="block font-semibold text-slate-700">
-          {{- splitTitle[0] }}
-        </span>
-        {% comment %} <span class="block font-semibold text-slate-700">
-          {{- splitTitle[1] }}
-        </span>
-        <span class="block font-semibold text-slate-700">
-          {{- splitTitle[2] }}
-        </span> {% endcomment %}
+        {% assign secondSplit = splitTitle[0] | split: ' (' %}
+        {% assign thirdSplit = secondSplit[0] | split: ' #' %}
+        {% if splitTitle[0] contains ' #'%}
+          <span class="block font-semibold">{{- thirdSplit[0] }}</span>
+          <span class="block font-medium">{{- thirdSplit[1] | prepend: '#' }}</span>
+          <span class="block font-medium">{{ secondSplit[1] | remove: ')' }}</span>
+        {% endif%}
         {% if card_product.metafields.my_fields.product_lines %}
-          {% comment %} <span class="block font-semibold text-slate-700"> 
-            {{ splitTitle[1] }}
-          </span> {% endcomment %}
           <span class="block font-semibold text-slate-700">{{ splitTitle[2] | truncate: 50 }}</span>
           {% else %}
           {{ splitTitle[1] | truncate: 35 }}
-        {% endif %}
+        {% endif %} 
+{% endcomment %}
 
       {% when 'Figure' %}
         {% assign splitTitle = card_product.title | split: ' - ' %}
         <span class="font-semibold">{{ splitTitle[0] }} </span>
         {% if splitTitle[2] %}
-          <span class="block font-medium text-slate-700">{{ splitTitle[2] }} </span>
+          {% assign secondSplit = splitTitle[2] | split: ' (' %}
+          <span class="block font-medium text-slate-700">{{ secondSplit[0] }} </span>
+          <span class="block font-medium text-slate-700">{{ secondSplit[1] | remove: ')' | truncate: 35 }} </span>
         {% else %}
           <span class="block font-medium">{{ splitTitle[1] }}</span>
         {% endif %}
@@ -86,15 +119,17 @@
         {% assign splitTitle = card_product.title | split: ' - ' %}
         <span class="font-semibold">{{ splitTitle[0] }} </span>
         {% if splitTitle[2] %}
-          <span class="block font-medium text-slate-700">{{ splitTitle[2] }} </span>
+          {% assign secondSplit = splitTitle[2] | split: ' (' %}
+          <span class="block font-medium text-slate-700">{{ secondSplit[0] }} </span>
+          <span class="block font-medium text-slate-700">{{ secondSplit[1] | remove: ')' | truncate: 35 }} </span>
         {% else %}
-          {{ splitTitle[1] }}
+          <span class="block font-medium">{{ splitTitle[1] }}</span>
         {% endif %}
     
       {% else %}
         {% assign splitTitle = card_product.title | split: ' - ' %}
         <span class="font-semibold">{{ splitTitle[0] }}</span>
-        <span class="block font-light text-slate-700">{{ splitTitle[1] }} </span>
+        <span class="block font-medium text-slate-700">{{ splitTitle[1] }} </span>
         <span class="block font-medium text-slate-700">{{ splitTitle[2] | truncate: 35 }} </span>
         {{ splitTitle[3] | truncate: 35 }}
     {% endcase %}
