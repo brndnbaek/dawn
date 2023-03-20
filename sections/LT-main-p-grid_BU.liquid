@@ -13,11 +13,8 @@
   .lt-grid {
       display: grid;
       /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); */
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
       justify-items: center;
-      row-gap: 1.5rem;
-      column-gap: 1rem;
-      
     }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -39,38 +36,6 @@
     }
 
   }
-
-  #FacetFiltersForm {
-    display: grid;
-    grid-template-rows: 50px auto;
-    grid-template-columns: auto 9fr;
-    grid-template-areas:
-    "top top"
-    "filter main"
-  }
-  #FacetsWrapperDesktop {
-    grid-area: filter;
-    width: 160px;
-  }
-  #ProductGridContainer {
-    grid-area: main;
-  }
-  .collection-heading {
-    grid-area: top;
-  }
-  #sidebar-1-toggle {
-    display: none;
-  }
-  
-  .toggle-label svg {
-    margin-right: 0.5em;
-    fill: darkgray;
-    transition: transform 0.2s;
-  }
-  #sidebar-1-toggle:checked ~ .toggle-label svg {
-    transform: rotate(180deg);
-  }
-
 {%- endstyle -%}
 {%- liquid
   if search.performed
@@ -345,7 +310,7 @@
     </div>
 <!-- recreated page layout to show filter&sort with product grid  -->
     <facet-filters-form class="">
-      <form id="FacetFiltersForm" class="relative">
+      <form id="FacetFiltersForm" class="relative grid grid-cols-24">
 
         <!-- {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
@@ -353,9 +318,9 @@
         {%- endif -%} -->
           
           <!-- sidebar filters -->
-          <div id="FacetsWrapperDesktop" class="small-hide">
+          <div id="FacetsWrapperDesktop" class="col-span-3 col-start-1 row-span-1 row-start-2 pt-6 mr-3 gap-y-4 small-hide DELfacets__wrapper">
             
-            <div class=" w-full max-w-[235px] sticky top-[10rem] mt-[2rem] overflow-y-scroll hiddenscroll">
+            <div class=" w-full max-w-[235px] sticky top-[5rem] overflow-y-scroll hiddenscroll">
               {%- for filter in results.filters -%}
                 {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                 {% case filter.type %}
@@ -466,20 +431,14 @@
             </div>
           </div>
           
-          <div class="sticky z-10 flex px-1 rounded shadow bg-gradient-to-br from-amber-50 via-amber-50/80 to-amber-50 collection-heading small-hide top-3">
+          <div class="flex row-span-1 row-start-1 col-span-full small-hide">
             
             <!-- collection title  -->
-            <div class="flex items-center h-full py-2 w-[150px] text-xl sm:text-2xl flex-0">
-                <input type="checkbox" id="sidebar-1-toggle">
-                <label for="sidebar-1-toggle" class="p-1 rounded cursor-pointer toggle-label hover:bg-teal-400/70">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
-                  </svg>
-                  <span class="toggle-text"></span>
-                </label>
+            <div class="flex items-center pb-4 text-xl sm:text-2xl w-2/7 md:w-1/5 tw_smallheading">
+              Collection Filter:
             </div>
             
-            <div class="flex items-center justify-between flex-1 h-full threecomponents">
+            <div class="flex flex-col w-4/5 threecomponents">
               <!-- facets button  -->
               <div class="flex items-center gap-4 mx-3 DELactive-facets active-facets-desktop">
                 {%- for filter in results.filters -%}
@@ -516,10 +475,13 @@
                 {%endunless%}
               </div>
               
-              <div class="flex items-center justify-between sortandcounterLine">
+              <div class="flex justify-between sortandcounterLine">
+                
+                <!-- filter toggle button      -->
+                <div>filter toggle</div>
                 <!-- product counter      -->
                 <div class="product-count light" role="status">
-                  <div class="text-xl text-gray-700 DELproduct-count__text text-body">
+                  <h4 class="text-xl text-gray-700 DELproduct-count__text text-body">
                     <span id="ProductCountDesktop">
                       {%- if results.results_count -%}
                         {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
@@ -529,7 +491,7 @@
                         {{ 'products.facets.product_count' | t: product_count: results.products_count, count: results.all_products_count }}
                       {%- endif -%}
                     </span>
-                  </div>
+                  </h4>
                   <div class="loading-overlay__spinner">
                     <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                       <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
@@ -540,7 +502,7 @@
                 
                 
                 <!-- sortby selector  -->
-                <div class="flex items-center h-full mx-3 LT_sorting">
+                <div class="flex items-end mx-3 LT_sorting">
                   <div class="facet-filters sorting caption">
                     <div class="flex items-center text-xl DELfacet-filters__field">
                       <div class="text-gray-800 DELfacet-filters__label DELcaption-large DELtext-body">
@@ -568,7 +530,7 @@
         
         
         <!-- product grid  -->
-  <div id="ProductGridContainer" class="collection-grid">
+  <div id="ProductGridContainer" class="row-span-1 row-start-2 col-span-full md:col-span-21 md:col-start-4">
       {%- paginate collection.products by 18 -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty DELpage-width" id="product-grid" data-id="{{ section.id }}">
@@ -613,6 +575,7 @@
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
               {%- endif -%}
+              <!-- <li class="123grid__item"> -->
                 {% render 'LT-cardProductV2',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
@@ -624,14 +587,15 @@
                   section_id: section.id,
                   index_id: forloop.index
                 %}
+              <!-- </li> -->
             {%- endfor -%}
           </div> 
 
-          {% comment %} Masonry type grid: width of flexbox item automatically adjust by adapting aspect ratio of image 
+          <!-- Masonry type grid: width of flexbox item automatically adjust by adapting aspect ratio of image 
           <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap justify-evenly">
             {% render 'LT-productcardv4-mason', product: product %}
-          </div> {% endcomment %}
-          
+          </div>
+          -->
           <div id="AjaxinatePagination" class="w-[30vw] mx-auto flex items-center justify-center gap-6 mt-[5rem] border rounded mb-4 border-solid shadow bg-rose-300 border-rose-600 infiniteScrollAdjust">
             {% if paginate.next %}
             
@@ -685,23 +649,6 @@
      else 
       move_div.style.top = 170 + 'px';
   }
-
-  const filterToggle = document.getElementById('sidebar-1-toggle');
-  const filterItem = document.querySelector('#FacetsWrapperDesktop');
-  const filterLabel = document.querySelector('.toggle-text');
-  filterLabel.textContent = 'Hide Filter'; 
-
-  filterToggle.addEventListener('change', (event) => {
-    if (event.target.checked) {
-    filterItem.style.display = 'none';
-    filterItem.style.width = '0';
-    filterLabel.textContent = 'Show Filter';
-  } else {
-  filterItem.style.display = '';
-  filterItem.style.width = '160px';
-  filterLabel.textContent = 'Hide Filter'; 
-  }
-  });
 </script>
 
 {% schema %}

@@ -1,5 +1,8 @@
 
 package.json
 package-lock.json
-node_modules/
-/node_modules/
+node_modules/*
+My_CSS/*
+.gitignore
+postcss.config.js
+tailwind.config.js

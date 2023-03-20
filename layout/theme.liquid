@@ -298,7 +298,7 @@
 
   </head>
 
-  <body class="gradient">
+  <body class="bg-gradient-to-b from-amber-50 via-stone-100 to-stone-200 gradient">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -306,14 +306,14 @@
     <!-- {% section 'announcement-bar' %} -->
     {% section 'header' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="bg-transparent content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
+    {%- if template == 'collection' or template == 'product' or template == 'search' -%}
+      {%- section 'fixed-cart' -%}
+    {%- endif -%}
     <div id="my-side-cart" class="my-side-cart js-contents" data-id="{{ section.id }}">
-      {%- if template == 'collection' or template == 'product' or template == 'search' -%}
-        {%- section 'fixed-cart' -%}
-      {%- endif -%}
     </div>
 
     {% unless template == 'collection' %}

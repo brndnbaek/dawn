@@ -6,7 +6,7 @@
   }
 </style>
 
-<main class="relative w-full h-full mx-auto bg-gradient-to-br from-pink-50 to-amber-100 overflow-hidden">
+<main class="relative w-full h-full mx-auto overflow-hidden bg-gradient-to-br from-pink-50 to-amber-100">
   {% comment %} <header class="top-0 left-0 border-0 LT_waveDivider">
     {% render 'divider-wave', fill_color: 'amber' %}
   </header> {% endcomment %}
@@ -27,11 +27,11 @@
           {% if product.featured_image.src contains '.png' and product.type == 'Figure' %}
             <a href="{{ product.url }}" class="">
               <img
-                src="{{ product.featured_image | image_url: width: 350 }}"
+                src="{{ product.featured_image | image_url: width: 250 }}"
                 loading="lazy"
                 alt=""
-                width="300"
-                height="300"
+                width="250"
+                height="250"
                 class="aspect-square object-contain w-[18vw] sm:w-[13vw] h-auto relative pt-10 hover:scale-105 hover:rounded-full hover:bg-white/30 origin-bottom drop-shadow"
               >
             </a>
@@ -49,11 +49,11 @@
           {% if product.featured_image.src contains '.png' and product.type == 'Figure' %}
             <a href="{{ product.url }}">
               <img
-                src="{{ product.featured_image | image_url: width: 350 }}"
+                src="{{ product.featured_image | image_url: width: 250 }}"
                 loading="lazy"
                 alt=""
-                width="300"
-                height="300"
+                width="250"
+                height="250"
                 class="aspect-square object-contain w-[14vw] sm:w-[12vw] h-auto relative pt-10 hover:scale-110 hover:rounded-full hover:bg-gray-100/30 origin-bottom"
               >
             </a>
@@ -64,13 +64,13 @@
     </div>
   </div>
 
-    <section class="flex flex-col pt-14 mb-4 page-width relative">
+    <section class="relative flex flex-col mb-4 pt-14 page-width">
         <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-blue-300 drop-shadow-xl">
           Gundam The Witch From Mercury
         </div>
-        <div class="absolute h-8 bg-blue-400/40 w-11/12 bottom-0 mx-auto rounded drop-shadow"> </div>
+        <div class="absolute bottom-0 w-11/12 h-8 mx-auto rounded bg-blue-400/40 drop-shadow"> </div>
         {% comment %} png image scrolls {% endcomment %}
-        <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center items-end mt-2 relative">
+        <div class="relative flex flex-wrap items-end justify-center w-full gap-4 mt-2 overflow-hidden sm:flex-no-wrap sm:gap-8">
           {% comment %} loop no. 1 {% endcomment %}
             {% assign count = 0 %}
             {% for product in collections['the-witch-from-mercury'].products %}
@@ -80,12 +80,12 @@
               {% if product.featured_image.aspect_ratio > 1 and product.selected_or_first_available_variant.inventory_quantity > 0 %}
                 <a href="{{ product.url }}" class="w-[48%] lg:w-[23%]">
                   <img
-                    src="{{ product.featured_image | image_url: width: 400 }}"
+                    src="{{ product.featured_image | image_url: width: 300 }}"
                     loading="lazy"
                     alt=""
-                    width="400"
+                    width="300"
                     height="200"
-                    class="aspect-video object-contain h-auto w-full rounded hover:scale-105 drop-shadow"
+                    class="object-contain w-full h-auto rounded aspect-video hover:scale-105 drop-shadow"
                   >
                 </a>
                 {% assign count = count | plus: 1 %}
@@ -93,13 +93,13 @@
             {% endfor %}
           </div>
     </section>
-    <section class="flex flex-col pt-14 mb-4 page-width relative">
+    <section class="relative flex flex-col mb-4 pt-14 page-width">
         <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-purple-300 drop-shadow-xl">
           New K-Pop Albums
         </div>
-        <div class="absolute h-8 bg-purple-400/40 w-11/12 bottom-0 mx-auto rounded drop-shadow"> </div>
+        <div class="absolute bottom-0 w-11/12 h-8 mx-auto rounded bg-purple-400/40 drop-shadow"> </div>
         {% comment %} png image scrolls {% endcomment %}
-        <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center mt-6 relative">
+        <div class="relative flex flex-wrap justify-center w-full gap-4 mt-6 overflow-hidden sm:flex-no-wrap sm:gap-8">
           {% comment %} loop no. 1 {% endcomment %}
             {% assign count = 0 %}
             {% for product in collections['new-kpop'].products %}
@@ -109,12 +109,12 @@
               {% if product.featured_image.src contains '.jpg' and product.type == 'Kpop CD' %}
                 <a href="{{ product.url }}" class="w-[30%] lg:w-[15%]">
                   <img
-                    src="{{ product.featured_image | image_url: width: 500 }}"
+                    src="{{ product.featured_image | image_url: width: 200 }}"
                     loading="lazy"
                     alt=""
-                    width="500"
+                    width="200"
                     height="200"
-                    class="aspect-square object-contain h-auto w-full rounded hover:scale-105 drop-shadow"
+                    class="object-contain w-full h-auto rounded aspect-square hover:scale-105 drop-shadow"
                   >
                 </a>
                 {% assign count = count | plus: 1 %}
@@ -123,13 +123,13 @@
         </div>
     </section>
     
-    <section class="flex flex-col pt-14 page-width relative">
+    <section class="relative flex flex-col pt-14 page-width">
       <div class="text-[5vmin] sm:text-[4vmin] w-full text-center leading-none font-bold text-green-400 drop-shadow-xl">
         LilThinga YouTube
       </div>
-      <div class="absolute h-8 bg-green-400/40 w-11/12 bottom-0 mx-auto rounded drop-shadow"> </div>
+      <div class="absolute bottom-0 w-11/12 h-8 mx-auto rounded bg-green-400/40 drop-shadow"> </div>
       {% comment %} png image scrolls {% endcomment %}
-      <div class="flex flex-wrap md:flex-no-wrap gap-4 md:gap-8 w-full justify-center mt-6 relative">
+      <div class="relative flex flex-wrap justify-center w-full gap-4 mt-6 md:flex-no-wrap md:gap-8">
         {% comment %} loop no. 1 {% endcomment %}
           {% assign count = 0 %}
           {% for article in blogs['youtube-giveaway'].articles %}
@@ -144,7 +144,7 @@
                   alt=""
                   width="400"
                   height="200"
-                  class="aspect-video object-contain h-auto w-full rounded hover:scale-105 drop-shadow"
+                  class="object-contain w-full h-auto rounded aspect-video hover:scale-105 drop-shadow"
                 >
               </a>
               {% assign count = count | plus: 1 %}
@@ -159,37 +159,37 @@
           Savings
         </div>
       {% comment %} blocks row  {% endcomment %}
-        <div class="flex flex-wrap sm:flex-no-wrap overflow-hidden gap-4 sm:gap-8 w-full justify-center mt-4">
+        <div class="flex flex-wrap justify-center w-full gap-4 mt-4 overflow-hidden sm:flex-no-wrap sm:gap-8">
           
           {% comment %} 1st block  {% endcomment %}
           <div class="flex flex-col gap-2 relative w-10/12 md:w-[30%] bg-no-repeat rounded-xl bg-cover overflow-hidden" style="background-image: url('{{ 'kpop_banner_bg.jpg' | asset_url }}')">
-            <a href="{{ collections['kpop-albums'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/20 hover:bg-gray-700/10 h-full">
+            <a href="{{ collections['kpop-albums'].url }}" class="flex flex-col justify-around h-full no-underline after:absolute after:inset-0 bg-gray-700/20 hover:bg-gray-700/10">
             
-            <div class="block font-bold text-2xl sm:text-4xl text-white text-center drop-shadow">
+            <div class="block text-2xl font-bold text-center text-white sm:text-4xl drop-shadow">
               <span class="block">K-Pop Albums</span>
               <span class="block">Buy 1 Get 1 50% Off</span>
             </div>
-            <div class="text-base md:text-xl lg:text-3xl py-4 px-2 text-center text-white font-semibold">Don't miss your chance to save! Available only ot our online store.</div>
+            <div class="px-2 py-4 text-base font-semibold text-center text-white md:text-xl lg:text-3xl">Don't miss your chance to save! Available only ot our online store.</div>
             </a>
           </div> 
 
           {% comment %} 2nd block  {% endcomment %}
           <div class="flex flex-col gap-2 relative w-10/12 md:w-[30%] bg-no-repeat rounded-xl bg-cover overflow-hidden" style="background-image: url('https://cdn.shopify.com/s/files/1/0035/0729/0161/products/45132_40641_4718.jpg?v=1675887390');">
-            <a href="{{ collections['donggubat'].url }}" class="flex flex-col justify-around after:absolute after:inset-0 no-underline bg-gray-700/50 h-full py-4 hover:bg-gray-700/10">
-            <div class="block font-bold text-2xl sm:text-4xl text-white text-center drop-shadow">
+            <a href="{{ collections['donggubat'].url }}" class="flex flex-col justify-around h-full py-4 no-underline after:absolute after:inset-0 bg-gray-700/50 hover:bg-gray-700/10">
+            <div class="block text-2xl font-bold text-center text-white sm:text-4xl drop-shadow">
               <span class="block">Donggubat</span>
               <span class="block">Buy 1 Get 1 FREE</span>
             </div>
-            <div class="text-base md:text-xl lg:text-3xl py-4 px-2 text-center text-white font-semibold">Plastic-free and Zero waste, Produced by Organic and Vegan Certificated Factory</div>
+            <div class="px-2 py-4 text-base font-semibold text-center text-white md:text-xl lg:text-3xl">Plastic-free and Zero waste, Produced by Organic and Vegan Certificated Factory</div>
             </a>
           </div>
 
           <div class="flex flex-col items-center justify-around bg-rose-700 w-10/12 md:w-[30%] p-3 rounded-xl overflow-hidden">
-            <div class="text-2xl sm:text-4xl text-white font-semibold drop-shadow text-center">Subscribe to our emails</div>
-            <div class="text-lg sm:text-3xl text-white text-center py-4">Be the first to know about new collections and exclusive offers.</div>
+            <div class="text-2xl font-semibold text-center text-white sm:text-4xl drop-shadow">Subscribe to our emails</div>
+            <div class="py-4 text-lg text-center text-white sm:text-3xl">Be the first to know about new collections and exclusive offers.</div>
             {% form 'customer', class: 'newsletter-form' %}
               <input type="hidden" name="contact[tags]" value="newsletter">
-              <div class="newsletter-form__field-wrapper mx-auto">
+              <div class="mx-auto newsletter-form__field-wrapper">
                 <div class="field">
                   <input
                     id="NewsletterForm--{{ section.id }}"
@@ -232,54 +232,7 @@
     </section>
 
     
-    {%- comment -%} youtube promotion {%- endcomment -%}
-      <section class="mx-auto flex flex-col max-w-[1200px] gap-8 bg-white/20  justify-evenly rounded my-10 p-6 shadow hidden"> 
-      <div class="flex flex-col items-center justify-center md:items-baseline md:justify-center md:flex-row">
-        <img
-          src="{{ 'yt_logo_rgb_light.png' | asset_img_url: '200x' }}"
-          alt=""
-          loading="lazy"
-          class="w-[150px] mr-10 translate-y-1">
-        <p class="text-3xl font-bold text-gray-800 md:text-5xl">
-          <a href="{{ blogs['youtube-giveaway'].url }}" class="text-gray-800">Unboxing & Giveaway</a>
-        </p>
-        <!-- <p class="invisible md:visible">Check out our youtube channel and win giveaway prize</p> -->
-      </div>
-
-      <!-- <div class="px-4 h-full aspect-vertical md:h-[350px] md:w-[200px] md:aspect-square rounded-md">
-        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BRyquJqshXE?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&player=html5" frameborder="0" ></iframe>
-      </div> -->
-      <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between md:w-11/12 mx-auto w-full">
-          <a href="https://www.youtube.com/channel/UCRvt577oeU913_MKvJqrWZA?sub_confirmation=1" target="_blank" class="mx-auto"><img
-              src="{{ 'LT_youtube_giveaway.jpg' | asset_img_url: '350x' }}"
-              alt=""
-              width="350"
-              height="350"
-              loading="lazy"
-              class="aspect-square">
-          </a>
-          
-          {% for article in section.settings.blog.articles limit: 1 %}
-            <!-- {% assign article = articles['youtube-giveaway/youtube-giveaway-5'] %} -->
-            <div class="grid  place-items-center md:place-content-end w-screen">
-              <iframe
-                class="aspect-video md:h-[350px] md:w-auto w-[95%] h-auto mx-auto" 
-                src="{{ article.metafields.custom.youtube_link | replace: "youtu.be/", "www.youtube-nocookie.com/embed/" | append: "?rel=0&modestbranding=1&autohide=1&showinfo=1&controls=0" }}"
-                frameborder="0"></iframe>
-              <h3 class="text-center">
-                {% if article.metafields.custom.giveaway_winner %}
-                  Winner: {{ article.metafields.custom.giveaway_winner }}
-                {% else %}
-                  <a href="{{ article.metafields.custom.youtube_link }}" target="_blank">Enter Giveaway</a>
-                {% endif %}
-              </h3>
-            </div>
-            <!-- {{ article.excerpt }}
-            Winner: {% if article.custom.giveaway_winner %} {{ article.custom.giveaway_winner }}{% else %} TBA {% endif %} -->
-  
-          {% endfor %}
-      </div>
-    </section>
+      
 
 
     <!-- LT Difference Point out -->

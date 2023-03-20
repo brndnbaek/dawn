@@ -12,23 +12,35 @@
     border-radius: 4px;
   }
   .SquareImg {
-    grid-column: 2 / 20;
-    grid-row: 1 / 14;
-    justify-self: center;
-    align-self: center;
-  }
-  .PortraitImg {
-    grid-column: 6 / 16;
-    grid-row: 1 / 13;
+    grid-column: 4 / 18;
+    grid-row: 2 / 12;
     justify-self: center;
     align-self: end;
+    object-fit:contain;
+  }
+  .SquareImgPng {
+    grid-column: 2 / 19;
+    grid-row: 1 / 12;
+    justify-self: center;
+    align-self: start;
+    object-fit:contain;
+  }
+
+  .PortraitImg {
+    grid-column: 4 / 17;
+    grid-row: 1 / 12;
+    justify-self: center;
+    align-self: end;
+    object-fit: contain;
+    max-height: 260px;
   }
 
   .LandscapeImg {
-    grid-column: 3 / 19;
-    grid-row: 3 / 11;
+    grid-column: 1 / 19;
+    grid-row: 3 / 12;
     justify-self: center;
     align-self: center;
+    object-fit:contain;
   }
   .ContentBox {
     grid-column: 1 / 21;
@@ -84,15 +96,18 @@
     content: 'Adding to cart…' display: block;
   }
 
-
-
+  .price-item {
+  font-size: 1.75rem;
+  font-weight: 500;
+  }
+  
   
 {% endstyle %}
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
-<div class="lt_cardgrid w-full group relative h-[340px] sm:h-[400px]">
-  <div class="GridArea bg-gradient-to-b from-zinc-200 to-gray-100/50 text-slate-700/50 relative group-hover:from-zinc-300  group-hover:transition-all">
-    <div class="absolute top-1 left-1 flex items-center text-lg p-1 text-gray-500">
+<div class="lt_cardgrid w-full group relative h-[400px] max-w-[380px] sm:max-w-[350px] lg:max-w-[300px]">
+  <div class="GridArea bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 via-stone-200 from-stone-400/80 text-slate-700 relative shadow-lg group-hover:shadow-stone-500/80 group-hover:duration-300 group-hover:transition-all">
+    <div class="absolute flex items-center p-1 text-lg text-gray-500 top-1 left-1">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"/>
@@ -112,40 +127,43 @@
       {% endfor %}
       {% if productVideo == true %}
         <div class="relative flex w-full">
-          <div class="absolute group-hover:opacity-0 opacity-100 transition group-hover:transition">
+          <div class="absolute transition opacity-100 group-hover:opacity-0 group-hover:transition">
             {% render 'icon-film' %}
           </div>
-          <div class="absolute top-1 left-1 group-hover:opacity-100 opacity-0 text-xs leading-none text-rose-600 transition">
+          <div class="absolute text-xs leading-none transition opacity-0 top-1 left-1 group-hover:opacity-100 text-rose-600">
             360° Video
           </div>
         </div>
       {% endif %}
     </div>
-
+    
+    <div class="absolute text-lg text-zinc-600 TextBar right-2 top-3 group-hover:text-gray-700">
     {% case card_product.type %}
       {% when 'Other Model Kit' %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
-          {{ card_product.metafields.my_fields.series }}
-        </div>
+        {% if card_product.metafields.my_fields.product_lines %}  
+        {{ card_product.metafields.my_fields.product_lines }}
+        {% else %}
+        {{ card_product.metafields.my_fields.item_type }}
+      {% endif %}
       {% when 'K-Cosmetic' %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
           {{ card_product.metafields.my_fields.item_type }}
-        </div>
       {% when 'Kpop CD' %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
-          {{ card_product.metafields.my_fields.artist }}
-        </div>
-      {% when 'Kpop' %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
+          {% assign splitTitle = card_product.title | split: ' - ' %}
+          {% assign rearSplit = splitTitle[1] | split: " '" %}
+          {% assign albumNumber = rearSplit[0] %}
+        
+        {% if splitTitle[1] %}
+          {{ albumNumber }}
+        {% else %}
           {{ card_product.metafields.my_fields.item_type }}
-        </div>
+        {% endif %}
+      {% when 'Kpop' %}
+          {{ card_product.metafields.my_fields.item_type }}
       {% when 'Toy' %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
           {{ card_product.metafields.my_fields.series }}
-        </div>
       {% when 'Gundam Model Kit' %}
-        <div class="TextBar right-2 top-2 absolute flex items-baseline">
-          <div class="text-slate-600 text-lg">
+        <div class="flex items-baseline">
+          <div class="text-lg text-slate-600">
             {{ card_product.metafields.my_fields.grade }}
             &nbsp
           </div>
@@ -154,14 +172,11 @@
           </div>
         </div>
       {% when 'Figure' %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
-          {{ card_product.metafields.my_fields.series | truncate: 50 }}
-        </div>
+          {{ card_product.metafields.my_fields.product_lines | truncate: 50 }}
       {% else %}
-        <div class="TextBar right-2 top-2 absolute writing-vertical-rl text-lg">
-          {{ card_product.metafields.my_fields.item_type | truncate: 50 }}
-        </div>
+          {{card_product.metafields.my_fields.brand}}  {{ card_product.metafields.my_fields.item_type | truncate: 50 }}
     {% endcase %}
+  </div>
   </div>
 
   {% assign ImageRatio = card_product.featured_media.aspect_ratio %}
@@ -170,7 +185,7 @@
   {% assign difference = date_now | minus: date_created %}
 
   {% if ImageRatio > 1.2 %}
-    <div class="LandscapeImg">
+    <div class="relative LandscapeImg">
       <a href="{{ card_product.url }}">
         <img
           src="{{ card_product.featured_media | image_url: width: 350 }}"
@@ -178,13 +193,13 @@
           width="{{ card_product.featured_media.width }}"
           height="{{ card_product.fetured_media.height }}"
           loading="lazy"
-          class="w-[300px] sm:w-full -translate-x-[1rem] object-contain group-hover:duration-500 duration-300 drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
+          class="w-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 -translate-x-4 {% else %} drop-shadow {% endunless %}"
           style="background-color:unset;"
         >
       </a>
     </div>
-  {% elsif ImageRatio < 0.9 %}
-    <div class="PortraitImg">
+  {% elsif ImageRatio < 0.85 %}
+    <div class="relative PortraitImg">
       <a href="{{ card_product.url }}">
         <img
           src="{{ card_product.featured_media | image_url: height: 300 }}"
@@ -192,35 +207,50 @@
           width="{{ card_product.featured_media.width }}"
           height="{{ card_product.fetured_media.height }}"
           loading="lazy"
-          class="max-h-[220px] sm:max-h-[255px] w-auto -translate-y-[1.25rem] drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
+          class="w-full h-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {% else %}drop-shadow translate-y-6 group-hover:-translate-y-6 group-hover:duration-500 duration-300{% endunless %}"
           style="background-color:unset;"
         >
       </a>
     </div>
   {% else %}
-    <div class="SquareImg relative">
+    <div class="relative
+      {% if card_product.featured_media.src contains ".png" %}SquareImgPng {% else %}SquareImg {% endif %}">
       <a href="{{ card_product.url }}">
+        {% unless card_product.featured_media.src contains ".png" %}
         <img
           src="{{ card_product.featured_media | image_url: width: 350 }}"
           alt=""
           width="{{ card_product.featured_media.width }}"
           height="{{ card_product.fetured_media.height }}"
           loading="lazy"
-          class="w-[21.5rem] -translate-y-[1rem]  aspect-square h-auto drop-shadow {% if card_product.featured_media.src contains ".jpg" %}rounded shadow-2xl shadow-gray-400 {% endif %}"
+          class="w-full drop-shadow"
           style="background-color:unset;"
         >
-      </a>
+          {% else %}
+          <img
+            src="{{ card_product.featured_media | image_url: width: 350 }}"
+            alt=""
+            width="{{ card_product.featured_media.width }}"
+            height="{{ card_product.fetured_media.height }}"
+            loading="lazy"
+            class="w-full duration-300 translate-y-8 group-hover:scale-105 group-hover:duration-500"
+            style="background-color:unset;"
+          >
+          {% endunless %}
+      </a> 
     </div>
   {% endif %}
 
-  <div class=" ContentBox bg-gradient-to-b from-zinc-200 via-zinc-100 to-zinc-50 shadow grid grid-rows-7 relative">
+  <div class="relative flex flex-col justify-between shadow-xl ContentBox bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 from-zinc-300">
     {% if difference < 3888000 %}
-      <span class="new-label text-rose-500 font-semibold">new</span>
+      <span class="font-semibold new-label text-rose-500">new</span>
     {% endif %}
-    <div class="row-span-5 text-lg sm:text-xl px-4 pt-2 min-h-[6rem] sm:min-h-[8rem] text-center flex flex-col justify-between">
+    <div class="text-xl px-2 py-1 h-[65%] flex flex-col justify-between items-center">
       {% render 'splitTitle', card_product: card_product %}
-      {% if card_product.tags contains 'saleTag20' %}
-        <div class="flex justify-center items-baseline gap-4">
+      {% render 'price', product: card_product, price_class: 'font-bold' %}
+      
+      {% comment %} {% if card_product.tags contains 'saleTag20' %}
+        <div class="flex items-baseline justify-center gap-4">
           <div class="text-2xl font-bold">Sale {{ card_product.price | times: 0.8 | money }}</div>
           <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
         </div>
@@ -235,12 +265,10 @@
           <div class="text-lg text-red-600 line-through">Reg. {{ card_product.price | money }}</div>
         </div>
       {% else %}
-        {% render 'price', product: card_product, price_class: 'font-bold' %}
-      {% endif %}
+    {% endif %} {% endcomment %}
     </div>
 
-    <div class="row-span-2 rounded-b-md text-slate-600 flex items-center justify-center pt-1 sm:pt-2">
-      <div class="h-full text-lg">
+    <div class="flex items-stretch justify-center h-[35%] py-1 text-slate-600">
         <form action="{{ routes.cart_url }}" method="post">
           {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
             {% if all_products[card_product.metafields.my_fields.addon].available == true %}
@@ -264,27 +292,6 @@
             sold out
           {% endif %}
         </form>
-
-        {% comment %}
-          check if the card product is already added to the cart
-          <div class="inline">
-          {% if cart.item_count > 0 %}
-          {% assign in_cart = 0 %}
-          {% for item in cart.items %}
-          {% if item.product.id == card_product.id %}
-          {% assign in_cart = in_cart | plus: 1%}
-          {% endif %}
-          {% endfor %}
-          {% endif %}
-
-          {% if in_cart >= 1 %}
-          <div class="w-4 h-4 text-red-300">
-          {% render 'icon-success'%} {{cart.item_count}}
-          </div>
-          {% endif %}
-          </div>
-        {% endcomment %}
-      </div>
     </div>
   </div>
 </div>

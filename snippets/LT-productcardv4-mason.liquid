@@ -1,0 +1,66 @@
+<!-- this flex items need parent element of
+    <div id="product-grid" data-id="{{ section.id }}" class="flex flex-wrap justify-evenly"> -->
+
+{% style %}
+.price-item {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.price-item:hover {
+  color: darkblue;
+}
+{% endstyle%}
+
+{% for product in collection.products %}
+    {% if product.featured_media.aspect_ratio > 1.1 %}
+      {% assign aspect_ratio = 1.5 %}
+    {% elsif product.featured_media.aspect_ratio <  0.9 %}
+      {% assign aspect_ratio = 0.5 %}
+    {% else %}
+      {% assign aspect_ratio = 1 %}
+    {% endif %}
+
+    <div class="my-8 shadow shadow-gray-300 flex-grow-[{{ product.featured_media.aspect_ratio }}] sm:flex-shrink-[{{ product.featured_media.aspect_ratio }}] basis-full sm:basis-auto flex flex-col items-center 123bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-slate-200/5 via-slate-300 from-slate-500 rounded-xl relative p-4">
+      {% assign image_height = 150 | divided_by: product.featured_media.aspect_ratio %}
+      {% assign image_width = product.featured_media.aspect_ratio | times: 200 %}
+        <div>
+          <img src="{{ product.featured_media | image_url: width: 400 }}"
+            loading="lazy"
+            alt=""
+            width="{{ product.featured_media.width }}"
+            height="{{ product.featured_media.height }}"
+            class="object-contain max-w-[300px] {% if aspect_ratio == 0.5 %} h-[260px] {% else %}
+          h-[230px] {% endif %} w-auto {% unless product.featured_media.src contains '.png' %} {% endunless %}">
+        </div> 
+      <div class="{% if aspect_ratio == 0.5 %} h-[120px] {% else %}
+        h-[150px] pt-[30px] {% endif %} w-11/12 sm:w-[250px] text-xl px-2 text-slate-700 rounded-xl flex-col flex justify-between">
+        <div class="font-semibold"><a href="{{ product.url }}" class="no-underline text-zinc-600">{{ product.title | replace: " - ", " " | remove: "K-Pop " | remove: "CD "}}</a></div>
+        <div class="flex items-center justify-between h-[3rem]">
+           {% render 'price' %}
+            <form action="{{ routes.cart_url }}" method="post">
+              {%- if product.variants.size == 1 and product.selected_or_first_available_variant.available -%}
+                {% if all_products[product.metafields.my_fields.addon].available == true %}
+                  <a
+                    data-ajax-cart-request-button
+                    href="{{ routes.cart_add_url }}?id={{ product.selected_or_first_available_variant.id }}&quantity=1&&items[1]id={{ all_products[product.metafields.my_fields.addon].selected_or_first_available_variant.id }}&quantity=1"
+                    class="lt-cardbutton"
+                    >add w/ gift</a
+                  >
+                {% else %}
+                  <a
+                    data-ajax-cart-request-button
+                    href="{{ routes.cart_add_url }}?id={{ product.selected_or_first_available_variant.id }}&quantity=1"
+                    class="lt-cardbutton"
+                    >Quick Add</a
+                  >
+                {% endif %}
+              {% elsif product.variants.size > 1 %}
+                <a href="{{ product.url }}" class="lt-cardbutton">View Options</a>
+              {% elsif product.selected_or_first_available_variant.available == false %}
+                sold out
+              {% endif %}
+            </form>
+        </div>
+      </div>
+    </div>
+  {% endfor %}

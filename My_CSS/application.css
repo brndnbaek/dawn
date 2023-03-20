@@ -4,7 +4,7 @@
 @import "tailwindcss/components";
 @layer components {
     .lt-cardbutton {
-        @apply text-gray-900 bg-gradient-to-r from-amber-200 to-rose-200 hover:bg-gradient-to-l hover:from-amber-200 hover:to-rose-200 focus:ring-4 focus:outline-none focus:ring-lime-200  font-semibold rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2 hover:duration-300 no-underline;
+        @apply px-4 py-2 mb-2 text-lg font-semibold text-center text-gray-900 no-underline rounded-lg bg-gradient-to-r from-amber-200 to-rose-200 hover:from-amber-300 hover:to-rose-300 focus:ring-4 focus:outline-none focus:ring-lime-200 hover:duration-300;
     }
 }
 @import "tailwindcss/utilities";

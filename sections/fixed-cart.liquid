@@ -1,10 +1,10 @@
 
 {% style %}
-@media (min-width: 749px) {
+@media (min-width: 1024px) {
   
   body{
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: auto 150px;
+    grid-template-columns: auto 130px;
     grid-template-areas:
     "header header"
     "main-content fixed-cart"
@@ -96,31 +96,34 @@ subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
   });
   </scrip> {% endcomment %}
 
-<form action="{{ routes.cart_url }}" id="test-cart" method="post" class="fixed transition duration-500 my-cart invisible sm:hidden md:hidden lg:visible lg:block w-[150px] right-0 pr-4 h-[70vh]">
+<form action="{{ routes.cart_url }}" id="test-cart" method="post" class="transition duration-500 my-cart w-[130px] right-0 pr-4 h-[70vh] invisible lg:visible sticky">
 <!-- data-ajax-cart-section makes the element's HTML update
 when the cart gets changed -->
 <div data-ajax-cart-section class="flex flex-col items-center {% if cart == empty %}invisible{% endif %}">
 {% if cart == empty %}
   {% style %}
-    @media (min-width: 749px) {
+    @media (min-width: 1024px) {
       body{
         grid-template-columns: 1fr 0px;
+      }
+      #shopify-section-fixed-cart {
+        display: none;
       }
     }
     {% endstyle %}
 {% endif %}
 <h4 class="text-center">Subtotal: {{ cart.total_price | money }}</h4>
-{% comment %} <button type="submit" id="checkout" class="lt-cardbutton mb-4" name="checkout">
+{% comment %} <button type="submit" id="checkout" class="mb-4 lt-cardbutton" name="checkout">
   {{ 'sections.cart.checkout' | t }}
 </button> {% endcomment %}
 
-<a href="{{ routes.cart_url }}" class="lt-cardbutton mb-4 text-xl unstyled">View Cart</a>
+<a href="{{ routes.cart_url }}" class="mb-4 text-xl lt-cardbutton unstyled">View Cart</a>
 
 <!-- data-ajax-cart-section-scroll keeps the scroll position unchanged
 when the element's HTML is changed -->
 <div class="my-cart__items overflow-y-scroll h-[80vh] hiddenscroll" data-ajax-cart-section-scroll>
   {% for item in cart.items %}
-    <div class="flex flex-col mb-6 group">
+    <div class="flex flex-col mb-6 divide-y group">
       {% assign item_index = forloop.index %}
         
           {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -128,41 +131,41 @@ when the element's HTML is changed -->
           <div class="relative transition duration-500">
             {% if item.image %}
             <div class="w-full h-full">
-              <img class="relative cart-item__image object-contain aspect-square self-center max-h-[140px] max-w-[130px]"
+              <img class="relative cart-item__image aspect-square self-center max-h-[120px] max-w-[120px] object-contain"
                 src="{{ item.image | image_url: width: 150 }}"
                 alt="{{ item.image.alt | escape }}"
                 loading="lazy"
                 
               >
-              <div class="absolute w-10 h-10 rounded-full bg-rose-100 text-slate-800 right-2 top-2 text-center">
-                <div class="w-full h-full grid place-items-center rotate-6 font-semibold">x{{ item.quantity }}</div>
+              <div class="absolute w-10 h-10 text-center rounded-full bg-rose-100 text-slate-800 right-2 top-2">
+                <div class="grid w-full h-full font-semibold place-items-center rotate-6">x{{ item.quantity }}</div>
               </div>
             </div>
             {% else %}
               <div class="w-full h-full">
                 <a href="{{ item.url }}" class="text-slate-700" tabindex="-1" aria-hidden="true">
-                  <div class="text-lg px-4">{{ item.title }}</div>
+                  <div class="px-4 text-lg">{{ item.title }}</div>
                 </a>
-                {%- comment -%} <div class="absolute w-10 h-10 rounded-full bg-rose-100 text-slate-800 right-2 top-2 text-center">
-                  <div class="w-full h-full grid place-items-center rotate-6 font-semibold">x{{ item.quantity }}</div>
+                {%- comment -%} <div class="absolute w-10 h-10 text-center rounded-full bg-rose-100 text-slate-800 right-2 top-2">
+                  <div class="grid w-full h-full font-semibold place-items-center rotate-6">x{{ item.quantity }}</div>
                 </div> {%- endcomment -%}
               </div>
               
             {% endif %}
             {% unless item.product.tags contains 'not for sale' %}
-              <div class="absolute w-full h-1/4 bg-gray-200 bottom-0 flex flex-nowrap justify-center items-center invisible group-hover:visible transition duration-500">
+              <div class="absolute bottom-0 flex items-center justify-center invisible w-full transition duration-500 bg-gray-200 h-1/4 flex-nowrap group-hover:visible">
                 <a data-ajax-cart-request-button
                   href="{{ item.url_to_remove }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}"
-                  class="text-3xl font-extrabold w-6 no-underline basis-1/3 text-center text-slate-800 hover:text-lime-500 hover:text-4xl">
+                  class="w-6 text-3xl font-extrabold text-center no-underline basis-1/3 text-slate-800 hover:text-lime-500 hover:text-4xl">
                   +
                 </a>
                 <a data-ajax-cart-request-button
                   href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}"
-                  class="text-3xl font-extrabold w-6 no-underline basis-1/3 text-center text-slate-800 hover:text-lime-500 hover:text-4xl" >
+                  class="w-6 text-3xl font-extrabold text-center no-underline basis-1/3 text-slate-800 hover:text-lime-500 hover:text-4xl" >
                   -
                 </a>
                 <a data-ajax-cart-request-button href="{{ item.url_to_remove }}" 
-                  class="text-3xl font-extrabold w-6 no-underline basis-1/3 text-center text-red-600 hover:text-lime-500 hover:text-4xl">
+                  class="w-6 text-3xl font-extrabold text-center text-red-600 no-underline basis-1/3 hover:text-lime-500 hover:text-4xl">
                   x
                 </a>
               </div>
@@ -170,7 +173,7 @@ when the element's HTML is changed -->
               <div class="absolute w-full h-[3rem] bg-gray-200 bottom-0 flex flex-nowrap justify-center items-center invisible group-hover:visible transition duration-500">
                 
                 <a data-ajax-cart-request-button href="{{ item.url_to_remove }}" 
-                  class="text-3xl font-extrabold w-6 no-underline basis-1/3 text-center text-red-600 hover:text-lime-500 hover:text-4xl">
+                  class="w-6 text-3xl font-extrabold text-center text-red-600 no-underline basis-1/3 hover:text-lime-500 hover:text-4xl">
                   x
                 </a>
               </div>
@@ -179,13 +182,13 @@ when the element's HTML is changed -->
           </a>
         {%- comment -%} {%else%}
         <a href="{{ item.url }}" class="text-slate-700" tabindex="-1" aria-hidden="true">
-          <div class="text-lg px-4">{{item.title}}</div>
+          <div class="px-4 text-lg">{{item.title}}</div>
         </a>
         {% endif %} {%- endcomment -%}
         {% unless item.product.tags contains 'not for sale' %}
-        <div class="text-xl font-bold mt-3 text-center">
+        <div class="mt-3 text-xl font-bold text-center">
           {% if item.final_price != item.original_price %}
-          <span class="line-through text-slate-400 text-sm">{{ item.original_price | money }}</span> 
+          <span class="text-sm line-through text-slate-400">{{ item.original_price | money }}</span> 
           <span class="text-lg">{{ item.final_price | money }}</span>
           <span class="block text-base text-slate-600">Discount Applied</span>
           {%- else -%}
