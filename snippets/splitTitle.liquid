@@ -32,18 +32,27 @@
 
         <div class="text-[1.4rem] font-bold">{{artist}}</div>
         {% comment %} <div>album #: {{albumNumber}}</div> {% endcomment %}
-        <div>{{albumTitle}}</div>
+        <div>{{ albumTitle }}</div>
 
       {% when 'Gundam Model Kit' %}
+        {% assign target_substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ' ' %}
+        {% if card_product.title contains target_substring %}
+          {% assign splitTitle = card_product.title | split: target_substring %}
+          <span class="block font-semibold {% if splitTitle[1] %}text-center{%else%}text-slate-700{% endif %}">
+            {{- splitTitle[0] }}
+          </span>
+            <span class="block font-medium text-slate-700">{{ splitTitle[1] }} </span>
+          {% else %}
           {% assign splitTitle = card_product.title | split: ' #' %}
           <span class="block font-semibold {% if splitTitle[1] %}text-center{%else%}text-slate-700{% endif %}">
             {{- splitTitle[0] }}
           </span>
           {% if splitTitle[1] %}
-            <span class="block font-semibold text-slate-700">{{ splitTitle[1] | prepend: '#' }} </span>
+            <span class="block font-medium text-slate-700">{{ splitTitle[1] | prepend: '#' }} </span>
           {% endif %}
           <span class="block">{{ splitTitle[2] | truncate: 35 }} </span>
           {{ splitTitle[3] | truncate: 35 }}
+        {% endif %}
       
       {% when 'Other Model Kit' %}
         {% assign splitTitle = card_product.title | remove: 'Model Kit' | split: ' - ' %}
@@ -68,18 +77,25 @@
       {% when 'Figure' %}
         {% assign splitTitle = card_product.title | split: ' - ' %}
         <span class="font-semibold">{{ splitTitle[0] }} </span>
-        {% unless splitTitle[2] %}
-        <span class="block font-medium text-slate-600">{{ splitTitle[1] }} </span>
-        {% endunless %}
-        <span class="block font-medium text-slate-900">{{ splitTitle[2] }} </span>
-        {{ splitTitle[3] | truncate: 30 }}
-
+        {% if splitTitle[2] %}
+          <span class="block font-medium text-slate-700">{{ splitTitle[2] }} </span>
+        {% else %}
+          <span class="block font-medium">{{ splitTitle[1] }}</span>
+        {% endif %}
+      {% when 'figure' %}
+        {% assign splitTitle = card_product.title | split: ' - ' %}
+        <span class="font-semibold">{{ splitTitle[0] }} </span>
+        {% if splitTitle[2] %}
+          <span class="block font-medium text-slate-700">{{ splitTitle[2] }} </span>
+        {% else %}
+          {{ splitTitle[1] }}
+        {% endif %}
+    
       {% else %}
         {% assign splitTitle = card_product.title | split: ' - ' %}
         <span class="font-semibold">{{ splitTitle[0] }}</span>
-        <br>
-        <span class="block font-light text-slate-600">{{ splitTitle[1] }} </span>
-        <span class="block font-medium text-slate-900">{{ splitTitle[2] | truncate: 35 }} </span>
+        <span class="block font-light text-slate-700">{{ splitTitle[1] }} </span>
+        <span class="block font-medium text-slate-700">{{ splitTitle[2] | truncate: 35 }} </span>
         {{ splitTitle[3] | truncate: 35 }}
     {% endcase %}
   </a>

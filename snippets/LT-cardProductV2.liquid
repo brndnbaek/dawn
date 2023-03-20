@@ -137,7 +137,7 @@
       {% endif %}
     </div>
     
-    <div class="absolute text-lg text-zinc-600 TextBar right-2 top-3 group-hover:text-gray-700">
+    <div class="absolute text-lg text-indigo-600 TextBar right-2 top-3 group-hover:text-indigo-400">
     {% case card_product.type %}
       {% when 'Other Model Kit' %}
         {% if card_product.metafields.my_fields.product_lines %}  
@@ -162,6 +162,9 @@
       {% when 'Toy' %}
           {{ card_product.metafields.my_fields.series }}
       {% when 'Gundam Model Kit' %}
+        {% if card_product.metafields.my_fields.product_lines %}
+          {{ card_product.metafields.my_fields.product_lines }}
+          {% else %}
         <div class="flex items-baseline">
           <div class="text-lg text-slate-600">
             {{ card_product.metafields.my_fields.grade }}
@@ -171,6 +174,7 @@
             {{ card_product.metafields.my_fields.gundam_series }}
           </div>
         </div>
+      {% endif %}
       {% when 'Figure' %}
           {{ card_product.metafields.my_fields.product_lines | truncate: 50 }}
       {% else %}
@@ -240,6 +244,8 @@
       </a> 
     </div>
   {% endif %}
+
+{% comment %} *content box section {% endcomment %}
 
   <div class="relative flex flex-col justify-between shadow-xl ContentBox bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 from-zinc-300">
     {% if difference < 3888000 %}
