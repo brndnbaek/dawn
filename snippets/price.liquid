@@ -20,7 +20,7 @@
   assign compare_at_price = target.compare_at_price
   assign price = target.price | default: 1999
   assign available = target.available | default: false
-  assign money_price = price | money
+  assign money_price = price | money | replace: '$', '<sup>$</sup>' |replace: '.','<sup>' | append: '</sup>'
   if settings.currency_code_enabled
     assign money_price1 = price | money_with_currency
   endif
@@ -52,9 +52,9 @@
       {%- unless product.price_varies == false and product.compare_at_price_varies %}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
         <span>
-          <s class="price-item price-item--regular">
+          <s class="price-item price-item--regular text-zinc-500">
             {% if settings.currency_code_enabled %}
-              {{ compare_at_price | money_with_currency }}
+              {{ compare_at_price | money }}
             {% else %}
               {{ compare_at_price | money }}
             {% endif %}
