@@ -253,35 +253,37 @@
     {% if difference < 3888000 %}
       <span class="font-semibold new-label text-rose-500">new</span>
     {% endif %}
-    <div class="text-[1.4rem] px-3 flex flex-col justify-between items-center">
+    <div class="text-[1.3rem] px-3 pt-2 flex flex-col justify-between items-center h-[60%] min-h-[60%] overflow-hidden">
       {% render 'splitTitle', card_product: card_product %}
     </div>
 
-    <div class="flex items-end justify-around text-slate-600 pb-2">
-      {% render 'price', product: card_product, price_class: 'font-bold' %}
-        <form action="{{ routes.cart_url }}" method="post">
-          {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
-            {% if all_products[card_product.metafields.my_fields.addon].available == true %}
-              <a
-                data-ajax-cart-request-button
-                href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1&&items[1]id={{ all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id }}&quantity=1"
-                class="lt-cardbutton"
-                >add w/ gift</a
-              >
-            {% else %}
-              <a
-                data-ajax-cart-request-button
-                href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1"
-                class="lt-cardbutton"
-                >Quick Add</a
-              >
+    <div class="flex items-end justify-evenly pb-2 text-slate-600 basis-[40%]">
+      <div>{% render 'price', product: card_product %}</div>
+        <div>
+          <form action="{{ routes.cart_url }}" method="post">
+            {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
+              {% if all_products[card_product.metafields.my_fields.addon].available == true %}
+                <a
+                  data-ajax-cart-request-button
+                  href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1&&items[1]id={{ all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id }}&quantity=1"
+                  class="lt-cardbutton"
+                  >add w/ gift</a
+                >
+              {% else %}
+                <a
+                  data-ajax-cart-request-button
+                  href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1"
+                  class="lt-cardbutton"
+                  >Quick Add</a
+                >
+              {% endif %}
+            {% elsif card_product.variants.size > 1 %}
+              <a href="{{ card_product.url }}" class="lt-cardbutton">View Options</a>
+            {% elsif card_product.selected_or_first_available_variant.available == false %}
+              sold out
             {% endif %}
-          {% elsif card_product.variants.size > 1 %}
-            <a href="{{ card_product.url }}" class="lt-cardbutton">View Options</a>
-          {% elsif card_product.selected_or_first_available_variant.available == false %}
-            sold out
-          {% endif %}
-        </form>
+          </form>
+        </div>
     </div>
   </div>
 </div>

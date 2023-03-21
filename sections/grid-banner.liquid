@@ -107,7 +107,7 @@
                 {% break %}
               {% endif %}
               {% if product.featured_image.src contains '.jpg' and product.type == 'Kpop CD' %}
-                <a href="{{ product.url }}" class="w-[30%] lg:w-[15%]">
+                <a href="{{ product.url }}" class="w-[30%] md:w-[20%] lg:w-[14%]">
                   <img
                     src="{{ product.featured_image | image_url: width: 200 }}"
                     loading="lazy"
