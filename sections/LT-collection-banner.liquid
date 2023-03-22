@@ -25,6 +25,9 @@
         </div>
       {% if collection.handle == 'jpen' %}
         <div class="text-xl lg:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Branded Pen from Japan - <span class="text-cyan-50 text-2xl">B2G1 FREE</span></div>
+        {% elsif collection.handle == 'sticker'%}
+        <div class="text-xl lg:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Online Exclusive Sticker Deal - <span class="text-cyan-50 text-2xl">B2G1 FREE</span></div>
+
       {% elsif collection.handle == 'figure' or
         collection.handle == 'static-figure' or
         collection.handle == 'action-figure' or
