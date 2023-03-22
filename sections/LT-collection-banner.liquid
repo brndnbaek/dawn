@@ -23,10 +23,18 @@
             {{collection.title }}
           </div>
         </div>
-      {% if collection.handle == 'writing-material' %}
-        <div class="text-xl text-slate-600">25% off for 10 or more pens w/ CODE: PEN25</div>
-      {% elsif collection.handle == 'kpop-albums' %}
-        <div class="text-xl text-slate-600">Don't Miss Online Exlcusive K-Pop Albums BOGO 50% </div>
+      {% if collection.handle == 'jpen' %}
+        <div class="text-xl lg:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Branded Pen from Japan - <span class="text-cyan-50 text-2xl">B2G1 FREE</span></div>
+      {% elsif collection.handle == 'figure' or
+        collection.handle == 'static-figure' or
+        collection.handle == 'action-figure' or
+        collection.handle == 'blind-box-gachapon' or
+        collection.handle == 'chibi-figure' %}
+        <div class="text-xl md:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Limited Time Online Deal! All Figures BOGO 50% OFF</div>
+      {% elsif collection.handle == 'writing-material'  %}
+        <div class="text-xl text-slate-600">Enjoy free shipping on Writing Material order over $35 </span></div>
+      {% elsif collection.handle == 'kpop-albums' or collection.handle == 'boy-group-1' or collection.handle == 'girl-group' or collection.handle == 'boy-group' or collection.handle == 'new-kpop' %}
+        <div class="text-xl md:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Don't Miss Online Exlcusive K-Pop Albums BOGO 50% OFF</div>
       {% else %}
         <section class="flex flex-col items-center px-4" data-ajax-cart-section data-ajax-bind-state="cart.total_price">
               {% if cart.total_price < 6000 %}
