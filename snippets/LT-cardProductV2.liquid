@@ -111,7 +111,7 @@
 {% endstyle %}
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
-<div class="lt_cardgrid w-full group relative h-[400px] max-w-[380px] sm:max-w-[350px] lg:max-w-[300px]">
+<div class="lt_cardgrid w-full group relative h-[400px] max-w-[380px] sm:max-w-[350px] lg:max-w-[310px]">
   <div class="GridArea bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 via-stone-200 from-stone-400/80 text-slate-700 relative shadow-lg group-hover:shadow-stone-500/80 group-hover:duration-300 group-hover:transition-all">
     <div class="absolute flex items-center p-1 text-lg text-gray-500 top-1 left-1">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
@@ -257,7 +257,7 @@
     {% if difference < 3888000 %}
       <span class="font-semibold new-label text-rose-500">new</span>
     {% endif %}
-    <div class="text-[1.3rem] px-3 pt-2 flex flex-col justify-between items-center h-[60%] min-h-[60%] overflow-hidden">
+    <div class="text-[1.3rem] px-2 pt-2 flex flex-col justify-between items-center h-[60%] min-h-[60%] overflow-hidden">
       {% render 'splitTitle', card_product: card_product %}
     </div>
 

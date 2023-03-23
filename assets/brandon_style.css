@@ -8192,6 +8192,10 @@ button.chat-toggle.chat-toggle--text-button {
     max-width: 150px;
   }
 
+  .lg\:max-w-\[310px\] {
+    max-width: 310px;
+  }
+
   .lg\:basis-\[49\%\] {
     flex-basis: 49%;
   }
