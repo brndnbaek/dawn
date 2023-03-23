@@ -35,8 +35,9 @@
         <div>{{ albumTitle }}</div>
 
       {% when 'Gundam Model Kit' %}
-        {% assign substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ' ' %}
-        {% assign removeProductLine = card_product.title | replace: substring, ' ' | remove: 'Model Kit' %}
+        {% assign substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: '' %}
+        {% assign substring2 = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ', ' %}
+        {% assign removeProductLine = card_product.title | replace: substring, ' ' | replace: substring2, ' ' | remove: 'Model Kit' %}
         {% assign lineSplit = removeProductLine | replace: ', ', '<br>' | replace: ' #', '<br>#' | replace: ' (', '<br>' | remove: ')' | replace: ' [', '<br>[' %}
         {% if lineSplit contains '<br>' %}
           {% assign threeLines = lineSplit | split: '<br>' %}
