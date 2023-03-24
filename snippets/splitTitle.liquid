@@ -1,6 +1,7 @@
 <div class="text-slate-700 font-semibold leading-[1.1] sm:leading-[1.4] w-full">
-  <a href="{{ card_product.url }}" class="flex flex-col items-center h-full text-center no-underline justify-evenly full-unstyled-link">
+  <a href="{{ card_product.url }}" class="flex flex-col items-center h-full  no-underline justify-evenly full-unstyled-link">
     {% case card_product.type %}
+      {% comment %} 
       {% when 'Writing Material' %}
         {% assign splitTitle = card_product.title | split: ' - ' %}
         {{ splitTitle[0] }}
@@ -16,38 +17,7 @@
           <br>
         {% endfor %}
       {% when 'K-Cosmetic' %}
-        {{ card_product.title | escape | replace_first: '] ', ']<br>' }}
-      {% when 'Kpop CD' %}
-        {% if card_product.title contains " - " %}
-          {% assign splitTitle = card_product.title | split: ' - ' %}
-          {% assign artist = splitTitle[0] | remove: 'K-Pop' | remove: 'CD ' %}
-          {% assign rearSplit = splitTitle[1] | split: " '" %}
-          {% assign albumNumber = rearSplit[0] %}
-          {% assign albumTitle = rearSplit[1] | remove_last: "'" %}
-        {% else %}
-          {% assign splitTitle = card_product.title | split: " '" %}
-          {% assign artist = splitTitle[0] | remove: 'K-Pop' | remove: 'CD ' %}
-          {% assign albumTitle = splitTitle[1] | remove_last: "'" %}
-        {% endif %}
-
-        <div class="text-[1.4rem] font-bold">{{artist}}</div>
-        {% comment %} <div>album #: {{albumNumber}}</div> {% endcomment %}
-        <div>{{ albumTitle }}</div>
-
-      {% when 'Gundam Model Kit' %}
-        {% assign substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: '' %}
-        {% assign substring2 = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ', ' %}
-        {% assign removeProductLine = card_product.title | replace: substring, ' ' | replace: substring2, ' ' | remove: 'Model Kit' %}
-        {% assign lineSplit = removeProductLine | replace: ', ', '<br>' | replace: ' #', '<br>#' | replace: ' (', '<br>' | remove: ')' | replace: ' [', '<br>[' %}
-        {% if lineSplit contains '<br>' %}
-          {% assign threeLines = lineSplit | split: '<br>' %}
-        <div>{{ threeLines[0] }}</div>
-        <div>{{ threeLines[1] | truncate: 66 }}</div>
-        <div>{{ threeLines[2] | truncate: 33 }}</div>
-          {% else %}
-          <div>{{ lineSplit | truncate: 90 }}</div>
-        {% endif %}
-      
+        {{ card_product.title | escape | replace_first: '] ', ']<br>' }} 
       {% when 'Other Model Kit' %}
         {% assign substring = card_product.metafields.my_fields.product_lines | prepend: '- ' %}
         {% assign removeProductLine = card_product.title | replace: substring, '' | remove: 'Model Kit' %}
@@ -77,14 +47,48 @@
           <span class="block font-medium text-slate-700">{{ secondSplit[1] | remove: ')' | truncate: 35 }} </span>
         {% else %}
           <span class="block font-medium">{{ splitTitle[1] }}</span>
+        {% endif %}  
+      {% when 'Gundam Model Kit' %}
+        {% assign substring = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: '' %}
+        {% assign substring2 = card_product.metafields.my_fields.product_lines | prepend: ' ' | append: ', ' %}
+        {% assign removeProductLine = card_product.title | replace: substring, ' ' | replace: substring2, ' ' | remove: 'Model Kit' %}
+        {% assign lineSplit = removeProductLine | replace: ', ', '<br>' | replace: ' #', '<br>#' | replace: ' (', '<br>' | remove: ')' | replace: ' [', '<br>[' %}
+        {% if lineSplit contains '<br>' %}
+          {% assign threeLines = lineSplit | split: '<br>' %}
+        <div>{{ threeLines[0] }}</div>
+        <div>{{ threeLines[1] | truncate: 66 }}</div>
+        <div>{{ threeLines[2] | truncate: 33 }}</div>
+          {% else %}
+          <div>{{ lineSplit | truncate: 90 }}</div>
         {% endif %}
+      {% endcomment %}
+      {% when 'Kpop CD' %}
+        {% if card_product.title contains " - " %}
+          {% assign splitTitle = card_product.title | split: ' - ' %}
+          {% assign artist = splitTitle[0] | remove: 'K-Pop' | remove: 'CD ' %}
+          {% assign rearSplit = splitTitle[1] | split: " '" %}
+          {% assign albumNumber = rearSplit[0] %}
+          {% assign albumTitle = rearSplit[1] | remove_last: "'" %}
+        {% else %}
+          {% assign splitTitle = card_product.title | split: " '" %}
+          {% assign artist = splitTitle[0] | remove: 'K-Pop' | remove: 'CD ' %}
+          {% assign albumTitle = splitTitle[1] | remove_last: "'" %}
+        {% endif %}
+
+        <div class="text-[1.4rem] font-bold">{{artist}}</div>
+        {% comment %} <div>album #: {{albumNumber}}</div> {% endcomment %}
+        <div>{{ albumTitle }}</div>
+
+      
+      
     
       {% else %}
-        {% assign splitTitle = card_product.title | split: ' - ' %}
+        {% comment %} {% assign splitTitle = card_product.title | split: ' - ' %}
         <span class="font-semibold">{{ splitTitle[0] }}</span>
         <span class="block font-medium text-slate-700">{{ splitTitle[1] }} </span>
-        <span class="block font-medium text-slate-700">{{ splitTitle[2] | truncate: 35 }} </span>
+        <span class="block font-medium text-slate-700">{{ splitTitle[2] | truncate: 35 }} </span> {% endcomment %}
         {{ splitTitle[3] | truncate: 35 }}
+        <div class='text-start pl-2 line-clamp-3 w-full'>{{ card_product.title | replace: ' - ', ' '}}</div>
     {% endcase %}
   </a>
 </div>

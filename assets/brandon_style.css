@@ -6481,6 +6481,10 @@ button.chat-toggle.chat-toggle--text-button {
   text-align: right;
 }
 
+.text-start {
+  text-align: start;
+}
+
 .align-middle {
   vertical-align: middle;
 }
@@ -7018,6 +7022,20 @@ button.chat-toggle.chat-toggle--text-button {
 
 .duration-300 {
   transition-duration: 300ms;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .before\:w-\[15vw\]::before {
@@ -8184,16 +8202,12 @@ button.chat-toggle.chat-toggle--text-button {
     width: 20rem;
   }
 
-  .lg\:max-w-\[300px\] {
-    max-width: 300px;
+  .lg\:max-w-\[310px\] {
+    max-width: 310px;
   }
 
   .lg\:max-w-\[150px\] {
     max-width: 150px;
-  }
-
-  .lg\:max-w-\[310px\] {
-    max-width: 310px;
   }
 
   .lg\:basis-\[49\%\] {
