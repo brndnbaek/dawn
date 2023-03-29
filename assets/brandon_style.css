@@ -4586,6 +4586,11 @@ button.chat-toggle.chat-toggle--text-button {
   margin-bottom: 1rem;
 }
 
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -5574,6 +5579,11 @@ button.chat-toggle.chat-toggle--text-button {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
 }
 
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -7022,13 +7032,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .duration-300 {
   transition-duration: 300ms;
-}
-
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 
 .line-clamp-3 {

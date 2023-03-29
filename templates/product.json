@@ -60,6 +60,12 @@
             "show_dynamic_checkout": true
           }
         },
+        "08b7409b-18e4-40d0-819d-ccba242bef08": {
+          "type": "estimated_delivery",
+          "disabled": true,
+          "settings": {
+          }
+        },
         "82ab975f-5329-4ea8-b2d5-b0b530d07551": {
           "type": "shopify:\/\/apps\/loyalty-program-reviews-3\/blocks\/block.product.reviewAvgProfile\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
           "settings": {
@@ -128,6 +134,7 @@
         "quantity_selector",
         "f6f86c8e-d56e-4d69-b24f-a409b244da22",
         "buy_buttons",
+        "08b7409b-18e4-40d0-819d-ccba242bef08",
         "82ab975f-5329-4ea8-b2d5-b0b530d07551",
         "description",
         "collapsible-row-0",

@@ -23,6 +23,7 @@
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
+
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
@@ -234,9 +235,8 @@
             <a href="/search?q={{ product.metafields.my_fields.product_lines }}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{ product.metafields.my_fields.item_type }}
             </a>
           {% endif %}
-
-
         </div>
+
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when '@app' -%}
@@ -372,6 +372,13 @@
                     {{ block.settings.page.content }}
                   </div>
                 </details>
+              </div>
+            {% when 'estimated_delivery' %}
+              <div class="flex items-center gap-x-3 my-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                </svg>
+                <h4>Get it between <strong><span id="delivery-date"></span></strong></h4>
               </div>
             {%- when 'quantity_selector' -%}
               <div class="" id="inventory-{{ section.id }}">
@@ -724,11 +731,47 @@
   if (!customElements.get('product-modal')) 
     customElements.define('product-modal', ProductModal);
   
+    
 {% endjavascript %}
 
 {% if product.media.size > 0 %}
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 {% endif %}
+<script>
+  // estimated deliver script goes here
+
+var today = new Date();
+// get today's day and check if it's weekend
+var day = today.getDay();
+var time = today.getHours();
+var prepDays = 2
+console.log('time is',time);
+if(day == 0) {
+  prepDays = 2
+} else if (day == 6) {
+  prepDays = 3
+  //else if time is less than 10 AM
+} else if (time < 13) {
+  prepDays = 1
+}
+today.setDate(today.getDate() + prepDays)
+var dd = String(today.getDate()).padStart(2, "0"); // get the date padStart => 01
+var mm = String(today.getMonth() + 1).padStart(2, "0");
+var month = today.toLocaleString('default', { month: 'long'}); //January is 0!
+var fullDate = mm + "/" + dd ;
+
+var someDate = new Date();
+var numberOfDaysToAdd = 6;
+someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+var dd = String(someDate.getDate()).padStart(2, "0");
+var mm = String(someDate.getMonth() + 1).padStart(2, "0")
+var someFormattedDate = mm + "/" + dd;
+
+today = fullDate + " - " + someFormattedDate;
+
+document.getElementById("delivery-date").innerHTML = today;
+</script>
 
 <script>
   // this script collects variant id and its quantity to refresh input selector max value
@@ -784,7 +827,9 @@
       hiddenInput.value = event.currentTarget.value;
     });
   });
+
 </script>
+
 
 {%- if first_3d_model -%}
   <script type="application/json" id="ProductJSON-{{ product.id }}">
@@ -874,6 +919,11 @@
       {
         "type": "title",
         "name": "t:sections.main-product.blocks.title.name",
+        "limit": 1
+      },
+      {
+        "type": "estimated_delivery",
+        "name": "estimated delivery date",
         "limit": 1
       },
       {
