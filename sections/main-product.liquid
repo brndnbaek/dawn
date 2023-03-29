@@ -737,9 +737,10 @@
 {% if product.media.size > 0 %}
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 {% endif %}
-<script>
-  // estimated deliver script goes here
 
+// estimated deliver script goes here
+{% comment %}
+<script>
 var today = new Date();
 // get today's day and check if it's weekend
 var day = today.getDay();
@@ -772,7 +773,7 @@ today = fullDate + " - " + someFormattedDate;
 
 document.getElementById("delivery-date").innerHTML = today;
 </script>
-
+{% endcomment %}
 <script>
   // this script collects variant id and its quantity to refresh input selector max value
   var maxQuantityLimit = {};{%- for var in product.variants -%}maxQuantityLimit[{{- var.id -}}] = {
