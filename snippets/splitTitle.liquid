@@ -88,7 +88,7 @@
         <span class="block font-medium text-slate-700">{{ splitTitle[1] }} </span>
         <span class="block font-medium text-slate-700">{{ splitTitle[2] | truncate: 35 }} </span> {% endcomment %}
         {{ splitTitle[3] | truncate: 35 }}
-        <div class='text-start pl-2 line-clamp-3 w-full font-medium'>{{ card_product.title | replace: ' - ', ' '}}</div>
+        <div class='text-start pl-2 line-clamp-3 w-full font-semibold'>{{ card_product.title | replace: ' - ', ' '}}</div>
     {% endcase %}
   </a>
 </div>

@@ -4576,6 +4576,11 @@ button.chat-toggle.chat-toggle--text-button {
   margin-bottom: 5rem;
 }
 
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -4584,11 +4589,6 @@ button.chat-toggle.chat-toggle--text-button {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 .mr-2 {
@@ -5572,6 +5572,11 @@ button.chat-toggle.chat-toggle--text-button {
        column-gap: 1rem;
 }
 
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+
 .gap-y-1 {
   row-gap: 0.25rem;
 }
@@ -5579,11 +5584,6 @@ button.chat-toggle.chat-toggle--text-button {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
-}
-
-.gap-x-3 {
-  -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
 }
 
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -6591,6 +6591,18 @@ button.chat-toggle.chat-toggle--text-button {
 
 .font-normal {
   font-weight: 400;
+}
+
+.font-\[500\] {
+  font-weight: 500;
+}
+
+.font-\[600\] {
+  font-weight: 600;
+}
+
+.font-\[550\] {
+  font-weight: 550;
 }
 
 .uppercase {
@@ -8502,5 +8514,9 @@ button.chat-toggle.chat-toggle--text-button {
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-\[1\.25rem\] {
+    font-size: 1.25rem;
   }
 }
