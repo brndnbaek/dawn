@@ -34,6 +34,9 @@
         collection.handle == 'blind-box-gachapon' or
         collection.handle == 'chibi-figure' %}
         <div class="text-xl md:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Limited Time Online Deal! All Figures BOGO 50% OFF</div>
+      {% elsif collection.handle == 'model-kit-bogo-30'%}
+        <div class="text-xl md:text-2xl text-white bg-rose-500 px-3 py-2 rounded">Limited Time Online Deal! Selected Model Kits BOGO 30% OFF</div>
+        
       {% elsif collection.handle == 'writing-material'  %}
         <div class="text-xl text-slate-600">Enjoy free shipping on Writing Material order over $35 </span></div>
       {% elsif collection.handle == 'kpop-albums' or collection.handle == 'boy-group-1' or collection.handle == 'girl-group' or collection.handle == 'boy-group' or collection.handle == 'new-kpop' %}
