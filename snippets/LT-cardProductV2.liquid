@@ -258,10 +258,12 @@
     </div>
   {% endif %}
   {% else %}
-    <div class="AlbumCoverart relative w-full h-[90%] sm:h-full bg-contain sm:bg-cover rounded bg-no-repeat bg-top overflow-hidden" style="background-image: url('{{ card_product.featured_media | image_url: width: 500 }}')">
+  <div class="AlbumCoverart relative w-full h-[90%] sm:h-full bg-contain sm:bg-cover rounded bg-no-repeat bg-top overflow-hidden" style="background-image: url('{{ card_product.featured_media | image_url: width: 500 }}')">
+    <a href="{{ card_product.url }}">
       
       <div class="w-full h-full flex">
       </div>
+    </a>
     </div>
   {% endunless %}
 
