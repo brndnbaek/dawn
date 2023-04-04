@@ -42,6 +42,12 @@
     align-self: center;
     object-fit:contain;
   }
+  .AlbumCoverart {
+    grid-column: 2 / 20;
+    grid-row: 2 / 12;
+    justify-self: center;
+    align-self: center;
+  }
   .ContentBox {
     grid-column: 1 / 21;
     grid-row: 12 / 17;
@@ -111,7 +117,7 @@
 {% endstyle %}
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
-<div class="lt_cardgrid w-full group relative h-[400px] max-w-[380px] sm:max-w-[350px] lg:max-w-[310px]">
+<div class="lt_cardgrid w-full group relative h-[420px] max-w-[380px] sm:max-w-[350px] lg:max-w-[310px]">
   <div class="GridArea bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 via-stone-200 from-stone-400/80 text-slate-700 relative shadow-lg group-hover:shadow-stone-500/80 group-hover:duration-300 group-hover:transition-all">
     <div class="absolute flex items-center p-1 text-lg text-gray-500 top-1 left-1">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
@@ -143,7 +149,7 @@
       {% endif %}
     </div>
     
-    <div class="absolute text-lg text-indigo-600 TextBar right-2 top-3 group-hover:text-indigo-400">
+    <div class="absolute text-lg text-indigo-600 TextBar top-3 group-hover:text-indigo-400 {%if card_product.type == 'Kpop CD'%} right-2 sm:-right-8{% else %} right-2{% endif %}">
     {% case card_product.type %}
       {% when 'Other Model Kit' %}
         {% if card_product.metafields.my_fields.product_lines %}  
@@ -194,6 +200,7 @@
   {% assign date_now = 'now' | date: '%s' %}
   {% assign difference = date_now | minus: date_created %}
 
+  {% unless card_product.type == 'Kpop CD' %}
   {% if ImageRatio > 1.2 %}
     <div class="relative LandscapeImg">
       <a href="{{ card_product.url }}">
@@ -250,6 +257,13 @@
       </a> 
     </div>
   {% endif %}
+  {% else %}
+    <div class="AlbumCoverart relative w-full h-[90%] sm:h-full bg-contain sm:bg-cover rounded bg-no-repeat bg-top overflow-hidden" style="background-image: url('{{ card_product.featured_media | image_url: width: 500 }}')">
+      
+      <div class="w-full h-full flex">
+      </div>
+    </div>
+  {% endunless %}
 
 {% comment %} *content box section {% endcomment %}
 
@@ -257,7 +271,7 @@
     {% if difference < 3888000 %}
       <span class="font-semibold new-label text-rose-500">new</span>
     {% endif %}
-    <div class="text-[1.3rem] lg:text-[1.25rem] px-2 pt-2 flex flex-col justify-between w-full items-center h-[60%] min-h-[60%] overflow-hidden">
+    <div class="text-[1.3rem] lg:text-[1.3rem] px-2 pt-2 flex flex-col justify-between w-full items-center h-[60%] min-h-[60%] overflow-hidden">
       {% render 'splitTitle', card_product: card_product %}
     </div>
 

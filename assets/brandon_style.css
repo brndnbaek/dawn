@@ -4767,10 +4767,6 @@ button.chat-toggle.chat-toggle--text-button {
   height: 1.5rem;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-\[500px\] {
   height: 500px;
 }
@@ -4785,6 +4781,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .h-\[12vw\] {
   height: 12vw;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .h-\[1200px\] {
@@ -4971,6 +4971,30 @@ button.chat-toggle.chat-toggle--text-button {
   height: 2.25rem;
 }
 
+.h-\[250px\] {
+  height: 250px;
+}
+
+.h-\[100\%\] {
+  height: 100%;
+}
+
+.h-\[95\%\] {
+  height: 95%;
+}
+
+.h-\[410px\] {
+  height: 410px;
+}
+
+.h-\[420px\] {
+  height: 420px;
+}
+
+.h-\[430px\] {
+  height: 430px;
+}
+
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -4993,6 +5017,30 @@ button.chat-toggle.chat-toggle--text-button {
 
 .max-h-\[4vh\] {
   max-height: 4vh;
+}
+
+.max-h-full {
+  max-height: 100%;
+}
+
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
+.max-h-\[350px\] {
+  max-height: 350px;
+}
+
+.max-h-\[300px\] {
+  max-height: 300px;
+}
+
+.max-h-\[250px\] {
+  max-height: 250px;
+}
+
+.max-h-\[90\%\] {
+  max-height: 90%;
 }
 
 .min-h-\[60\%\] {
@@ -5215,12 +5263,16 @@ button.chat-toggle.chat-toggle--text-button {
   width: 2.25rem;
 }
 
-.max-w-\[235px\] {
-  max-width: 235px;
+.w-\[100\%\] {
+  width: 100%;
 }
 
-.max-w-\[500px\] {
-  max-width: 500px;
+.w-\[300px\] {
+  width: 300px;
+}
+
+.max-w-\[235px\] {
+  max-width: 235px;
 }
 
 .max-w-\[1400px\] {
@@ -5229,6 +5281,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .max-w-\[250px\] {
   max-width: 250px;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
 }
 
 .max-w-\[1250px\] {
@@ -5289,6 +5345,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .max-w-\[280px\] {
   max-width: 280px;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-1 {
@@ -6029,6 +6089,11 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -6264,6 +6329,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .bg-cover {
   background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
 }
 
 .bg-fixed {
@@ -7018,13 +7087,13 @@ button.chat-toggle.chat-toggle--text-button {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.drop-shadow {
-  --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+.drop-shadow-lg {
+  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.drop-shadow-lg {
-  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+.drop-shadow {
+  --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -7066,16 +7135,16 @@ button.chat-toggle.chat-toggle--text-button {
   transition-delay: 200ms;
 }
 
-.duration-200 {
-  transition-duration: 200ms;
-}
-
 .duration-500 {
   transition-duration: 500ms;
 }
 
 .duration-1000 {
   transition-duration: 1000ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
 }
 
 .duration-300 {
@@ -7237,16 +7306,8 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
-.hover\:outline:hover {
-  outline-style: solid;
-}
-
 .hover\:outline-4:hover {
   outline-width: 4px;
-}
-
-.hover\:duration-200:hover {
-  transition-duration: 200ms;
 }
 
 .focus\:outline-none:focus {
@@ -7372,6 +7433,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 @media (min-width: 640px) {
 
+  .sm\:-right-8 {
+    right: -2rem;
+  }
+
   .sm\:h-\[18vw\] {
     height: 18vw;
   }
@@ -7386,6 +7451,10 @@ button.chat-toggle.chat-toggle--text-button {
 
   .sm\:h-80 {
     height: 20rem;
+  }
+
+  .sm\:h-full {
+    height: 100%;
   }
 
   .sm\:w-\[13vw\] {
@@ -7414,6 +7483,10 @@ button.chat-toggle.chat-toggle--text-button {
 
   .sm\:gap-8 {
     gap: 2rem;
+  }
+
+  .sm\:bg-cover {
+    background-size: cover;
   }
 
   .sm\:pt-\[5vw\] {
@@ -8562,5 +8635,9 @@ button.chat-toggle.chat-toggle--text-button {
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-\[1\.3rem\] {
+    font-size: 1.3rem;
   }
 }
