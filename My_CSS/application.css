@@ -6,5 +6,8 @@
     .lt-cardbutton {
         @apply px-4 py-2 text-lg font-semibold text-center text-gray-900 no-underline rounded-lg bg-gradient-to-r from-amber-200 to-rose-200 hover:from-amber-300 hover:to-rose-300 focus:ring-4 focus:outline-none focus:ring-lime-200 hover:duration-300;
     }
+    .LT_banner {
+        @apply w-full max-w-[500px] h-auto rounded drop-shadow hover:duration-200 hover:outline outline-2 duration-200
+      }
 }
 @import "tailwindcss/utilities";
