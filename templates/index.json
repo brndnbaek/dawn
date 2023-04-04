@@ -1,7 +1,13 @@
 {
   "sections": {
+    "4457426d-2a4f-4b2a-9766-2e43cf446a4e": {
+      "type": "LT-sales_banner",
+      "settings": {
+      }
+    },
     "1644511616ed2faaf7": {
       "type": "grid-banner",
+      "disabled": true,
       "settings": {
         "blog": "youtube-giveaway",
         "title": "Lil'Thingamajigs"
@@ -23,6 +29,7 @@
     }
   },
   "order": [
+    "4457426d-2a4f-4b2a-9766-2e43cf446a4e",
     "1644511616ed2faaf7",
     "video"
   ]

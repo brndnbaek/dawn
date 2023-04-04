@@ -5271,6 +5271,30 @@ button.chat-toggle.chat-toggle--text-button {
   max-width: 280px;
 }
 
+.max-w-\[1400px\] {
+  max-width: 1400px;
+}
+
+.max-w-\[50vw\] {
+  max-width: 50vw;
+}
+
+.max-w-\[650px\] {
+  max-width: 650px;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px;
+}
+
+.max-w-\[220px\] {
+  max-width: 220px;
+}
+
+.max-w-\[240px\] {
+  max-width: 240px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -5313,6 +5337,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .basis-\[40\%\] {
   flex-basis: 40%;
+}
+
+.basis-1\/2 {
+  flex-basis: 50%;
 }
 
 .origin-bottom {
@@ -5417,6 +5445,10 @@ button.chat-toggle.chat-toggle--text-button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.grid-flow-col {
+  grid-auto-flow: column;
 }
 
 .grid-cols-24 {
@@ -5590,6 +5622,12 @@ button.chat-toggle.chat-toggle--text-button {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -6009,6 +6047,39 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
+.bg-rose-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 241 242 / var(--tw-bg-opacity));
+}
+
+.bg-slate-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.bg-stone-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 244 / var(--tw-bg-opacity));
+}
+
+.bg-stone-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 229 228 / var(--tw-bg-opacity));
+}
+
+.bg-stone-200\/80 {
+  background-color: rgb(231 229 228 / 0.8);
+}
+
+.bg-stone-200\/50 {
+  background-color: rgb(231 229 228 / 0.5);
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -6331,6 +6402,10 @@ button.chat-toggle.chat-toggle--text-button {
   padding: 0.75rem;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -6591,18 +6666,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .font-normal {
   font-weight: 400;
-}
-
-.font-\[500\] {
-  font-weight: 500;
-}
-
-.font-\[600\] {
-  font-weight: 600;
-}
-
-.font-\[550\] {
-  font-weight: 550;
 }
 
 .uppercase {
@@ -7090,6 +7153,10 @@ button.chat-toggle.chat-toggle--text-button {
   display: none;
 }
 
+.hover\:w-\[1000px\]:hover {
+  width: 1000px;
+}
+
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -7174,6 +7241,10 @@ button.chat-toggle.chat-toggle--text-button {
 .hover\:bg-orange-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+}
+
+.hover\:p-2:hover {
+  padding: 0.5rem;
 }
 
 .hover\:text-4xl:hover {
@@ -8511,12 +8582,12 @@ button.chat-toggle.chat-toggle--text-button {
     line-height: 1;
   }
 
+  .lg\:text-\[1\.25rem\] {
+    font-size: 1.25rem;
+  }
+
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
-  }
-
-  .lg\:text-\[1\.25rem\] {
-    font-size: 1.25rem;
   }
 }

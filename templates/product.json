@@ -67,7 +67,7 @@
           }
         },
         "82ab975f-5329-4ea8-b2d5-b0b530d07551": {
-          "type": "shopify:\/\/apps\/loyalty-program-reviews-3\/blocks\/block.product.reviewAvgProfile\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "type": "shopify:\/\/apps\/growave-loyalty-wishlist\/blocks\/block.product.reviewAvgProfile\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
           "settings": {
             "margin": "",
             "textColor": "",
@@ -158,7 +158,7 @@
       "type": "apps",
       "blocks": {
         "c352786a-02b3-40b2-b691-02b6317066c0": {
-          "type": "shopify:\/\/apps\/loyalty-program-reviews-3\/blocks\/block.product.reviewWidget\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "type": "shopify:\/\/apps\/growave-loyalty-wishlist\/blocks\/block.product.reviewWidget\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
           "settings": {
             "containerMaxWidth": "",
             "containerMarginTop": "",
@@ -211,7 +211,7 @@
       "type": "apps",
       "blocks": {
         "75854f77-2250-44e5-b8f0-c732560df516": {
-          "type": "shopify:\/\/apps\/loyalty-program-reviews-3\/blocks\/block.index.ReviewsSlider\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "type": "shopify:\/\/apps\/growave-loyalty-wishlist\/blocks\/block.index.ReviewsSlider\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
           "disabled": true,
           "settings": {
           }
