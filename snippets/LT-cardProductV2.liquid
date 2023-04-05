@@ -106,7 +106,7 @@
   font-size: 1.75rem;
   font-weight: 500;
   }
-  
+
   .price-item sup{
     font-size: 0.8rem;
   }
@@ -118,19 +118,28 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 <div class="lt_cardgrid w-full group relative h-[420px] max-w-[380px] sm:max-w-[350px] lg:max-w-[310px]">
-  <div class="GridArea bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 via-stone-200 from-stone-400/80 text-slate-700 relative shadow-lg group-hover:shadow-stone-500/80 group-hover:duration-300 group-hover:transition-all">
-    <div class="absolute flex items-center p-1 text-lg text-gray-500 top-1 left-1">
+  <div class="GridArea bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 via-stone-200 from-stone-400/80 text-slate-700 relative shadow-lg group-hover:shadow-stone-500/80 group-hover:duration-300 group-hover:transition-all
+    {% if card_product.tags contains 'BOGO30' %} outline outline-pink-300/50 outline-1 {% endif %}">
+
+    {% if card_product.tags contains 'BOGO30' %}
+      <div class="absolute -top-6 -left-6 z-10">
+        <span class="visible group-hover:hidden py-1 px-2 rounded-xl bg-pink-500 text-base -rotate-45 text-white">DEAL</span>
+        <span class="py-1 px-2 rounded-xl bg-pink-500 text-base -rotate-45 text-white invisible group-hover:visible">BOGO 30% Off</span>
+
+      </div>
+    {% endif %}
+
+    <div class="absolute flex items-center p-1 text-lg text-gray-500 top-1 left-1 z-10">
       {% if all_products[card_product.metafields.my_fields.addon].available == true %}
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"/>
-          <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"/>
-        </svg>
-        <span>Gift</span>
+        <div class="flex text-pink-700 bg-pink-200/80 px-2 rounded -translate-y-8">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"/>
+            <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"/>
+          </svg>
+          <span>Gift</span>
+        </div>
       {% endif %}
 
-      {%- comment -%}
-        check if product media contains 360 view video
-      {%- endcomment -%}
       {% assign productVideo = false %}
       {% for media in card_product.media %}
         {% if media.media_type == 'video' %}
@@ -148,51 +157,52 @@
         </div>
       {% endif %}
     </div>
-    
+
     <div class="absolute text-lg text-indigo-600 TextBar top-3 group-hover:text-indigo-400 {%if card_product.type == 'Kpop CD'%} right-2 sm:-right-8{% else %} right-2{% endif %}">
-    {% case card_product.type %}
-      {% when 'Other Model Kit' %}
-        {% if card_product.metafields.my_fields.product_lines %}  
-        {{ card_product.metafields.my_fields.product_lines }}
-        {% else %}
-        {{ card_product.metafields.my_fields.item_type }}
-      {% endif %}
-      {% when 'K-Cosmetic' %}
+      {% case card_product.type %}
+        {% when 'Other Model Kit' %}
+          {% if card_product.metafields.my_fields.product_lines %}
+            {{ card_product.metafields.my_fields.product_lines }}
+          {% else %}
+            {{ card_product.metafields.my_fields.item_type }}
+          {% endif %}
+        {% when 'K-Cosmetic' %}
           {{ card_product.metafields.my_fields.item_type }}
-      {% when 'Kpop CD' %}
+        {% when 'Kpop CD' %}
           {% assign splitTitle = card_product.title | split: ' - ' %}
           {% assign rearSplit = splitTitle[1] | split: " '" %}
           {% assign albumNumber = rearSplit[0] %}
-        
-        {% if splitTitle[1] %}
-          {{ albumNumber }}
-        {% else %}
-          {{ card_product.metafields.my_fields.item_type }}
-        {% endif %}
-      {% when 'Kpop' %}
-          {{ card_product.metafields.my_fields.item_type }}
-      {% when 'Toy' %}
-          {{ card_product.metafields.my_fields.series }}
-      {% when 'Gundam Model Kit' %}
-        {% if card_product.metafields.my_fields.product_lines %}
-          {{ card_product.metafields.my_fields.product_lines }}
+
+          {% if splitTitle[1] %}
+            {{ albumNumber }}
           {% else %}
-        <div class="flex items-baseline">
-          <div class="text-lg text-slate-600">
-            {{ card_product.metafields.my_fields.grade }}
-            &nbsp
-          </div>
-          <div class="text-base">
-            {{ card_product.metafields.my_fields.gundam_series }}
-          </div>
-        </div>
-      {% endif %}
-      {% when 'Figure' %}
+            {{ card_product.metafields.my_fields.item_type }}
+          {% endif %}
+        {% when 'Kpop' %}
+          {{ card_product.metafields.my_fields.item_type }}
+        {% when 'Toy' %}
+          {{ card_product.metafields.my_fields.series }}
+        {% when 'Gundam Model Kit' %}
+          {% if card_product.metafields.my_fields.product_lines %}
+            {{ card_product.metafields.my_fields.product_lines }}
+          {% else %}
+            <div class="flex items-baseline">
+              <div class="text-lg text-slate-600">
+                {{ card_product.metafields.my_fields.grade }}
+                &nbsp
+              </div>
+              <div class="text-base">
+                {{ card_product.metafields.my_fields.gundam_series }}
+              </div>
+            </div>
+          {% endif %}
+        {% when 'Figure' %}
           {{ card_product.metafields.my_fields.product_lines | truncate: 50 }}
-      {% else %}
-          {{card_product.metafields.my_fields.brand}}  {{ card_product.metafields.my_fields.item_type | truncate: 50 }}
-    {% endcase %}
-  </div>
+        {% else %}
+          {{ card_product.metafields.my_fields.brand }}
+          {{ card_product.metafields.my_fields.item_type | truncate: 50 }}
+      {% endcase %}
+    </div>
   </div>
 
   {% assign ImageRatio = card_product.featured_media.aspect_ratio %}
@@ -201,73 +211,78 @@
   {% assign difference = date_now | minus: date_created %}
 
   {% unless card_product.type == 'Kpop CD' %}
-  {% if ImageRatio > 1.2 %}
-    <div class="relative LandscapeImg">
-      <a href="{{ card_product.url }}">
-        <img
-          src="{{ card_product.featured_media | image_url: width: 350 }}"
-          alt=""
-          width="{{ card_product.featured_media.width }}"
-          height="{{ card_product.fetured_media.height }}"
-          loading="lazy"
-          class="w-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 -translate-x-4 {% else %} drop-shadow {% endunless %}"
-          style="background-color:unset;"
-        >
-      </a>
-    </div>
-  {% elsif ImageRatio < 0.85 %}
-    <div class="relative PortraitImg">
-      <a href="{{ card_product.url }}">
-        <img
-          src="{{ card_product.featured_media | image_url: height: 300 }}"
-          alt=""
-          width="{{ card_product.featured_media.width }}"
-          height="{{ card_product.fetured_media.height }}"
-          loading="lazy"
-          class="w-full h-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {% else %}drop-shadow translate-y-6 group-hover:-translate-y-1 group-hover:duration-500 duration-300{% endunless %}"
-          style="background-color:unset;"
-        >
-      </a>
-    </div>
-  {% else %}
-    <div class="relative
-      {% if card_product.featured_media.src contains ".png" %}SquareImgPng {% else %}SquareImg {% endif %}">
-      <a href="{{ card_product.url }}">
-        {% unless card_product.featured_media.src contains ".png" %}
-        <img
-          src="{{ card_product.featured_media | image_url: width: 350 }}"
-          alt=""
-          width="{{ card_product.featured_media.width }}"
-          height="{{ card_product.fetured_media.height }}"
-          loading="lazy"
-          class="w-full drop-shadow"
-          style="background-color:unset;"
-        >
-          {% else %}
+    {% if ImageRatio > 1.2 %}
+      <div class="relative LandscapeImg">
+        <a href="{{ card_product.url }}">
           <img
             src="{{ card_product.featured_media | image_url: width: 350 }}"
             alt=""
             width="{{ card_product.featured_media.width }}"
             height="{{ card_product.fetured_media.height }}"
             loading="lazy"
-            class="w-full duration-300 translate-y-8 group-hover:scale-105 group-hover:duration-500"
+            class="w-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 -translate-x-4 {% else %} drop-shadow {% endunless %}"
             style="background-color:unset;"
           >
-          {% endunless %}
-      </a> 
-    </div>
-  {% endif %}
-  {% else %}
-  <div class="AlbumCoverart relative w-full h-[90%] sm:h-full bg-contain sm:bg-cover rounded bg-no-repeat bg-top overflow-hidden" style="background-image: url('{{ card_product.featured_media | image_url: width: 500 }}')">
-    <a href="{{ card_product.url }}">
-      
-      <div class="w-full h-full flex">
+        </a>
       </div>
-    </a>
+    {% elsif ImageRatio < 0.85 %}
+      <div class="relative PortraitImg">
+        <a href="{{ card_product.url }}">
+          <img
+            src="{{ card_product.featured_media | image_url: height: 300 }}"
+            alt=""
+            width="{{ card_product.featured_media.width }}"
+            height="{{ card_product.fetured_media.height }}"
+            loading="lazy"
+            class="w-full h-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {% else %}drop-shadow translate-y-6 group-hover:-translate-y-1 group-hover:duration-500 duration-300{% endunless %}"
+            style="background-color:unset;"
+          >
+        </a>
+      </div>
+    {% else %}
+      <div
+        class="
+          relative
+          {% if card_product.featured_media.src contains ".png" %}SquareImgPng {% else %}SquareImg {% endif %}
+        "
+      >
+        <a href="{{ card_product.url }}">
+          {% unless card_product.featured_media.src contains '.png' %}
+            <img
+              src="{{ card_product.featured_media | image_url: width: 350 }}"
+              alt=""
+              width="{{ card_product.featured_media.width }}"
+              height="{{ card_product.fetured_media.height }}"
+              loading="lazy"
+              class="w-full drop-shadow"
+              style="background-color:unset;"
+            >
+          {% else %}
+            <img
+              src="{{ card_product.featured_media | image_url: width: 350 }}"
+              alt=""
+              width="{{ card_product.featured_media.width }}"
+              height="{{ card_product.fetured_media.height }}"
+              loading="lazy"
+              class="w-full duration-300 translate-y-8 group-hover:scale-105 group-hover:duration-500"
+              style="background-color:unset;"
+            >
+          {% endunless %}
+        </a>
+      </div>
+    {% endif %}
+  {% else %}
+    <div
+      class="AlbumCoverart relative w-full h-[90%] sm:h-full bg-contain sm:bg-cover rounded bg-no-repeat bg-top overflow-hidden"
+      style="background-image: url('{{ card_product.featured_media | image_url: width: 500 }}')"
+    >
+      <a href="{{ card_product.url }}" class="w-full h-full absolute">
+        <div class="w-full h-full flex"></div>
+      </a>
     </div>
   {% endunless %}
 
-{% comment %} *content box section {% endcomment %}
+  {% comment %} *content box section {% endcomment %}
 
   <div class="relative flex flex-col justify-between shadow-xl ContentBox bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] to-stone-100 from-zinc-300 py-2">
     {% if difference < 3888000 %}
@@ -279,31 +294,31 @@
 
     <div class="flex items-end justify-evenly pb-2 text-slate-600 basis-[40%]">
       <div>{% render 'price', product: card_product %}</div>
-        <div>
-          <form action="{{ routes.cart_url }}" method="post">
-            {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
-              {% if all_products[card_product.metafields.my_fields.addon].available == true %}
-                <a
-                  data-ajax-cart-request-button
-                  href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1&&items[1]id={{ all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id }}&quantity=1"
-                  class="lt-cardbutton"
-                  >add w/ gift</a
-                >
-              {% else %}
-                <a
-                  data-ajax-cart-request-button
-                  href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1"
-                  class="lt-cardbutton"
-                  >Quick Add</a
-                >
-              {% endif %}
-            {% elsif card_product.variants.size > 1 %}
-              <a href="{{ card_product.url }}" class="lt-cardbutton">View Options</a>
-            {% elsif card_product.selected_or_first_available_variant.available == false %}
-              sold out
+      <div>
+        <form action="{{ routes.cart_url }}" method="post">
+          {%- if card_product.variants.size == 1 and card_product.selected_or_first_available_variant.available -%}
+            {% if all_products[card_product.metafields.my_fields.addon].available == true %}
+              <a
+                data-ajax-cart-request-button
+                href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1&&items[1]id={{ all_products[card_product.metafields.my_fields.addon].selected_or_first_available_variant.id }}&quantity=1"
+                class="lt-cardbutton"
+                >add w/ gift</a
+              >
+            {% else %}
+              <a
+                data-ajax-cart-request-button
+                href="{{ routes.cart_add_url }}?id={{ card_product.selected_or_first_available_variant.id }}&quantity=1"
+                class="lt-cardbutton"
+                >Quick Add</a
+              >
             {% endif %}
-          </form>
-        </div>
+          {% elsif card_product.variants.size > 1 %}
+            <a href="{{ card_product.url }}" class="lt-cardbutton">View Options</a>
+          {% elsif card_product.selected_or_first_available_variant.available == false %}
+            sold out
+          {% endif %}
+        </form>
+      </div>
     </div>
   </div>
 </div>

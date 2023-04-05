@@ -4478,6 +4478,18 @@ button.chat-toggle.chat-toggle--text-button {
   left: -2.75rem;
 }
 
+.-left-4 {
+  left: -1rem;
+}
+
+.-left-6 {
+  left: -1.5rem;
+}
+
+.-top-6 {
+  top: -1.5rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -4911,6 +4923,10 @@ button.chat-toggle.chat-toggle--text-button {
   height: 1.75rem;
 }
 
+.h-\[420px\] {
+  height: 420px;
+}
+
 .h-\[60\%\] {
   height: 60%;
 }
@@ -4971,30 +4987,6 @@ button.chat-toggle.chat-toggle--text-button {
   height: 2.25rem;
 }
 
-.h-\[250px\] {
-  height: 250px;
-}
-
-.h-\[100\%\] {
-  height: 100%;
-}
-
-.h-\[95\%\] {
-  height: 95%;
-}
-
-.h-\[410px\] {
-  height: 410px;
-}
-
-.h-\[420px\] {
-  height: 420px;
-}
-
-.h-\[430px\] {
-  height: 430px;
-}
-
 .max-h-\[35vh\] {
   max-height: 35vh;
 }
@@ -5017,30 +5009,6 @@ button.chat-toggle.chat-toggle--text-button {
 
 .max-h-\[4vh\] {
   max-height: 4vh;
-}
-
-.max-h-full {
-  max-height: 100%;
-}
-
-.max-h-\[400px\] {
-  max-height: 400px;
-}
-
-.max-h-\[350px\] {
-  max-height: 350px;
-}
-
-.max-h-\[300px\] {
-  max-height: 300px;
-}
-
-.max-h-\[250px\] {
-  max-height: 250px;
-}
-
-.max-h-\[90\%\] {
-  max-height: 90%;
 }
 
 .min-h-\[60\%\] {
@@ -5263,14 +5231,6 @@ button.chat-toggle.chat-toggle--text-button {
   width: 2.25rem;
 }
 
-.w-\[100\%\] {
-  width: 100%;
-}
-
-.w-\[300px\] {
-  width: 300px;
-}
-
 .max-w-\[235px\] {
   max-width: 235px;
 }
@@ -5347,10 +5307,6 @@ button.chat-toggle.chat-toggle--text-button {
   max-width: 280px;
 }
 
-.max-w-full {
-  max-width: 100%;
-}
-
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -5418,6 +5374,26 @@ button.chat-toggle.chat-toggle--text-button {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.translate-y-4 {
+  --tw-translate-y: 1rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-4 {
+  --tw-translate-y: -1rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-6 {
+  --tw-translate-y: -1.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-8 {
+  --tw-translate-y: -2rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-6 {
   --tw-rotate: 6deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -5435,6 +5411,11 @@ button.chat-toggle.chat-toggle--text-button {
 
 .-rotate-45 {
   --tw-rotate: -45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-rotate-6 {
+  --tw-rotate: -6deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -6089,9 +6070,52 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
 }
 
-.bg-blue-500 {
+.bg-cyan-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
+}
+
+.bg-pink-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 39 119 / var(--tw-bg-opacity));
+}
+
+.bg-pink-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 207 232 / var(--tw-bg-opacity));
+}
+
+.bg-pink-200\/50 {
+  background-color: rgb(251 207 232 / 0.5);
+}
+
+.bg-pink-200\/30 {
+  background-color: rgb(251 207 232 / 0.3);
+}
+
+.bg-cyan-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(165 243 252 / var(--tw-bg-opacity));
+}
+
+.bg-white\/30 {
+  background-color: rgb(255 255 255 / 0.3);
+}
+
+.bg-white\/75 {
+  background-color: rgb(255 255 255 / 0.75);
+}
+
+.bg-black\/75 {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.bg-black\/25 {
+  background-color: rgb(0 0 0 / 0.25);
+}
+
+.bg-pink-200\/80 {
+  background-color: rgb(251 207 232 / 0.8);
 }
 
 .bg-opacity-20 {
@@ -6662,6 +6686,14 @@ button.chat-toggle.chat-toggle--text-button {
   font-size: 1.4rem;
 }
 
+.text-\[1\.2rem\] {
+  font-size: 1.2rem;
+}
+
+.text-\[1\.25rem\] {
+  font-size: 1.25rem;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -6908,6 +6940,21 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(113 113 122 / var(--tw-text-opacity));
 }
 
+.text-cyan-600 {
+  --tw-text-opacity: 1;
+  color: rgb(8 145 178 / var(--tw-text-opacity));
+}
+
+.text-cyan-100 {
+  --tw-text-opacity: 1;
+  color: rgb(207 250 254 / var(--tw-text-opacity));
+}
+
+.text-pink-100 {
+  --tw-text-opacity: 1;
+  color: rgb(252 231 243 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -7070,6 +7117,18 @@ button.chat-toggle.chat-toggle--text-button {
 
 .outline-purple-400 {
   outline-color: #c084fc;
+}
+
+.outline-pink-100 {
+  outline-color: #fce7f3;
+}
+
+.outline-pink-200 {
+  outline-color: #fbcfe8;
+}
+
+.outline-pink-300\/50 {
+  outline-color: rgb(249 168 212 / 0.5);
 }
 
 .blur-lg {
@@ -7281,6 +7340,16 @@ button.chat-toggle.chat-toggle--text-button {
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-pink-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 207 232 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+
 .hover\:text-4xl:hover {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -7306,6 +7375,16 @@ button.chat-toggle.chat-toggle--text-button {
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
+.hover\:text-pink-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(190 24 93 / var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .hover\:outline-4:hover {
   outline-width: 4px;
 }
@@ -7321,6 +7400,10 @@ button.chat-toggle.chat-toggle--text-button {
 
 .group:hover .group-hover\:visible {
   visibility: visible;
+}
+
+.group:hover .group-hover\:invisible {
+  visibility: hidden;
 }
 
 .group:hover .group-hover\:hidden {
@@ -8628,16 +8711,12 @@ button.chat-toggle.chat-toggle--text-button {
     line-height: 1;
   }
 
-  .lg\:text-\[1\.25rem\] {
-    font-size: 1.25rem;
+  .lg\:text-\[1\.3rem\] {
+    font-size: 1.3rem;
   }
 
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
-  }
-
-  .lg\:text-\[1\.3rem\] {
-    font-size: 1.3rem;
   }
 }
