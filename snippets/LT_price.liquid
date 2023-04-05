@@ -10,6 +10,22 @@
     Usage:
     {% render 'price', product: product %}
 {% endcomment %}
+
+{% style %}
+  .price-item {
+  font-size: 2.75rem;
+  font-weight: 600;
+  }
+
+  .price-item sup{
+    font-size: 1.2rem;
+  }
+  .from-text {
+    font-size: 11px;
+    margin: 0;
+  }
+{% endstyle %}
+
 {%- liquid
   if use_variant
     assign target = product.selected_or_first_available_variant
@@ -20,7 +36,7 @@
   assign compare_at_price = target.compare_at_price
   assign price = target.price | default: 1999
   assign available = target.available | default: false
-  assign money_price = price | money
+  assign money_price = price | money | replace: '$', '<sup>$</sup>' | replace: '.', '<sup>' | append: '</sup>'
   if settings.currency_code_enabled
     assign money_price1 = price | money_with_currency
   endif
@@ -30,7 +46,7 @@
   endif
 -%}
 
-<div class="flex justify-center md:justify-start py-6 price
+<div class="flex justify-center md:justify-start py-4 price
   {%- if price_class %} {{ price_class }}{% endif -%}
   {%- if available == false %} price--sold-out {% endif -%}
   {%- if compare_at_price > price %} price--on-sale {% endif -%}
