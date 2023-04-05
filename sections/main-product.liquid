@@ -186,8 +186,8 @@
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
+        
         <div class="flex gap-4 justify-center md:justify-start">
-
           {% assign product_meta = product.metafields.my_fields %}
           {% capture lineup %}
             {{ product_meta.product_lines | handle }}
@@ -228,20 +228,28 @@
               {% endif %}
           {% endcase %}
 
+          {% if product.tags contains 'BOGO30'%}
+            <a href="/collections/model-kit-bogo-30" class="px-2 text-lg text-pink-700 rounded-lg bg-pink-200 no-underline py-1 hover:bg-pink-500 hover:text-white">BOGO30%</a>
+          {% endif %}
           {% if collections[item_type].products.size != 0 %}
             <a href="/collections/{{ item_type }}" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{ product.metafields.my_fields.item_type }}
             </a>
           {%elsif product.metafields.my_fields.item_type %}
             <a href="/search?q={{ product.metafields.my_fields.product_lines }}&type=product&options%5Bprefix%5D=none" class="flex items-center px-2 py-1 text-lg text-green-500 bg-green-100 rounded-lg outline outline-1 full-unstyled-link outline-green-500">{{ product.metafields.my_fields.item_type }}
             </a>
+          
           {% endif %}
         </div>
+        
 
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when '@app' -%}
               {% render block %}
             {%- when 'text' -%}
+              {% if product.tags contains 'BOGO30' %}
+                <div class="text-[1.25rem] px-4 py-4 bg-pink-200/30 rounded">Don't miss this amazing offer! Buy one item and get another one for 30% off. You can mix and match from a wide range of selected model kits. Discount applies automatically when you add to cart. <a href="/collections/model-kit-bogo-30">Click to see qualifying items.</a></div>
+              {% endif %}
               <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}" {{ block.shopify_attributes }}>
                 {{- block.settings.text -}}
               </p>

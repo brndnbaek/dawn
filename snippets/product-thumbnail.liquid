@@ -88,7 +88,7 @@
       endcase
     -%}
   </span>
-  <div class="product__media media media--transparent gradient global-media-settings {% if product.type == 'Kpop CD' %}{% else %} lg:h-[50vh]{% endif %}" style="{% if product.type == 'Kpop CD' %}padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;{% endif %}">
+  <div class="product__media media bg-transparent BUmedia--transparent gradient global-media-settings {% if product.type == 'Kpop CD' %}{% else %} lg:h-[50vh]{% endif %}" style="{% if product.type == 'Kpop CD' %}padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;{% endif %}">
     <img
       srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
         {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
