@@ -995,7 +995,7 @@ summary::-webkit-details-marker {
   flex-shrink: 0;
 }
 .grid__item2 {
-  width: calc(100% - var(--grid-mobile-horizontal-spacing) 2);
+  width: calc(100% - var(--grid-mobile-horizontal-spacing) / 2);
   max-width: calc(100% - var(--grid-mobile-horizontal-spacing) / 2);
   flex-grow: 1;
   flex-shrink: 0;

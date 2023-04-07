@@ -18,14 +18,6 @@
     align-self: end;
     object-fit:contain;
   }
-  .SquareImgPng {
-    grid-column: 2 / 19;
-    grid-row: 1 / 12;
-    justify-self: center;
-    align-self: start;
-    object-fit:contain;
-  }
-
   .PortraitImg {
     grid-column: 4 / 17;
     grid-row: 1 / 12;
@@ -114,6 +106,11 @@
     font-size: 11px;
     margin: 0;
   }
+  .landscape-image {
+    width: 98%;
+    height: auto;
+    object-fit: contain;
+  }
 {% endstyle %}
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
@@ -158,7 +155,7 @@
       {% endif %}
     </div>
 
-    <div class="absolute text-lg text-indigo-600 TextBar top-3 group-hover:text-indigo-400 {%if card_product.type == 'Kpop CD'%} right-2 sm:-right-8{% else %} right-2{% endif %}">
+    <div class="absolute text-lg text-indigo-600 TextBar top-3 group-hover:text-indigo-400 {%if card_product.type == 'Kpop CD' %} right-2 sm:-right-8{% else %} right-1{% endif %}">
       {% case card_product.type %}
         {% when 'Other Model Kit' %}
           {% if card_product.metafields.my_fields.product_lines %}
@@ -213,62 +210,27 @@
   {% unless card_product.type == 'Kpop CD' %}
     {% if ImageRatio > 1.2 %}
       <div class="relative LandscapeImg">
-        <a href="{{ card_product.url }}">
-          <img
-            src="{{ card_product.featured_media | image_url: width: 350 }}"
-            alt=""
-            width="{{ card_product.featured_media.width }}"
-            height="{{ card_product.fetured_media.height }}"
-            loading="lazy"
-            class="w-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 -translate-x-4 {% else %} drop-shadow {% endunless %}"
-            style="background-color:unset;"
-          >
-        </a>
-      </div>
+        <div class="flex w-full">
+          <a href="{{ card_product.url }}" class="">
+            {{ card_product.featured_media | image_url: width: 1000 | image_tag: widths: '100, 200, 400, 800', class: 'w-[98%] h-auto object-contain drop-shadow', loading: 'lazy' }}
+          </a>
+          </div>
+        </div>
     {% elsif ImageRatio < 0.85 %}
       <div class="relative PortraitImg">
-        <a href="{{ card_product.url }}">
-          <img
-            src="{{ card_product.featured_media | image_url: height: 300 }}"
-            alt=""
-            width="{{ card_product.featured_media.width }}"
-            height="{{ card_product.fetured_media.height }}"
-            loading="lazy"
-            class="w-full h-full {% unless card_product.featured_media.src contains ".png" %}rounded shadow-2xl shadow-gray-400 {% else %}drop-shadow translate-y-6 group-hover:-translate-y-1 group-hover:duration-500 duration-300{% endunless %}"
-            style="background-color:unset;"
-          >
-        </a>
+          <div class="flex w-full">
+            <a href="{{ card_product.url }}">
+              {{ card_product.featured_media | image_url: width: 1000 | image_tag: widths: '100, 200, 400, 800', class: 'w-full h-auto object-contain drop-shadow group-hover:-translate-y-[1rem] group-hover:duration-300 duration-300', loading: 'lazy' }}
+            </a>
+          </div>
       </div>
     {% else %}
-      <div
-        class="
-          relative
-          {% if card_product.featured_media.src contains ".png" %}SquareImgPng {% else %}SquareImg {% endif %}
-        "
-      >
-        <a href="{{ card_product.url }}">
-          {% unless card_product.featured_media.src contains '.png' %}
-            <img
-              src="{{ card_product.featured_media | image_url: width: 350 }}"
-              alt=""
-              width="{{ card_product.featured_media.width }}"
-              height="{{ card_product.fetured_media.height }}"
-              loading="lazy"
-              class="w-full drop-shadow"
-              style="background-color:unset;"
-            >
-          {% else %}
-            <img
-              src="{{ card_product.featured_media | image_url: width: 350 }}"
-              alt=""
-              width="{{ card_product.featured_media.width }}"
-              height="{{ card_product.fetured_media.height }}"
-              loading="lazy"
-              class="w-full duration-300 translate-y-8 group-hover:scale-105 group-hover:duration-500"
-              style="background-color:unset;"
-            >
-          {% endunless %}
-        </a>
+      <div class="relative SquareImg">
+        <div class="flex w-full h-full">
+          <a href="{{ card_product.url }}">
+            {{ card_product.featured_media | image_url: width: 1000 | image_tag: widths: '100, 200, 400, 800', class: 'w-full h-auto object-contain drop-shadow group-hover:scale-105 group-hover:duration-300 duration-300', loading: 'lazy' }}
+          </a>
+        </div>
       </div>
     {% endif %}
   {% else %}
