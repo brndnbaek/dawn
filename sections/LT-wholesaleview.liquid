@@ -65,21 +65,32 @@
               
           {%- endfor -%}
         </div>
-  
-          {%- if paginate.pages > 1 -%}
-            {% render 'pagination', paginate: paginate, anchor: '' %}
-          {%- endif -%}
+        
+        <div id="AjaxinatePagination">
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}">Loading More</a>
+            {% else %}
+            <p>All Loaded</p>
+          {% endif %}
         </div>
-      {%- endif -%}
+      </div>
+    {%- endif -%}
+      {% comment %} {%- if paginate.pages > 1 -%}
+        {% render 'pagination', paginate: paginate, anchor: '' %}
+      {%- endif -%} {% endcomment %}
     {%- endpaginate -%}
   </div>
 </div>
 
 <script>
   var screenWidth = window.innerWidth;
-  const endlessCollection = new Ajaxinate({
-  container: '#product-grid',
-  pagination: '.infinite_next',
+  document.addEventListener("DOMContentLoaded", function() {
+
+    var endlessCollection = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '#AjaxinatePagination',
+      {% comment %} pagination: '.infinite_next', {% endcomment %}
+    });
   });
 </script>
 
