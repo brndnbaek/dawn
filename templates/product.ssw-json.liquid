@@ -1,31 +1,31 @@
 {% layout none %}
-{% assign options_size =  product.options_with_values | size %}
-{% assign variants_size =  product.variants | size %}
-{% assign images_size =  product.images | size %}
+{%assign options_size =  product.options_with_values | size %}
+{%assign variants_size =  product.variants | size %}
+{%assign images_size =  product.images | size %}
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 
-{% assign options_i =  0 %}
-{% assign variants_i =  0 %}
-{% assign images_i =  0 %}
-{% assign divided_price =  current_variant.price | divided_by: 100 %}
-{% assign modulo_price =  current_variant.price | modulo: 100 %}
+{%assign options_i =  0 %}
+{%assign variants_i =  0 %}
+{%assign images_i =  0 %}
+{%assign divided_price =  current_variant.price | divided_by: 100 %}
+{%assign modulo_price =  current_variant.price | modulo: 100 %}
 {% if modulo_price > 9 %}
-  {% assign modulo_price = '.' | append: modulo_price %}
+  {%assign modulo_price = '.' | append: modulo_price %}
 {% elsif modulo_price > 0 %}
-  {% assign modulo_price = '.0' | append: modulo_price %}
+  {%assign modulo_price = '.0' | append: modulo_price %}
 {% else %}
-    {% assign modulo_price = '.00' %}
+    {%assign modulo_price = '.00' %}
 {% endif %}
-{% assign price =  divided_price | append: modulo_price %}
+{%assign price =  divided_price | append: modulo_price %}
 
-{% assign divided_compare_at_price =  current_variant.compare_at_price | divided_by: 100 %}
-{% assign modulo_compare_at_price =  current_variant.compare_at_price | modulo: 100 %}
+{%assign divided_compare_at_price =  current_variant.compare_at_price | divided_by: 100 %}
+{%assign modulo_compare_at_price =  current_variant.compare_at_price | modulo: 100 %}
 {% if modulo_compare_at_price > 0 %}
-  {% assign modulo_compare_at_price = '.' | append: modulo_compare_at_price %}
+  {%assign modulo_compare_at_price = '.' | append: modulo_compare_at_price %}
 {% else %}
-    {% assign modulo_compare_at_price = '.00' %}
+    {%assign modulo_compare_at_price = '.00' %}
 {% endif %}
-{% assign compare_at_price =  divided_compare_at_price | append: modulo_compare_at_price %}
+{%assign compare_at_price =  divided_compare_at_price | append: modulo_compare_at_price %}
 {
 "product": {
 "body_html": {{ product.description | json }},
@@ -36,7 +36,7 @@
 "featured_image": {{ product.featured_image | json }},
 "image": {
 {% if images_size %}
-  {% assign image = product.images | first %}
+  {%assign image = product.images | first %}
   "height": {{ image.height | json }},
   "id": {{ image.id | json }},
   "position": {{ image.position | json }},
@@ -46,7 +46,7 @@
 },
 "images": [
 {% for image in product.images %}
-  {% assign images_i = images_i | plus: 1 %}
+  {%assign images_i = images_i | plus: 1 %}
   {
   "height": {{ image.height | json }},
   "id": {{ image.id | json }},
@@ -58,7 +58,7 @@
 ],
 "options": [
 {% for option in product.options_with_values %}
-  {% assign options_i = options_i | plus: 1 %}
+  {%assign options_i = options_i | plus: 1 %}
   {{ option | json }}{% if options_i < options_size %},{% endif %}
 {% endfor %}
 ],
@@ -71,27 +71,27 @@
 "updated_at": "{{ product.updated_at }}",
 "variants": [
 {% for variant in product.variants %}
-  {% assign variants_i = variants_i | plus: 1 %}
+  {%assign variants_i = variants_i | plus: 1 %}
 
-  {% assign divided_price =  variant.price | divided_by: 100 %}
-  {% assign modulo_price =  variant.price | modulo: 100 %}
-  {% if modulo_price > 9 %}
-    {% assign modulo_price = '.' | append: modulo_price %}
+  {%assign divided_price =  variant.price | divided_by: 100 %}
+  {%assign modulo_price =  variant.price | modulo: 100 %}
+  {% if modulo_price >9 %}
+    {%assign modulo_price = '.' | append: modulo_price %}
   {% elsif modulo_price > 0 %}
-    {% assign modulo_price = '.0' | append: modulo_price %}
+    {%assign modulo_price = '.0' | append: modulo_price %}
   {% else %}
-    {% assign modulo_price = '.00' %}
+    {%assign modulo_price = '.00' %}
   {% endif %}
-  {% assign price =  divided_price | append: modulo_price %}
+  {%assign price =  divided_price | append: modulo_price %}
 
-  {% assign divided_compare_at_price =  variant.compare_at_price | divided_by: 100 %}
-  {% assign modulo_compare_at_price =  variant.compare_at_price | modulo: 100 %}
+  {%assign divided_compare_at_price =  variant.compare_at_price | divided_by: 100 %}
+  {%assign modulo_compare_at_price =  variant.compare_at_price | modulo: 100 %}
   {% if modulo_compare_at_price > 0 %}
-    {% assign modulo_compare_at_price = '.' | append: modulo_compare_at_price %}
+    {%assign modulo_compare_at_price = '.' | append: modulo_compare_at_price %}
   {% else %}
-    {% assign modulo_compare_at_price = '.00' %}
+    {%assign modulo_compare_at_price = '.00' %}
   {% endif %}
-  {% assign compare_at_price =  divided_compare_at_price | append: modulo_compare_at_price %}
+  {%assign compare_at_price =  divided_compare_at_price | append: modulo_compare_at_price %}
 
   {
   "available": {{ variant.available | json }},
